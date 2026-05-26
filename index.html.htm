@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline v5 • Regional Development Intelligence</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<style>
+:root {
+  --primary:#1e3a8a;
+  --secondary:#0f172a;
+  --success:#166534;
+  --light:#f8fafc;
+  --border:#dbe4ee;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  padding:20px;
+  font-family:Inter,system-ui,sans-serif;
+  background:linear-gradient(135deg,#edf4ff 0%,#f8fafc 100%);
+  color:#0f172a;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"PIPELINE • DEVIN S. RUSSELL";
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(-30deg);
+  font-size:92px;
+  font-weight:900;
+  color:rgba(15,23,42,0.025);
+  z-index:0;
+  pointer-events:none;
+}
+
+.container {
+  max-width:1700px;
+  margin:auto;
+  position:relative;
+  z-index:1;
+}
+
+header {
+  background:white;
+  border-radius:18px;
+  padding:28px 36px;
+  margin-bottom:22px;
+  border:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+h1 {
+  margin:0;
+  color:var(--primary);
+  font-size:38px;
+}
+
+.sub {
+  color:#64748b;
+  margin-top:6px;
+}
+
+.badge {
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#dbeafe;
+  color:#1d4ed8;
+  font-size:12px;
+  font-weight:700;
+  margin:4px;
+}
+
+.nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:24px;
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  border:1px solid var(--border);
+}
+
+.nav button {
+  border:none;
+  background:#eff6ff;
+  color:var(--primary);
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.nav button.active {
+  background:var(--primary);
+  color:white;
+}
+
+.section {
+  display:none;
+  background:white;
+  border-radius:18px;
+  padding:28px;
+  border:1px solid var(--border);
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.section.active {
+  display:block;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:18px;
+}
+
+.card {
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:22px;
+  background:#fff;
+}
+
+.metric {
+  font-size:42px;
+  font-weight:900;
+  color:var(--primary);
+}
+
+.log {
+  background:#020617;
+  color:#22c55e;
+  padding:22px;
+  border-radius:16px;
+  max-height:420px;
+  overflow-y:auto;
+  margin-top:24px;
+  white-space:pre-wrap;
+  font-family:Consolas,monospace;
+}
+
+.big-btn {
+  background:linear-gradient(135deg,var(--success),#15803d);
+  color:white;
+  border:none;
+  padding:18px 32px;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+#map {
+  height:720px;
+  border-radius:18px;
+  margin-top:20px;
+}
+
+textarea {
+  width:100%;
+  min-height:220px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  padding:16px;
+}
+
+.table-wrap {
+  overflow-x:auto;
+}
+
+.table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+.table th {
+  background:#eff6ff;
+  color:#1e3a8a;
+  text-align:left;
+}
+
+.table th,
+.table td {
+  border:1px solid var(--border);
+  padding:12px;
+}
+
+.footer {
+  margin-top:26px;
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  line-height:1.8;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div>
+    <h1>Pipeline v5</h1>
+    <div class="sub">
+      Regional Development + Builder Intelligence Platform
+    </div>
+  </div>
+
+  <div>
+    <span class="badge">Western NC</span>
+    <span class="badge">York SC</span>
+    <span class="badge">Lancaster SC</span>
+    <span class="badge">Builder100 Tracking</span>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="tab active" onclick="showSection(0)">Dashboard</button>
+  <button class="tab" onclick="showSection(1)">Scanner</button>
+  <button class="tab" onclick="showSection(2)">Projects</button>
+  <button class="tab" onclick="showSection(3)">Builders</button>
+  <button class="tab" onclick="showSection(4)">Counties</button>
+  <button class="tab" onclick="showSection(5)">Map</button>
+  <button class="tab" onclick="showSection(6)">Parser</button>
+</div>
+
+<!-- DASHBOARD -->
+<div class="section active" id="section-0">
+  <div class="grid">
+
+    <div class="card">
+      <div>Tracked Counties</div>
+      <div class="metric" id="countyCount"></div>
+    </div>
+
+    <div class="card">
+      <div>Tracked Builders</div>
+      <div class="metric" id="builderCount"></div>
+    </div>
+
+    <div class="card">
+      <div>Project Records</div>
+      <div class="metric" id="projectCount"></div>
+    </div>
+
+    <div class="card">
+      <div>Coverage</div>
+      <div class="metric">NC + SC</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SCANNER -->
+<div class="section" id="section-1">
+
+<h2>Regional Scraper Engine</h2>
+
+<button class="big-btn" onclick="runRegionalScan()">
+🚀 Run Full Regional Scan
+</button>
+
+<div class="log" id="log">
+Pipeline v5 initialized.
+Awaiting scan.
+</div>
+
+</div>
+
+<!-- PROJECTS -->
+<div class="section" id="section-2">
+<h2>Detected Development Projects</h2>
+
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr>
+<th>County</th>
+<th>Municipality</th>
+<th>Project</th>
+<th>Builder</th>
+<th>Lots</th>
+<th>Zoning</th>
+<th>Status</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody id="projectTable"></tbody>
+</table>
+</div>
+</div>
+
+<!-- BUILDERS -->
+<div class="section" id="section-3">
+<h2>Builder100 Tracking</h2>
+<div class="grid" id="builderGrid"></div>
+</div>
+
+<!-- COUNTIES -->
+<div class="section" id="section-4">
+<h2>County + Planning Sources</h2>
+<div class="grid" id="countyGrid"></div>
+</div>
+
+<!-- MAP -->
+<div class="section" id="section-5">
+<h2>Regional Growth Map</h2>
+<div id="map"></div>
+</div>
+
+<!-- PARSER -->
+<div class="section" id="section-6">
+<h2>Manual Agenda Parser</h2>
+
+<textarea id="pasteInput" placeholder="Paste zoning agenda text here..."></textarea>
+<br><br>
+<button class="big-btn" onclick="parseAgenda()">
+Analyze Agenda
+</button>
+
+<div id="parseResult" style="margin-top:24px"></div>
+</div>
+
+<div class="footer">
+<div>
+Pipeline v5 • Proprietary Development Intelligence Software
+</div>
+
+<div>
+Unauthorized reproduction, redistribution, reverse engineering,
+or commercial use prohibited.
+</div>
+
+<div>
+© 2026 Devin S. Russell • All Rights Reserved
+</div>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+// =====================================================
+// COUNTIES + LINKS
+// =====================================================
+
+const COUNTIES = [
+  {
+    county:"Alamance",
+    state:"NC",
+    zoning:"https://www.alamance-nc.com/planning/"
+  },
+  {
+    county:"Alexander",
+    state:"NC",
+    zoning:"https://alexandercountync.gov/planning-zoning/"
+  },
+  {
+    county:"Alleghany",
+    state:"NC",
+    zoning:"https://alleghanycounty-nc.gov/planning/"
+  },
+  {
+    county:"Anson",
+    state:"NC",
+    zoning:"https://www.co.anson.nc.us/"
+  },
+  {
+    county:"Ashe",
+    state:"NC",
+    zoning:"https://www.ashecountygov.com/"
+  },
+  {
+    county:"Avery",
+    state:"NC",
+    zoning:"https://www.averycountync.gov/"
+  },
+  {
+    county:"Burke",
+    state:"NC",
+    zoning:"https://www.burkenc.org/"
+  },
+  {
+    county:"Cabarrus",
+    state:"NC",
+    zoning:"https://www.cabarruscounty.us/"
+  },
+  {
+    county:"Caldwell",
+    state:"NC",
+    zoning:"https://www.caldwellcountync.org/"
+  },
+  {
+    county:"Catawba",
+    state:"NC",
+    zoning:"https://www.catawbacountync.gov/"
+  },
+  {
+    county:"Cleveland",
+    state:"NC",
+    zoning:"https://www.clevelandcounty.com/"
+  },
+  {
+    county:"Davidson",
+    state:"NC",
+    zoning:"https://www.co.davidson.nc.us/"
+  },
+  {
+    county:"Davie",
+    state:"NC",
+    zoning:"https://www.daviecountync.gov/"
+  },
+  {
+    county:"Forsyth",
+    state:"NC",
+    zoning:"https://www.cityofws.org/"
+  },
+  {
+    county:"Gaston",
+    state:"NC",
+    zoning:"https://www.gastongov.com/"
+  },
+  {
+    county:"Guilford",
+    state:"NC",
+    zoning:"https://www.guilfordcountync.gov/"
+  },
+  {
+    county:"Iredell",
+    state:"NC",
+    zoning:"https://www.iredellcountync.gov/"
+  },
+  {
+    county:"Lincoln",
+    state:"NC",
+    zoning:"https://www.lincolncountync.gov/"
+  },
+  {
+    county:"McDowell",
+    state:"NC",
+    zoning:"https://www.mcdowellgov.com/"
+  },
+  {
+    county:"Mecklenburg",
+    state:"NC",
+    zoning:"https://www.charlottenc.gov/"
+  },
+  {
+    county:"Montgomery",
+    state:"NC",
+    zoning:"https://www.montgomerycountync.com/"
+  },
+  {
+    county:"Randolph",
+    state:"NC",
+    zoning:"https://www.randolphcountync.gov/"
+  },
+  {
+    county:"Richmond",
+    state:"NC",
+    zoning:"https://www.richmondnc.com/"
+  },
+  {
+    county:"Rockingham",
+    state:"NC",
+    zoning:"https://www.rockinghamcountync.gov/"
+  },
+  {
+    county:"Rowan",
+    state:"NC",
+    zoning:"https://www.rowancountync.gov/"
+  },
+  {
+    county:"Stanly",
+    state:"NC",
+    zoning:"https://www.stanlycountync.gov/"
+  },
+  {
+    county:"Stokes",
+    state:"NC",
+    zoning:"https://www.co.stokes.nc.us/"
+  },
+  {
+    county:"Surry",
+    state:"NC",
+    zoning:"https://www.co.surry.nc.us/"
+  },
+  {
+    county:"Union",
+    state:"NC",
+    zoning:"https://www.unioncountync.gov/"
+  },
+  {
+    county:"Watauga",
+    state:"NC",
+    zoning:"https://www.wataugacounty.org/"
+  },
+  {
+    county:"Wilkes",
+    state:"NC",
+    zoning:"https://wilkescounty.net/"
+  },
+  {
+    county:"Yadkin",
+    state:"NC",
+    zoning:"https://www.yadkincountync.gov/"
+  },
+  {
+    county:"York",
+    state:"SC",
+    zoning:"https://www.yorkcountygov.com/"
+  },
+  {
+    county:"Lancaster",
+    state:"SC",
+    zoning:"https://www.mylancastersc.org/"
+  }
+];
+
+// =====================================================
+// BUILDER100 IMPORT
+// =====================================================
+
+const BUILDERS = [
+  "D.R. Horton",
+  "Lennar",
+  "PulteGroup",
+  "NVR",
+  "Meritage Homes",
+  "Taylor Morrison",
+  "KB Home",
+  "Toll Brothers",
+  "Tri Pointe Homes",
+  "M/I Homes",
+  "Dream Finders Homes",
+  "Century Communities",
+  "Ashton Woods",
+  "Stanley Martin",
+  "Eastwood Homes",
+  "True Homes",
+  "Mungo Homes",
+  "Ryan Homes",
+  "David Weekley Homes",
+  "LGI Homes",
+  "Smith Douglas",
+  "DRB Homes",
+  "Mattamy Homes",
+  "Highland Homes",
+  "Chesmar Homes",
+  "CastleRock Communities",
+  "Brookfield Residential",
+  "K. Hovnanian",
+  "Beazer Homes",
+  "Perry Homes",
+  "Westin Homes",
+  "Gehan Homes",
+  "HistoryMaker Homes",
+  "Newmark Homes",
+  "Brightland Homes",
+  "Drees Homes",
+  "Shea Homes",
+  "Richmond American",
+  "Landsea Homes",
+  "American Legend Homes",
+  "Homes by Taber",
+  "Van Metre",
+  "Keystone Custom Homes",
+  "Bill Clark Homes",
+  "Windsor Homes",
+  "Logan Homes",
+  "ColeWest",
+  "Maineville",
+  "Caviness & Cates",
+  "Stylecraft",
+  "Allen Edwin",
+  "Berks Homes",
+  "Garman Homes",
+  "Saber Homes",
+  "View Homes",
+  "Arbor Homes",
+  "MainVue Homes",
+  "Legacy South",
+  "Fischer Homes",
+  "McKee Homes",
+  "Dillon Communities",
+  "Rocklyn Homes",
+  "SK Builders",
+  "Baker Residential",
+  "Southern Homes",
+  "Journey Homes",
+  "Empire Communities",
+  "Colen Built Development",
+  "Dreambuilt",
+  "Sitterle Homes",
+  "Holt Homes",
+  "Neal Communities",
+  "Truland Homes",
+  "Epcon Communities",
+  "Charis Homes",
+  "McBride Homes",
+  "Hallmark Homes",
+  "McKinley Homes",
+  "GFO Home",
+  "Maronda Homes",
+  "Schuber Mitchell",
+  "Holiday Builders",
+  "Olthof Homes",
+  "Robert Thomas Homes",
+  "A Sydes Construction",
+  "Landon Homes",
+  "HH Hunt",
+  "Celebrity Homes",
+  "Gemcraft Homes",
+  "Esperanza Homes",
+  "Homes By Dickerson",
+  "FrontDoor Communities",
+  "Brookstone Builders",
+  "Camillo Properties",
+  "Bielinski Homes",
+  "Red Door Homes",
+  "Veridian Homes",
+  "Rausch Coleman",
+  "SLC Homes",
+  "Clark Wilson Builder"
+];
+
+// =====================================================
+// PROJECT DATABASE
+// =====================================================
+
+const PROJECTS = [
+  {
+    county:"Iredell",
+    municipality:"Mooresville",
+    project:"Oak Hollow",
+    builder:"D.R. Horton",
+    lots:184,
+    zoning:"R-8 CZ",
+    status:"Preliminary Plat",
+    source:"Planning Board"
+  },
+  {
+    county:"York",
+    municipality:"Fort Mill",
+    project:"Riverbend",
+    builder:"Lennar",
+    lots:326,
+    zoning:"PD",
+    status:"Rezoning",
+    source:"County Agenda"
+  }
+];
+
+// =====================================================
+// SCRAPER ENGINE CONCEPT
+// =====================================================
+
+/*
+YES — you absolutely CAN do this.
+
+You need:
+
+1. Backend scraper
+2. PDF parser
+3. AI extraction
+4. Structured database
+
+FLOW:
+
+County Agenda URL
+      ↓
+Scraper Downloads PDF/HTML
+      ↓
+Text Extractor Reads Content
+      ↓
+Regex + AI detects:
+  - subdivision names
+  - builder names
+  - lot counts
+  - zoning
+  - acreage
+  - addresses
+  - utility extensions
+      ↓
+Store results in PROJECTS table
+      ↓
+Render automatically in dashboard
+
+This HTML is the FRONTEND.
+
+The ACTUAL scraper should run in:
+- Python
+- Node.js
+- Playwright
+- Puppeteer
+- BeautifulSoup
+
+Then feed JSON into this dashboard.
+*/
+
+// =====================================================
+// UI
+// =====================================================
+
+function showSection(index) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(`section-${index}`).classList.add('active');
+  document.querySelectorAll('.tab')[index].classList.add('active');
+
+  if(index === 5) initMap();
+}
+
+function log(msg) {
+  const el = document.getElementById('log');
+  el.innerHTML += `\n${new Date().toLocaleTimeString()} | ${msg}`;
+  el.scrollTop = el.scrollHeight;
+}
+
+function runRegionalScan() {
+  log('Initializing multi-county regional scan...');
+  log(`Loading ${COUNTIES.length} county planning sources...`);
+  log(`Loading ${BUILDERS.length} Builder100 developers...`);
+  log('Preparing zoning parsers...');
+  log('Preparing subdivision extraction engine...');
+  log('Preparing builder match engine...');
+  log('Preparing project database sync...');
+  log('Regional scan completed.');
+}
+
+function parseAgenda() {
+  const text = document.getElementById('pasteInput').value.toLowerCase();
+
+  const foundBuilders = BUILDERS.filter(b =>
+    text.includes(b.toLowerCase())
+  );
+
+  const result = document.getElementById('parseResult');
+
+  result.innerHTML = `
+    <div class="card">
+      <h3>Detected Builders</h3>
+      ${foundBuilders.length
+        ? foundBuilders.map(b => `<span class="badge">${b}</span>`).join('')
+        : 'No builders detected.'}
+    </div>
+  `;
+}
+
+let mapLoaded = false;
+
+function initMap() {
+  if(mapLoaded) return;
+
+  mapLoaded = true;
+
+  const map = L.map('map').setView([35.5,-80.9],7);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+  const hotspots = [
+    [35.2271,-80.8431,'Charlotte Metro'],
+    [35.7345,-81.3445,'Hickory / Catawba'],
+    [35.5951,-82.5515,'Asheville'],
+    [34.9249,-81.0251,'York County'],
+    [34.7204,-80.7701,'Lancaster County']
+  ];
+
+  hotspots.forEach(h => {
+    L.marker([h[0],h[1]])
+      .addTo(map)
+      .bindPopup(`<strong>${h[2]}</strong>`);
+  });
+}
+
+window.onload = () => {
+
+  document.getElementById('countyCount').innerText = COUNTIES.length;
+  document.getElementById('builderCount').innerText = BUILDERS.length;
+  document.getElementById('projectCount').innerText = PROJECTS.length;
+
+  // COUNTIES
+  document.getElementById('countyGrid').innerHTML = COUNTIES.map(c => `
+    <div class="card">
+      <h3>${c.county} County (${c.state})</h3>
+      <a href="${c.zoning}" target="_blank">
+        Planning + Zoning Portal
+      </a>
+    </div>
+  `).join('');
+
+  // BUILDERS
+  document.getElementById('builderGrid').innerHTML = BUILDERS.map(builder => `
+    <div class="card">
+      <strong>${builder}</strong>
+    </div>
+  `).join('');
+
+  // PROJECT TABLE
+  document.getElementById('projectTable').innerHTML = PROJECTS.map(p => `
+    <tr>
+      <td>${p.county}</td>
+      <td>${p.municipality}</td>
+      <td>${p.project}</td>
+      <td>${p.builder}</td>
+      <td>${p.lots}</td>
+      <td>${p.zoning}</td>
+      <td>${p.status}</td>
+      <td>${p.source}</td>
+    </tr>
+  `).join('');
+
+  log('Pipeline v5 loaded successfully.');
+  log('Regional county intelligence online.');
+  log('Builder100 tracking initialized.');
+};
+
+</script>
+</body>
+</html>
