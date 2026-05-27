@@ -1,0 +1,24 @@
+[
+    {
+        "county": "Union",
+        "case_number": "CZ-2026-007",
+        "address": "South side of Beulah Church Road",
+        "acreage": "3.207",
+        "owner": "",
+        "applicant": "R. Dean Harrell",
+        "zoning_change": "B-2 with Conditions -> B-2 with Modified Conditions",
+        "description": "Modification to shopping center conditions to allow operating hours from 6:30 AM to 9:30 PM.",
+        "source_url": "https://unioncountync.legistar.com/View.ashx?M=PA&ID=1379629&GUID=ACEC038F-9A9B-4BF3-865B-1347DA8991A7"
+    },
+    {
+        "county": "Union",
+        "case_number": "CZ-2026-005",
+        "address": "South Rocky River Road",
+        "acreage": "5.75",
+        "owner": "",
+        "applicant": "Jeremy McAteer",
+        "zoning_change": "RA-40 -> Light Industrial (LI) with Conditions",
+        "description": "Office and equipment storage facility on a portion of a larger parcel.",
+        "source_url": "https://unioncountync.legistar.com/View.ashx?M=PA&ID=1379629&GUID=ACEC038F-9A9B-4BF3-865B-1347DA8991A7"
+    }
+]
