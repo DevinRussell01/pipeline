@@ -332,25 +332,146 @@ a:hover{
   }
 #
 }
+/* ===== HERO / LIVE STATUS ===== */
+
+.live-bar{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+
+  margin-bottom:26px;
+}
+
+.live-pill{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  background:rgba(34,197,94,.12);
+
+  border:1px solid rgba(34,197,94,.35);
+
+  color:#86efac;
+
+  font-size:13px;
+  font-weight:700;
+
+  letter-spacing:.5px;
+}
+
+.pulse{
+  width:10px;
+  height:10px;
+
+  border-radius:50%;
+
+  background:#22c55e;
+
+  box-shadow:
+    0 0 10px #22c55e,
+    0 0 22px #22c55e;
+
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  50%{
+    opacity:.55;
+    transform:scale(1.3);
+  }
+
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.status-item{
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  color:var(--muted);
+
+  font-size:13px;
+  font-weight:600;
+}
+
+.hero-content{
+  max-width:900px;
+}
+
+.hero-content h1{
+  font-size:64px;
+
+  line-height:1;
+
+  margin-bottom:18px;
+
+  letter-spacing:-2px;
+}
+
+.hero-content .sub{
+  font-size:18px;
+
+  line-height:1.7;
+
+  color:var(--muted);
+
+  max-width:760px;
+}
 </style>
 </head>
 <body>
 <div class="container">
 
 <header>
-  <div>
-    <h1>Pipeline v5</h1>
-    <div class="sub">
-      Regional Development + Builder Intelligence Platform
+
+  <div class="live-bar">
+
+    <div class="live-pill">
+      <span class="pulse"></span>
+      LIVE
     </div>
+
+    <div class="status-item">
+      4 Counties Online
+    </div>
+
+    <div class="status-item">
+      6 Active Projects
+    </div>
+
+    <div class="status-item">
+      Western NC + Upstate SC
+    </div>
+
   </div>
 
-  <div>
-    <span class="badge">Western NC</span>
-    <span class="badge">York SC</span>
-    <span class="badge">Lancaster SC</span>
-    <span class="badge">Builder100 Tracking</span>
+  <div class="hero-content">
+
+    <h1>Pipeline Intelligence</h1>
+
+    <div class="sub">
+      Regional zoning, rezoning, and development intelligence platform
+      tracking growth corridors across North Carolina and South Carolina.
+    </div>
+
   </div>
+
 </header>
 
 <div class="nav">
