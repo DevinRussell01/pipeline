@@ -1149,11 +1149,16 @@ window.onload = () => {
   `).join('');
 
   // BUILDERS
-  document.getElementById('builderGrid').innerHTML = BUILDERS.map(builder => `
-    <div class="card">
-      <strong>${builder}</strong>
-    </div>
-  `).join('');
+ document.getElementById('builderGrid').innerHTML = BUILDERS.map(builder => `
+  <a 
+    class="card"
+    href="https://www.google.com/search?q=${encodeURIComponent(builder + ' home builder')}"
+    target="_blank"
+    style="text-decoration:none;color:inherit;"
+  >
+    <strong>${builder}</strong>
+  </a>
+`).join('');
 
   // PROJECT TABLE
     loadProjectsFromJson();
