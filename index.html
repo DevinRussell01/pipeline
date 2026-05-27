@@ -1157,7 +1157,32 @@ function initMap() {
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
 }
-async function loadProjectsFromJson() 
+async function loadProjectsFromJson() {
+  try {
+    const response = await fetch("projects.json");
+    const projectData = await response.json();
+
+    PROJECTS = Array.isArray(projectData) ? projectData : [projectData];
+
+    document.getElementById("projectCount").innerText = PROJECTS.length;
+
+    document.getElementById("projectTable").innerHTML = PROJECTS.map(p => `
+      <tr>
+        <td>${p.county || ""}</td>
+        <td>${p.case_number || ""}</td>
+        <td>${p.address || ""}</td>
+        <td>${p.acreage || ""}</td>
+        <td>${p.owner || ""}</td>
+        <td>${p.applicant || ""}</td>
+        <td>${p.zoning_change || ""}</td>
+        <td><a href="${p.source_url || "#"}" target="_blank">Source</a></td>
+      </tr>
+    `).join("");
+
+  } catch (error) {
+    console.error("Could not load projects.json", error);
+  }
+}
 async function loadLandIntelligence() {
 
   try {
@@ -1183,31 +1208,6 @@ async function loadLandIntelligence() {
 
     console.error("Failed to load land intelligence", error);
 
-  }
-}{
-  try {
-    const response = await fetch("projects.json");
-    const projectData = await response.json();
-
-    PROJECTS = Array.isArray(projectData) ? projectData : [projectData];
-
-    document.getElementById("projectCount").innerText = PROJECTS.length;
-
-    document.getElementById("projectTable").innerHTML = PROJECTS.map(p => `
-      <tr>
-        <td>${p.county || ""}</td>
-        <td>${p.case_number || ""}</td>
-        <td>${p.address || ""}</td>
-        <td>${p.acreage || ""}</td>
-        <td>${p.owner || ""}</td>
-        <td>${p.applicant || ""}</td>
-        <td>${p.zoning_change || ""}</td>
-        <td><a href="${p.source_url || "#"}" target="_blank">Source</a></td>
-      </tr>
-    `).join("");
-
-  } catch (error) {
-    console.error("Could not load projects.json", error);
   }
 }
 window.onload = () => {
@@ -1240,7 +1240,7 @@ window.onload = () => {
 
   // PROJECT TABLE
     loadProjectsFromJson();
-    
+
     loadLandIntelligence();
 
   log('Pipeline v5 loaded successfully.');
