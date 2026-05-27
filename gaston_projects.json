@@ -1,0 +1,24 @@
+[
+    {
+        "county": "Gaston",
+        "case_number": "REZ-26-03-06-00243",
+        "address": "Mic Lock Pl., Dallas, NC",
+        "acreage": "",
+        "owner": "",
+        "applicant": "Zachary Carpenter",
+        "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
+        "description": "Zoning map change for parcels 169984 & 312523.",
+        "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
+    },
+    {
+        "county": "Gaston",
+        "case_number": "REZ-26-03-26-00244",
+        "address": "Red Yam Farm Rd., Dallas, NC",
+        "acreage": "",
+        "owner": "",
+        "applicant": "Sarah Wooten",
+        "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
+        "description": "Zoning map change for parcels 168347.",
+        "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
+    }
+]

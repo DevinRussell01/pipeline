@@ -1,19 +1,19 @@
 import json
 
-with open("projects.json", "r") as file:
-    iredell_project = json.load(file)
-
-with open("union_projects.json", "r") as file:
-    union_projects = json.load(file)
-
 all_projects = []
 
-if isinstance(iredell_project, list):
-    all_projects.extend(iredell_project)
-else:
-    all_projects.append(iredell_project)
+for filename in [
+    "projects.json",
+    "union_projects.json",
+    "gaston_projects.json"
+]:
+    with open(filename, "r") as file:
+        data = json.load(file)
 
-all_projects.extend(union_projects)
+        if isinstance(data, list):
+            all_projects.extend(data)
+        else:
+            all_projects.append(data)
 
 with open("projects.json", "w") as file:
     json.dump(all_projects, file, indent=4)
