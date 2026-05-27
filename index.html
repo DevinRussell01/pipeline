@@ -643,28 +643,7 @@ const BUILDERS = [
 // PROJECT DATABASE
 // =====================================================
 
-const PROJECTS = [
-  {
-    county:"Iredell",
-    municipality:"Mooresville",
-    project:"Oak Hollow",
-    builder:"D.R. Horton",
-    lots:184,
-    zoning:"R-8 CZ",
-    status:"Preliminary Plat",
-    source:"Planning Board"
-  },
-  {
-    county:"York",
-    municipality:"Fort Mill",
-    project:"Riverbend",
-    builder:"Lennar",
-    lots:326,
-    zoning:"PD",
-    status:"Rezoning",
-    source:"County Agenda"
-  }
-];
+let PROJECTS = [];
 
 // =====================================================
 // SCRAPER ENGINE CONCEPT
@@ -813,18 +792,7 @@ window.onload = () => {
   `).join('');
 
   // PROJECT TABLE
-  document.getElementById('projectTable').innerHTML = PROJECTS.map(p => `
-    <tr>
-      <td>${p.county}</td>
-      <td>${p.municipality}</td>
-      <td>${p.project}</td>
-      <td>${p.builder}</td>
-      <td>${p.lots}</td>
-      <td>${p.zoning}</td>
-      <td>${p.status}</td>
-      <td>${p.source}</td>
-    </tr>
-  `).join('');
+    loadProjectsFromJson();
 
   log('Pipeline v5 loaded successfully.');
   log('Regional county intelligence online.');
