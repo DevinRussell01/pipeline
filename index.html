@@ -573,7 +573,43 @@ background:
   <button class="tab" onclick="showSection(4)">Counties</button>
   <button class="tab" onclick="showSection(5)">Map</button>
   <button class="tab" onclick="showSection(6)">Parser</button>
-</div>
+  <button class="tab" onclick="showSection(7)">Land Intelligence</button>
+  </div>
+
+  <!-- LAND INTELLIGENCE -->
+
+<section id="section-7" class="section">
+
+  <h2>Land Intelligence</h2>
+
+  <div class="sub">
+    Large parcel + LLC ownership tracking for development intelligence.
+  </div>
+
+  <br>
+
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>County</th>
+          <th>Owner</th>
+          <th>Acres</th>
+          <th>PID</th>
+          <th>LLC</th>
+          <th>Watch Score</th>
+        </tr>
+      </thead>
+
+      <tbody id="landTable"></tbody>
+
+    </table>
+
+  </div>
+
+</section>
 
 <!-- DASHBOARD -->
 <div class="section active" id="section-0">
@@ -1121,7 +1157,34 @@ function initMap() {
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
 }
-async function loadProjectsFromJson() {
+async function loadProjectsFromJson() 
+async function loadLandIntelligence() {
+
+  try {
+
+    const response = await fetch("land_intelligence.json");
+
+    const data = await response.json();
+
+    document.getElementById("landTable").innerHTML = data.map(item => `
+
+      <tr>
+        <td>${item.county}</td>
+        <td>${item.owner || ""}</td>
+        <td>${item.acres || ""}</td>
+        <td>${item.pid || ""}</td>
+        <td>${item.llc_flag ? "YES" : "NO"}</td>
+        <td>${item.watch_score || 0}</td>
+      </tr>
+
+    `).join("");
+
+  } catch(error) {
+
+    console.error("Failed to load land intelligence", error);
+
+  }
+}{
   try {
     const response = await fetch("projects.json");
     const projectData = await response.json();
@@ -1177,6 +1240,8 @@ window.onload = () => {
 
   // PROJECT TABLE
     loadProjectsFromJson();
+    
+    loadLandIntelligence();
 
   log('Pipeline v5 loaded successfully.');
   log('Regional county intelligence online.');
