@@ -323,7 +323,13 @@ a:hover{
   .stat-card .value{
     font-size:42px;
   }
-
+#map {
+  height: 650px;
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+}
 }
 </style>
 </head>
@@ -819,21 +825,27 @@ Then feed JSON into this dashboard.
 // =====================================================
 
 function showSection(index) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  document.querySelectorAll('.tab').forEach(button => {
+    button.classList.remove('active');
+  });
 
   document.getElementById(`section-${index}`).classList.add('active');
   document.querySelectorAll('.tab')[index].classList.add('active');
 
-if(index === 5) {
-  initMap();
+  if (index === 5) {
+    initMap();
 
-  setTimeout(() => {
-    if (window.pipelineMap) {
-      window.pipelineMap.invalidateSize();
-    }
-  }, 250);
-}}
+    setTimeout(() => {
+      if (window.pipelineMap) {
+        window.pipelineMap.invalidateSize();
+      }
+    }, 300);
+  }
+}
 
 function log(msg) {
   const el = document.getElementById('log');
