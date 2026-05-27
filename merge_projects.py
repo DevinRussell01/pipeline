@@ -5,7 +5,8 @@ all_projects = []
 for filename in [
     "projects.json",
     "union_projects.json",
-    "gaston_projects.json"
+    "gaston_projects.json",
+    "cleveland_projects.json"
 ]:
     with open(filename, "r") as file:
         data = json.load(file)
