@@ -1158,36 +1158,41 @@ function initMap() {
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
 
-  fetch("land_intelligence.json")
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(parcel => {
-        if (!parcel.lat || !parcel.lon) return;
+ fetch("land_intelligence.json")
+  .then(response => response.json())
+  .then(data => {
+    console.log("Land parcels loaded:", data.length);
 
-const marker = L.circleMarker([parcel.lat, parcel.lon], {
-          radius: parcel.watch_score >= 8 ? 10 : 7,
-          color: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
-          fillColor: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
-          fillOpacity: 0.65,
-          weight: 2
-        }).addTo(window.pipelineMap);
+    data.forEach(parcel => {
+      const lat = Number(parcel.lat);
+      const lon = Number(parcel.lon);
 
-        marker.bindPopup(`
-          <strong>${parcel.owner || "Unknown Owner"}</strong><br>
-          County: ${parcel.county}<br>
-          Acres: ${parcel.acres}<br>
-          PID: ${parcel.pid}<br>
-          LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
-          Watch Score: ${parcel.watch_score}
-        `);
-      });
-    })
-    .catch(error => {
-      console.error("Could not load land intelligence map layer", error);
+      if (!lat || !lon) return;
+
+      const isHighScore = Number(parcel.watch_score) >= 8;
+
+      const marker = L.circleMarker([lat, lon], {
+        radius: isHighScore ? 10 : 6,
+        color: isHighScore ? "#ef4444" : "#38bdf8",
+        fillColor: isHighScore ? "#ef4444" : "#38bdf8",
+        fillOpacity: 0.75,
+        weight: 2
+      }).addTo(window.pipelineMap);
+
+      marker.bindPopup(`
+        <strong>${parcel.owner || "Unknown Owner"}</strong><br>
+        County: ${parcel.county || ""}<br>
+        Acres: ${parcel.acres || ""}<br>
+        PID: ${parcel.pid || ""}<br>
+        LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
+        Watch Score: ${parcel.watch_score || 0}
+      `);
     });
+  })
+  .catch(error => {
+    console.error("Could not load land intelligence map layer", error);
+  });
 }
-
-  mapLoaded = true;
 
   window.pipelineMap = L.map('map').setView([35.5,-80.9],7);
 
