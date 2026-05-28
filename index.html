@@ -1088,11 +1088,11 @@ function showSection(index) {
   if (index === 5) {
     initMap();
 
-setTimeout(() => {
-  if (window.pipelineMap) {
-    window.pipelineMap.invalidateSize();
-  }
-}, 800);
+    setTimeout(() => {
+      if (window.pipelineMap) {
+        window.pipelineMap.invalidateSize();
+      }
+    }, 800);
   }
 }
 
