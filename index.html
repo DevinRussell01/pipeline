@@ -1232,7 +1232,7 @@ fetch("land_intelligence.json")
   })
   .catch(error => {
     console.error("Could not load land intelligence map layer", error);
-  });}
+  });
 async function loadProjectsFromJson() {
   try {
     const response = await fetch("projects.json");
