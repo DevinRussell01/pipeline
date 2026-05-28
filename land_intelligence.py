@@ -2,93 +2,154 @@ import requests
 import json
 from pyproj import Transformer
 
-url = "https://gis.clevelandcounty.com/arcgis/rest/services/Tax/Tax/FeatureServer/1/query"
+# =====================================================
+# COUNTY CONFIG
+# =====================================================
 
-params = {
-    "where": "GIS_Calculated_Acres >= 25",
-    "outFields": (
-        "GIS_PID,"
-        "GIS_PIN,"
-        "GIS_Owner1,"
-        "GIS_Owner2,"
-        "GIS_Calculated_Acres,"
-        "GIS_Deeded_Acres,"
-        "GIS_X_Coord,"
-        "GIS_Y_Coord"
-    ),
-    "returnGeometry": "false",
-    "f": "json",
-    "resultRecordCount": 50,
-    "orderByFields": "GIS_Calculated_Acres DESC"
-}
+COUNTIES = [
+    {
+        "county": "Cleveland",
+        "url": "https://gis.clevelandcounty.com/arcgis/rest/services/Tax/Tax/FeatureServer/1/query",
+        "state_plane_epsg": "EPSG:2264",
+        "min_acres": 25,
+        "fields": {
+            "pid": "GIS_PID",
+            "pin": "GIS_PIN",
+            "owner1": "GIS_Owner1",
+            "owner2": "GIS_Owner2",
+            "acres": "GIS_Calculated_Acres",
+            "x": "GIS_X_Coord",
+            "y": "GIS_Y_Coord"
+        }
+    }
+]
 
-response = requests.get(url, params=params)
-data = response.json()
+# =====================================================
+# HELPERS
+# =====================================================
 
-projects = []
+def calculate_watch_score(owner, acres):
+    owner_upper = str(owner or "").upper()
 
-transformer = Transformer.from_crs(
-    "EPSG:2264",
-    "EPSG:4326",
-    always_xy=True
-)
-
-for feature in data.get("features", []):
-    attr = feature.get("attributes", {})
-
-    owner = str(attr.get("GIS_Owner1", "")).upper()
-    acres = attr.get("GIS_Calculated_Acres") or 0
-
-    watch_score = 0
+    score = 0
 
     if acres >= 300:
-        watch_score += 5
+        score += 5
     elif acres >= 100:
-        watch_score += 4
+        score += 4
     elif acres >= 50:
-        watch_score += 3
+        score += 3
     elif acres >= 25:
-        watch_score += 2
+        score += 2
 
     keywords = [
-        "LLC",
-        "HOLDINGS",
-        "PROPERTIES",
-        "DEVELOPMENT",
-        "INVESTMENTS",
-        "VENTURES"
+    "LLC",
+    "INC",
+    "CORP",
+    "CORPORATION",
+    "CO",
+    "COMPANY",
+    "HOLDINGS",
+    "PROPERTIES",
+    "PROPERTY",
+    "DEVELOPMENT",
+    "DEVELOPERS",
+    "INVESTMENTS",
+    "VENTURES",
+    "LAND",
+    "REALTY",
+    "REAL ESTATE",
+    "HOMES",
+    "BUILDERS",
+    "BUILDER",
+    "CONSTRUCTION"
     ]
 
-    llc_flag = any(k in owner for k in keywords)
+    llc_flag = any(word in owner_upper for word in keywords)
 
     if llc_flag:
-        watch_score += 4
+        score += 4
 
-    x = attr.get("GIS_X_Coord")
-    y = attr.get("GIS_Y_Coord")
+    return score, llc_flag
 
-    lat = None
-    lon = None
 
-    if x and y:
-        lon, lat = transformer.transform(x, y)
+def fetch_county_land(config):
+    county = config["county"]
+    fields = config["fields"]
 
-    projects.append({
-        "county": "Cleveland",
-        "owner": attr.get("GIS_Owner1"),
-        "pid": attr.get("GIS_PID"),
-        "pin": attr.get("GIS_PIN"),
-        "acres": round(acres, 2),
-        "x": x,
-        "y": y,
-        "lat": lat,
-        "lon": lon,
-        "llc_flag": llc_flag,
-        "watch_score": watch_score
-    })
+    transformer = Transformer.from_crs(
+        config["state_plane_epsg"],
+        "EPSG:4326",
+        always_xy=True
+    )
+
+    out_fields = ",".join(fields.values())
+
+    params = {
+        "where": f"{fields['acres']} >= {config['min_acres']}",
+        "outFields": out_fields,
+        "returnGeometry": "false",
+        "f": "json",
+        "resultRecordCount": 100,
+        "orderByFields": f"{fields['acres']} DESC"
+    }
+
+    response = requests.get(config["url"], params=params)
+    data = response.json()
+
+    parcels = []
+
+    for feature in data.get("features", []):
+        attr = feature.get("attributes", {})
+
+        owner = attr.get(fields["owner1"])
+        acres = attr.get(fields["acres"]) or 0
+        x = attr.get(fields["x"])
+        y = attr.get(fields["y"])
+
+        lat = None
+        lon = None
+
+        if x and y:
+            lon, lat = transformer.transform(x, y)
+
+        watch_score, llc_flag = calculate_watch_score(owner, acres)
+
+        parcels.append({
+            "county": county,
+            "owner": owner,
+            "owner2": attr.get(fields["owner2"]),
+            "pid": attr.get(fields["pid"]),
+            "pin": attr.get(fields["pin"]),
+            "acres": round(acres, 2),
+            "x": x,
+            "y": y,
+            "lat": lat,
+            "lon": lon,
+            "llc_flag": llc_flag,
+            "watch_score": watch_score
+        })
+
+    return parcels
+
+
+# =====================================================
+# MAIN
+# =====================================================
+
+all_parcels = []
+
+for county_config in COUNTIES:
+    print(f"Scanning {county_config['county']}...")
+
+    parcels = fetch_county_land(county_config)
+
+    print(f"Found {len(parcels)} parcels.")
+
+    all_parcels.extend(parcels)
 
 with open("land_intelligence.json", "w") as file:
-    json.dump(projects, file, indent=4)
+    json.dump(all_parcels, file, indent=4)
 
-print("Saved land intelligence data.")
-print("Total tracked parcels:", len(projects))
+print("\nSaved land intelligence data.")
+print("Total tracked parcels:", len(all_parcels))
