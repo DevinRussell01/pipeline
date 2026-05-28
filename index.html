@@ -1253,19 +1253,19 @@ async function loadProjectsFromJson() {
     document.getElementById("projectCount").innerText = PROJECTS.length;
 
     const rows = PROJECTS.map(p => {
-      return'
-        <tr>
-          <td>${p.county || ""}</td>
-          <td>${p.case_number || ""}</td>
-          <td>${p.address || ""}</td>
-          <td>${p.acreage || ""}</td>
-          <td>${p.owner || ""}</td>
-          <td>${p.applicant || ""}</td>
-          <td>${p.zoning_change || ""}</td>
-          <td><a href="${p.source_url || "#"}" target="_blank">Source</a></td>
-        </tr>
-       ';
-    }).join("");
+  return `
+    <tr>
+      <td>${p.county || ""}</td>
+      <td>${p.case_number || ""}</td>
+      <td>${p.address || ""}</td>
+      <td>${p.acreage || ""}</td>
+      <td>${p.owner || ""}</td>
+      <td>${p.applicant || ""}</td>
+      <td>${p.zoning_change || ""}</td>
+      <td><a href="${p.source_url || "#"}" target="_blank">Source</a></td>
+    </tr>
+  `;
+}).join("");
 
     document.getElementById("projectTable").innerHTML = rows;
 
