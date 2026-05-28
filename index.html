@@ -1088,11 +1088,11 @@ function showSection(index) {
   if (index === 5) {
     initMap();
 
-    setTimeout(() => {
-      if (window.pipelineMap) {
-        window.pipelineMap.invalidateSize();
-      }
-    }, 300);
+setTimeout(() => {
+  if (window.pipelineMap) {
+    window.pipelineMap.invalidateSize();
+  }
+}, 800);
   }
 }
 
@@ -1215,9 +1215,9 @@ fetch("land_intelligence.json")
   .then(response => response.json())
   .then(data => {
     data.forEach(parcel => {
-      if (!parcel.x || !parcel.y) return;
+      if (!parcel.lat || !parcel.lon) return;
 
-      const marker = L.circleMarker([parcel.y, parcel.x], {
+      const marker = L.circleMarker([parcel.lat, parcel.lon], {
         radius: parcel.watch_score >= 8 ? 10 : 7,
         color: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
         fillColor: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
@@ -1232,8 +1232,13 @@ fetch("land_intelligence.json")
         PID: ${parcel.pid}<br>
         LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
         Watch Score: ${parcel.watch_score}
-      `);
+       });
     });
+
+    setTimeout(() => {
+      window.pipelineMap.invalidateSize();
+    }, 500);
+
   })
   .catch(error => {
     console.error("Could not load land intelligence map layer", error);
