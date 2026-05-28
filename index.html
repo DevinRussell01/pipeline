@@ -1135,7 +1135,57 @@ function parseAgenda() {
 let mapLoaded = false;
 
 function initMap() {
-  if(mapLoaded) return;
+  if (mapLoaded) return;
+
+  mapLoaded = true;
+
+  window.pipelineMap = L.map('map').setView([35.5, -80.9], 7);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+    .addTo(window.pipelineMap);
+
+  const hotspots = [
+    [35.2271, -80.8431, 'Charlotte Metro'],
+    [35.7345, -81.3445, 'Hickory / Catawba'],
+    [35.5951, -82.5515, 'Asheville'],
+    [34.9249, -81.0251, 'York County'],
+    [34.7204, -80.7701, 'Lancaster County']
+  ];
+
+  hotspots.forEach(h => {
+    L.marker([h[0], h[1]])
+      .addTo(window.pipelineMap)
+      .bindPopup(`<strong>${h[2]}</strong>`);
+  });
+
+  fetch("land_intelligence.json")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(parcel => {
+        if (!parcel.x || !parcel.y) return;
+
+        const marker = L.circleMarker([parcel.y, parcel.x], {
+          radius: parcel.watch_score >= 8 ? 10 : 7,
+          color: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
+          fillColor: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
+          fillOpacity: 0.65,
+          weight: 2
+        }).addTo(window.pipelineMap);
+
+        marker.bindPopup(`
+          <strong>${parcel.owner || "Unknown Owner"}</strong><br>
+          County: ${parcel.county}<br>
+          Acres: ${parcel.acres}<br>
+          PID: ${parcel.pid}<br>
+          LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
+          Watch Score: ${parcel.watch_score}
+        `);
+      });
+    })
+    .catch(error => {
+      console.error("Could not load land intelligence map layer", error);
+    });
+}
 
   mapLoaded = true;
 
@@ -1156,7 +1206,33 @@ function initMap() {
       .addTo(window.pipelineMap)
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
-}
+fetch("land_intelligence.json")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(parcel => {
+      if (!parcel.x || !parcel.y) return;
+
+      const marker = L.circleMarker([parcel.y, parcel.x], {
+        radius: parcel.watch_score >= 8 ? 10 : 7,
+        color: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
+        fillColor: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
+        fillOpacity: 0.65,
+        weight: 2
+      }).addTo(window.pipelineMap);
+
+      marker.bindPopup(`
+        <strong>${parcel.owner || "Unknown Owner"}</strong><br>
+        County: ${parcel.county}<br>
+        Acres: ${parcel.acres}<br>
+        PID: ${parcel.pid}<br>
+        LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
+        Watch Score: ${parcel.watch_score}
+      `);
+    });
+  })
+  .catch(error => {
+    console.error("Could not load land intelligence map layer", error);
+  });}
 async function loadProjectsFromJson() {
   try {
     const response = await fetch("projects.json");
