@@ -1,5 +1,6 @@
 import requests
 import json
+from pyproj import Transformer
 
 url = "https://gis.clevelandcounty.com/arcgis/rest/services/Tax/Tax/FeatureServer/1/query"
 
@@ -22,21 +23,23 @@ params = {
 }
 
 response = requests.get(url, params=params)
-
 data = response.json()
 
 projects = []
 
-for feature in data.get("features", []):
+transformer = Transformer.from_crs(
+    "EPSG:2264",
+    "EPSG:4326",
+    always_xy=True
+)
 
+for feature in data.get("features", []):
     attr = feature.get("attributes", {})
 
     owner = str(attr.get("GIS_Owner1", "")).upper()
+    acres = attr.get("GIS_Calculated_Acres") or 0
 
     watch_score = 0
-
-    # acreage scoring
-    acres = attr.get("GIS_Calculated_Acres") or 0
 
     if acres >= 300:
         watch_score += 5
@@ -47,7 +50,6 @@ for feature in data.get("features", []):
     elif acres >= 25:
         watch_score += 2
 
-    # LLC / holdings signals
     keywords = [
         "LLC",
         "HOLDINGS",
@@ -62,14 +64,25 @@ for feature in data.get("features", []):
     if llc_flag:
         watch_score += 4
 
+    x = attr.get("GIS_X_Coord")
+    y = attr.get("GIS_Y_Coord")
+
+    lat = None
+    lon = None
+
+    if x and y:
+        lon, lat = transformer.transform(x, y)
+
     projects.append({
         "county": "Cleveland",
         "owner": attr.get("GIS_Owner1"),
         "pid": attr.get("GIS_PID"),
         "pin": attr.get("GIS_PIN"),
         "acres": round(acres, 2),
-        "x": attr.get("GIS_X_Coord"),
-        "y": attr.get("GIS_Y_Coord"),
+        "x": x,
+        "y": y,
+        "lat": lat,
+        "lon": lon,
         "llc_flag": llc_flag,
         "watch_score": watch_score
     })

@@ -1162,9 +1162,9 @@ function initMap() {
     .then(response => response.json())
     .then(data => {
       data.forEach(parcel => {
-        if (!parcel.x || !parcel.y) return;
+        if (!parcel.lat || !parcel.lon) return;
 
-        const marker = L.circleMarker([parcel.y, parcel.x], {
+const marker = L.circleMarker([parcel.lat, parcel.lon], {
           radius: parcel.watch_score >= 8 ? 10 : 7,
           color: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
           fillColor: parcel.watch_score >= 8 ? "#ef4444" : "#38bdf8",
