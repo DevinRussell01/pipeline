@@ -47,21 +47,14 @@ body{
 
   color:var(--text);
 
-  background:
-    radial-gradient(circle at top left,
-      rgba(56,189,248,.12),
-      transparent 30%),
+ background:
+  linear-gradient(rgba(2,6,23,.72), rgba(2,6,23,.82)),
+  url('cityscape-bg.png');
 
-    radial-gradient(circle at bottom right,
-      rgba(20,184,166,.12),
-      transparent 30%),
-
-    linear-gradient(
-      135deg,
-      #020617 0%,
-      #0f172a 40%,
-      #111827 100%
-    );
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
 
   min-height:100vh;
   overflow-x:hidden;
