@@ -85,6 +85,29 @@ body::before{
   z-index:-1;
 }
 
+/* organization filters */
+
+.org-filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:16px 0 24px;
+}
+
+.org-filters button{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  color:var(--text);
+  font-weight:700;
+  cursor:pointer;
+}
+
+.org-filters button:hover{
+  background:rgba(20,184,166,.25);
+}
+
 /* cards */
 
 .card,
@@ -708,6 +731,13 @@ Awaiting scan.
   >
 
   <br><br>
+
+  <div class="org-filters">
+  <button onclick="renderOrganizations('')">All</button>
+  <button onclick="renderOrganizations('dr')">National Builders</button>
+  <button onclick="renderOrganizations('homes')">Homes</button>
+  <button onclick="renderOrganizations('communities')">Communities</button>
+</div>
 
   <div class="grid" id="builderGrid"></div>
 
