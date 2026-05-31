@@ -1295,16 +1295,29 @@ window.onload = () => {
   `).join('');
 
   // BUILDERS
- document.getElementById('builderGrid').innerHTML = BUILDERS.map(builder => `
-  <a 
-    class="card"
-    href="https://www.google.com/search?q=${encodeURIComponent(builder + ' home builder')}"
-    target="_blank"
-    style="text-decoration:none;color:inherit;"
-  >
-    <strong>${builder}</strong>
-  </a>
-`).join('');
+ function renderOrganizations(filter = "") {
+
+  const filtered = BUILDERS.filter(builder =>
+    builder.toLowerCase().includes(filter.toLowerCase())
+  );
+
+  document.getElementById('builderGrid').innerHTML = filtered.map(builder => `
+    <a
+      class="card"
+      href="https://www.google.com/search?q=${encodeURIComponent(builder + ' home builder')}"
+      target="_blank"
+      style="text-decoration:none;color:inherit;"
+    >
+      <strong>${builder}</strong>
+    </a>
+  `).join('');
+}
+
+renderOrganizations();
+
+document.getElementById("orgSearch").addEventListener("input", e => {
+  renderOrganizations(e.target.value);
+});
 
   // PROJECT TABLE
     loadProjectsFromJson();
