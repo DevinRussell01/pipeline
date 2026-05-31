@@ -47,8 +47,8 @@ body{
 
   color:var(--text);
 
- background:
-  linear-gradient(rgba(2,6,23,.72), rgba(2,6,23,.82)),
+background:
+  linear-gradient(rgba(2,6,23,.65), rgba(2,6,23,.82)),
   url('cityscape-bg.png');
 
 background-size:cover;
@@ -64,20 +64,15 @@ background-attachment:fixed;
 
 body::before{
   content:"";
-
   position:fixed;
   inset:0;
 
   background:
-    linear-gradient(
-      rgba(255,255,255,.015),
-      rgba(255,255,255,.01)
-    );
+    rgba(2,6,23,.45);
 
   pointer-events:none;
   z-index:-1;
 }
-
 /* organization filters */
 
 .org-filters{
