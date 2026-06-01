@@ -1072,6 +1072,12 @@ const BUILDERS = [
   "Clark Wilson Builder"
 ];
 
+const ORGANIZATIONS = BUILDERS.map(name => ({
+  name: name,
+  category: "National Builder",
+  source: "Builder100"
+}));
+
 // =====================================================
 // PROJECT DATABASE
 // =====================================================
@@ -1326,19 +1332,28 @@ window.onload = () => {
   // BUILDERS
  function renderOrganizations(filter = "") {
 
-  const filtered = BUILDERS.filter(builder =>
-    builder.toLowerCase().includes(filter.toLowerCase())
-  );
+ const filtered = ORGANIZATIONS.filter(org =>
+  org.name.toLowerCase().includes(filter.toLowerCase())
+);
 
-  document.getElementById('builderGrid').innerHTML = filtered.map(builder => `
-    <a
-      class="card"
-      href="https://www.google.com/search?q=${encodeURIComponent(builder + ' home builder')}"
-      target="_blank"
-      style="text-decoration:none;color:inherit;"
-    >
-      <strong>${builder}</strong>
-    </a>
+document.getElementById('builderGrid').innerHTML = filtered.map(org => `
+  <a
+    class="card"
+    href="https://www.google.com/search?q=${encodeURIComponent(org.name)}"
+    target="_blank"
+    style="text-decoration:none;color:inherit;"
+  >
+    <strong>${org.name}</strong>
+
+    <div class="sub" style="margin-top:8px;">
+      ${org.category}
+    </div>
+
+    <div class="sub">
+      Source: ${org.source}
+    </div>
+  </a>
+ 
   `).join('');
 }
 
