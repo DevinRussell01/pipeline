@@ -1078,6 +1078,137 @@ const ORGANIZATIONS = BUILDERS.map(name => ({
   source: "Builder100"
 }));
 
+ORGANIZATIONS.push(
+
+  // LAND DEVELOPERS
+  {
+    name: "Crescent Communities",
+    category: "Land Developer",
+    source: "Charlotte Business Journal",
+    watchScore: 10
+  },
+
+  {
+    name: "Childress Klein",
+    category: "Land Developer",
+    source: "Charlotte",
+    watchScore: 9
+  },
+
+  {
+    name: "MPV Properties",
+    category: "Land Developer",
+    source: "Charlotte",
+    watchScore: 8
+  },
+
+  {
+    name: "Northwood Ravin",
+    category: "Multifamily Developer",
+    source: "Charlotte",
+    watchScore: 9
+  },
+
+  // INVESTMENT FIRMS
+  {
+    name: "Blackstone",
+    category: "Investment Firm",
+    source: "Institutional",
+    watchScore: 10
+  },
+
+  {
+    name: "Invitation Homes",
+    category: "SFR Investment",
+    source: "Housing Market",
+    watchScore: 9
+  },
+
+  {
+    name: "American Homes 4 Rent",
+    category: "SFR Investment",
+    source: "Housing Market",
+    watchScore: 9
+  },
+
+  // ENGINEERING
+  {
+    name: "Kimley-Horn",
+    category: "Engineering",
+    source: "Regional Civil",
+    watchScore: 9
+  },
+
+  {
+    name: "SeamonWhiteside",
+    category: "Engineering",
+    source: "Carolinas",
+    watchScore: 8
+  },
+
+  // TELECOM
+  {
+    name: "Google Fiber",
+    category: "Telecom",
+    source: "Fiber Expansion",
+    watchScore: 10
+  },
+
+  {
+    name: "AT&T Fiber",
+    category: "Telecom",
+    source: "Fiber Expansion",
+    watchScore: 9
+  },
+
+  {
+  name: "Prestige Corporate Land Development",
+  category: "Land Developer",
+  source: "Regional",
+  watchScore: 10
+},
+
+{
+  name: "CK Construction",
+  category: "Developer / Construction",
+  source: "Regional",
+  watchScore: 10
+},
+
+{
+  name: "Eagle Engineering",
+  category: "Engineering",
+  source: "Regional Civil",
+  watchScore: 10
+}
+
+);
+ORGANIZATIONS.forEach(org => {
+
+  const highPriority = [
+    "Lennar",
+    "Taylor Morrison",
+    "D.R. Horton",
+    "Epcon Communities",
+    "M/I Homes",
+    "Meritage Homes",
+    "Tri Pointe Homes",
+    "Prestige Corporate Land Development",
+    "CK Construction",
+    "Eagle Engineering"
+  ];
+
+  if (highPriority.includes(org.name)) {
+    org.watchScore = 10;
+  }
+
+  // default score fallback
+  if (!org.watchScore) {
+    org.watchScore = 7;
+  }
+
+});
+
 // =====================================================
 // PROJECT DATABASE
 // =====================================================
