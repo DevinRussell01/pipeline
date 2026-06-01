@@ -21,7 +21,24 @@ COUNTIES = [
             "x": "GIS_X_Coord",
             "y": "GIS_Y_Coord"
         }
+    },
+
+     {
+        "county": "Gaston",
+        "url": "https://gis.gastoncountync.gov/publicgis/rest/services/PublicGIS/Parcels/MapServer/11/query",
+        "state_plane_epsg": "EPSG:2264",
+        "min_acres": 25,
+        "fields": {
+            "pid": "PID",
+            "pin": "PIN",
+            "owner1": "CURR_NAME1",
+            "owner2": "CURR_NAME2",
+            "acres": "CALCAC",
+            "x": "Longitude",
+            "y": "Latitude"
+        }
     }
+
 ]
 
 # =====================================================
@@ -109,8 +126,10 @@ def fetch_county_land(config):
 
         lat = None
         lon = None
-
-        if x and y:
+        if county == "Gaston":
+            lat = y
+            lon = x
+        elif x and y:
             lon, lat = transformer.transform(x, y)
 
         watch_score, llc_flag = calculate_watch_score(owner, acres)
