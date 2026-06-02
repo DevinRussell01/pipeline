@@ -456,38 +456,6 @@ a:hover{
 
   max-width:760px;
 }
-/* ===== SKYLINE / CITY GLOW BACKGROUND ===== */
-
-body::after{
-  content:"";
-
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:42vh;
-
-background:
-  linear-gradient(
-    to top,
-    rgba(2,6,23,.95),
-    rgba(2,6,23,.65),
-    transparent
-  ),
-  url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80");
-
-  background-size:cover;
-  background-position:center bottom;
-
-  opacity:.18;
-
-  pointer-events:none;
-
-  z-index:-2;
-
-  filter:grayscale(20%) contrast(120%);
-}
 
 /* ===== GLOWING INTEL PANELS ===== */
 
@@ -1483,6 +1451,16 @@ document.getElementById('builderGrid').innerHTML = filtered.map(org => `
     <div class="sub">
       Source: ${org.source}
     </div>
+    <div
+  class="sub"
+  style="
+    margin-top:6px;
+    color:${org.watchScore >= 9 ? '#22c55e' : '#94a3b8'};
+    font-weight:700;
+  "
+>
+  Watch Score: ${org.watchScore}
+</div>
   </a>
  
   `).join('');
