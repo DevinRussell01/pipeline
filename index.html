@@ -1414,6 +1414,51 @@ async function loadLandIntelligence() {
 
   }
 }
+
+ function renderOrganizations(search = "", category = "") {
+  const filtered = ORGANIZATIONS.filter(org => {
+ const matchesSearch =
+      org.name.toLowerCase().includes(search.toLowerCase());
+
+    const matchesCategory =
+      category === "" || org.category === category;
+
+    return matchesSearch && matchesCategory;
+
+  }); 
+  document.getElementById('builderGrid').innerHTML = filtered.map(org => `
+  <a
+    class="card"
+    href="https://www.google.com/search?q=${encodeURIComponent(org.name)}"
+    target="_blank"
+    style="text-decoration:none;color:inherit;"
+  >
+    <strong>${org.name}</strong>
+
+    <div class="sub" style="margin-top:8px;">
+      ${org.category}
+    </div>
+
+    <div class="sub">
+      Source: ${org.source}
+    </div>
+
+    <div
+      class="sub"
+      style="
+        margin-top:6px;
+        color:${org.watchScore >= 9 ? '#22c55e' : '#94a3b8'};
+        font-weight:700;
+      "
+    >
+      Watch Score: ${org.watchScore}
+    </div>
+
+  </a>
+`).join('');
+
+}
+
 window.onload = () => {
 
   document.getElementById('countyCount').innerText = COUNTIES.length;
@@ -1431,19 +1476,8 @@ window.onload = () => {
   `).join('');
 
   // BUILDERS
- function renderOrganizations(search = "", category = "") {
-
-  const filtered = ORGANIZATIONS.filter(org => {
-
-    const matchesSearch =
-      org.name.toLowerCase().includes(search.toLowerCase());
-
-    const matchesCategory =
-      category === "" || org.category === category;
-
-    return matchesSearch && matchesCategory;
-
-  });
+ 
+   
 
   document.getElementById('builderGrid').innerHTML = filtered.map(org => `
     <a
@@ -1523,7 +1557,7 @@ document.getElementById("orgSearch").addEventListener("input", e => {
   log('Pipeline v5 loaded successfully.');
   log('Regional county intelligence online.');
   log('Builder100 tracking initialized.');
-}
+};
 
 </script>
 </body>
