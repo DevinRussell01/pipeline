@@ -699,11 +699,13 @@ Awaiting scan.
 
   <br><br>
 
-  <div class="org-filters">
-  <button onclick="renderOrganizations('')">All</button>
-  <button onclick="renderOrganizations('dr')">National Builders</button>
-  <button onclick="renderOrganizations('homes')">Homes</button>
-  <button onclick="renderOrganizations('communities')">Communities</button>
+<div class="org-filters">
+  <button onclick="renderOrganizations('', '')">All</button>
+  <button onclick="renderOrganizations('', 'National Builder')">Builders</button>
+  <button onclick="renderOrganizations('', 'Land Developer')">Developers</button>
+  <button onclick="renderOrganizations('', 'Engineering')">Engineering</button>
+  <button onclick="renderOrganizations('', 'Telecom')">Telecom</button>
+  <button onclick="renderOrganizations('', 'Investment Firm')">Investment</button>
 </div>
 
   <div class="grid" id="builderGrid"></div>
