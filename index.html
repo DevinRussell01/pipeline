@@ -1473,40 +1473,6 @@ document.getElementById("orgSearch").addEventListener("input", e => {
   renderOrganizations(e.target.value);
 });
 
-document.getElementById('builderGrid').innerHTML = filtered.map(org => `
-  <a
-    class="card"
-    href="https://www.google.com/search?q=${encodeURIComponent(org.name)}"
-    target="_blank"
-    style="text-decoration:none;color:inherit;"
-  >
-    <strong>${org.name}</strong>
-
-    <div class="sub" style="margin-top:8px;">
-      ${org.category}
-    </div>
-
-<div
-  class="sub"
-  style="
-    margin-top:6px;
-    color:${org.watchScore >= 9 ? '#22c55e' : '#94a3b8'};
-    font-weight:700;
-  "
->
-  Watch Score: ${org.watchScore}
-</div>
-  </a>
- 
-  `).join('');
-}
-
-renderOrganizations();
-
-document.getElementById("orgSearch").addEventListener("input", e => {
-  renderOrganizations(e.target.value);
-});
-
   // PROJECT TABLE
     loadProjectsFromJson();
 
