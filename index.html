@@ -1532,55 +1532,7 @@ function renderOrganizations(search = "", category = "") {
     `;
   }).join("");
 }
-let locateMapLoaded = false;
 
-function initLocateMap() {
-  if (locateMapLoaded) return;
-
-  locateMapLoaded = true;
-
-  const locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
-
-  L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-      attribution: '&copy; OpenStreetMap contributors'
-    }
-  ).addTo(locateMap);
-
-  fetch('locates.json')
-    .then(res => res.json())
-    .then(data => {
-
-     data.forEach(ticket => {
-  L.circle([ticket.lat, ticket.lon], {
-    radius: ticket.tickets * 600,
-    color: '#22c55e',
-    fillColor: '#22c55e',
-    fillOpacity: 0.18,
-    weight: 1
-  }).addTo(locateMap);
-});
-data.forEach(ticket => {
-  L.circleMarker([ticket.lat, ticket.lon], {
-    radius: 6,
-    color: '#22c55e',
-    fillOpacity: 0.8
-  })
-  .addTo(locateMap)
-  .bindPopup(`
-    <strong>${ticket.company}</strong><br>
-    ${ticket.category}<br>
-    Tickets: ${ticket.tickets}
-  `);
-});
-
-setTimeout(() => {
-  locateMap.invalidateSize();
-}, 500);
-
-});
-}
 window.onload = () => {
 
   document.getElementById('countyCount').innerText = COUNTIES.length;
