@@ -337,6 +337,14 @@ a:hover{
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
 }
+#locateMap{
+  height:650px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--shadow);
+  margin-top:20px;
+}
 
 /* responsive */
 
@@ -568,7 +576,23 @@ a:hover{
   <button class="tab" onclick="showSection(5)">Map</button>
   <button class="tab" onclick="showSection(6)">Parser</button>
   <button class="tab" onclick="showSection(7)">Land Intelligence</button>
+  <button class="tab" onclick="showSection(8)">Locate Intel</button>
   </div>
+
+  <!-- LOCATE INTELLIGENCE -->
+<div class="section" id="section-8">
+
+  <h2>Locate Intelligence</h2>
+
+  <div class="sub">
+    811 locate ticket heat map for telecom, power, gas, and water infrastructure activity.
+  </div>
+
+  <br>
+
+  <div id="locateMap"></div>
+
+</div>
 
   <!-- LAND INTELLIGENCE -->
 
