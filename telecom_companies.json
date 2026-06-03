@@ -1,0 +1,20 @@
+[
+  { "name": "Google Fiber", "type": "Telecom Provider", "watchScore": 10 },
+  { "name": "AT&T Fiber", "type": "Telecom Provider", "watchScore": 10 },
+  { "name": "Spectrum", "type": "Telecom Provider", "watchScore": 9 },
+  { "name": "Brightspeed", "type": "Telecom Provider", "watchScore": 9 },
+  { "name": "Ripple Fiber", "type": "Telecom Provider", "watchScore": 9 },
+  { "name": "Comporium", "type": "Telecom Provider", "watchScore": 9 },
+  { "name": "Windstream", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "Kinetic", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "Hotwire Communications", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "Pineville Communications", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "T-Mobile Fiber", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "Segra", "type": "Fiber / Enterprise Provider", "watchScore": 9 },
+  { "name": "Conterra Networks", "type": "Fiber / Enterprise Provider", "watchScore": 9 },
+  { "name": "Lumos", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "Metronet", "type": "Telecom Provider", "watchScore": 8 },
+  { "name": "Frontier", "type": "Telecom Provider", "watchScore": 7 },
+  { "name": "Zayo", "type": "Fiber / Backbone Provider", "watchScore": 8 },
+  { "name": "Crown Castle Fiber", "type": "Fiber / Infrastructure Provider", "watchScore": 8 }
+]

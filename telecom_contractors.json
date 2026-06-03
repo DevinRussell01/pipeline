@@ -1,0 +1,17 @@
+[
+  { "name": "MetroTech", "type": "Locate / Utility Contractor", "watchScore": 9 },
+  { "name": "Carolina Communications", "type": "OSP Contractor", "watchScore": 9 },
+  { "name": "FiberTech", "type": "Fiber Contractor", "watchScore": 9 },
+  { "name": "Mighty Services", "type": "Utility / OSP Contractor", "watchScore": 9 },
+  { "name": "ITG", "type": "Telecom Contractor", "watchScore": 9 },
+  { "name": "Charlotte Conduit Services", "type": "Conduit / Underground Contractor", "watchScore": 10 },
+  { "name": "Pike", "type": "Utility Infrastructure Contractor", "watchScore": 10 },
+  { "name": "ULCS", "type": "Locate / Utility Contractor", "watchScore": 10 },
+  { "name": "MasTec", "type": "Telecom / Utility Contractor", "watchScore": 9 },
+  { "name": "Tilson", "type": "Telecom Infrastructure Contractor", "watchScore": 9 },
+  { "name": "Ansco", "type": "Telecom Contractor", "watchScore": 8 },
+  { "name": "Bigham Cable Construction", "type": "Telecom Contractor", "watchScore": 8 },
+  { "name": "Pauley Construction", "type": "Telecom Contractor", "watchScore": 8 },
+  { "name": "Team Fishel", "type": "Utility / Telecom Contractor", "watchScore": 8 },
+  { "name": "Byers Engineering", "type": "OSP Engineering", "watchScore": 8 }
+]

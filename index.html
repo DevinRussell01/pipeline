@@ -6,6 +6,9 @@
 <title>Summit Atlas • Regional Development Intelligence</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
 <style>
 
 :root{
@@ -1285,6 +1288,10 @@ function showSection(index) {
       }
     }, 800);
   }
+
+  if(index === 8) {
+    initLocateMap();
+  }
 }
 
 function log(msg) {
@@ -1476,6 +1483,58 @@ function renderOrganizations(search = "", category = "") {
       </a>
     `;
   }).join("");
+}
+let locateMapLoaded = false;
+
+function initLocateMap() {
+  if (locateMapLoaded) return;
+
+  locateMapLoaded = true;
+
+  const locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
+
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution: '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(locateMap);
+
+  fetch('locates.json')
+    .then(res => res.json())
+    .then(data => {
+
+      const heatPoints = data.map(ticket => [
+        ticket.lat,
+        ticket.lon,
+        ticket.tickets
+      ]);
+
+      L.heatLayer(heatPoints, {
+        radius: 35,
+        blur: 25,
+        maxZoom: 12
+      }).addTo(locateMap);
+
+      data.forEach(ticket => {
+        L.circleMarker([ticket.lat, ticket.lon], {
+          radius: 6,
+          color: '#22c55e',
+          fillOpacity: 0.8
+        })
+        .addTo(locateMap)
+        .bindPopup(`
+          <strong>${ticket.company}</strong><br>
+          ${ticket.category}<br>
+          Tickets: ${ticket.tickets}
+        `);
+      });
+
+      setTimeout(() => {
+        locateMap.invalidateSize();
+      }, 500);
+
+    });
 }
 
 window.onload = () => {

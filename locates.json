@@ -1,0 +1,100 @@
+[
+  {
+    "company": "Google Fiber",
+    "category": "Telecom Provider",
+    "lat": 35.2271,
+    "lon": -80.8431,
+    "tickets": 35
+  },
+  {
+    "company": "AT&T Fiber",
+    "category": "Telecom Provider",
+    "lat": 35.255,
+    "lon": -81.18,
+    "tickets": 18
+  },
+  {
+    "company": "Brightspeed",
+    "category": "Telecom Provider",
+    "lat": 35.9132,
+    "lon": -79.0558,
+    "tickets": 19
+  },
+  {
+    "company": "Ripple Fiber",
+    "category": "Telecom Provider",
+    "lat": 35.099,
+    "lon": -80.992,
+    "tickets": 21
+  },
+  {
+    "company": "Comporium",
+    "category": "Telecom Provider",
+    "lat": 35.0074,
+    "lon": -81.2362,
+    "tickets": 16
+  },
+  {
+    "company": "Windstream",
+    "category": "Telecom Provider",
+    "lat": 35.4726,
+    "lon": -81.2546,
+    "tickets": 12
+  },
+  {
+    "company": "Hotwire Communications",
+    "category": "Telecom Provider",
+    "lat": 35.3387,
+    "lon": -80.7614,
+    "tickets": 9
+  },
+  {
+    "company": "Pineville Communications",
+    "category": "Telecom Provider",
+    "lat": 35.0832,
+    "lon": -80.8923,
+    "tickets": 7
+  },
+  {
+    "company": "Segra",
+    "category": "Fiber / Enterprise Provider",
+    "lat": 35.7796,
+    "lon": -78.6382,
+    "tickets": 13
+  },
+  {
+    "company": "Conterra Networks",
+    "category": "Fiber / Enterprise Provider",
+    "lat": 35.5932,
+    "lon": -82.5515,
+    "tickets": 10
+  },
+  {
+    "company": "MetroTech",
+    "category": "Locate / Utility Contractor",
+    "lat": 35.33,
+    "lon": -80.85,
+    "tickets": 15
+  },
+  {
+    "company": "ULCS",
+    "category": "Locate / Utility Contractor",
+    "lat": 35.29,
+    "lon": -81.12,
+    "tickets": 20
+  },
+  {
+    "company": "Pike",
+    "category": "Utility Infrastructure Contractor",
+    "lat": 35.41,
+    "lon": -80.93,
+    "tickets": 22
+  },
+  {
+    "company": "Charlotte Conduit Services",
+    "category": "Conduit Contractor",
+    "lat": 35.26,
+    "lon": -80.79,
+    "tickets": 17
+  }
+]
