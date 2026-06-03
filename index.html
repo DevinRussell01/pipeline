@@ -1359,6 +1359,7 @@ function initMap() {
  fetch("land_intelligence.json")
   .then(response => response.json())
   .then(data => {
+    console.log("Locate tickets loaded:", data);
     console.log("Land parcels loaded:", data.length);
 
     data.forEach(parcel => {
@@ -1510,10 +1511,11 @@ function initLocateMap() {
         ticket.tickets
       ]);
 
-      L.heatLayer(heatPoints, {
-        radius: 35,
-        blur: 25,
-        maxZoom: 12
+     L.heatLayer(heatPoints, {
+      radius: 55,
+      blur: 35,
+      max: 40,
+      maxZoom: 10
       }).addTo(locateMap);
 
       data.forEach(ticket => {
