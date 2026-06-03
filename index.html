@@ -1534,28 +1534,6 @@ setTimeout(() => {
 
 });
 }
-
-      data.forEach(ticket => {
-        L.circleMarker([ticket.lat, ticket.lon], {
-          radius: 6,
-          color: '#22c55e',
-          fillOpacity: 0.8
-        })
-        .addTo(locateMap)
-        .bindPopup(`
-          <strong>${ticket.company}</strong><br>
-          ${ticket.category}<br>
-          Tickets: ${ticket.tickets}
-        `);
-      });
-
-      setTimeout(() => {
-        locateMap.invalidateSize();
-      }, 500);
-
-    });
-}
-
 window.onload = () => {
 
   document.getElementById('countyCount').innerText = COUNTIES.length;
