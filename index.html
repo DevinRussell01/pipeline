@@ -1505,18 +1505,35 @@ function initLocateMap() {
     .then(res => res.json())
     .then(data => {
 
-      const heatPoints = data.map(ticket => [
-        ticket.lat,
-        ticket.lon,
-        ticket.tickets
-      ]);
+     data.forEach(ticket => {
+  L.circle([ticket.lat, ticket.lon], {
+    radius: ticket.tickets * 600,
+    color: '#22c55e',
+    fillColor: '#22c55e',
+    fillOpacity: 0.18,
+    weight: 1
+  }).addTo(locateMap);
+});
+data.forEach(ticket => {
+  L.circleMarker([ticket.lat, ticket.lon], {
+    radius: 6,
+    color: '#22c55e',
+    fillOpacity: 0.8
+  })
+  .addTo(locateMap)
+  .bindPopup(`
+    <strong>${ticket.company}</strong><br>
+    ${ticket.category}<br>
+    Tickets: ${ticket.tickets}
+  `);
+});
 
-     L.heatLayer(heatPoints, {
-      radius: 55,
-      blur: 35,
-      max: 40,
-      maxZoom: 10
-      }).addTo(locateMap);
+setTimeout(() => {
+  locateMap.invalidateSize();
+}, 500);
+
+});
+}
 
       data.forEach(ticket => {
         L.circleMarker([ticket.lat, ticket.lon], {
