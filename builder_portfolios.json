@@ -109,4 +109,59 @@
     "lots": "",
     "source": "https://www.lennar.com"
   }
+  {
+  "builder": "Taylor Morrison",
+  "community": "McAdenville Village",
+  "county": "Gaston",
+  "city": "McAdenville",
+  "status": "Final Opportunity",
+  "product_type": "Single Family",
+  "price_from": 0,
+  "lots": "",
+  "source": "https://www.taylormorrison.com/nc/charlotte/mcadenville/mcadenville-village"
+},
+{
+  "builder": "Eastwood Homes",
+  "community": "Founders Landing",
+  "county": "Gaston",
+  "city": "Gastonia",
+  "status": "Selling",
+  "product_type": "Single Family",
+  "price_from": 459900,
+  "lots": "",
+  "source": "https://www.eastwoodhomes.com"
+},
+{
+  "builder": "Eastwood Homes",
+  "community": "Secrest Meadows",
+  "county": "Union",
+  "city": "Monroe",
+  "status": "Coming Soon",
+  "product_type": "Single Family",
+  "price_from": 0,
+  "lots": "",
+  "source": "https://www.eastwoodhomes.com"
+},
+{
+  "builder": "Eastwood Homes",
+  "community": "Waterford Commons",
+  "county": "York",
+  "city": "Rock Hill",
+  "status": "Selling",
+  "product_type": "Single Family",
+  "price_from": 465900,
+  "lots": "",
+  "source": "https://www.eastwoodhomes.com"
+},
+{
+  "builder": "Eastwood Homes",
+  "community": "Caldwell Forest",
+  "county": "Mecklenburg",
+  "city": "Charlotte",
+  "status": "Selling",
+  "product_type": "Single Family",
+  "price_from": 394400,
+  "lots": "",
+  "source": "https://www.eastwoodhomes.com"
+}
 ]
