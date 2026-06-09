@@ -1,0 +1,24 @@
+[
+  {
+    "builder": "D.R. Horton",
+    "community": "Example Community",
+    "county": "Gaston",
+    "city": "Belmont",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 350000,
+    "lots": 120,
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "Lennar",
+    "community": "Example Community",
+    "county": "Mecklenburg",
+    "city": "Charlotte",
+    "status": "Coming Soon",
+    "product_type": "Single Family",
+    "price_from": 450000,
+    "lots": 180,
+    "source": "https://www.lennar.com"
+  }
+]
