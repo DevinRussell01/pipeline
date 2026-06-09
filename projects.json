@@ -1,68 +1,89 @@
 [
-    {
-        "county": "Iredell",
-        "case_number": "2605-2",
-        "address": "221 Ingram Road. More specifically, a reconfigured portion of PINs: 4747217025.000 and 4747202665.000",
-        "acreage": "1.26",
-        "owner": "Wayne & Fleeta Speaks, Wayne\u2019s Country Cured Hams",
-        "applicant": "Gerald Grant, Jordan Grant & Associates, PLLC",
-        "zoning_change": "Single-Family Residential (R-20) -> Neighborhood Business\nConditional District (NBCD)",
-        "source_url": "https://www.iredellcountync.gov/AgendaCenter/ViewFile/Item/954?fileID=61507"
-    },
-    {
-        "county": "Union",
-        "case_number": "CZ-2026-007",
-        "address": "South side of Beulah Church Road",
-        "acreage": "3.207",
-        "owner": "",
-        "applicant": "R. Dean Harrell",
-        "zoning_change": "B-2 with Conditions -> B-2 with Modified Conditions",
-        "description": "Modification to shopping center conditions to allow operating hours from 6:30 AM to 9:30 PM.",
-        "source_url": "https://unioncountync.legistar.com/View.ashx?M=PA&ID=1379629&GUID=ACEC038F-9A9B-4BF3-865B-1347DA8991A7"
-    },
-    {
-        "county": "Union",
-        "case_number": "CZ-2026-005",
-        "address": "South Rocky River Road",
-        "acreage": "5.75",
-        "owner": "",
-        "applicant": "Jeremy McAteer",
-        "zoning_change": "RA-40 -> Light Industrial (LI) with Conditions",
-        "description": "Office and equipment storage facility on a portion of a larger parcel.",
-        "source_url": "https://unioncountync.legistar.com/View.ashx?M=PA&ID=1379629&GUID=ACEC038F-9A9B-4BF3-865B-1347DA8991A7"
-    },
-    {
-        "county": "Gaston",
-        "case_number": "REZ-26-03-06-00243",
-        "address": "Mic Lock Pl., Dallas, NC",
-        "acreage": "",
-        "owner": "",
-        "applicant": "Zachary Carpenter",
-        "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
-        "description": "Zoning map change for parcels 169984 & 312523.",
-        "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
-    },
-    {
-        "county": "Gaston",
-        "case_number": "REZ-26-03-26-00244",
-        "address": "Red Yam Farm Rd., Dallas, NC",
-        "acreage": "",
-        "owner": "",
-        "applicant": "Sarah Wooten",
-        "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
-        "description": "Zoning map change for parcels 168347.",
-        "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
-    },
-     
-    {
-        "county": "Cleveland",
-        "case_number": "25-05",
-        "address": "128 Corinth Church Road",
-        "acreage": "",
-        "owner": "",
-        "applicant": "",
-        "zoning_change": "Residential (R) -> Rural Residential (RU)",
-        "description": "Request to rezone 128 Corinth Church Road from Residential to Rural Residential.",
-        "source_url": "https://www.clevelandcounty.com/main/06032025%20Regular%20Meeting.pdf?t=202604221037300"
-    }
+  {
+    "county": "Iredell",
+    "case_number": "2605-2",
+    "address": "221 Ingram Road. More specifically, a reconfigured portion of PINs: 4747217025.000 and 4747202665.000",
+    "acreage": "1.26",
+    "owner": "Wayne & Fleeta Speaks, Wayne\u2019s Country Cured Hams",
+    "applicant": "Gerald Grant, Jordan Grant & Associates, PLLC",
+    "zoning_change": "Single-Family Residential (R-20) -> Neighborhood Business\nConditional District (NBCD)",
+    "source_url": "https://www.iredellcountync.gov/AgendaCenter/ViewFile/Item/954?fileID=61507"
+  },
+  {
+    "county": "Union",
+    "case_number": "CZ-2026-007",
+    "address": "South side of Beulah Church Road",
+    "acreage": "3.207",
+    "owner": "",
+    "applicant": "R. Dean Harrell",
+    "zoning_change": "B-2 with Conditions -> B-2 with Modified Conditions",
+    "description": "Modification to shopping center conditions to allow operating hours from 6:30 AM to 9:30 PM.",
+    "source_url": "https://unioncountync.legistar.com/View.ashx?M=PA&ID=1379629&GUID=ACEC038F-9A9B-4BF3-865B-1347DA8991A7"
+  },
+  {
+    "county": "Union",
+    "case_number": "CZ-2026-005",
+    "address": "South Rocky River Road",
+    "acreage": "5.75",
+    "owner": "",
+    "applicant": "Jeremy McAteer",
+    "zoning_change": "RA-40 -> Light Industrial (LI) with Conditions",
+    "description": "Office and equipment storage facility on a portion of a larger parcel.",
+    "source_url": "https://unioncountync.legistar.com/View.ashx?M=PA&ID=1379629&GUID=ACEC038F-9A9B-4BF3-865B-1347DA8991A7"
+  },
+  {
+    "county": "Gaston",
+    "case_number": "REZ-26-03-06-00243",
+    "address": "Mic Lock Pl., Dallas, NC",
+    "acreage": "",
+    "owner": "",
+    "applicant": "Zachary Carpenter",
+    "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
+    "description": "Zoning map change for parcels 169984 & 312523.",
+    "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
+  },
+  {
+    "county": "Gaston",
+    "case_number": "REZ-26-03-26-00244",
+    "address": "Red Yam Farm Rd., Dallas, NC",
+    "acreage": "",
+    "owner": "",
+    "applicant": "Sarah Wooten",
+    "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
+    "description": "Zoning map change for parcels 168347.",
+    "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
+  },
+  {
+    "county": "Cleveland",
+    "case_number": "25-05",
+    "address": "128 Corinth Church Road",
+    "acreage": "",
+    "owner": "",
+    "applicant": "",
+    "zoning_change": "Residential (R) -> Rural Residential (RU)",
+    "description": "Request to rezone 128 Corinth Church Road from Residential to Rural Residential.",
+    "source_url": "https://www.clevelandcounty.com/main/06032025%20Regular%20Meeting.pdf?t=202604221037300"
+  },
+  {
+    "county": "Gaston",
+    "case_number": "AUTO-TEST-001",
+    "address": "Belmont / Gastonia Growth Corridor",
+    "acreage": "",
+    "owner": "",
+    "applicant": "Summit Atlas Test Scan",
+    "zoning_change": "Automated scanner test project",
+    "source_url": "https://www.gastongov.com/",
+    "last_scanned": "2026-06-09"
+  },
+  {
+    "county": "Gaston",
+    "case_number": "GASTON-SCAN-20260609",
+    "address": "Gaston County Planning and Zoning Board",
+    "acreage": "",
+    "owner": "",
+    "applicant": "Automated County Scanner",
+    "zoning_change": "Detected planning/zoning activity: rezoning, development, zoning",
+    "source_url": "https://gaston.granicus.com/boards/w/611252dc4b79d0a7/boards/52857",
+    "last_scanned": "2026-06-09"
+  }
 ]
