@@ -1520,6 +1520,21 @@ async function loadBuilderPortfolios() {
   try {
     const response = await fetch("builder_portfolios.json");
     const data = await response.json();
+      const builders = [...new Set(data.map(x => x.builder))];
+      const counties = [...new Set(data.map(x => x.county))];
+      const statuses = [...new Set(data.map(x => x.status))];
+
+      document.getElementById("builderFilter").innerHTML =
+  '<option value="">All Builders</option>' +
+  builders.map(b => `<option value="${b}">${b}</option>`).join("");
+
+document.getElementById("countyFilter").innerHTML =
+  '<option value="">All Counties</option>' +
+  counties.map(c => `<option value="${c}">${c}</option>`).join("");
+
+document.getElementById("statusFilter").innerHTML =
+  '<option value="">All Statuses</option>' +
+  statuses.map(s => `<option value="${s}">${s}</option>`).join("");
 
     document.getElementById("portfolioTable").innerHTML = data.map(item => `
       <tr>
