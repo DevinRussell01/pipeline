@@ -580,6 +580,7 @@ a:hover{
   <button class="tab" onclick="showSection(6)">Parser</button>
   <button class="tab" onclick="showSection(7)">Land Intelligence</button>
   <button class="tab" onclick="showSection(8)">Locate Intel</button>
+  <button class="tab" onclick="showSection(9)">Builder Portfolios</button>
   </div>
 
   <!-- LOCATE INTELLIGENCE -->
@@ -594,6 +595,38 @@ a:hover{
   <br>
 
   <div id="locateMap"></div>
+
+</div>
+
+<div class="section" id="section-9">
+
+  <h2>Builder Portfolios</h2>
+
+  <div class="sub">
+    Active and future single-family communities tracked from builder websites.
+  </div>
+
+  <br>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Builder</th>
+          <th>Community</th>
+          <th>County</th>
+          <th>City</th>
+          <th>Status</th>
+          <th>Product</th>
+          <th>Price From</th>
+          <th>Lots</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+
+      <tbody id="portfolioTable"></tbody>
+    </table>
+  </div>
 
 </div>
 
@@ -1470,6 +1503,35 @@ async function loadProjectsFromJson() {
     console.error("Could not load projects.json", error);
   }
 }
+
+async function loadBuilderPortfolios() {
+  try {
+    const response = await fetch("builder_portfolios.json");
+    const data = await response.json();
+
+    document.getElementById("portfolioTable").innerHTML = data.map(item => `
+      <tr>
+        <td>${item.builder || ""}</td>
+        <td>${item.community || ""}</td>
+        <td>${item.county || ""}</td>
+        <td>${item.city || ""}</td>
+        <td>${item.status || ""}</td>
+        <td>${item.product_type || ""}</td>
+        <td>${item.price_from ? "$" + Number(item.price_from).toLocaleString() : ""}</td>
+        <td>${item.lots || ""}</td>
+        <td>
+          <a href="${item.source || "#"}" target="_blank">
+            Source
+          </a>
+        </td>
+      </tr>
+    `).join("");
+
+  } catch(error) {
+    console.error("Could not load builder portfolios", error);
+  }
+}
+
 async function loadLandIntelligence() {
 
   try {
@@ -1560,6 +1622,8 @@ document.getElementById("orgSearch").addEventListener("input", e => {
     loadProjectsFromJson();
 
     loadLandIntelligence();
+
+    loadBuilderPortfolios();
 
   log('Summit Atlas initialized.');
   log('Regional county intelligence online.');
