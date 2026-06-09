@@ -1,24 +1,112 @@
 [
   {
     "builder": "D.R. Horton",
-    "community": "Example Community",
+    "community": "Avalon",
     "county": "Gaston",
-    "city": "Belmont",
+    "city": "Gastonia",
     "status": "Selling",
     "product_type": "Single Family",
-    "price_from": 350000,
-    "lots": 120,
+    "price_from": 444990,
+    "lots": "",
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "D.R. Horton",
+    "community": "Brandon Creek",
+    "county": "Gaston",
+    "city": "Gastonia",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 344990,
+    "lots": "",
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "D.R. Horton",
+    "community": "Cramer Estates",
+    "county": "Gaston",
+    "city": "Gastonia",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 368990,
+    "lots": 70,
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "D.R. Horton",
+    "community": "Sonoma Hills",
+    "county": "Mecklenburg",
+    "city": "Charlotte",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 429000,
+    "lots": 70,
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "D.R. Horton",
+    "community": "Reedy Creek Preserve",
+    "county": "Mecklenburg",
+    "city": "Charlotte",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 399000,
+    "lots": "",
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "D.R. Horton",
+    "community": "Cardinal Creek",
+    "county": "Mecklenburg",
+    "city": "Charlotte",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 408000,
+    "lots": "",
+    "source": "https://www.drhorton.com"
+  },
+  {
+    "builder": "D.R. Horton",
+    "community": "Twinleaf Meadows",
+    "county": "Union",
+    "city": "Monroe",
+    "status": "Coming Soon",
+    "product_type": "Single Family",
+    "price_from": 0,
+    "lots": "",
     "source": "https://www.drhorton.com"
   },
   {
     "builder": "Lennar",
-    "community": "Example Community",
+    "community": "Redhawk - Walk",
+    "county": "Gaston",
+    "city": "Belmont",
+    "status": "Selling",
+    "product_type": "Single Family",
+    "price_from": 411999,
+    "lots": "",
+    "source": "https://www.lennar.com"
+  },
+  {
+    "builder": "Lennar",
+    "community": "River Ridge Townes",
     "county": "Mecklenburg",
     "city": "Charlotte",
-    "status": "Coming Soon",
-    "product_type": "Single Family",
-    "price_from": 450000,
-    "lots": 180,
+    "status": "Selling",
+    "product_type": "Townhome",
+    "price_from": 340000,
+    "lots": "",
+    "source": "https://www.lennar.com"
+  },
+  {
+    "builder": "Lennar",
+    "community": "The Vines",
+    "county": "Mecklenburg",
+    "city": "Charlotte",
+    "status": "Selling",
+    "product_type": "Townhome",
+    "price_from": 338999,
+    "lots": "",
     "source": "https://www.lennar.com"
   }
 ]
