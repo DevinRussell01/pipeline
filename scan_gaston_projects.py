@@ -44,7 +44,7 @@ new_projects = []
 if matches:
     new_projects.append({
         "county": "Gaston",
-        "case_number": "GASTON-SCAN-" + datetime.now().strftime("%Y%m%d"),
+        "case_number": "GASTON-PLANNING-ZONING-SCAN",
         "address": "Gaston County Planning and Zoning Board",
         "acreage": "",
         "owner": "",
