@@ -1420,8 +1420,15 @@ function showSection(index) {
     button.classList.remove('active');
   });
 
-  document.getElementById(`section-${index}`).classList.add('active');
-  document.querySelectorAll('.tab')[index].classList.add('active');
+  const targetSection = document.getElementById(`section-${index}`);
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+
+  const clickedButton = event?.currentTarget;
+  if (clickedButton) {
+    clickedButton.classList.add('active');
+  }
 
   if (index === 5) {
     initMap();
@@ -1433,7 +1440,7 @@ function showSection(index) {
     }, 800);
   }
 
-  if(index === 8) {
+  if (index === 8) {
     initLocateMap();
   }
 }
