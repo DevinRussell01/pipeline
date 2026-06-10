@@ -676,6 +676,30 @@ a:hover{
 
   <div class="table-wrap">
 
+    <div class="filters">
+  <label>County</label>
+  <select id="landCountyFilter" onchange="filterLandIntelligence()">
+    <option value="">All Counties</option>
+  </select>
+
+  <label>LLC Flag</label>
+  <select id="landLLCFilter" onchange="filterLandIntelligence()">
+    <option value="">All</option>
+    <option value="true">LLC / Entity</option>
+    <option value="false">Non-LLC</option>
+  </select>
+
+  <label>Minimum Watch Score</label>
+  <select id="landScoreFilter" onchange="filterLandIntelligence()">
+    <option value="0">All</option>
+    <option value="2">2+</option>
+    <option value="4">4+</option>
+    <option value="6">6+</option>
+    <option value="8">8+</option>
+    <option value="9">9+</option>
+  </select>
+</div>
+
     <table>
 
       <thead>
@@ -1482,6 +1506,8 @@ function parseAgenda() {
   `;
 }
 
+let LAND_INTELLIGENCE = [];
+
 let mapLoaded = false;
 
 function initMap() {
@@ -1801,6 +1827,42 @@ function filterBuilderPortfolios() {
     </tr>
   `).join("");
 }
+
+function populateLandFilters(data) {
+  const countyFilter = document.getElementById("landCountyFilter");
+  if (!countyFilter) return;
+
+  const counties = [...new Set(data.map(item => item.county).filter(Boolean))].sort();
+
+  countyFilter.innerHTML = `<option value="">All Counties</option>` +
+    counties.map(county => `<option value="${county}">${county}</option>`).join("");
+}
+
+function filterLandIntelligence() {
+  const county = document.getElementById("landCountyFilter")?.value || "";
+  const llc = document.getElementById("landLLCFilter")?.value || "";
+  const minScore = Number(document.getElementById("landScoreFilter")?.value || 0);
+
+  const filtered = LAND_INTELLIGENCE.filter(item => {
+    const countyMatch = !county || item.county === county;
+    const llcMatch = !llc || String(item.llc_flag) === llc;
+    const scoreMatch = Number(item.watch_score || 0) >= minScore;
+
+    return countyMatch && llcMatch && scoreMatch;
+  });
+
+  document.getElementById("landTable").innerHTML = filtered.map(item => `
+    <tr>
+      <td>${item.county || ""}</td>
+      <td>${item.owner || ""}</td>
+      <td>${item.acres || ""}</td>
+      <td>${item.pid || ""}</td>
+      <td>${item.llc_flag ? "YES" : "NO"}</td>
+      <td>${item.watch_score || 0}</td>
+    </tr>
+  `).join("");
+}
+
 async function loadLandIntelligence() {
 
   try {
@@ -1809,18 +1871,13 @@ async function loadLandIntelligence() {
 
     const data = await response.json();
 
-    document.getElementById("landTable").innerHTML = data.map(item => `
+    LAND_INTELLIGENCE = data;
 
-      <tr>
-        <td>${item.county}</td>
-        <td>${item.owner || ""}</td>
-        <td>${item.acres || ""}</td>
-        <td>${item.pid || ""}</td>
-        <td>${item.llc_flag ? "YES" : "NO"}</td>
-        <td>${item.watch_score || 0}</td>
-      </tr>
+    populateLandFilters(data);
 
-    `).join("");
+    filterLandIntelligence();
+
+    return;
 
   } catch(error) {
 
