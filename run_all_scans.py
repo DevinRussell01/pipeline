@@ -8,7 +8,8 @@ scripts = [
     "scan_builder_portfolios.py",
     "scan_county_projects.py",
     "scan_gaston_projects.py",
-    "scan_mecklenburg_subdivisions.py"
+    "scan_mecklenburg_subdivisions.py",
+    "scan_union_projects.py",
 ]
 
 for script in scripts:
