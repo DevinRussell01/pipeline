@@ -822,6 +822,7 @@ Awaiting scan.
   <label><input type="checkbox" id="toggleHotspots" checked> Growth Hotspots</label>
   <label><input type="checkbox" id="toggleProjects" checked> Projects</label>
   <label><input type="checkbox" id="toggleLand" checked> Land Parcels</label>
+  <label><input type="checkbox" id="toggleWatchlists" checked> Watchlist Candidates</label>
 </div>
 
 <div id="map"></div>
@@ -1493,6 +1494,7 @@ function initMap() {
   const hotspotLayer = L.layerGroup().addTo(window.pipelineMap);
   const projectLayer = L.layerGroup().addTo(window.pipelineMap);
   const landLayer = L.layerGroup().addTo(window.pipelineMap);
+  const watchlistLayer = L.layerGroup().addTo(window.pipelineMap);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
     .addTo(window.pipelineMap);
@@ -1573,6 +1575,28 @@ function initMap() {
         LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
         Watch Score: ${parcel.watch_score || 0}
       `);
+      const acres = Number(parcel.acres || 0);
+      const score = Number(parcel.watch_score || 0);
+
+      if (parcel.llc_flag === true && acres >= 2) {
+        const watchMarker = L.circleMarker([lat, lon], {
+          radius: score >= 9 ? 14 : score >= 8 ? 11 : 9,
+          color: "#facc15",
+          fillColor: "#facc15",
+          fillOpacity: 0.9,
+          weight: 3
+        }).addTo(watchlistLayer);
+
+      watchMarker.bindPopup(`
+        <strong>Watchlist Candidate</strong><br>
+        Owner: ${parcel.owner || "Unknown"}<br>
+        County: ${parcel.county || ""}<br>
+        Acres: ${parcel.acres || ""}<br>
+        PID: ${parcel.pid || ""}<br>
+        Confidence Score: ${parcel.watch_score || 0}<br><br>
+        <strong>Signal:</strong> LLC-owned parcel over 2 acres.
+      `);
+    }
     });
   })
 .catch(error => {
@@ -1585,6 +1609,15 @@ document.getElementById("toggleHotspots")
     window.pipelineMap.addLayer(hotspotLayer);
   } else {
     window.pipelineMap.removeLayer(hotspotLayer);
+  }
+});
+
+document.getElementById("toggleWatchlists")
+?.addEventListener("change", function() {
+  if (this.checked) {
+    window.pipelineMap.addLayer(watchlistLayer);
+  } else {
+    window.pipelineMap.removeLayer(watchlistLayer);
   }
 });
 
@@ -1796,27 +1829,45 @@ async function loadLandIntelligence() {
   }
 }
 
-function renderWatchlists() {
+async function renderWatchlists() {
   const minScore = Number(document.getElementById("watchConfidenceFilter")?.value || 0);
   const grid = document.getElementById("watchlistGrid");
 
   if (!grid) return;
 
-  const filtered = WATCHLISTS.filter(item => item.confidence >= minScore);
+  try {
+    const response = await fetch("land_intelligence.json");
+    const parcels = await response.json();
 
-  grid.innerHTML = filtered.map(item => `
-    <div class="card">
-      <h3>${item.name}</h3>
-      <p><strong>County:</strong> ${item.county}</p>
-      <p><strong>Category:</strong> ${item.category}</p>
-      <p><strong>Confidence Score:</strong> ${item.confidence}</p>
-      <p><strong>Signals:</strong></p>
-      <ul>
-        ${item.signals.map(signal => `<li>${signal}</li>`).join("")}
-      </ul>
-      <p><strong>Assessment:</strong> ${item.assessment}</p>
-    </div>
-  `).join("");
+    const watchlists = parcels
+      .filter(parcel => {
+        const acres = Number(parcel.acres || 0);
+        const score = Number(parcel.watch_score || 0);
+
+        return parcel.llc_flag === true && acres >= 2 && score >= minScore;
+      })
+      .sort((a, b) => Number(b.watch_score || 0) - Number(a.watch_score || 0));
+
+    grid.innerHTML = watchlists.map(parcel => `
+      <div class="card">
+        <h3>${parcel.owner || "Unknown LLC Owner"}</h3>
+        <p><strong>County:</strong> ${parcel.county || ""}</p>
+        <p><strong>Acres:</strong> ${parcel.acres || ""}</p>
+        <p><strong>PID:</strong> ${parcel.pid || ""}</p>
+        <p><strong>Confidence Score:</strong> ${parcel.watch_score || 0}</p>
+        <p><strong>Signals:</strong></p>
+        <ul>
+          <li>LLC ownership detected</li>
+          <li>Parcel exceeds 2-acre development threshold</li>
+          <li>Land intelligence watch score above filter threshold</li>
+        </ul>
+        <p><strong>Assessment:</strong> Potential future development candidate based on acreage, ownership structure, and land intelligence scoring.</p>
+      </div>
+    `).join("");
+
+  } catch (error) {
+    console.error("Could not render parcel-based watchlists", error);
+  }
 }
 
 function renderOrganizations(search = "", category = "") {
