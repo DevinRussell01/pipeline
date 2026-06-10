@@ -1,0 +1,38 @@
+[
+  {
+    "ticket_id": "NC811-DEMO-001",
+    "state": "NC",
+    "county": "Union",
+    "city": "Monroe",
+    "street": "South Rocky River Road",
+    "work_type": "Utility Construction",
+    "excavator": "Unknown",
+    "status": "Demo",
+    "created_date": "2026-06-10",
+    "source": "NC811"
+  },
+  {
+    "ticket_id": "NC811-DEMO-002",
+    "state": "NC",
+    "county": "Mecklenburg",
+    "city": "Charlotte",
+    "street": "",
+    "work_type": "Fiber Installation",
+    "excavator": "Unknown",
+    "status": "Demo",
+    "created_date": "2026-06-10",
+    "source": "NC811"
+  },
+  {
+    "ticket_id": "SC811-DEMO-001",
+    "state": "SC",
+    "county": "York",
+    "city": "Fort Mill",
+    "street": "",
+    "work_type": "Telecom Construction",
+    "excavator": "Unknown",
+    "status": "Demo",
+    "created_date": "2026-06-10",
+    "source": "SC811"
+  }
+]

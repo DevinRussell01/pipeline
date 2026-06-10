@@ -1,0 +1,5 @@
+print("Summit Atlas — NC811 Ticket Scanner")
+print("-----------------------------------")
+print("NC811 scanner placeholder active.")
+print("Future source: NC811 ticket / positive response data")
+print("Scan complete.")

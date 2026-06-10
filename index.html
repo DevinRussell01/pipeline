@@ -816,6 +816,14 @@ Awaiting scan.
 <!-- MAP -->
 <div class="section" id="section-5">
 <h2>Regional Growth Map</h2>
+
+<div class="map-controls">
+  <label><input type="checkbox" id="toggleProjects" checked> Projects</label>
+  <label><input type="checkbox" id="toggleBuilders" checked> Builders</label>
+  <label><input type="checkbox" id="toggleLocates" checked> Telecom / Locates</label>
+  <label><input type="checkbox" id="toggleLand" checked> Land Parcels</label>
+</div>
+
 <div id="map"></div>
 </div>
 
@@ -1404,6 +1412,9 @@ function initMap() {
 
   window.pipelineMap = L.map('map').setView([35.5, -80.9], 7);
 
+  const hotspotLayer = L.layerGroup().addTo(window.pipelineMap);
+  const landLayer = L.layerGroup().addTo(window.pipelineMap);
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
     .addTo(window.pipelineMap);
 
@@ -1417,7 +1428,7 @@ function initMap() {
 
   hotspots.forEach(h => {
     L.marker([h[0], h[1]])
-      .addTo(window.pipelineMap)
+      .addTo(hotspotLayer)
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
 
@@ -1441,7 +1452,7 @@ function initMap() {
         fillColor: isHighScore ? "#ef4444" : "#38bdf8",
         fillOpacity: 0.75,
         weight: 2
-      }).addTo(window.pipelineMap);
+      }).addTo(landLayer);
 
       marker.bindPopup(`
         <strong>${parcel.owner || "Unknown Owner"}</strong><br>
@@ -1453,10 +1464,30 @@ function initMap() {
       `);
     });
   })
-  .catch(error => {
-    console.error("Could not load land intelligence map layer", error);
-  });
+.catch(error => {
+  console.error("Could not load land intelligence map layer", error);
+});
+
+document.getElementById("toggleProjects")
+?.addEventListener("change", function() {
+  if (this.checked) {
+    window.pipelineMap.addLayer(hotspotLayer);
+  } else {
+    window.pipelineMap.removeLayer(hotspotLayer);
+  }
+});
+
+document.getElementById("toggleLand")
+?.addEventListener("change", function() {
+  if (this.checked) {
+    window.pipelineMap.addLayer(landLayer);
+  } else {
+    window.pipelineMap.removeLayer(landLayer);
+  }
+});
+
 }
+
 let locateMapLoaded = false;
 
 function initLocateMap() {
