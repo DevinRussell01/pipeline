@@ -17,7 +17,7 @@ COUNTIES = [
             "pin": "GIS_PIN",
             "owner1": "GIS_Owner1",
             "owner2": "GIS_Owner2",
-            "acres": "GIS_Calculated_Acres",
+            "acres": "GIS_Deeded_Acres",
             "x": "GIS_X_Coord",
             "y": "GIS_Y_Coord"
         }
@@ -48,6 +48,23 @@ COUNTIES = [
 def calculate_watch_score(owner, acres):
     owner_upper = str(owner or "").upper()
 
+    public_owner_keywords = [
+        "STATE OF NORTH CAROLINA",
+        "STATE OF NC",
+        "CLEVELAND COUNTY",
+        "GASTON COUNTY",
+        "COUNTY OF",
+        "CITY OF",
+        "TOWN OF",
+        "BOARD OF EDUCATION",
+        "DUKE ENERGY"
+    ]
+
+    is_public_owner = any(keyword in owner_upper for keyword in public_owner_keywords)
+
+    if is_public_owner:
+        return 2, False
+
     score = 0
 
     if acres >= 300:
@@ -60,26 +77,26 @@ def calculate_watch_score(owner, acres):
         score += 2
 
     keywords = [
-    "LLC",
-    "INC",
-    "CORP",
-    "CORPORATION",
-    "CO",
-    "COMPANY",
-    "HOLDINGS",
-    "PROPERTIES",
-    "PROPERTY",
-    "DEVELOPMENT",
-    "DEVELOPERS",
-    "INVESTMENTS",
-    "VENTURES",
-    "LAND",
-    "REALTY",
-    "REAL ESTATE",
-    "HOMES",
-    "BUILDERS",
-    "BUILDER",
-    "CONSTRUCTION"
+        "LLC",
+        "INC",
+        "CORP",
+        "CORPORATION",
+        "CO",
+        "COMPANY",
+        "HOLDINGS",
+        "PROPERTIES",
+        "PROPERTY",
+        "DEVELOPMENT",
+        "DEVELOPERS",
+        "INVESTMENTS",
+        "VENTURES",
+        "LAND",
+        "REALTY",
+        "REAL ESTATE",
+        "HOMES",
+        "BUILDERS",
+        "BUILDER",
+        "CONSTRUCTION"
     ]
 
     llc_flag = any(word in owner_upper for word in keywords)
@@ -115,9 +132,18 @@ def fetch_county_land(config):
     data = response.json()
 
     parcels = []
+    seen_ids = set()
 
     for feature in data.get("features", []):
         attr = feature.get("attributes", {})
+
+        pid = attr.get(fields["pid"])
+        parcel_key = f"{county}-{pid}"
+
+        if parcel_key in seen_ids:
+            continue
+
+        seen_ids.add(parcel_key)
 
         owner = attr.get(fields["owner1"])
         acres = attr.get(fields["acres"]) or 0
@@ -138,7 +164,7 @@ def fetch_county_land(config):
             "county": county,
             "owner": owner,
             "owner2": attr.get(fields["owner2"]),
-            "pid": attr.get(fields["pid"]),
+            "pid": pid,
             "pin": attr.get(fields["pin"]),
             "acres": round(acres, 2),
             "x": x,
