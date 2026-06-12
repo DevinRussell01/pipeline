@@ -1,3 +1,4 @@
+import time
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -285,6 +286,141 @@ def fetch_mecklenburg_land():
 
     return parcels
 
+def get_union_owner_and_acres(pid, session):
+    search_url = "https://unionnc.devnetwedge.com/search/quick"
+
+    try:
+        search_html = session.get(
+            search_url,
+            params={"q": pid},
+            timeout=8
+        ).text
+
+        search_soup = BeautifulSoup(search_html, "html.parser")
+
+        owner = "Unknown"
+        address = ""
+
+        for table in search_soup.find_all("table"):
+            parts = [
+                p.strip()
+                for p in table.get_text("|", strip=True).split("|")
+            ]
+
+            if pid not in parts:
+                continue
+
+            try:
+                number_index = parts.index(pid)
+                owner = parts[number_index + 1]
+                address = parts[number_index + 2]
+            except:
+                pass
+
+            break
+
+        detail_url = "https://unionnc.devnetwedge.com/search/ViewQuickSearchResult"
+
+        detail_params = {
+            "row": "1",
+            "property_key": pid,
+            "year": "2025",
+            "property_type": "Parcel"
+        }
+
+        detail_html = session.get(
+            detail_url,
+            params=detail_params,
+            timeout=8
+        ).text
+
+        detail_soup = BeautifulSoup(detail_html, "html.parser")
+        detail_text = detail_soup.get_text("|", strip=True)
+
+        acres = 0
+        parts = [p.strip() for p in detail_text.split("|")]
+
+        for i, part in enumerate(parts):
+            if part == "Deeded Acres":
+                try:
+                    acres = float(parts[i + 1])
+                except:
+                    acres = 0
+                break
+
+        return owner, address, acres
+
+    except Exception as e:
+        print(f"Union lookup failed for {pid}: {e}")
+        return "Unknown", "", 0
+
+
+def fetch_union_land():
+    url = "https://gis.unioncountync.gov/server/rest/services/ParcelCentroids/MapServer/0/query"
+
+    params = {
+        "where": "1=1",
+        "outFields": "PID,MuniAdmin,CountyZoning,ZoningAdmin,FireDistrict",
+        "returnGeometry": "true",
+        "f": "json",
+        "resultRecordCount": 10,
+        "outSR": "4326"
+    }
+
+    response = requests.get(url, params=params, timeout=8)
+    data = response.json()
+
+    parcels = []
+    seen_ids = set()
+
+    session = requests.Session()
+
+    for feature in data.get("features", []):
+        attr = feature.get("attributes", {})
+        geom = feature.get("geometry", {})
+
+        pid = attr.get("PID")
+
+        if not pid or pid in seen_ids:
+            continue
+
+        seen_ids.add(pid)
+
+        owner, address, acres = get_union_owner_and_acres(pid, session)
+
+        time.sleep(2)
+
+        if acres < 2:
+            continue
+
+        lat = geom.get("y")
+        lon = geom.get("x")
+
+        watch_score, llc_flag = calculate_watch_score(owner, acres)
+
+        parcels.append({
+            "county": "Union",
+            "owner": owner,
+            "owner2": "",
+            "pid": pid,
+            "pin": pid,
+            "address": address,
+            "acres": round(acres, 2),
+            "x": lon,
+            "y": lat,
+            "lat": lat,
+            "lon": lon,
+            "zoning": attr.get("CountyZoning"),
+            "zoning_admin": attr.get("ZoningAdmin"),
+            "fire_district": attr.get("FireDistrict"),
+            "llc_flag": llc_flag,
+            "watch_score": watch_score,
+            "acreage_source": "DEVNET Deeded Acres",
+            "owner_source": "DEVNET"
+        })
+
+    return parcels
+
 
 # =====================================================
 # MAIN
@@ -308,6 +444,14 @@ mecklenburg_parcels = fetch_mecklenburg_land()
 print(f"Found {len(mecklenburg_parcels)} parcels.")
 
 all_parcels.extend(mecklenburg_parcels)
+
+print("Scanning Union...")
+
+union_parcels = fetch_union_land()
+
+print(f"Found {len(union_parcels)} parcels.")
+
+all_parcels.extend(union_parcels)
 
 with open("land_intelligence.json", "w") as file:
     json.dump(all_parcels, file, indent=4)
