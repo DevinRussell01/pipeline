@@ -1,5 +1,6 @@
 import requests
 import json
+from bs4 import BeautifulSoup
 from pyproj import Transformer
 
 # =====================================================
@@ -53,17 +54,29 @@ def calculate_watch_score(owner, acres):
         "STATE OF NC",
         "CLEVELAND COUNTY",
         "GASTON COUNTY",
+        "MECKLENBURG COUNTY",
         "COUNTY OF",
         "CITY OF",
         "TOWN OF",
         "BOARD OF EDUCATION",
-        "DUKE ENERGY"
+        "DUKE ENERGY",
+        "DUKE POWER"
     ]
 
     is_public_owner = any(keyword in owner_upper for keyword in public_owner_keywords)
 
     if is_public_owner:
         return 2, False
+
+    if owner_upper in ["UNKNOWN", "", "NONE"]:
+        acres = float(acres or 0)
+
+        if acres >= 300:
+            return 3, False
+        elif acres >= 100:
+            return 2, False
+        else:
+            return 1, False
 
     score = 0
 
@@ -177,6 +190,101 @@ def fetch_county_land(config):
 
     return parcels
 
+def get_mecklenburg_centroid(geometry):
+    points = []
+
+    for ring in geometry.get("rings", []):
+        for point in ring:
+            if len(point) >= 2:
+                points.append(point)
+
+    if not points:
+        return None, None
+
+    lon = sum(p[0] for p in points) / len(points)
+    lat = sum(p[1] for p in points) / len(points)
+
+    return lat, lon
+
+
+def get_mecklenburg_owner(pid):
+    try:
+        url = f"https://polaris3g.mecklenburgcountync.gov/pid/{pid}"
+        html = requests.get(url, timeout=10).text
+        soup = BeautifulSoup(html, "html.parser")
+
+        for table in soup.find_all("table"):
+            text = table.get_text(" | ", strip=True)
+
+            if "Owner Name" in text:
+                parts = [p.strip() for p in text.split("|")]
+                if len(parts) >= 3:
+                    return parts[2]
+
+    except Exception:
+        pass
+
+    return "Unknown"
+
+
+def fetch_mecklenburg_land():
+    url = "https://gis.charlottenc.gov/arcgis/rest/services/CountyData/Parcels/MapServer/0/query"
+
+    params = {
+        "where": "Shape.STArea() >= 1089000",
+        "outFields": "PID,NC_PIN,Shape.STArea()",
+        "returnGeometry": "true",
+        "f": "json",
+        "resultRecordCount": 100,
+        "outSR": "4326",
+        "orderByFields": "Shape.STArea() DESC"
+    }
+
+    response = requests.get(url, params=params)
+    data = response.json()
+
+    parcels = []
+    seen_ids = set()
+
+    for feature in data.get("features", []):
+        attr = feature.get("attributes", {})
+        geometry = feature.get("geometry", {})
+
+        pid = attr.get("PID")
+
+        if not pid or pid in seen_ids:
+            continue
+
+        seen_ids.add(pid)
+
+        area_sqft = attr.get("Shape.STArea()") or 0
+        acres = round(area_sqft / 43560, 2)
+
+        lat, lon = get_mecklenburg_centroid(geometry)
+
+        owner = get_mecklenburg_owner(pid)
+
+        watch_score, llc_flag = calculate_watch_score(owner, acres)
+
+        parcels.append({
+            "county": "Mecklenburg",
+            "owner": owner,
+            "owner2": "",
+            "pid": pid,
+            "pin": attr.get("NC_PIN"),
+            "acres": acres,
+            "x": lon,
+            "y": lat,
+            "lat": lat,
+            "lon": lon,
+            "llc_flag": llc_flag,
+            "watch_score": watch_score,
+            "acreage_source": "Shape.STArea / 43560",
+            "owner_source": "POLARIS"
+        })
+
+    return parcels
+
 
 # =====================================================
 # MAIN
@@ -192,6 +300,14 @@ for county_config in COUNTIES:
     print(f"Found {len(parcels)} parcels.")
 
     all_parcels.extend(parcels)
+
+print("Scanning Mecklenburg...")
+
+mecklenburg_parcels = fetch_mecklenburg_land()
+
+print(f"Found {len(mecklenburg_parcels)} parcels.")
+
+all_parcels.extend(mecklenburg_parcels)
 
 with open("land_intelligence.json", "w") as file:
     json.dump(all_parcels, file, indent=4)
