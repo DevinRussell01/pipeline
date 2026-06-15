@@ -53,16 +53,25 @@ def calculate_watch_score(owner, acres):
     public_owner_keywords = [
         "STATE OF NORTH CAROLINA",
         "STATE OF NC",
+
         "CLEVELAND COUNTY",
         "GASTON COUNTY",
         "MECKLENBURG COUNTY",
+        "CABARRUS COUNTY",
+
         "COUNTY OF",
         "CITY OF",
         "TOWN OF",
+
         "BOARD OF EDUCATION",
+
         "DUKE ENERGY",
-        "DUKE POWER"
+        "DUKE POWER",
+
+        "WATER AND SEWER AUTHORITY",
+        "CITY OF CONCORD"
     ]
+    
 
     is_public_owner = any(keyword in owner_upper for keyword in public_owner_keywords)
 
