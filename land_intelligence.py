@@ -430,6 +430,129 @@ def fetch_union_land():
 
     return parcels
 
+def parse_cabarrus_tax_card(parcel14):
+    url = f"https://tax.cabarruscounty.us/AppraisalCard.aspx?Parcel={parcel14}"
+
+    try:
+        html = requests.get(url, timeout=6).text
+        soup = BeautifulSoup(html, "html.parser")
+        parts = [p.strip() for p in soup.get_text("|", strip=True).split("|")]
+
+        owner = "Unknown"
+        address = ""
+        acres = 0
+
+        if len(parts) > 4:
+            owner = parts[3]
+
+        if "Parcel:" in parts:
+            parcel_index = parts.index("Parcel:")
+            if parcel_index + 2 < len(parts):
+                address = parts[parcel_index + 2]
+
+        for i, part in enumerate(parts):
+            if part == "AC" and i > 0:
+                try:
+                    acres = float(parts[i - 1])
+                except:
+                    acres = 0
+                break
+
+        return owner, address, acres
+
+    except Exception as e:
+        print(f"Cabarrus tax lookup failed for {parcel14}: {e}")
+        return "Unknown", "", 0
+
+
+def get_cabarrus_centroid(geometry):
+    points = []
+
+    for ring in geometry.get("rings", []):
+        for point in ring:
+            if len(point) >= 2:
+                points.append(point)
+
+    if not points:
+        return None, None
+
+    lon = sum(p[0] for p in points) / len(points)
+    lat = sum(p[1] for p in points) / len(points)
+
+    return lat, lon
+
+
+def fetch_cabarrus_land():
+    url = "https://location.cabarruscounty.us/arcgisservices/rest/services/DataExplorerDatasets/MapServer/3/query"
+
+    params = {
+        "where": "1=1",
+        "outFields": "PIN,Shape.STArea()",
+        "returnGeometry": "true",
+        "f": "json",
+        "resultRecordCount": 25,
+        "outSR": "4326",
+        "orderByFields": "Shape.STArea() DESC"
+    }
+
+    response = requests.get(url, params=params, timeout=20)
+    data = response.json()
+
+    parcels = []
+    seen_ids = set()
+
+    for feature in data.get("features", []):
+        attr = feature.get("attributes", {})
+        geometry = feature.get("geometry", {})
+
+        pin_raw = attr.get("PIN")
+
+        if not pin_raw:
+            continue
+
+        pin10 = str(int(pin_raw)).zfill(10)
+        parcel14 = pin10 + "0000"
+
+        if parcel14 in seen_ids:
+            continue
+
+        seen_ids.add(parcel14)
+
+        area_sqft = attr.get("Shape.STArea()") or 0
+        gis_acres = round(area_sqft / 43560, 2)
+
+        if gis_acres < 25:
+            continue
+
+        lat, lon = get_cabarrus_centroid(geometry)
+
+        owner, address, deeded_acres = parse_cabarrus_tax_card(parcel14)
+
+        acres = deeded_acres if deeded_acres else gis_acres
+
+        watch_score, llc_flag = calculate_watch_score(owner, acres)
+
+        parcels.append({
+            "county": "Cabarrus",
+            "owner": owner,
+            "owner2": "",
+            "pid": parcel14,
+            "pin": pin10,
+            "address": address,
+            "acres": round(acres, 2),
+            "gis_acres": gis_acres,
+            "x": lon,
+            "y": lat,
+            "lat": lat,
+            "lon": lon,
+            "llc_flag": llc_flag,
+            "watch_score": watch_score,
+            "acreage_source": "Cabarrus Tax Card / GIS Shape Area",
+            "owner_source": "Cabarrus Tax Appraisal Card"
+        })
+
+    return parcels
+
 
 # =====================================================
 # MAIN
@@ -454,13 +577,21 @@ print(f"Found {len(mecklenburg_parcels)} parcels.")
 
 all_parcels.extend(mecklenburg_parcels)
 
-print("Scanning Union...")
+# print("Scanning Union...")
 
-union_parcels = fetch_union_land()
+# union_parcels = fetch_union_land()
 
-print(f"Found {len(union_parcels)} parcels.")
+# print(f"Found {len(union_parcels)} parcels.")
 
-all_parcels.extend(union_parcels)
+# all_parcels.extend(union_parcels)
+
+print("Scanning Cabarrus...")
+
+cabarrus_parcels = fetch_cabarrus_land()
+
+print(f"Found {len(cabarrus_parcels)} parcels.")
+
+all_parcels.extend(cabarrus_parcels)
 
 with open("land_intelligence.json", "w") as file:
     json.dump(all_parcels, file, indent=4)
