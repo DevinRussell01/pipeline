@@ -1,0 +1,104 @@
+[
+    {
+        "ticket_id": "LOCATE-MECK-001",
+        "county": "Mecklenburg",
+        "city": "Charlotte",
+        "street": "Westinghouse Boulevard",
+        "work_type": "Fiber / Utility Construction",
+        "category": "Telecom",
+        "risk_score": 9,
+        "opportunity_score": 15,
+        "nearby_project_count": 0,
+        "nearby_land_count": 4,
+        "nearby_high_watch_land_count": 4,
+        "nearby_projects": [],
+        "nearby_land": [
+            {
+                "owner": "MARTIN MARIETTA MATERIALS INC",
+                "acres": 223.67,
+                "watch_score": 8,
+                "distance_miles": 2.02,
+                "pid": "20313101"
+            },
+            {
+                "owner": "MARTIN MARIETTA MATERIALS INC",
+                "acres": 184.78,
+                "watch_score": 8,
+                "distance_miles": 1.72,
+                "pid": "20312101"
+            },
+            {
+                "owner": "VULCAN LANDS INC",
+                "acres": 159.85,
+                "watch_score": 8,
+                "distance_miles": 2.92,
+                "pid": "20513102"
+            },
+            {
+                "owner": "CAROWINDS LLC",
+                "acres": 153.46,
+                "watch_score": 8,
+                "distance_miles": 0.92,
+                "pid": "20315208"
+            }
+        ],
+        "signal": "Utility construction signal in high-growth industrial corridor",
+        "summary": "Mecklenburg locate signal near 0 project(s) and 4 tracked parcel(s)."
+    },
+    {
+        "ticket_id": "LOCATE-CAB-001",
+        "county": "Cabarrus",
+        "city": "Concord",
+        "street": "Concord Mills Boulevard",
+        "work_type": "Directional Bore / Utility Work",
+        "category": "Telecom",
+        "risk_score": 8,
+        "opportunity_score": 14,
+        "nearby_project_count": 0,
+        "nearby_land_count": 3,
+        "nearby_high_watch_land_count": 1,
+        "nearby_projects": [],
+        "nearby_land": [
+            {
+                "owner": "CHARLOTTE MOTOR SPEEDWAY LLC",
+                "acres": 837.48,
+                "watch_score": 9,
+                "distance_miles": 2.8,
+                "pid": "45988876150000"
+            },
+            {
+                "owner": "CITY OF CONCORD",
+                "acres": 587.27,
+                "watch_score": 2,
+                "distance_miles": 1.23,
+                "pid": "46900022520000"
+            },
+            {
+                "owner": "CITY OF CONCORD",
+                "acres": 313.23,
+                "watch_score": 2,
+                "distance_miles": 1.93,
+                "pid": "45995270340000"
+            }
+        ],
+        "signal": "Possible underground utility or telecom work near commercial growth zone",
+        "summary": "Cabarrus locate signal near 0 project(s) and 3 tracked parcel(s)."
+    },
+    {
+        "ticket_id": "LOCATE-UNION-001",
+        "county": "Union",
+        "city": "Monroe",
+        "street": "South Rocky River Road",
+        "work_type": "Utility Construction",
+        "category": "Utility",
+        "risk_score": 8,
+        "opportunity_score": 8,
+        "nearby_project_count": 0,
+        "nearby_land_count": 0,
+        "nearby_high_watch_land_count": 0,
+        "nearby_projects": [],
+        "nearby_land": [],
+        "signal": "Utility activity signal near active development corridor",
+        "summary": "Union locate signal near 0 project(s) and 0 tracked parcel(s)."
+    }
+]

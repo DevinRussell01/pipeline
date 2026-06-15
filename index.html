@@ -633,6 +633,33 @@ a:hover{
   </table>
 </div>
 
+<br>
+
+<h3>High-Confidence Locate Correlations</h3>
+
+<div class="sub">
+  Utility activity correlated against nearby projects and tracked land parcels.
+</div>
+
+<br>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>County</th>
+        <th>Street</th>
+        <th>Work Type</th>
+        <th>Opportunity Score</th>
+        <th>Nearby Projects</th>
+        <th>Nearby Parcels</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody id="locateCorrelationTable"></tbody>
+  </table>
+</div>
+
 </div>
 
 <div class="section" id="section-9">
@@ -1817,7 +1844,32 @@ function initLocateMap() {
     .catch(error => {
       console.error("Could not load locate tickets", error);
     });
+  fetch('locate_correlations.json')
+    .then(res => res.json())
+    .then(correlations => {
+      const sorted = correlations.sort(
+        (a, b) => Number(b.opportunity_score || 0) - Number(a.opportunity_score || 0)
+      );
+
+      document.getElementById("locateCorrelationTable").innerHTML =
+        sorted.map(item => `
+          <tr>
+            <td>${item.county || ""}</td>
+            <td>${item.street || ""}</td>
+            <td>${item.work_type || ""}</td>
+            <td>${item.opportunity_score || 0}</td>
+            <td>${item.nearby_project_count || 0}</td>
+            <td>${item.nearby_land_count || 0}</td>
+            <td>${item.summary || ""}</td>
+          </tr>
+        `).join("");
+    })
+    .catch(error => {
+      console.error("Could not load locate correlations", error);
+    });
+
 }
+
 
 async function loadProjectsFromJson() {
   try {

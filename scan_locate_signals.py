@@ -1,4 +1,12 @@
-[
+import json
+from datetime import datetime
+
+print("Summit Atlas — Locate Signal Scanner")
+print("------------------------------------")
+
+today = datetime.now().strftime("%Y-%m-%d")
+
+signals = [
     {
         "ticket_id": "LOCATE-MECK-001",
         "state": "NC",
@@ -10,7 +18,7 @@
         "excavator": "Unknown",
         "company": "Telecom / Fiber",
         "status": "Active Signal",
-        "created_date": "2026-06-15",
+        "created_date": today,
         "lat": 35.1168,
         "lon": -80.9504,
         "risk_score": 9,
@@ -28,7 +36,7 @@
         "excavator": "Unknown",
         "company": "Unknown",
         "status": "Active Signal",
-        "created_date": "2026-06-15",
+        "created_date": today,
         "lat": 35.3706,
         "lon": -80.7252,
         "risk_score": 8,
@@ -46,7 +54,7 @@
         "excavator": "Unknown",
         "company": "Unknown",
         "status": "Active Signal",
-        "created_date": "2026-06-15",
+        "created_date": today,
         "lat": 35.0176,
         "lon": -80.5495,
         "risk_score": 8,
@@ -54,3 +62,9 @@
         "signal": "Utility activity signal near active development corridor"
     }
 ]
+
+with open("locate_tickets.json", "w") as file:
+    json.dump(signals, file, indent=4)
+
+print(f"Saved {len(signals)} locate intelligence signals.")
+print("Scan complete.")

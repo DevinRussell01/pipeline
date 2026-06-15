@@ -10,8 +10,8 @@ scripts = [
     "scan_gaston_projects.py",
     "scan_mecklenburg_subdivisions.py",
     "scan_union_projects.py",
-    "scan_nc811_tickets.py",
-    "scan_sc811_tickets.py"
+    "scan_locate_signals.py",
+    "correlate_locate_signals.py",
 ]
 
 for script in scripts:
