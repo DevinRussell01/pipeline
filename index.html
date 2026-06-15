@@ -597,6 +597,42 @@ a:hover{
 
   <div id="locateMap"></div>
 
+<div class="stats" style="margin-top:24px;">
+  <div class="stat">
+    <strong id="locateTicketCount">0</strong>
+    <span>Active Locate Tickets</span>
+  </div>
+
+  <div class="stat">
+    <strong id="locateCountyCount">0</strong>
+    <span>Counties With Activity</span>
+  </div>
+
+  <div class="stat">
+    <strong id="locateTelecomCount">0</strong>
+    <span>Telecom / Utility Signals</span>
+  </div>
+</div>
+
+<br>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>County</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Work Type</th>
+        <th>Category</th>
+        <th>Risk</th>
+        <th>Signal</th>
+      </tr>
+    </thead>
+    <tbody id="locateTicketTable"></tbody>
+  </table>
+</div>
+
 </div>
 
 <div class="section" id="section-9">
@@ -1712,6 +1748,74 @@ function initLocateMap() {
     })
     .catch(error => {
       console.error("Could not load locate intelligence layer", error);
+    });
+
+      fetch('locate_tickets.json')
+    .then(res => res.json())
+    .then(tickets => {
+
+      document.getElementById("locateTicketCount").textContent =
+        tickets.length;
+
+      const counties = [
+        ...new Set(
+          tickets
+            .map(t => t.county)
+            .filter(Boolean)
+        )
+      ];
+
+      document.getElementById("locateCountyCount").textContent =
+        counties.length;
+
+      const telecomSignals = tickets.filter(t =>
+        String(t.category || "").toLowerCase().includes("telecom") ||
+        String(t.work_type || "").toLowerCase().includes("fiber") ||
+        String(t.work_type || "").toLowerCase().includes("bore")
+      );
+
+      document.getElementById("locateTelecomCount").textContent =
+        telecomSignals.length;
+
+      document.getElementById("locateTicketTable").innerHTML =
+        tickets.map(ticket => `
+          <tr>
+            <td>${ticket.county || ""}</td>
+            <td>${ticket.city || ""}</td>
+            <td>${ticket.street || ""}</td>
+            <td>${ticket.work_type || ""}</td>
+            <td>${ticket.category || ""}</td>
+            <td>${ticket.risk_score || 0}</td>
+            <td>${ticket.signal || ""}</td>
+          </tr>
+        `).join("");
+
+      tickets.forEach(ticket => {
+
+        const lat = Number(ticket.lat);
+        const lon = Number(ticket.lon);
+
+        if (!lat || !lon) return;
+
+        L.circleMarker([lat, lon], {
+          radius: 8,
+          color: '#facc15',
+          fillColor: '#facc15',
+          fillOpacity: 0.9,
+          weight: 2
+        })
+        .addTo(locateMap)
+        .bindPopup(`
+          <strong>${ticket.ticket_id}</strong><br>
+          ${ticket.county} County<br>
+          ${ticket.work_type}<br>
+          Risk Score: ${ticket.risk_score}
+        `);
+      });
+
+    })
+    .catch(error => {
+      console.error("Could not load locate tickets", error);
     });
 }
 
