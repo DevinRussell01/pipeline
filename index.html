@@ -51,7 +51,7 @@ body{
   color:var(--text);
 
 background:
-  linear-gradient(rgba(2,6,23,.72), rgba(2,6,23,.88)),
+  linear-gradient(rgba(2,6,23,.55), rgba(2,6,23,.74)),
   url('conduit-bg.png');
 
 background-size:cover;
@@ -71,7 +71,7 @@ body::before{
   inset:0;
 
   background:
-    rgba(2,6,23,.45);
+    rgba(2,6,23,.22);
 
   pointer-events:none;
   z-index:-1;
@@ -137,19 +137,20 @@ body::before{
 }
 
 header{
-  padding-top:28px;
-  margin-bottom:10px;
+  padding-top:8px;
+  margin-bottom:6px;
 }
 
 .hero-content{
-  max-width:780px;
+  max-width:760px;
+  padding-top:0;
 }
 
 .hero-content .sub{
   max-width:720px;
   font-size:16px;
-  line-height:1.5;
-  margin-bottom:14px;
+  line-height:1.45;
+  margin-bottom:10px;
 }
 
 .hero h1{
@@ -182,7 +183,8 @@ header{
   width:520px;
   max-width:90vw;
   display:block;
-  margin-bottom:16px;
+  margin-top:0;
+  margin-bottom:12px;
 }
 
 .brand-mark{
@@ -534,27 +536,22 @@ a:hover{
 }
 
 .hero-content{
-  max-width:900px;
+  max-width:760px;
 }
 
 .hero-content h1{
   font-size:64px;
-
   line-height:1;
-
-  margin-bottom:18px;
-
+  margin-bottom:10px;
   letter-spacing:-2px;
 }
 
 .hero-content .sub{
-  font-size:18px;
-
-  line-height:1.7;
-
+  font-size:16px;
+  line-height:1.45;
   color:var(--muted);
-
-  max-width:760px;
+  max-width:720px;
+  margin-bottom:10px;
 }
 
 /* ===== GLOWING INTEL PANELS ===== */
@@ -579,7 +576,7 @@ a:hover{
 /* ===== LIVE SCAN TICKER ===== */
 
 .scan-ticker{
-  margin-top:14px;
+  margin-top:8px;
   padding:12px 18px;
   border-radius:14px;
   background:rgba(249,115,22,.08);
