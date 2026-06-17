@@ -2250,26 +2250,44 @@ function renderOrganizations(search = "", category = "") {
 
 window.onload = () => {
 
+  if (document.getElementById('countyCount')) {
   document.getElementById('countyCount').innerText = COUNTIES.length;
+}
+
+if (document.getElementById('builderCount')) {
   document.getElementById('builderCount').innerText = BUILDERS.length;
-  document.getElementById('projectCount').innerText = PROJECTS.length;
+}
+
+if (document.getElementById('projectCount')) {
+  fetch("projects.json")
+    .then(res => res.json())
+    .then(projects => {
+      document.getElementById("projectCount").textContent = projects.length;
+    });
+}
 
   // COUNTIES
-  document.getElementById('countyGrid').innerHTML = COUNTIES.map(c => `
-    <div class="card">
-      <h3>${c.county} County (${c.state})</h3>
-      <a href="${c.zoning}" target="_blank">
-        Planning + Zoning Portal
-      </a>
-    </div>
-  `).join('');
+  if (document.getElementById('countyGrid')) {
+    document.getElementById('countyGrid').innerHTML = COUNTIES.map(c => `
+      <div class="card">
+        <h3>${c.county} County (${c.state})</h3>
+        <a href="${c.zoning}" target="_blank">
+          Planning + Zoning Portal
+        </a>
+      </div>
+    `).join('');
+  }
 
 // ORGANIZATIONS
-renderOrganizations();
+if (document.getElementById("builderGrid")) {
+  renderOrganizations();
+}
 
-document.getElementById("orgSearch").addEventListener("input", e => {
-  renderOrganizations(e.target.value);
-});
+if (document.getElementById("orgSearch")) {
+  document.getElementById("orgSearch").addEventListener("input", e => {
+    renderOrganizations(e.target.value);
+  });
+}
 
   // PROJECT TABLE
     loadProjectsFromJson();
