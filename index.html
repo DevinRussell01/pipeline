@@ -153,6 +153,51 @@ body::before{
   -webkit-text-fill-color:transparent;
 }
 
+.brand-lockup{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  margin-top:22px;
+  margin-bottom:18px;
+}
+
+.brand-mark{
+  font-size:58px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#f97316;
+}
+
+.brand-line{
+  width:220px;
+  height:8px;
+  border-bottom:3px solid #f97316;
+  border-radius:999px;
+  position:relative;
+}
+
+.brand-line::before{
+  content:"";
+  position:absolute;
+  left:58px;
+  bottom:-3px;
+  width:70px;
+  height:22px;
+  border-bottom:3px solid #f97316;
+  border-radius:0 0 50px 50px;
+  transform:translateY(6px);
+}
+
+.brand-subtitle{
+  color:#e2e8f0;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
 .hero p{
   color:var(--muted);
 
@@ -530,18 +575,22 @@ a:hover{
 
 <div class="hero-content">
 
-  <div class="scan-ticker">
-    ● LIVE INTELLIGENCE FEED
-  </div>
+  
 
-  <h1>Conduit</h1>
-
-  <div class="sub">
-    Development & Infrastructure Intelligence
+  <div class="brand-lockup">
+    <div class="brand-mark">CONDUIT</div>
+    <div class="brand-line"></div>
+    <div class="brand-subtitle">
+      Development & Infrastructure Intelligence
+    </div>
   </div>
 
   <div class="sub" style="margin-top:10px;">
     Land, development, builder, and utility activity signals converted into actionable growth intelligence.
+  </div>
+
+  <div class="scan-ticker">
+    ● LIVE INTELLIGENCE FEED
   </div>
 
 </div>
@@ -2250,7 +2299,7 @@ function renderOrganizations(search = "", category = "") {
 
 window.onload = () => {
 
-  if (document.getElementById('countyCount')) {
+if (document.getElementById('countyCount')) {
   document.getElementById('countyCount').innerText = COUNTIES.length;
 }
 
