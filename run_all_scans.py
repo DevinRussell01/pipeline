@@ -12,6 +12,7 @@ scripts = [
     "scan_union_projects.py",
     "scan_locate_signals.py",
     "correlate_locate_signals.py",
+    "detect_locate_patterns.py",
 ]
 
 for script in scripts:

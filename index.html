@@ -681,6 +681,32 @@ a:hover{
   </table>
 </div>
 
+<br>
+
+<h3>Locate Pattern Intelligence</h3>
+
+<div class="sub">
+  Engineering interpretation of utility activity patterns and potential opportunities.
+</div>
+
+<br>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Pattern Type</th>
+        <th>County</th>
+        <th>Street</th>
+        <th>Confidence</th>
+        <th>Opportunity</th>
+        <th>Recommended Action</th>
+      </tr>
+    </thead>
+    <tbody id="locatePatternTable"></tbody>
+  </table>
+</div>
+
 </div>
 
 <div class="section" id="section-9">
@@ -1912,6 +1938,47 @@ function initLocateMap() {
     })
     .catch(error => {
       console.error("Could not load locate correlations", error);
+    });
+  
+    fetch('locate_patterns.json')
+    .then(res => res.json())
+    .then(patterns => {
+
+      document.getElementById("locatePatternTable").innerHTML =
+        patterns.map(pattern => {
+
+          let action = "Monitor Activity";
+
+          if (pattern.pattern_type === "Telecom Expansion Signal") {
+            action =
+              "Alert Sales • Check Competitor Activity";
+          }
+
+          if (pattern.pattern_type === "Development / Infrastructure Cluster") {
+            action =
+              "Review Land • Check Development Activity";
+          }
+
+          if (pattern.pattern_type === "Utility Corridor Expansion") {
+            action =
+              "Evaluate Joint Trench Opportunity";
+          }
+
+          return `
+            <tr>
+              <td>${pattern.pattern_type}</td>
+              <td>${pattern.county}</td>
+              <td>${pattern.street}</td>
+              <td>${pattern.confidence_label}</td>
+              <td>${pattern.opportunity}</td>
+              <td>${action}</td>
+            </tr>
+          `;
+        }).join("");
+
+    })
+    .catch(error => {
+      console.error("Could not load locate patterns", error);
     });
 
 }
