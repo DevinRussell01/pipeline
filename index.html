@@ -589,6 +589,31 @@ a:hover{
 
   <h2>Locate Intelligence</h2>
 
+<div class="stats" id="opportunityCards">
+
+  <div class="stat">
+    <strong id="opp1Score">--</strong>
+    <span id="opp1Text">Loading...</span>
+  </div>
+
+  <div class="stat">
+    <strong id="opp2Score">--</strong>
+    <span id="opp2Text">Loading...</span>
+  </div>
+
+  <div class="stat">
+    <strong id="opp3Score">--</strong>
+    <span id="opp3Text">Loading...</span>
+  </div>
+
+</div>
+
+<br>
+
+<div class="sub">
+  811 locate ticket heat map for telecom, power, gas, and water infrastructure activity.
+</div>
+
   <div class="sub">
     811 locate ticket heat map for telecom, power, gas, and water infrastructure activity.
   </div>
@@ -1850,6 +1875,30 @@ function initLocateMap() {
       const sorted = correlations.sort(
         (a, b) => Number(b.opportunity_score || 0) - Number(a.opportunity_score || 0)
       );
+
+      if (sorted[0]) {
+        document.getElementById("opp1Score").textContent =
+          sorted[0].opportunity_score;
+
+        document.getElementById("opp1Text").textContent =
+          `${sorted[0].county} - ${sorted[0].street}`;
+      }
+
+      if (sorted[1]) {
+        document.getElementById("opp2Score").textContent =
+          sorted[1].opportunity_score;
+
+        document.getElementById("opp2Text").textContent =
+          `${sorted[1].county} - ${sorted[1].street}`;
+      }
+
+      if (sorted[2]) {
+        document.getElementById("opp3Score").textContent =
+          sorted[2].opportunity_score;
+
+        document.getElementById("opp3Text").textContent =
+          `${sorted[2].county} - ${sorted[2].street}`;
+      }
 
       document.getElementById("locateCorrelationTable").innerHTML =
         sorted.map(item => `
