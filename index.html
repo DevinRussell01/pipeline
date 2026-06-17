@@ -279,6 +279,30 @@ body::before{
   letter-spacing:-2px;
 }
 
+.stat-card{
+  position:relative;
+  min-height:190px;
+}
+
+.card-icon{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(249,115,22,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#f97316;
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.stat-card p{
+  margin-top:8px;
+  color:#cbd5e1;
+  font-size:14px;
+}
+
 /* sections */
 
 .section{
@@ -872,24 +896,32 @@ a:hover{
   <div class="stats">
 
     <div class="stat-card card">
-      <h3>Project Records</h3>
-      <div class="value" id="projectCount">0</div>
-    </div>
+  <div class="card-icon">▤</div>
+  <h3>Project Records</h3>
+  <div class="value" id="projectCount">0</div>
+  <p>Total tracked development projects</p>
+</div>
 
-    <div class="stat-card card">
-      <h3>Tracked Parcels</h3>
-      <div class="value" id="dashboardParcelCount">0</div>
-    </div>
+<div class="stat-card card">
+  <div class="card-icon">⌖</div>
+  <h3>Tracked Parcels</h3>
+  <div class="value" id="dashboardParcelCount">0</div>
+  <p>Large parcels & ownership insights</p>
+</div>
 
-    <div class="stat-card card">
-      <h3>Locate Signals</h3>
-      <div class="value" id="dashboardSignalCount">0</div>
-    </div>
+<div class="stat-card card">
+  <div class="card-icon">⌁</div>
+  <h3>Locate Signals</h3>
+  <div class="value" id="dashboardSignalCount">0</div>
+  <p>Active infrastructure activity</p>
+</div>
 
-    <div class="stat-card card">
-      <h3>High-Confidence Opportunities</h3>
-      <div class="value" id="dashboardOpportunityCount">0</div>
-    </div>
+<div class="stat-card card">
+  <div class="card-icon">◎</div>
+  <h3>High-Confidence Opportunities</h3>
+  <div class="value" id="dashboardOpportunityCount">0</div>
+  <p>Top opportunities identified</p>
+</div>
 
   </div>
 
