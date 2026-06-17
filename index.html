@@ -13,8 +13,8 @@
 
 :root{
   --bg:#0b1120;
-  --panel:rgba(15,23,42,.72);
-  --panel-light:rgba(30,41,59,.65);
+  --panel:rgba(15,23,42,.94);
+  --panel-light:rgba(30,41,59,.88);
   --border:rgba(255,255,255,.08);
 
   --text:#e2e8f0;
@@ -829,17 +829,43 @@ a:hover{
 
     <div class="stat-card card">
       <h3>Tracked Parcels</h3>
-      <div class="value" id="dashboardParcelCount">319</div>
+      <div class="value" id="dashboardParcelCount">0</div>
     </div>
 
     <div class="stat-card card">
       <h3>Locate Signals</h3>
-      <div class="value" id="dashboardSignalCount">3</div>
+      <div class="value" id="dashboardSignalCount">0</div>
     </div>
 
     <div class="stat-card card">
       <h3>High-Confidence Opportunities</h3>
-      <div class="value" id="dashboardOpportunityCount">2</div>
+      <div class="value" id="dashboardOpportunityCount">0</div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong id="dashPatternCount">0</strong>
+      <span>Detected Patterns</span>
+    </div>
+
+    <div class="stat">
+      <strong id="dashHighConfidenceCount">0</strong>
+      <span>Very High Confidence</span>
+    </div>
+
+    <div class="stat">
+      <strong id="dashTelecomPatternCount">0</strong>
+      <span>Telecom Expansion Signals</span>
+    </div>
+
+    <div class="stat">
+      <strong id="dashDevelopmentPatternCount">0</strong>
+      <span>Development Clusters</span>
     </div>
 
   </div>
