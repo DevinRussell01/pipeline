@@ -2276,9 +2276,50 @@ document.getElementById("orgSearch").addEventListener("input", e => {
 
     loadLandIntelligence();
 
-    loadBuilderPortfolios();
+        loadBuilderPortfolios();
 
     renderWatchlists();
+
+    fetch("land_intelligence.json")
+      .then(res => res.json())
+      .then(parcels => {
+        document.getElementById("dashboardParcelCount").textContent =
+          parcels.length;
+      });
+
+    fetch("locate_tickets.json")
+      .then(res => res.json())
+      .then(signals => {
+        document.getElementById("dashboardSignalCount").textContent =
+          signals.length;
+      });
+
+    fetch("locate_patterns.json")
+      .then(res => res.json())
+      .then(patterns => {
+
+        document.getElementById("dashboardOpportunityCount").textContent =
+          patterns.filter(p => p.opportunity === "High").length;
+
+        document.getElementById("dashPatternCount").textContent =
+          patterns.length;
+
+        document.getElementById("dashHighConfidenceCount").textContent =
+          patterns.filter(
+            p => p.confidence_label === "Very High"
+          ).length;
+
+        document.getElementById("dashTelecomPatternCount").textContent =
+          patterns.filter(
+            p => p.pattern_type === "Telecom Expansion Signal"
+          ).length;
+
+        document.getElementById("dashDevelopmentPatternCount").textContent =
+          patterns.filter(
+            p => p.pattern_type === "Development / Infrastructure Cluster"
+          ).length;
+
+      });
 
     document.getElementById("builderFilter")
     .addEventListener("change", filterBuilderPortfolios);
