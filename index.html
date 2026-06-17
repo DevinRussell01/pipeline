@@ -39,7 +39,7 @@ html{
 
 body{
   margin:0;
-  padding:24px;
+  padding:0 18px 18px;
 
   font-family:
     Inter,
@@ -136,6 +136,22 @@ body::before{
   margin-bottom:28px;
 }
 
+header{
+  padding-top:28px;
+  margin-bottom:10px;
+}
+
+.hero-content{
+  max-width:780px;
+}
+
+.hero-content .sub{
+  max-width:720px;
+  font-size:16px;
+  line-height:1.5;
+  margin-bottom:14px;
+}
+
 .hero h1{
   margin:0;
 
@@ -163,12 +179,10 @@ body::before{
 }
 
 .conduit-logo{
-  width:420px;
+  width:520px;
   max-width:90vw;
-
   display:block;
-
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
 
 .brand-mark{
@@ -269,7 +283,9 @@ body::before{
 }
 
 .stat-card{
-  padding:28px;
+  padding:22px;
+  position:relative;
+  min-height:150px;
 }
 
 .stat-card h3{
@@ -282,28 +298,24 @@ body::before{
 }
 
 .stat-card .value{
-  font-size:54px;
+  font-size:44px;
   font-weight:800;
 
   letter-spacing:-2px;
 }
 
-.stat-card{
-  position:relative;
-  min-height:190px;
-}
 
 .card-icon{
-  width:52px;
-  height:52px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   border:1px solid rgba(249,115,22,.35);
   display:flex;
   align-items:center;
   justify-content:center;
   color:#f97316;
-  font-size:24px;
-  margin-bottom:18px;
+  font-size:20px;
+  margin-bottom:14px;
 }
 
 .stat-card p{
@@ -315,8 +327,8 @@ body::before{
 /* sections */
 
 .section{
-  padding:28px;
-  margin-bottom:28px;
+  padding:24px;
+  margin-bottom:18px;
 }
 
 /* tab visibility */
@@ -442,7 +454,6 @@ a:hover{
   .stat-card .value{
     font-size:42px;
   }
-#
 }
 /* ===== HERO / LIVE STATUS ===== */
 
@@ -568,22 +579,16 @@ a:hover{
 /* ===== LIVE SCAN TICKER ===== */
 
 .scan-ticker{
-  margin-top:20px;
-
-  padding:14px 18px;
-
-  border-radius:16px;
-
-  background:rgba(249,115,22,.06);
-
-  border:1px solid rgba(249,115,22,.16);
-
+  margin-top:14px;
+  padding:12px 18px;
+  border-radius:14px;
+  background:rgba(249,115,22,.08);
+  border:1px solid rgba(249,115,22,.22);
   color:#fb923c;
-
   font-size:13px;
-  font-weight:600;
-
+  font-weight:700;
   letter-spacing:.4px;
+  max-width:720px;
 }
 #builderGrid {
   display:grid;
