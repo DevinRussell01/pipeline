@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summit Atlas • Regional Development Intelligence</title>
+<title>Conduit • Development & Infrastructure Intelligence</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -528,45 +528,23 @@ a:hover{
 
 <header>
 
-  <div class="live-bar">
-
-    <div class="live-pill">
-      <span class="pulse"></span>
-      LIVE
-    </div>
-
-    <div class="status-item">
-      4 Counties Online
-    </div>
-
-    <div class="status-item">
-      6 Active Projects
-    </div>
-
-    <div class="status-item">
-      Western NC + Upstate SC
-    </div>
-
-  </div>
-
 <div class="hero-content">
 
-  <h1>Summit Atlas</h1>
+  <div class="scan-ticker">
+    ● LIVE INTELLIGENCE FEED
+  </div>
+
+  <h1>Conduit</h1>
 
   <div class="sub">
-    Regional Development Intelligence
+    Development & Infrastructure Intelligence
   </div>
 
   <div class="sub" style="margin-top:10px;">
-    Single-family development, infrastructure, land, and competitive intelligence
-    tracking growth corridors across North Carolina and South Carolina.
+    Land, development, builder, and utility activity signals converted into actionable growth intelligence.
   </div>
 
-  <div class="scan-ticker">
-    SCANNER ONLINE • MULTI-COUNTY FEED ACTIVE • DEVELOPMENT INTELLIGENCE SYNCED
-  </div>
-
-  </div>
+</div>
 
 </header>
 
@@ -579,7 +557,7 @@ a:hover{
   <button class="tab" onclick="showSection(5)">Map</button>
   <button class="tab" onclick="showSection(6)">Parser</button>
   <button class="tab" onclick="showSection(7)">Land Intelligence</button>
-  <button class="tab" onclick="showSection(8)">Locate Intel</button>
+  <button class="tab" onclick="showSection(8)">Signals</button>
   <button class="tab" onclick="showSection(9)">Builder Portfolios</button>
   <button class="tab" onclick="showSection(10)">Watchlists</button>
   </div>
@@ -871,7 +849,7 @@ a:hover{
 </button>
 
 <div class="log" id="log">
-Summit Atlas v5 initialized.
+Conduit v1 initialized.
 Awaiting scan.
 </div>
 
@@ -1003,7 +981,7 @@ Analyze Agenda
 
 <div class="footer">
 <div>
-Summit Atlas v5 • Proprietary Development Intelligence Software
+Conduit • Development Intelligence Software
 </div>
 
 <div>
@@ -2272,7 +2250,7 @@ document.getElementById("orgSearch").addEventListener("input", e => {
     document.getElementById("statusFilter")
     .addEventListener("change", filterBuilderPortfolios);
 
-  log('Summit Atlas initialized.');
+  log('Conduit initialized.');
   log('Regional county intelligence online.');
   log('Builder100 tracking initialized.');
 };
