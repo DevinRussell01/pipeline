@@ -136,9 +136,9 @@ body::before{
 }
 
 header{
-  height:220px;
-  padding-top:10px;
-  margin-bottom:8px;
+  height:110px;
+  padding-top:0;
+  margin-bottom:10px;
   position:relative;
 }
 
@@ -188,10 +188,19 @@ header{
 }
 
 .conduit-logo{
+  position:fixed;
+
+  top:22px;
+  left:50%;
+
+  transform:translateX(-50%);
+
   width:560px;
   max-width:90vw;
-  display:block;
-  margin:0 auto 6px;
+
+  z-index:100;
+
+  pointer-events:none;
 }
 
 .brand-mark{
