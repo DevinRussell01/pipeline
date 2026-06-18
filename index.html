@@ -2009,6 +2009,7 @@ document.getElementById("toggleProjects")
 
 let locateMapLoaded = false;
 let LOCATE_TICKETS = [];
+let locateTicketLayer = null;
 
 function renderLocateTickets() {
   const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
@@ -2075,11 +2076,11 @@ function initLocateMap() {
 
   locateMapLoaded = true;
 
-  const locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
+window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(locateMap);
+  }).addTo(window.locateMap);
 
   fetch('locates.json')
     .then(res => res.json())
@@ -2091,7 +2092,7 @@ function initLocateMap() {
           fillColor: '#22c55e',
           fillOpacity: 0.18,
           weight: 1
-        }).addTo(locateMap);
+        }).addTo(window.locateMap);
 
         L.circleMarker([ticket.lat, ticket.lon], {
           radius: 6,
@@ -2099,7 +2100,7 @@ function initLocateMap() {
           fillColor: '#22c55e',
           fillOpacity: 0.8
         })
-        .addTo(locateMap)
+        .addTo(window.locateMap)
         .bindPopup(`
           <strong>${ticket.company}</strong><br>
           ${ticket.category}<br>
@@ -2108,7 +2109,7 @@ function initLocateMap() {
       });
 
       setTimeout(() => {
-        locateMap.invalidateSize();
+        window.locateMap.invalidateSize();
       }, 500);
     })
     .catch(error => {
@@ -2186,7 +2187,7 @@ function initLocateMap() {
           fillOpacity: 0.9,
           weight: 2
         })
-        .addTo(locateMap)
+        .addTo(window.locateMap)
         .bindPopup(`
           <strong>${ticket.ticket_id}</strong><br>
           ${ticket.county} County<br>
