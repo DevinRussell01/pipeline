@@ -504,6 +504,33 @@ a:hover{
   margin-top:20px;
 }
 
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+}
+
+.filters label{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+}
+
+.filters select{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:12px;
+  backdrop-filter:blur(10px);
+}
+
+.filters select:focus{
+  outline:none;
+  border-color:rgba(249,115,22,.45);
+}
+
 /* responsive */
 
 @media(max-width:768px){
@@ -729,9 +756,39 @@ a:hover{
   Utility, telecom, development, and infrastructure activity signals interpreted through engineering-based pattern detection.
 </div>
 
-  <br>
+<br>
 
-  <div id="locateMap"></div>
+<div class="filters">
+
+  <label>Utility Type</label>
+  <select id="signalUtilityFilter" onchange="renderLocateTickets()">
+    <option value="">All</option>
+    <option value="telecom">Telecom</option>
+    <option value="power">Power</option>
+    <option value="gas">Gas</option>
+    <option value="water">Water</option>
+    <option value="sewer">Sewer</option>
+    <option value="boring">Directional Bore</option>
+  </select>
+
+  <label>County</label>
+  <select id="signalCountyFilter" onchange="renderLocateTickets()">
+    <option value="">All Counties</option>
+  </select>
+
+  <label>Minimum Risk</label>
+  <select id="signalRiskFilter" onchange="renderLocateTickets()">
+    <option value="0">All</option>
+    <option value="5">5+</option>
+    <option value="8">8+</option>
+    <option value="10">10+</option>
+  </select>
+
+</div>
+
+<br>
+
+<div id="locateMap"></div>
 
 <div class="stats" style="margin-top:24px;">
   <div class="stat">
