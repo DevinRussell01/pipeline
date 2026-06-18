@@ -2173,28 +2173,6 @@ window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
           </tr>
         `).join("");
 
-      tickets.forEach(ticket => {
-
-        const lat = Number(ticket.lat);
-        const lon = Number(ticket.lon);
-
-        if (!lat || !lon) return;
-
-        L.circleMarker([lat, lon], {
-          radius: 8,
-          color: '#facc15',
-          fillColor: '#facc15',
-          fillOpacity: 0.9,
-          weight: 2
-        })
-        .addTo(window.locateMap)
-        .bindPopup(`
-          <strong>${ticket.ticket_id}</strong><br>
-          ${ticket.county} County<br>
-          ${ticket.work_type}<br>
-          Risk Score: ${ticket.risk_score}
-        `);
-      });
 
     })
     .catch(error => {
