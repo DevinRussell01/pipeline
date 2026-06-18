@@ -136,10 +136,35 @@ body::before{
 }
 
 header{
-  height:260px;
+  height:190px;
   padding-top:0;
   margin-bottom:8px;
   position:relative;
+}
+
+header::after{
+  content:"";
+
+  position:absolute;
+
+  top:25px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:620px;
+  height:180px;
+
+  background-image:url('conduit-logo.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  opacity:.28;
+
+  pointer-events:none;
+
+  z-index:0;
 }
 
 .hero-content{
@@ -370,8 +395,8 @@ header{
 }
 
 #section-0{
-  background:rgba(15,23,42,.50);
-  backdrop-filter:blur(20px);
+  background:rgba(15,23,42,.42);
+  backdrop-filter:blur(22px);
 }
 
 /* tables */
