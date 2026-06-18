@@ -2008,6 +2008,67 @@ document.getElementById("toggleProjects")
 }
 
 let locateMapLoaded = false;
+let LOCATE_TICKETS = [];
+
+function renderLocateTickets() {
+  const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
+  const countyFilter = String(document.getElementById("signalCountyFilter")?.value || "");
+  const minRisk = Number(document.getElementById("signalRiskFilter")?.value || 0);
+
+  let tickets = LOCATE_TICKETS.filter(ticket => {
+    const category = String(ticket.category || "").toLowerCase();
+    const workType = String(ticket.work_type || "").toLowerCase();
+    const county = String(ticket.county || "");
+    const risk = Number(ticket.risk_score || 0);
+
+    const utilityMatch =
+      !utilityFilter ||
+      category.includes(utilityFilter) ||
+      workType.includes(utilityFilter) ||
+      (utilityFilter === "boring" && (workType.includes("bore") || workType.includes("directional")));
+
+    const countyMatch =
+      !countyFilter || county === countyFilter;
+
+    const riskMatch =
+      risk >= minRisk;
+
+    return utilityMatch && countyMatch && riskMatch;
+  });
+
+  document.getElementById("locateTicketCount").textContent = tickets.length;
+
+  const counties = [
+    ...new Set(
+      tickets
+        .map(t => t.county)
+        .filter(Boolean)
+    )
+  ];
+
+  document.getElementById("locateCountyCount").textContent = counties.length;
+
+  const telecomSignals = tickets.filter(t =>
+    String(t.category || "").toLowerCase().includes("telecom") ||
+    String(t.work_type || "").toLowerCase().includes("fiber") ||
+    String(t.work_type || "").toLowerCase().includes("bore")
+  );
+
+  document.getElementById("locateTelecomCount").textContent = telecomSignals.length;
+
+  document.getElementById("locateTicketTable").innerHTML =
+    tickets.map(ticket => `
+      <tr>
+        <td>${ticket.county || ""}</td>
+        <td>${ticket.city || ""}</td>
+        <td>${ticket.street || ""}</td>
+        <td>${ticket.work_type || ""}</td>
+        <td>${ticket.category || ""}</td>
+        <td>${ticket.risk_score || 0}</td>
+        <td>${ticket.signal || ""}</td>
+      </tr>
+    `).join("");
+}
 
 function initLocateMap() {
   if (locateMapLoaded) return;
@@ -2057,6 +2118,23 @@ function initLocateMap() {
       fetch('locate_tickets.json')
     .then(res => res.json())
     .then(tickets => {
+      LOCATE_TICKETS = tickets;
+
+      const countyFilter =
+        document.getElementById("signalCountyFilter");
+
+      countyFilter.innerHTML =
+        '<option value="">All Counties</option>' +
+        [...new Set(
+          tickets
+            .map(t => t.county)
+            .filter(Boolean)
+            .sort()
+        )]
+        .map(c => `<option value="${c}">${c}</option>`)
+        .join("");
+
+      renderLocateTickets();
 
       document.getElementById("locateTicketCount").textContent =
         tickets.length;
