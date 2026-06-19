@@ -2069,6 +2069,36 @@ function renderLocateTickets() {
         <td>${ticket.signal || ""}</td>
       </tr>
     `).join("");
+
+  if (window.locateMap) {
+    if (locateTicketLayer) {
+      window.locateMap.removeLayer(locateTicketLayer);
+    }
+
+    locateTicketLayer = L.layerGroup().addTo(window.locateMap);
+
+    tickets.forEach(ticket => {
+      const lat = Number(ticket.lat);
+      const lon = Number(ticket.lon);
+
+      if (!lat || !lon) return;
+
+      L.circleMarker([lat, lon], {
+        radius: 8,
+        color: '#facc15',
+        fillColor: '#facc15',
+        fillOpacity: 0.9,
+        weight: 2
+      })
+      .addTo(locateTicketLayer)
+      .bindPopup(`
+        <strong>${ticket.ticket_id || "Locate Signal"}</strong><br>
+        ${ticket.county || ""} County<br>
+        ${ticket.work_type || ""}<br>
+        Risk Score: ${ticket.risk_score || 0}
+      `);
+    });
+  }
 }
 
 function initLocateMap() {
@@ -2135,45 +2165,9 @@ window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
         .map(c => `<option value="${c}">${c}</option>`)
         .join("");
 
-      renderLocateTickets();
+      
 
-      document.getElementById("locateTicketCount").textContent =
-        tickets.length;
-
-      const counties = [
-        ...new Set(
-          tickets
-            .map(t => t.county)
-            .filter(Boolean)
-        )
-      ];
-
-      document.getElementById("locateCountyCount").textContent =
-        counties.length;
-
-      const telecomSignals = tickets.filter(t =>
-        String(t.category || "").toLowerCase().includes("telecom") ||
-        String(t.work_type || "").toLowerCase().includes("fiber") ||
-        String(t.work_type || "").toLowerCase().includes("bore")
-      );
-
-      document.getElementById("locateTelecomCount").textContent =
-        telecomSignals.length;
-
-      document.getElementById("locateTicketTable").innerHTML =
-        tickets.map(ticket => `
-          <tr>
-            <td>${ticket.county || ""}</td>
-            <td>${ticket.city || ""}</td>
-            <td>${ticket.street || ""}</td>
-            <td>${ticket.work_type || ""}</td>
-            <td>${ticket.category || ""}</td>
-            <td>${ticket.risk_score || 0}</td>
-            <td>${ticket.signal || ""}</td>
-          </tr>
-        `).join("");
-
-
+    
     })
     .catch(error => {
       console.error("Could not load locate tickets", error);
