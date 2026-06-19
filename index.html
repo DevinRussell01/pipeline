@@ -793,6 +793,14 @@ a:hover{
     <option value="8">8+</option>
     <option value="10">10+</option>
   </select>
+  <label>
+    <input
+      type="checkbox"
+      id="toggleLocateHeat"
+      checked
+      onchange="toggleLocateHeatLayer()">
+    Heat Layer
+  </label>
 
 </div>
 
@@ -2010,6 +2018,7 @@ document.getElementById("toggleProjects")
 let locateMapLoaded = false;
 let LOCATE_TICKETS = [];
 let locateTicketLayer = null;
+let locateHeatLayer = null;
 
 function renderLocateTickets() {
   const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
@@ -2101,12 +2110,28 @@ function renderLocateTickets() {
   }
 }
 
+function toggleLocateHeatLayer() {
+
+  if (!window.locateMap || !locateHeatLayer) return;
+
+  const enabled =
+    document.getElementById("toggleLocateHeat")?.checked;
+
+  if (enabled) {
+    window.locateMap.addLayer(locateHeatLayer);
+  } else {
+    window.locateMap.removeLayer(locateHeatLayer);
+  }
+}
+
 function initLocateMap() {
   if (locateMapLoaded) return;
 
   locateMapLoaded = true;
 
 window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
+
+locateHeatLayer = L.layerGroup().addTo(window.locateMap);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
@@ -2122,7 +2147,7 @@ window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
           fillColor: '#22c55e',
           fillOpacity: 0.18,
           weight: 1
-        }).addTo(window.locateMap);
+        }).addTo(locateHeatLayer);
 
         L.circleMarker([ticket.lat, ticket.lon], {
           radius: 6,
@@ -2130,7 +2155,7 @@ window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
           fillColor: '#22c55e',
           fillOpacity: 0.8
         })
-        .addTo(window.locateMap)
+        .addTo(locateHeatLayer)
         .bindPopup(`
           <strong>${ticket.company}</strong><br>
           ${ticket.category}<br>
