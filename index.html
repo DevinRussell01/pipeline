@@ -2454,7 +2454,7 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
 
       if (sorted[0]) {
         document.getElementById("opp1Score").textContent =
-          sorted[0].opportunity_score;
+          `${getOpportunityTier(sorted[0].opportunity_score)} • ${sorted[0].opportunity_score}`;
 
         document.getElementById("opp1Text").textContent =
           `${sorted[0].county} - ${sorted[0].street}`;
@@ -2462,7 +2462,7 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
 
       if (sorted[1]) {
         document.getElementById("opp2Score").textContent =
-          sorted[1].opportunity_score;
+          `${getOpportunityTier(sorted[1].opportunity_score)} • ${sorted[1].opportunity_score}`;
 
         document.getElementById("opp2Text").textContent =
           `${sorted[1].county} - ${sorted[1].street}`;
@@ -2470,32 +2470,31 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
 
       if (sorted[2]) {
         document.getElementById("opp3Score").textContent =
-          sorted[2].opportunity_score;
+          `${getOpportunityTier(sorted[2].opportunity_score)} • ${sorted[2].opportunity_score}`;
 
         document.getElementById("opp3Text").textContent =
           `${sorted[2].county} - ${sorted[2].street}`;
       }
+          document.getElementById("locateCorrelationTable").innerHTML =
+            sorted.map(item => {
+              const narrative =
+                `${item.nearby_project_count || 0} nearby development projects and ` +
+                `${item.nearby_land_count || 0} tracked parcels detected near ` +
+                `${item.work_type || "utility activity"}, creating a potential expansion signal.`;
 
-      document.getElementById("locateCorrelationTable").innerHTML =
-        sorted.map(item => {
-          const narrative =
-            `${item.nearby_project_count || 0} nearby development projects and ` +
-            `${item.nearby_land_count || 0} tracked parcels detected near ` +
-            `${item.work_type || "utility activity"}, creating a potential expansion signal.`;
-
-          return `
-            <tr>
-              <td>${item.county || ""}</td>
-              <td>${item.street || ""}</td>
-              <td>${item.work_type || ""}</td>
-              <td>${item.opportunity_score || 0}</td>
-              <td>${item.nearby_project_count || 0}</td>
-              <td>${item.nearby_land_count || 0}</td>
-              <td>${item.summary || ""}</td>
-              <td>${narrative}</td>
-            </tr>
-          `;
-        }).join("");
+              return `
+                <tr>
+                  <td>${item.county || ""}</td>
+                  <td>${item.street || ""}</td>
+                  <td>${item.work_type || ""}</td>
+                  <td>${item.opportunity_score || 0}</td>
+                  <td>${item.nearby_project_count || 0}</td>
+                  <td>${item.nearby_land_count || 0}</td>
+                  <td>${item.summary || ""}</td>
+                  <td>${narrative}</td>
+                </tr>
+              `;
+            }).join("");
     })
     .catch(error => {
       console.error("Could not load locate correlations", error);
