@@ -2498,21 +2498,25 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       document.getElementById("locatePatternTable").innerHTML =
         patterns.map(pattern => {
 
-          let action = "Monitor Activity";
+          let action = "Monitor activity and continue regional review";
 
           if (pattern.pattern_type === "Telecom Expansion Signal") {
-            action =
-              "Alert Sales • Check Competitor Activity";
+            action = "Review competitor activity • Validate serviceability • Escalate for market review";
           }
 
           if (pattern.pattern_type === "Development / Infrastructure Cluster") {
-            action =
-              "Review Land • Check Development Activity";
-          }
+            action = "Review nearby development • Evaluate future broadband demand • Check builder activity";
+          }  
 
           if (pattern.pattern_type === "Utility Corridor Expansion") {
-            action =
-              "Evaluate Joint Trench Opportunity";
+            action = "Evaluate joint trench potential • Monitor construction timing • Review network proximity";
+          }
+
+          if (
+            pattern.confidence_label === "Very High" &&
+            pattern.opportunity === "High"
+          ) {
+            action = "Priority review • Validate field intelligence • Escalate to regional planning";
           }
 
           return `
