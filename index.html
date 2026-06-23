@@ -781,8 +781,6 @@ a:hover{
   }
 }
 
-  </style>
-</head>
 </style>
 </head>
 <body>
@@ -818,12 +816,24 @@ a:hover{
   <button class="tab" onclick="showSection(11)">Framework</button>
   </div>
 
-  <!-- LOCATE INTELLIGENCE -->
+<!-- LOCATE INTELLIGENCE -->
 <div class="section" id="section-8">
 
   <h2>Signals Intelligence</h2>
 
-<div class="stats" id="opportunityCards">
+  <p class="sub">
+    Infrastructure, development, and utility activity aggregated into a single intelligence view.
+  </p>
+
+  <br>
+
+  <h3>Priority Opportunities</h3>
+
+  <p class="sub">
+    Priority Opportunities are interpreted locate patterns where the opportunity classification is High.
+  </p>
+
+  <div class="stats" id="opportunityCards">
 
   <div class="stat">
     <strong id="opp1Score">--</strong>
@@ -844,9 +854,11 @@ a:hover{
 
 <br>
 
-<div class="sub">
-  Utility, telecom, development, and infrastructure activity signals interpreted through engineering-based pattern detection.
-</div>
+<h3>Active Infrastructure Signals</h3>
+
+<p class="sub">
+  Current utility, telecom, development, and infrastructure activity detected and monitored by Conduit.
+</p>
 
 <br>
 
@@ -893,7 +905,7 @@ a:hover{
 <div class="stats" style="margin-top:24px;">
   <div class="stat">
     <strong id="locateTicketCount">0</strong>
-    <span>Active Locate Tickets</span>
+    <span>Active Infrastructure Signals</span>
   </div>
 
   <div class="stat">
@@ -920,6 +932,7 @@ a:hover{
         <th>Category</th>
         <th>Risk</th>
         <th>Signal</th>
+        <th>Drivers</th>
       </tr>
     </thead>
     <tbody id="locateTicketTable"></tbody>
@@ -1130,18 +1143,18 @@ a:hover{
   <p>Large parcels & ownership insights</p>
 </div>
 
-<div class="stat-card card">
+<div class="stat-card card" onclick="showSection(8)" style="cursor:pointer;">
   <div class="card-icon">⌁</div>
-  <h3>Locate Signals</h3>
+  <h3>Active Infrastructure Signals</h3>
   <div class="value" id="dashboardSignalCount">0</div>
-  <p>Active infrastructure activity</p>
+  <p>Loaded from locate ticket intelligence</p>
 </div>
 
-<div class="stat-card card">
+<div class="stat-card card" onclick="showSection(8)" style="cursor:pointer;">
   <div class="card-icon">◎</div>
-  <h3>High-Confidence Opportunities</h3>
+  <h3>Priority Opportunities</h3>
   <div class="value" id="dashboardOpportunityCount">0</div>
-  <p>Top opportunities identified</p>
+  <p>View priority opportunity records</p>
 </div>
 
   </div>
@@ -1173,6 +1186,8 @@ a:hover{
   </div>
 
 </div>
+
+<br>
 
 <!-- SCANNER -->
 <div class="section" id="section-1">
@@ -2228,6 +2243,28 @@ let LOCATE_TICKETS = [];
 let locateTicketLayer = null;
 let locateHeatLayer = null;
 
+function getLocateSignalDrivers(ticket) {
+  const drivers = [];
+
+  const category = String(ticket.category || "").toLowerCase();
+  const workType = String(ticket.work_type || "").toLowerCase();
+  const signal = String(ticket.signal || "").toLowerCase();
+  const risk = Number(ticket.risk_score || 0);
+
+  if (category.includes("telecom")) drivers.push("Telecom Category");
+  if (workType.includes("fiber")) drivers.push("Fiber Work");
+  if (workType.includes("bore") || workType.includes("directional")) drivers.push("Directional Bore");
+  if (workType.includes("conduit")) drivers.push("Conduit Work");
+  if (signal.includes("development")) drivers.push("Development Indicator");
+
+  if (risk >= 10) drivers.push("High Risk Score");
+  else if (risk >= 5) drivers.push("Elevated Risk Score");
+
+  return drivers.length
+    ? drivers
+    : ["General Utility Activity"];
+}
+
 function renderLocateTickets() {
   const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
   const countyFilter = String(document.getElementById("signalCountyFilter")?.value || "");
@@ -2284,6 +2321,7 @@ function renderLocateTickets() {
         <td>${ticket.category || ""}</td>
         <td>${ticket.risk_score || 0}</td>
         <td>${ticket.signal || ""}</td>
+        <td>${getLocateSignalDrivers(ticket).join(", ")}</td>
       </tr>
     `).join("");
 
