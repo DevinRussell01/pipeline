@@ -985,6 +985,7 @@ a:hover{
         <th>Street</th>
         <th>Confidence</th>
         <th>Opportunity</th>
+        <th>Business Impact</th>
         <th>Recommended Action</th>
       </tr>
     </thead>
@@ -2498,6 +2499,8 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       document.getElementById("locatePatternTable").innerHTML =
         patterns.map(pattern => {
 
+          let impact = "Regional Awareness";
+
           let action = "Monitor activity and continue regional review";
 
           if (pattern.pattern_type === "Telecom Expansion Signal") {
@@ -2526,6 +2529,7 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
               <td>${pattern.street}</td>
               <td>${pattern.confidence_label}</td>
               <td>${pattern.opportunity}</td>
+              <td>${impact}</td>
               <td>${action}</td>
             </tr>
           `;
