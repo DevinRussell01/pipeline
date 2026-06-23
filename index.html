@@ -702,6 +702,87 @@ a:hover{
 #builderGrid .card strong {
   display:block;
 }
+
+.framework-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+
+.framework-card{
+  background:rgba(15,23,42,.58);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+
+.framework-card.wide{
+  grid-column:1 / -1;
+}
+
+.framework-card.highlight{
+  border-color:rgba(249,115,22,.35);
+  background:rgba(249,115,22,.10);
+}
+
+.framework-card h3{
+  margin:0 0 12px;
+  color:#f8fafc;
+}
+
+.framework-card p,
+.framework-card li{
+  color:#cbd5e1;
+  line-height:1.6;
+}
+
+.framework-card ul{
+  margin:10px 0 0;
+  padding-left:20px;
+}
+
+.score-table{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:18px 0;
+}
+
+.score-table div{
+  background:rgba(2,6,23,.45);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:14px;
+  text-align:center;
+}
+
+.score-table strong{
+  display:block;
+  color:#fb923c;
+  font-size:1.1rem;
+}
+
+.score-table span{
+  display:block;
+  color:#e2e8f0;
+  margin-top:4px;
+  font-size:.9rem;
+}
+
+@media(max-width:900px){
+  .framework-grid{
+    grid-template-columns:1fr;
+  }
+
+  .score-table{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+  </style>
+</head>
 </style>
 </head>
 <body>
@@ -734,6 +815,7 @@ a:hover{
   <button class="tab" onclick="showSection(8)">Signals</button>
   <button class="tab" onclick="showSection(9)">Builders</button>
   <button class="tab" onclick="showSection(10)">Watchlists</button>
+  <button class="tab" onclick="showSection(11)">Framework</button>
   </div>
 
   <!-- LOCATE INTELLIGENCE -->
@@ -861,7 +943,7 @@ a:hover{
         <th>County</th>
         <th>Street</th>
         <th>Work Type</th>
-        <th>Opportunity Score</th>
+        <th>Opportunity Index</th>
         <th>Nearby Projects</th>
         <th>Nearby Parcels</th>
         <th>Summary</th>
@@ -1131,6 +1213,123 @@ Awaiting scan.
 </div>
 </div>
 
+<!-- Framework -->
+ <section id="framework" class="tab-section">
+  <div class="section-header">
+    <h2>Conduit Intelligence Framework</h2>
+    <p>How Conduit identifies, scores, and prioritizes regional telecommunications opportunities.</p>
+  </div>
+
+  <div class="framework-grid">
+
+    <div class="framework-card wide">
+      <h3>What is Conduit?</h3>
+      <p>
+        Conduit is a regional telecommunications intelligence platform designed to aggregate
+        development, infrastructure, utility, land, builder, county, and GIS activity into a single
+        operational view.
+      </p>
+      <p>
+        The goal is not to replace engineering or market review. The goal is to help teams identify
+        where activity is happening earlier, faster, and with better regional visibility.
+      </p>
+    </div>
+
+    <div class="framework-card highlight">
+      <h3>Core Principle</h3>
+      <p>
+        Conduit does not make final decisions. It identifies and prioritizes areas for investigation
+        by surfacing patterns across multiple independent intelligence signals.
+      </p>
+    </div>
+
+    <div class="framework-card">
+      <h3>What is a Signal?</h3>
+      <p>
+        A signal is any activity that may indicate future telecommunications demand,
+        infrastructure investment, development growth, or network expansion.
+      </p>
+      <ul>
+        <li>Fiber or telecom-related utility activity</li>
+        <li>Directional boring or conduit work</li>
+        <li>Residential or commercial development</li>
+        <li>Rezoning or planning activity</li>
+        <li>Builder activity</li>
+        <li>Large parcel or land activity</li>
+      </ul>
+    </div>
+
+    <div class="framework-card">
+      <h3>What is an Opportunity?</h3>
+      <p>
+        An opportunity exists when multiple signals converge within the same area.
+      </p>
+      <p>
+        Example: telecom locate activity near active development, builder growth, or tracked land
+        parcels may indicate an area worth further review.
+      </p>
+    </div>
+
+    <div class="framework-card wide">
+      <h3>Opportunity Index</h3>
+      <p>
+        The Opportunity Index is a weighted point value. It increases as more supporting indicators
+        are detected. It is not a percentage, probability, or forecast.
+      </p>
+
+      <div class="score-table">
+        <div><strong>0–5</strong><span>Low Signal</span></div>
+        <div><strong>6–10</strong><span>Moderate Signal</span></div>
+        <div><strong>11–15</strong><span>High Signal</span></div>
+        <div><strong>16+</strong><span>Priority Opportunity</span></div>
+      </div>
+
+      <p>
+        Higher index values indicate stronger signal convergence and help prioritize where teams
+        should focus additional investigation.
+      </p>
+    </div>
+
+    <div class="framework-card">
+      <h3>Confidence Ratings</h3>
+      <p>
+        Confidence reflects the strength of supporting evidence behind a signal or opportunity.
+      </p>
+      <ul>
+        <li><strong>Low:</strong> limited supporting data</li>
+        <li><strong>Moderate:</strong> multiple indicators present</li>
+        <li><strong>High:</strong> strong supporting evidence</li>
+        <li><strong>Very High:</strong> multiple independent sources align</li>
+      </ul>
+    </div>
+
+    <div class="framework-card">
+      <h3>Current Intelligence Sources</h3>
+      <ul>
+        <li>County development and planning records</li>
+        <li>Tracked land parcels</li>
+        <li>Builder and community activity</li>
+        <li>Utility locate intelligence</li>
+        <li>GIS datasets and map layers</li>
+        <li>Infrastructure and construction indicators</li>
+      </ul>
+    </div>
+
+    <div class="framework-card wide">
+      <h3>Recommended Use</h3>
+      <p>
+        Conduit is intended to support regional awareness, business development, market planning,
+        engineering review, competitive intelligence, and expansion strategy.
+      </p>
+      <p>
+        The platform helps users answer one core question:
+        <strong>Where should we pay attention next?</strong>
+      </p>
+    </div>
+
+  </div>
+</section>
+
 <!-- ORGANIZATIONS -->
 <div class="section" id="section-3">
 
@@ -1235,6 +1434,110 @@ Analyze Agenda
   </div>
 
   <div class="grid" id="watchlistGrid"></div>
+
+</div>
+
+<div class="section" id="section-11">
+
+<h2>Conduit Intelligence Framework</h2>
+
+<div class="sub">
+How Conduit identifies, scores, and prioritizes regional telecommunications opportunities.
+</div>
+
+<br>
+
+<div class="framework-grid">
+
+  <div class="framework-card wide">
+    <h3>What is Conduit?</h3>
+    <p>
+      Conduit is a regional telecommunications intelligence platform that aggregates
+      development, infrastructure, utility, land, builder, county, and GIS activity
+      into a unified operational view.
+    </p>
+  </div>
+
+  <div class="framework-card highlight">
+    <h3>Core Principle</h3>
+    <p>
+      Conduit does not make decisions. It identifies and prioritizes areas for
+      investigation by surfacing patterns across multiple intelligence signals.
+    </p>
+  </div>
+
+  <div class="framework-card">
+    <h3>What is a Signal?</h3>
+    <p>
+      A signal is any activity that may indicate future telecommunications demand,
+      infrastructure investment, development growth, or network expansion.
+    </p>
+
+    <ul>
+      <li>Fiber Construction</li>
+      <li>Directional Bore Activity</li>
+      <li>Utility Expansion</li>
+      <li>Residential Development</li>
+      <li>Builder Activity</li>
+      <li>Large Parcel Activity</li>
+    </ul>
+  </div>
+
+  <div class="framework-card">
+    <h3>What is an Opportunity?</h3>
+    <p>
+      Opportunities are identified when multiple independent signals converge within
+      the same geographic area.
+    </p>
+  </div>
+
+  <div class="framework-card wide">
+    <h3>Opportunity Index</h3>
+
+    <p>
+      The Opportunity Index is a weighted signal score. Higher values indicate
+      stronger signal convergence and greater justification for investigation.
+    </p>
+
+    <p>
+      It is not a 0-100 score, percentage, probability, or forecast.
+    </p>
+
+    <div class="score-table">
+      <div><strong>0-5</strong><span>Low Signal</span></div>
+      <div><strong>6-10</strong><span>Moderate Signal</span></div>
+      <div><strong>11-15</strong><span>High Signal</span></div>
+      <div><strong>16+</strong><span>Priority Opportunity</span></div>
+    </div>
+
+  </div>
+
+  <div class="framework-card">
+    <h3>Current Intelligence Sources</h3>
+
+    <ul>
+      <li>County Development Records</li>
+      <li>Tracked Land Parcels</li>
+      <li>Builder Activity</li>
+      <li>Utility Locate Intelligence</li>
+      <li>GIS Mapping Layers</li>
+      <li>Infrastructure Activity</li>
+    </ul>
+  </div>
+
+  <div class="framework-card">
+    <h3>Current Coverage</h3>
+
+    <ul>
+      <li>110+ Development Projects</li>
+      <li>319+ Tracked Parcels</li>
+      <li>Utility Locate Signals</li>
+      <li>Multi-County Coverage</li>
+      <li>GIS Intelligence Layers</li>
+    </ul>
+  </div>
+
+</div>
 
 </div>
 
