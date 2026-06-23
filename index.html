@@ -2267,6 +2267,16 @@ function getLocateSignalDrivers(ticket) {
     : ["General Utility Activity"];
 }
 
+function getOpportunityTier(score) {
+  score = Number(score || 0);
+
+  if (score >= 16) return "Strategic";
+  if (score >= 11) return "Priority";
+  if (score >= 6) return "Emerging";
+
+  return "Monitor";
+}
+
 function renderLocateTickets() {
   const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
   const countyFilter = String(document.getElementById("signalCountyFilter")?.value || "");
@@ -2437,6 +2447,8 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
         )]
         .map(c => `<option value="${c}">${c}</option>`)
         .join("");
+
+        renderLocateTickets();
 
       
 
