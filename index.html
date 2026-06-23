@@ -959,6 +959,7 @@ a:hover{
         <th>Opportunity Index</th>
         <th>Nearby Projects</th>
         <th>Nearby Parcels</th>
+        <th>Opportunity Narrative</th>
         <th>Summary</th>
       </tr>
     </thead>
@@ -2476,17 +2477,25 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       }
 
       document.getElementById("locateCorrelationTable").innerHTML =
-        sorted.map(item => `
-          <tr>
-            <td>${item.county || ""}</td>
-            <td>${item.street || ""}</td>
-            <td>${item.work_type || ""}</td>
-            <td>${item.opportunity_score || 0}</td>
-            <td>${item.nearby_project_count || 0}</td>
-            <td>${item.nearby_land_count || 0}</td>
-            <td>${item.summary || ""}</td>
-          </tr>
-        `).join("");
+        sorted.map(item => {
+          const narrative =
+            `${item.nearby_project_count || 0} nearby development projects and ` +
+            `${item.nearby_land_count || 0} tracked parcels detected near ` +
+            `${item.work_type || "utility activity"}, creating a potential expansion signal.`;
+
+          return `
+            <tr>
+              <td>${item.county || ""}</td>
+              <td>${item.street || ""}</td>
+              <td>${item.work_type || ""}</td>
+              <td>${item.opportunity_score || 0}</td>
+              <td>${item.nearby_project_count || 0}</td>
+              <td>${item.nearby_land_count || 0}</td>
+              <td>${item.summary || ""}</td>
+              <td>${narrative}</td>
+            </tr>
+          `;
+        }).join("");
     })
     .catch(error => {
       console.error("Could not load locate correlations", error);
