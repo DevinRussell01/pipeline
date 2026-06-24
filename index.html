@@ -827,6 +827,29 @@ a:hover{
 
   <br>
 
+<div class="framework-card highlight" id="signalsExecutiveSummary">
+  <h3>Signals Executive Summary</h3>
+
+  <p>
+    <strong id="summarySignalCount">0</strong> active infrastructure signals detected.
+  </p>
+
+  <p>
+    <strong id="summaryPriorityCount">0</strong> priority opportunities identified.
+  </p>
+
+  <p>
+    <strong id="summaryCandidateCount">0</strong> priority expansion candidates.
+  </p>
+
+  <p>
+    <strong>Highest Opportunity:</strong>
+    <span id="summaryTopOpportunity">Loading...</span>
+  </p>
+</div>
+
+  <br>
+
   <h3>Priority Opportunities</h3>
 
   <p class="sub">
@@ -2305,6 +2328,9 @@ function renderLocateTickets() {
 
   document.getElementById("locateTicketCount").textContent = tickets.length;
 
+  document.getElementById("summarySignalCount").textContent =
+    tickets.length;
+
   const counties = [
     ...new Set(
       tickets
@@ -2487,6 +2513,11 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
         document.getElementById("opp3Text").textContent =
           `${sorted[2].county} - ${sorted[2].street}`;
       }
+      document.getElementById("summaryTopOpportunity").textContent =
+        sorted[0]
+          ? `${sorted[0].county} - ${sorted[0].street} (${getOpportunityTier(sorted[0].opportunity_score)} • ${sorted[0].opportunity_score})`
+          : "No opportunities detected";
+
           document.getElementById("locateCorrelationTable").innerHTML =
             sorted.map(item => {
               const narrative =
@@ -2515,6 +2546,18 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
     fetch('locate_patterns.json')
     .then(res => res.json())
     .then(patterns => {
+
+      document.getElementById("summaryPriorityCount").textContent =
+        patterns.filter(
+          p => String(p.opportunity || "").toLowerCase() === "high"
+        ).length;
+
+      document.getElementById("summaryCandidateCount").textContent =
+        patterns.filter(
+          p =>
+            String(p.confidence_label || "").toLowerCase() === "very high" &&
+            String(p.opportunity || "").toLowerCase() === "high"
+        ).length;
 
       document.getElementById("locatePatternTable").innerHTML =
         patterns.map(pattern => {
