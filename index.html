@@ -1326,10 +1326,18 @@ Awaiting scan.
   <label><input type="checkbox" id="toggleWatchlists" checked> Watchlist Candidates</label>
 </div>
 
+<br>
+
+<button class="big-btn" onclick="resetHiddenGrowthMapItems()">
+  Restore Hidden Growth Map Markers
+</button>
+
+<br><br>
+
 <div id="map"></div>
 </div>
 
-<!-- PARSER -->
+<!-- TOOLS -->
 <div class="section" id="section-6">
 <h2>Intelligence Tools</h2>
 
@@ -2012,6 +2020,14 @@ let PROJECTS = [];
 let BUILDER_PORTFOLIOS = [];
 let LOCATE_HEAT_SIGNALS = [];
 
+let MAP_PROJECTS = [];
+let MAP_LAND_PARCELS = [];
+
+let projectLayer = null;
+let landLayer = null;
+let watchlistLayer = null;
+
+
 // =====================================================
 // UI
 // =====================================================
@@ -2090,27 +2106,48 @@ let LAND_INTELLIGENCE = [];
 
 let mapLoaded = false;
 
+function getHiddenGrowthMapItems() {
+  return JSON.parse(localStorage.getItem("hiddenGrowthMapItems") || "[]");
+}
+
+function hideGrowthMapItem(itemId) {
+  const hidden = getHiddenGrowthMapItems();
+
+  if (!hidden.includes(itemId)) {
+    hidden.push(itemId);
+    localStorage.setItem("hiddenGrowthMapItems", JSON.stringify(hidden));
+  }
+
+  rebuildGrowthMapLayers();
+}
+
+function resetHiddenGrowthMapItems() {
+  localStorage.removeItem("hiddenGrowthMapItems");
+  rebuildGrowthMapLayers();
+}
+
 function initMap() {
   if (mapLoaded) return;
 
   mapLoaded = true;
 
-  window.pipelineMap = L.map('map').setView([35.5, -80.9], 7);
+  window.pipelineMap = L.map("map").setView([35.5, -80.9], 7);
 
   const hotspotLayer = L.layerGroup().addTo(window.pipelineMap);
-  const projectLayer = L.layerGroup().addTo(window.pipelineMap);
-  const landLayer = L.layerGroup().addTo(window.pipelineMap);
-  const watchlistLayer = L.layerGroup().addTo(window.pipelineMap);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+  projectLayer = L.layerGroup().addTo(window.pipelineMap);
+  landLayer = L.layerGroup().addTo(window.pipelineMap);
+  watchlistLayer = L.layerGroup().addTo(window.pipelineMap);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     .addTo(window.pipelineMap);
 
   const hotspots = [
-    [35.2271, -80.8431, 'Charlotte Metro'],
-    [35.7345, -81.3445, 'Hickory / Catawba'],
-    [35.5951, -82.5515, 'Asheville'],
-    [34.9249, -81.0251, 'York County'],
-    [34.7204, -80.7701, 'Lancaster County']
+    [35.2271, -80.8431, "Charlotte Metro"],
+    [35.7345, -81.3445, "Hickory / Catawba"],
+    [35.5951, -82.5515, "Asheville"],
+    [34.9249, -81.0251, "York County"],
+    [34.7204, -80.7701, "Lancaster County"]
   ];
 
   hotspots.forEach(h => {
@@ -2119,132 +2156,186 @@ function initMap() {
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
 
-  fetch("projects.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log("Projects loaded:", data.length);
-
-    data.forEach(project => {
-      const lat = Number(project.lat);
-      const lon = Number(project.lon);
-
-      if (!lat || !lon) return;
-
-      const marker = L.circleMarker([lat, lon], {
-        radius: 7,
-        color: "#facc15",
-        fillColor: "#facc15",
-        fillOpacity: 0.85,
-        weight: 2
-      }).addTo(projectLayer);
-
-      marker.bindPopup(`
-        <strong>${project.project_name || project.name || "Unnamed Project"}</strong><br>
-        County: ${project.county || ""}<br>
-        Status: ${project.status || project.project_status || ""}<br>
-        Address: ${project.address || ""}<br>
-        Developer: ${project.developer || project.applicant || project.owner || ""}
-      `);
+  document.getElementById("toggleHotspots")
+    ?.addEventListener("change", function() {
+      this.checked
+        ? window.pipelineMap.addLayer(hotspotLayer)
+        : window.pipelineMap.removeLayer(hotspotLayer);
     });
-  })
-  .catch(error => {
-    console.error("Could not load projects map layer", error);
+
+  document.getElementById("toggleProjects")
+    ?.addEventListener("change", function() {
+      this.checked
+        ? window.pipelineMap.addLayer(projectLayer)
+        : window.pipelineMap.removeLayer(projectLayer);
+    });
+
+  document.getElementById("toggleLand")
+    ?.addEventListener("change", function() {
+      this.checked
+        ? window.pipelineMap.addLayer(landLayer)
+        : window.pipelineMap.removeLayer(landLayer);
+    });
+
+  document.getElementById("toggleWatchlists")
+    ?.addEventListener("change", function() {
+      this.checked
+        ? window.pipelineMap.addLayer(watchlistLayer)
+        : window.pipelineMap.removeLayer(watchlistLayer);
+    });
+
+  fetch("projects.json")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Projects loaded:", data.length);
+      MAP_PROJECTS = data;
+      rebuildGrowthMapLayers();
+    })
+    .catch(error => {
+      console.error("Could not load projects map layer", error);
+    });
+
+  fetch("land_intelligence.json")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Land parcels loaded:", data.length);
+      MAP_LAND_PARCELS = data;
+      rebuildGrowthMapLayers();
+    })
+    .catch(error => {
+      console.error("Could not load land intelligence map layer", error);
+    });
+
+  setTimeout(() => {
+    window.pipelineMap.invalidateSize();
+  }, 500);
+}
+
+function rebuildGrowthMapLayers() {
+  if (!window.pipelineMap) return;
+
+  const hidden = getHiddenGrowthMapItems();
+
+  if (projectLayer) window.pipelineMap.removeLayer(projectLayer);
+  if (landLayer) window.pipelineMap.removeLayer(landLayer);
+  if (watchlistLayer) window.pipelineMap.removeLayer(watchlistLayer);
+
+  projectLayer = L.layerGroup();
+  landLayer = L.layerGroup();
+  watchlistLayer = L.layerGroup();
+
+  MAP_PROJECTS.forEach(project => {
+    const lat = Number(project.lat);
+    const lon = Number(project.lon);
+    if (!lat || !lon) return;
+
+    const itemId = String(
+      "project-" +
+      (project.case_number || project.project_name || project.name || project.address || `${lat},${lon}`)
+    );
+
+    if (hidden.includes(itemId)) return;
+
+    L.circleMarker([lat, lon], {
+      radius: 7,
+      color: "#facc15",
+      fillColor: "#facc15",
+      fillOpacity: 0.85,
+      weight: 2
+    })
+    .addTo(projectLayer)
+    .bindPopup(`
+      <strong>${project.project_name || project.name || "Unnamed Project"}</strong><br>
+      County: ${project.county || ""}<br>
+      Status: ${project.status || project.project_status || ""}<br>
+      Address: ${project.address || ""}<br>
+      Developer: ${project.developer || project.applicant || project.owner || ""}<br><br>
+
+      <button onclick="hideGrowthMapItem('${itemId.replace(/'/g, "\\'")}')">
+        Hide Project Marker
+      </button>
+    `);
   });
 
- fetch("land_intelligence.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log("Locate tickets loaded:", data);
-    console.log("Land parcels loaded:", data.length);
+  MAP_LAND_PARCELS.forEach(parcel => {
+    const lat = Number(parcel.lat);
+    const lon = Number(parcel.lon);
+    if (!lat || !lon) return;
 
-    data.forEach(parcel => {
-      const lat = Number(parcel.lat);
-      const lon = Number(parcel.lon);
+    const parcelId = String(
+      "parcel-" + (parcel.pid || parcel.owner || `${lat},${lon}`)
+    );
 
-      if (!lat || !lon) return;
+    if (!hidden.includes(parcelId)) {
+      const isHighScore = Number(parcel.watch_score || 0) >= 8;
 
-      const isHighScore = Number(parcel.watch_score) >= 8;
-
-      const marker = L.circleMarker([lat, lon], {
+      L.circleMarker([lat, lon], {
         radius: isHighScore ? 10 : 6,
         color: isHighScore ? "#ef4444" : "#f97316",
         fillColor: isHighScore ? "#ef4444" : "#f97316",
         fillOpacity: 0.75,
         weight: 2
-      }).addTo(landLayer);
-
-      marker.bindPopup(`
+      })
+      .addTo(landLayer)
+      .bindPopup(`
         <strong>${parcel.owner || "Unknown Owner"}</strong><br>
         County: ${parcel.county || ""}<br>
         Acres: ${parcel.acres || ""}<br>
         PID: ${parcel.pid || ""}<br>
         LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
-        Watch Score: ${parcel.watch_score || 0}
+        Watch Score: ${parcel.watch_score || 0}<br><br>
+
+        <button onclick="hideGrowthMapItem('${parcelId.replace(/'/g, "\\'")}')">
+          Hide Land Marker
+        </button>
       `);
-      const acres = Number(parcel.acres || 0);
-      const score = Number(parcel.watch_score || 0);
+    }
 
-      if (parcel.llc_flag === true && acres >= 2) {
-        const watchMarker = L.circleMarker([lat, lon], {
-          radius: score >= 9 ? 14 : score >= 8 ? 11 : 9,
-          color: "#facc15",
-          fillColor: "#facc15",
-          fillOpacity: 0.9,
-          weight: 3
-        }).addTo(watchlistLayer);
+    const acres = Number(parcel.acres || 0);
+    const score = Number(parcel.watch_score || 0);
 
-      watchMarker.bindPopup(`
+    if (parcel.llc_flag === true && acres >= 2) {
+      const watchId = String(
+        "watchlist-" + (parcel.pid || parcel.owner || `${lat},${lon}`)
+      );
+
+      if (hidden.includes(watchId)) return;
+
+      L.circleMarker([lat, lon], {
+        radius: score >= 9 ? 14 : score >= 8 ? 11 : 9,
+        color: "#facc15",
+        fillColor: "#facc15",
+        fillOpacity: 0.9,
+        weight: 3
+      })
+      .addTo(watchlistLayer)
+      .bindPopup(`
         <strong>Watchlist Candidate</strong><br>
         Owner: ${parcel.owner || "Unknown"}<br>
         County: ${parcel.county || ""}<br>
         Acres: ${parcel.acres || ""}<br>
         PID: ${parcel.pid || ""}<br>
         Confidence Score: ${parcel.watch_score || 0}<br><br>
-        <strong>Signal:</strong> LLC-owned parcel over 2 acres.
+        <strong>Signal:</strong> LLC-owned parcel over 2 acres.<br><br>
+
+        <button onclick="hideGrowthMapItem('${watchId.replace(/'/g, "\\'")}')">
+          Hide Watchlist Marker
+        </button>
       `);
     }
-    });
-  })
-.catch(error => {
-  console.error("Could not load land intelligence map layer", error);
-});
+  });
 
-document.getElementById("toggleHotspots")
-?.addEventListener("change", function() {
-  if (this.checked) {
-    window.pipelineMap.addLayer(hotspotLayer);
-  } else {
-    window.pipelineMap.removeLayer(hotspotLayer);
+  if (document.getElementById("toggleProjects")?.checked !== false) {
+    projectLayer.addTo(window.pipelineMap);
   }
-});
 
-document.getElementById("toggleWatchlists")
-?.addEventListener("change", function() {
-  if (this.checked) {
-    window.pipelineMap.addLayer(watchlistLayer);
-  } else {
-    window.pipelineMap.removeLayer(watchlistLayer);
+  if (document.getElementById("toggleLand")?.checked !== false) {
+    landLayer.addTo(window.pipelineMap);
   }
-});
 
-document.getElementById("toggleLand")
-?.addEventListener("change", function() {
-  if (this.checked) {
-    window.pipelineMap.addLayer(landLayer);
-  } else {
-    window.pipelineMap.removeLayer(landLayer);
+  if (document.getElementById("toggleWatchlists")?.checked !== false) {
+    watchlistLayer.addTo(window.pipelineMap);
   }
-});
-
-document.getElementById("toggleProjects")
-?.addEventListener("change", function() {
-  if (this.checked) {
-    window.pipelineMap.addLayer(projectLayer);
-  } else {
-    window.pipelineMap.removeLayer(projectLayer);
-  }
-});
-
 }
 
 let locateMapLoaded = false;
