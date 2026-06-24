@@ -2520,25 +2520,43 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
         patterns.map(pattern => {
 
           let impact = "Regional Awareness";
-
           let action = "Monitor activity and continue regional review";
 
-          if (pattern.pattern_type === "Telecom Expansion Signal") {
+          const patternType = String(pattern.pattern_type || "").toLowerCase();
+          const confidence = String(pattern.confidence_label || "").toLowerCase();
+          const opportunity = String(pattern.opportunity || "").toLowerCase();
+
+          if (patternType.includes("telecom")) {
+            impact = "Potential Competitive Activity";
             action = "Review competitor activity • Validate serviceability • Escalate for market review";
           }
 
-          if (pattern.pattern_type === "Development / Infrastructure Cluster") {
+          else if (
+            patternType.includes("development") ||
+            patternType.includes("infrastructure cluster")
+          ) {
+            impact = "Future Broadband Demand";
             action = "Review nearby development • Evaluate future broadband demand • Check builder activity";
-          }  
+          }
 
-          if (pattern.pattern_type === "Utility Corridor Expansion") {
-            action = "Evaluate joint trench potential • Monitor construction timing • Review network proximity";
+          else if (
+            patternType.includes("utility corridor") ||
+            patternType.includes("corridor")
+          ) {
+              impact = "Potential Infrastructure Partnership";
+              action = "Evaluate joint trench potential • Monitor construction timing • Review network proximity";
+          }
+
+          else if (patternType.includes("general utility")) {
+            impact = "Infrastructure Awareness";
+            action = "Monitor activity and continue regional review";
           }
 
           if (
-            pattern.confidence_label === "Very High" &&
-            pattern.opportunity === "High"
+            confidence === "very high" &&
+            opportunity === "high"
           ) {
+            impact = "Priority Expansion Candidate";
             action = "Priority review • Validate field intelligence • Escalate to regional planning";
           }
 
