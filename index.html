@@ -929,6 +929,10 @@ a:hover{
     Show Hidden Signals
   </button>
 
+  <button onclick="resetHiddenHeatSignals()">
+    Show Hidden Heat Signals
+  </button>
+
 </div>
 
 <br>
@@ -2006,53 +2010,7 @@ ORGANIZATIONS.forEach(org => {
 
 let PROJECTS = [];
 let BUILDER_PORTFOLIOS = [];
-
-// =====================================================
-// SCRAPER ENGINE CONCEPT
-// =====================================================
-
-/*
-YES — you absolutely CAN do this.
-
-You need:
-
-1. Backend scraper
-2. PDF parser
-3. AI extraction
-4. Structured database
-
-FLOW:
-
-County Agenda URL
-      ↓
-Scraper Downloads PDF/HTML
-      ↓
-Text Extractor Reads Content
-      ↓
-Regex + AI detects:
-  - subdivision names
-  - builder names
-  - lot counts
-  - zoning
-  - acreage
-  - addresses
-  - utility extensions
-      ↓
-Store results in PROJECTS table
-      ↓
-Render automatically in dashboard
-
-This HTML is the FRONTEND.
-
-The ACTUAL scraper should run in:
-- Python
-- Node.js
-- Playwright
-- Puppeteer
-- BeautifulSoup
-
-Then feed JSON into this dashboard.
-*/
+let LOCATE_HEAT_SIGNALS = [];
 
 // =====================================================
 // UI
@@ -2493,6 +2451,26 @@ function toggleLocateHeatLayer() {
   }
 }
 
+function getHiddenHeatSignals() {
+  return JSON.parse(localStorage.getItem("hiddenHeatSignals") || "[]");
+}
+
+function hideHeatSignal(signalId) {
+  const hidden = getHiddenHeatSignals();
+
+  if (!hidden.includes(signalId)) {
+    hidden.push(signalId);
+    localStorage.setItem("hiddenHeatSignals", JSON.stringify(hidden));
+  }
+
+  rebuildLocateHeatLayer();
+}
+
+function resetHiddenHeatSignals() {
+  localStorage.removeItem("hiddenHeatSignals");
+  rebuildLocateHeatLayer();
+}
+
 function initLocateMap() {
   if (locateMapLoaded) return;
 
@@ -2509,28 +2487,9 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
   fetch('locates.json')
     .then(res => res.json())
     .then(data => {
-      data.forEach(ticket => {
-        L.circle([ticket.lat, ticket.lon], {
-          radius: ticket.tickets * 600,
-          color: '#22c55e',
-          fillColor: '#22c55e',
-          fillOpacity: 0.18,
-          weight: 1
-        }).addTo(locateHeatLayer);
+      LOCATE_HEAT_SIGNALS = data;
 
-        L.circleMarker([ticket.lat, ticket.lon], {
-          radius: 6,
-          color: '#22c55e',
-          fillColor: '#22c55e',
-          fillOpacity: 0.8
-        })
-        .addTo(locateHeatLayer)
-        .bindPopup(`
-          <strong>${ticket.company}</strong><br>
-          ${ticket.category}<br>
-          Tickets: ${ticket.tickets}
-        `);
-      });
+      rebuildLocateHeatLayer();
 
       setTimeout(() => {
         window.locateMap.invalidateSize();
@@ -2711,6 +2670,64 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       console.error("Could not load locate patterns", error);
     });
 
+}
+
+function rebuildLocateHeatLayer() {
+
+  if (!window.locateMap) return;
+
+  if (locateHeatLayer) {
+    window.locateMap.removeLayer(locateHeatLayer);
+  }
+
+  locateHeatLayer = L.layerGroup();
+
+  const hidden = getHiddenHeatSignals();
+
+  LOCATE_HEAT_SIGNALS.forEach(ticket => {
+
+    const signalId = String(
+      ticket.ticket_id ||
+      ticket.company ||
+      ticket.street ||
+      `${ticket.lat},${ticket.lon}`
+    );
+
+    if (hidden.includes(signalId)) return;
+
+    L.circle([ticket.lat, ticket.lon], {
+      radius: ticket.tickets * 600,
+      color: '#22c55e',
+      fillColor: '#22c55e',
+      fillOpacity: 0.18,
+      weight: 1
+    }).addTo(locateHeatLayer);
+
+    L.circleMarker([ticket.lat, ticket.lon], {
+      radius: 6,
+      color: '#22c55e',
+      fillColor: '#22c55e',
+      fillOpacity: 0.8
+    })
+    .addTo(locateHeatLayer)
+    .bindPopup(`
+      <strong>${ticket.company || "Regional Signal"}</strong><br>
+      ${ticket.category || ""}<br>
+      Tickets: ${ticket.tickets || 0}<br><br>
+
+      <button onclick="hideHeatSignal('${signalId.replace(/'/g, "\\'")}')">
+        Hide Heat Signal
+      </button>
+    `);
+
+  });
+
+  const enabled =
+    document.getElementById("toggleLocateHeat")?.checked;
+
+  if (enabled) {
+    locateHeatLayer.addTo(window.locateMap);
+  }
 }
 
 
