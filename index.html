@@ -846,6 +846,12 @@ a:hover{
     <strong>Highest Opportunity:</strong>
     <span id="summaryTopOpportunity">Loading...</span>
   </p>
+
+  <p>
+    <strong>Recommended Action:</strong>
+    <span id="summaryAction">Loading...</span>
+  </p>
+
 </div>
 
   <br>
@@ -2300,6 +2306,31 @@ function getOpportunityTier(score) {
   return "Monitor";
 }
 
+function getSummaryAction(item) {
+  const workType = String(item.work_type || "").toLowerCase();
+  const score = Number(item.opportunity_score || 0);
+  const nearbyProjects = Number(item.nearby_project_count || 0);
+  const nearbyParcels = Number(item.nearby_land_count || 0);
+
+  if (score >= 16) {
+    return "Escalate for regional planning review and validate field intelligence.";
+  }
+
+  if (workType.includes("fiber") || workType.includes("telecom")) {
+    return "Review nearby serviceability, validate potential competitive activity, and assess expansion opportunity.";
+  }
+
+  if (workType.includes("bore") || workType.includes("directional")) {
+    return "Review construction activity, check network proximity, and evaluate potential infrastructure opportunity.";
+  }
+
+  if (nearbyProjects > 0 || nearbyParcels > 0) {
+    return "Review nearby development and land activity for future broadband demand.";
+  }
+
+  return "Monitor activity and continue regional review.";
+}
+
 function renderLocateTickets() {
   const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
   const countyFilter = String(document.getElementById("signalCountyFilter")?.value || "");
@@ -2517,6 +2548,11 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
         sorted[0]
           ? `${sorted[0].county} - ${sorted[0].street} (${getOpportunityTier(sorted[0].opportunity_score)} • ${sorted[0].opportunity_score})`
           : "No opportunities detected";
+
+          document.getElementById("summaryAction").textContent =
+            sorted[0]
+              ? getSummaryAction(sorted[0])
+              : "No action available.";
 
           document.getElementById("locateCorrelationTable").innerHTML =
             sorted.map(item => {
