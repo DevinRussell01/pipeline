@@ -1340,6 +1340,19 @@ Analyze Agenda
 <div id="parseResult" style="margin-top:24px"></div>
 </div>
 
+<h3>Data Export Center</h3>
+
+<p class="sub">
+  Export raw Conduit intelligence datasets for review, analysis, or reporting.
+</p>
+
+<div class="filters">
+  <button onclick="exportSignalsCSV()">Export Signals CSV</button>
+  <button onclick="exportProjectsCSV()">Export Projects CSV</button>
+  <button onclick="exportLandCSV()">Export Land CSV</button>
+  <button onclick="exportWatchlistsCSV()">Export Watchlists CSV</button>
+</div>
+
 <!-- WATCHLISTS -->
 <div class="section" id="section-10">
 
@@ -2905,6 +2918,100 @@ function renderOrganizations(search = "", category = "") {
       </a>
     `;
   }).join("");
+}
+
+function downloadCSV(filename, rows) {
+  if (!rows || !rows.length) {
+    alert("No data available to export.");
+    return;
+  }
+
+  const headers = Object.keys(rows[0]);
+
+  const csv = [
+    headers.join(","),
+    ...rows.map(row =>
+      headers.map(header => {
+        const value = row[header] ?? "";
+        return `"${String(value).replace(/"/g, '""')}"`;
+      }).join(",")
+    )
+  ].join("\n");
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+
+  URL.revokeObjectURL(url);
+}
+
+function exportSignalsCSV() {
+  const rows = LOCATE_TICKETS.map(ticket => ({
+    ticket_id: ticket.ticket_id || "",
+    county: ticket.county || "",
+    city: ticket.city || "",
+    street: ticket.street || "",
+    work_type: ticket.work_type || "",
+    category: ticket.category || "",
+    risk_score: ticket.risk_score || 0,
+    signal: ticket.signal || "",
+    drivers: getLocateSignalDrivers(ticket).join(" | "),
+    latitude: ticket.lat || "",
+    longitude: ticket.lon || ""
+  }));
+
+  downloadCSV("conduit_signals_export.csv", rows);
+}
+
+function exportProjectsCSV() {
+  const rows = PROJECTS.map(project => ({
+    county: project.county || "",
+    case_number: project.case_number || "",
+    address: project.address || "",
+    acreage: project.acreage || "",
+    owner: project.owner || "",
+    applicant: project.applicant || "",
+    zoning_change: project.zoning_change || "",
+    source_url: project.source_url || ""
+  }));
+
+  downloadCSV("conduit_projects_export.csv", rows);
+}
+
+function exportLandCSV() {
+  const rows = LAND_INTELLIGENCE.map(parcel => ({
+    county: parcel.county || "",
+    owner: parcel.owner || "",
+    acres: parcel.acres || "",
+    pid: parcel.pid || "",
+    llc_flag: parcel.llc_flag ? "YES" : "NO",
+    watch_score: parcel.watch_score || 0
+  }));
+
+  downloadCSV("conduit_land_export.csv", rows);
+}
+
+function exportWatchlistsCSV() {
+  const rows = LAND_INTELLIGENCE
+    .filter(parcel =>
+      parcel.llc_flag === true &&
+      Number(parcel.acres || 0) >= 2
+    )
+    .map(parcel => ({
+      county: parcel.county || "",
+      owner: parcel.owner || "",
+      acres: parcel.acres || "",
+      pid: parcel.pid || "",
+      llc_flag: "YES",
+      watch_score: parcel.watch_score || 0,
+      assessment: "Potential future development candidate"
+    }));
+
+  downloadCSV("conduit_watchlists_export.csv", rows);
 }
 
 window.onload = () => {
