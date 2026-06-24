@@ -925,6 +925,10 @@ a:hover{
     Heat Layer
   </label>
 
+  <button onclick="resetHiddenSignals()">
+    Show Hidden Signals
+  </button>
+
 </div>
 
 <br>
@@ -2347,10 +2351,32 @@ function getSummaryAction(item) {
   return "Monitor activity and continue regional review.";
 }
 
+function getHiddenSignals() {
+  return JSON.parse(localStorage.getItem("hiddenLocateSignals") || "[]");
+}
+
+function hideLocateSignal(ticketId) {
+  const hidden = getHiddenSignals();
+
+  if (!hidden.includes(ticketId)) {
+    hidden.push(ticketId);
+    localStorage.setItem("hiddenLocateSignals", JSON.stringify(hidden));
+  }
+
+  renderLocateTickets();
+}
+
+function resetHiddenSignals() {
+  localStorage.removeItem("hiddenLocateSignals");
+  renderLocateTickets();
+}
+
 function renderLocateTickets() {
   const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
   const countyFilter = String(document.getElementById("signalCountyFilter")?.value || "");
   const minRisk = Number(document.getElementById("signalRiskFilter")?.value || 0);
+
+  const hiddenSignals = getHiddenSignals();
 
   let tickets = LOCATE_TICKETS.filter(ticket => {
     const category = String(ticket.category || "").toLowerCase();
@@ -2370,7 +2396,15 @@ function renderLocateTickets() {
     const riskMatch =
       risk >= minRisk;
 
-    return utilityMatch && countyMatch && riskMatch;
+    const hiddenMatch =
+      !hiddenSignals.includes(
+        String(ticket.ticket_id || ticket.street || "")
+      );
+
+    return utilityMatch &&
+            countyMatch &&
+            riskMatch &&
+            hiddenMatch;
   });
 
   document.getElementById("locateTicketCount").textContent = tickets.length;
@@ -2435,7 +2469,11 @@ function renderLocateTickets() {
         <strong>${ticket.ticket_id || "Locate Signal"}</strong><br>
         ${ticket.county || ""} County<br>
         ${ticket.work_type || ""}<br>
-        Risk Score: ${ticket.risk_score || 0}
+        Risk Score: ${ticket.risk_score || 0}<br><br>
+
+        <button onclick="hideLocateSignal('${String(ticket.ticket_id || ticket.street || "").replace(/'/g, "\\'")}')">
+          Hide Signal
+        </button>
       `);
     });
   }
