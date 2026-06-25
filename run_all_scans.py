@@ -11,6 +11,7 @@ scripts = [
     "scan_mecklenburg_subdivisions.py",
     "scan_union_projects.py",
     "scan_brunswick_projects.py",
+    "scan_brunswick_gis.py",
     "scan_locate_signals.py",
     "correlate_locate_signals.py",
     "detect_locate_patterns.py",
