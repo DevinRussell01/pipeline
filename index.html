@@ -2045,6 +2045,14 @@ let brunswickGisLayer = null;
 let GIS_INTELLIGENCE = [];
 let gisLayer = null;
 
+const GIS_MARKER_STYLE = {
+  radius: 4,
+  color: "#38bdf8",
+  fillColor: "#38bdf8",
+  fillOpacity: 0.45,
+  weight: 1
+};
+
 // =====================================================
 // UI
 // =====================================================
@@ -2391,13 +2399,8 @@ function rebuildGrowthMapLayers() {
     if (!lat || !lon) return;
     if (countyFilter && item.county !== countyFilter) return;
 
-    L.circleMarker([lat, lon], {
-      radius: 4,
-      color: "#38bdf8",
-      fillColor: "#38bdf8",
-      fillOpacity: 0.45,
-      weight: 1
-    })
+    L.circleMarker([lat, lon], GIS_MARKER_STYLE)
+
     .addTo(gisLayer)
     .bindPopup(`
       <strong>GIS Parcel</strong><br>
