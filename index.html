@@ -1333,7 +1333,6 @@ Awaiting scan.
   <label><input type="checkbox" id="toggleProjects" checked> Projects</label>
   <label><input type="checkbox" id="toggleLand" checked> Land Parcels</label>
   <label><input type="checkbox" id="toggleWatchlists" checked> Watchlist Candidates</label>
-  <label><input type="checkbox" id="toggleBrunswickGIS" checked> Brunswick GIS</label>
 
   <label>County</label>
   <select id="growthMapCountyFilter" onchange="rebuildGrowthMapLayers()">
@@ -2175,13 +2174,6 @@ function initMap() {
       .bindPopup(`<strong>${h[2]}</strong>`);
   });
 
-  document.getElementById("toggleBrunswickGIS")
-  ?.addEventListener("change", function() {
-    this.checked
-      ? window.pipelineMap.addLayer(brunswickGisLayer)
-      : window.pipelineMap.removeLayer(brunswickGisLayer);
-  });
-
   document.getElementById("toggleHotspots")
     ?.addEventListener("change", function() {
       this.checked
@@ -2397,6 +2389,7 @@ function rebuildGrowthMapLayers() {
     const lat = Number(item.lat);
     const lon = Number(item.lon);
     if (!lat || !lon) return;
+    if (countyFilter && item.county !== countyFilter) return;
 
     L.circleMarker([lat, lon], {
       radius: 4,
@@ -2427,6 +2420,7 @@ function rebuildGrowthMapLayers() {
   if (document.getElementById("toggleWatchlists")?.checked !== false) {
     watchlistLayer.addTo(window.pipelineMap);
   }
+  gisLayer.addTo(window.pipelineMap);
 }
 
 let locateMapLoaded = false;
