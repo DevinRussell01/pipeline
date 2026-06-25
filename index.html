@@ -2288,6 +2288,7 @@ function rebuildGrowthMapLayers() {
   projectLayer = L.layerGroup();
   landLayer = L.layerGroup();
   watchlistLayer = L.layerGroup();
+  gisLayer = L.layerGroup();
 
   MAP_PROJECTS.forEach(project => {
     const lat = Number(project.lat);
@@ -2327,7 +2328,7 @@ function rebuildGrowthMapLayers() {
     const lat = Number(parcel.lat);
     const lon = Number(parcel.lon);
     if (!lat || !lon) return;
-    if (countyFilter && project.county !== countyFilter) return;
+    if (countyFilter && parcel.county !== countyFilter) return;
 
     const parcelId = String(
       "parcel-" + (parcel.pid || parcel.owner || `${lat},${lon}`)
