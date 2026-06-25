@@ -1248,6 +1248,15 @@ Awaiting scan.
 <div class="section" id="section-2">
 <h2>Detected Development Projects</h2>
 
+<div class="filters">
+  <label>County</label>
+  <select id="projectCountyFilter" onchange="filterProjectsTable()">
+    <option value="">All Counties</option>
+  </select>
+</div>
+
+<br>
+
 <div class="table-wrap">
 <table class="table">
 <thead>
@@ -2821,18 +2830,27 @@ function rebuildLocateHeatLayer() {
   }
 }
 
+function populateProjectFilters(projects) {
+  const filter = document.getElementById("projectCountyFilter");
+  if (!filter) return;
 
-async function loadProjectsFromJson() {
-  try {
-    const response = await fetch("projects.json");
-    const projectData = await response.json();
+  const counties = [...new Set(
+    projects.map(p => p.county).filter(Boolean)
+  )].sort();
 
-    PROJECTS = Array.isArray(projectData) ? projectData : [projectData];
+  filter.innerHTML =
+    '<option value="">All Counties</option>' +
+    counties.map(c => `<option value="${c}">${c}</option>`).join("");
+}
 
-    document.getElementById("projectCount").innerText = PROJECTS.length;
+function filterProjectsTable() {
+  const county = document.getElementById("projectCountyFilter")?.value || "";
 
-    const rows = PROJECTS.map(p => {
-  return `
+  const filtered = PROJECTS.filter(project => {
+    return !county || project.county === county;
+  });
+
+  document.getElementById("projectTable").innerHTML = filtered.map(p => `
     <tr>
       <td>${p.county || ""}</td>
       <td>${p.case_number || ""}</td>
@@ -2843,10 +2861,20 @@ async function loadProjectsFromJson() {
       <td>${p.zoning_change || ""}</td>
       <td><a href="${p.source_url || "#"}" target="_blank">Source</a></td>
     </tr>
-  `;
-}).join("");
+  `).join("");
+}
 
-    document.getElementById("projectTable").innerHTML = rows;
+async function loadProjectsFromJson() {
+  try {
+    const response = await fetch("projects.json");
+    const projectData = await response.json();
+
+    PROJECTS = Array.isArray(projectData) ? projectData : [projectData];
+
+    document.getElementById("projectCount").innerText = PROJECTS.length;
+
+    populateProjectFilters(PROJECTS);
+    filterProjectsTable();
 
   } catch (error) {
     console.error("Could not load projects.json", error);
