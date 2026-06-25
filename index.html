@@ -1333,6 +1333,11 @@ Awaiting scan.
   <label><input type="checkbox" id="toggleProjects" checked> Projects</label>
   <label><input type="checkbox" id="toggleLand" checked> Land Parcels</label>
   <label><input type="checkbox" id="toggleWatchlists" checked> Watchlist Candidates</label>
+
+  <label>County</label>
+  <select id="growthMapCountyFilter" onchange="rebuildGrowthMapLayers()">
+    <option value="">All Counties</option>
+  </select>
 </div>
 
 <br>
@@ -2220,10 +2225,35 @@ function initMap() {
   }, 500);
 }
 
+function populateGrowthMapCountyFilter() {
+  const filter = document.getElementById("growthMapCountyFilter");
+  if (!filter) return;
+
+  const counties = [
+    ...new Set([
+      ...MAP_PROJECTS.map(p => p.county).filter(Boolean),
+      ...MAP_LAND_PARCELS.map(p => p.county).filter(Boolean)
+    ])
+  ].sort();
+
+  const currentValue = filter.value;
+
+  filter.innerHTML =
+    '<option value="">All Counties</option>' +
+    counties.map(c => `<option value="${c}">${c}</option>`).join("");
+
+  filter.value = currentValue;
+}
+
 function rebuildGrowthMapLayers() {
   if (!window.pipelineMap) return;
 
   const hidden = getHiddenGrowthMapItems();
+
+  populateGrowthMapCountyFilter();
+
+  const countyFilter =
+    document.getElementById("growthMapCountyFilter")?.value || "";
 
   if (projectLayer) window.pipelineMap.removeLayer(projectLayer);
   if (landLayer) window.pipelineMap.removeLayer(landLayer);
@@ -2237,6 +2267,7 @@ function rebuildGrowthMapLayers() {
     const lat = Number(project.lat);
     const lon = Number(project.lon);
     if (!lat || !lon) return;
+    if (countyFilter && project.county !== countyFilter) return;
 
     const itemId = String(
       "project-" +
@@ -2270,6 +2301,7 @@ function rebuildGrowthMapLayers() {
     const lat = Number(parcel.lat);
     const lon = Number(parcel.lon);
     if (!lat || !lon) return;
+    if (countyFilter && project.county !== countyFilter) return;
 
     const parcelId = String(
       "parcel-" + (parcel.pid || parcel.owner || `${lat},${lon}`)
