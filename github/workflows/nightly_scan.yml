@@ -1,0 +1,36 @@
+name: Nightly Conduit Scan
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scans
+        run: python run_all_scans.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "conduit-bot"
+          git config user.email "conduit-bot@users.noreply.github.com"
+          git add *.json
+          git commit -m "Nightly Conduit data refresh" || echo "No changes to commit"
+          git push
