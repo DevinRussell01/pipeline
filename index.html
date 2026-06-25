@@ -1333,6 +1333,7 @@ Awaiting scan.
   <label><input type="checkbox" id="toggleProjects" checked> Projects</label>
   <label><input type="checkbox" id="toggleLand" checked> Land Parcels</label>
   <label><input type="checkbox" id="toggleWatchlists" checked> Watchlist Candidates</label>
+  <label><input type="checkbox" id="toggleBrunswickGIS" checked> Brunswick GIS</label>
 
   <label>County</label>
   <select id="growthMapCountyFilter" onchange="rebuildGrowthMapLayers()">
@@ -2040,7 +2041,10 @@ let MAP_LAND_PARCELS = [];
 let projectLayer = null;
 let landLayer = null;
 let watchlistLayer = null;
-
+let BRUNSWICK_GIS = [];
+let brunswickGisLayer = null;
+let GIS_INTELLIGENCE = [];
+let gisLayer = null;
 
 // =====================================================
 // UI
@@ -2152,6 +2156,7 @@ function initMap() {
   projectLayer = L.layerGroup().addTo(window.pipelineMap);
   landLayer = L.layerGroup().addTo(window.pipelineMap);
   watchlistLayer = L.layerGroup().addTo(window.pipelineMap);
+  gisLayer = L.layerGroup().addTo(window.pipelineMap);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     .addTo(window.pipelineMap);
@@ -2168,6 +2173,13 @@ function initMap() {
     L.marker([h[0], h[1]])
       .addTo(hotspotLayer)
       .bindPopup(`<strong>${h[2]}</strong>`);
+  });
+
+  document.getElementById("toggleBrunswickGIS")
+  ?.addEventListener("change", function() {
+    this.checked
+      ? window.pipelineMap.addLayer(brunswickGisLayer)
+      : window.pipelineMap.removeLayer(brunswickGisLayer);
   });
 
   document.getElementById("toggleHotspots")
@@ -2223,6 +2235,19 @@ function initMap() {
   setTimeout(() => {
     window.pipelineMap.invalidateSize();
   }, 500);
+
+  fetch("brunswick_gis.json")
+  .then(response => response.json())
+  .then(data => {
+    console.log("Brunswick GIS loaded:", data.length);
+
+    GIS_INTELLIGENCE = data;
+
+    rebuildGrowthMapLayers();
+  })
+  .catch(error => {
+    console.error("Could not load Brunswick GIS layer", error);
+  });
 }
 
 function populateGrowthMapCountyFilter() {
@@ -2258,6 +2283,7 @@ function rebuildGrowthMapLayers() {
   if (projectLayer) window.pipelineMap.removeLayer(projectLayer);
   if (landLayer) window.pipelineMap.removeLayer(landLayer);
   if (watchlistLayer) window.pipelineMap.removeLayer(watchlistLayer);
+  if (gisLayer) window.pipelineMap.removeLayer(gisLayer);
 
   projectLayer = L.layerGroup();
   landLayer = L.layerGroup();
@@ -2364,6 +2390,29 @@ function rebuildGrowthMapLayers() {
         </button>
       `);
     }
+  });
+
+  GIS_INTELLIGENCE.forEach(item => {
+    const lat = Number(item.lat);
+    const lon = Number(item.lon);
+    if (!lat || !lon) return;
+
+    L.circleMarker([lat, lon], {
+      radius: 4,
+      color: "#38bdf8",
+      fillColor: "#38bdf8",
+      fillOpacity: 0.45,
+      weight: 1
+    })
+    .addTo(gisLayer)
+    .bindPopup(`
+      <strong>GIS Parcel</strong><br>
+      County: ${item.county || ""}<br>
+      Owner: ${item.owner || ""}<br>
+      PID: ${item.pid || ""}<br>
+      Parcel: ${item.parcel_number || ""}<br>
+      Description: ${item.legal_description || ""}
+    `);
   });
 
   if (document.getElementById("toggleProjects")?.checked !== false) {
