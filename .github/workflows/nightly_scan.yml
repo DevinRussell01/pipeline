@@ -36,4 +36,4 @@ jobs:
           git add *.json
           git commit -m "Nightly Conduit data refresh" || echo "No changes to commit"
           git pull --rebase origin main
-          git push
+          git push origin main
