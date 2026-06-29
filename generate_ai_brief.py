@@ -1,7 +1,11 @@
 import json
 import os
 from datetime import datetime
+
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 OUTPUT_FILE = "executive_brief.json"
 
@@ -84,6 +88,15 @@ try:
     )
 
     content = response.output_text.strip()
+
+    if content.startswith("```json"):
+        content = content.replace("```json", "", 1).strip()
+
+    if content.startswith("```"):
+        content = content.replace("```", "", 1).strip()
+
+    if content.endswith("```"):
+        content = content[:-3].strip()
 
     try:
         brief = json.loads(content)

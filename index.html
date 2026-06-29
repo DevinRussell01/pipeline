@@ -1166,6 +1166,42 @@ a:hover{
 
   <br>
 
+  <!-- CONDUIT AI -->
+
+<div class="framework-card highlight" id="executiveBriefCard">
+
+  <h3>🧠 CONDUIT AI</h3>
+
+  <div class="sub">
+    Daily Executive Intelligence Brief
+  </div>
+
+  <br>
+
+  <strong>Generated:</strong>
+  <span id="briefGenerated">Loading...</span>
+
+  <br><br>
+
+  <h4>Executive Summary</h4>
+  <p id="briefSummary">Loading...</p>
+
+  <h4>Key Findings</h4>
+  <ul id="briefFindings"></ul>
+
+  <h4>Top Opportunities</h4>
+  <ul id="briefOpportunities"></ul>
+
+  <h4>Telecom Outlook</h4>
+  <ul id="briefTelecom"></ul>
+
+  <h4>Recommended Actions</h4>
+  <ul id="briefActions"></ul>
+
+</div>
+
+<br>
+
   <div class="stats">
 
     <div class="stat-card card">
@@ -2960,6 +2996,32 @@ async function loadProjectsFromJson() {
   }
 }
 
+async function loadExecutiveBrief() {
+  try {
+    const response = await fetch("executive_brief.json");
+    const brief = await response.json();
+
+    document.getElementById("briefGenerated").textContent =
+      brief.generated_at || "Unknown";
+
+    document.getElementById("briefSummary").textContent =
+      brief.summary || "No executive summary available.";
+
+    const renderList = (id, items) => {
+      document.getElementById(id).innerHTML =
+        (items || []).map(item => `<li>${item}</li>`).join("");
+    };
+
+    renderList("briefFindings", brief.key_findings);
+    renderList("briefOpportunities", brief.top_opportunities);
+    renderList("briefTelecom", brief.telecom_insights);
+    renderList("briefActions", brief.recommended_actions);
+
+  } catch (error) {
+    console.error("Could not load executive_brief.json", error);
+  }
+}
+
 async function loadBuilderPortfolios() {
   try {
     const response = await fetch("builder_portfolios.json");
@@ -3316,9 +3378,11 @@ if (document.getElementById("orgSearch")) {
 
     loadLandIntelligence();
 
-        loadBuilderPortfolios();
+    loadBuilderPortfolios();
 
     renderWatchlists();
+    
+    loadExecutiveBrief();
 
     fetch("land_intelligence.json")
       .then(res => res.json())
