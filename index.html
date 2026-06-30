@@ -1167,11 +1167,154 @@ gap:12px;
 
 }
 
+/* =======================================================
+   CONDUIT STARTUP SPLASH
+======================================================= */
+
+#conduitSplash{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at center, rgba(0,194,255,.10), transparent 38%),
+    linear-gradient(135deg, #020617, #0b1120 60%, #020617);
+  transition:opacity .7s ease, visibility .7s ease;
+}
+
+#conduitSplash.splash-hidden{
+  opacity:0;
+  visibility:hidden;
+}
+
+.splash-inner{
+  text-align:center;
+  width:min(680px,90vw);
+}
+
+.splash-logo{
+  font-size:64px;
+  font-weight:900;
+  letter-spacing:8px;
+  color:#ff6a00;
+  text-shadow:0 0 24px rgba(255,106,0,.28);
+}
+
+.splash-subtitle{
+  margin-top:8px;
+  color:#cbd5e1;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+.splash-bore{
+  width:360px;
+  max-width:80vw;
+  margin:34px auto 22px;
+  filter:drop-shadow(0 0 12px rgba(0,194,255,.35));
+}
+
+.splash-bore svg{
+  width:100%;
+}
+
+.splash-surface{
+  fill:none;
+  stroke:rgba(148,163,184,.35);
+  stroke-width:2;
+  stroke-dasharray:7 8;
+}
+
+.splash-path{
+  fill:none;
+  stroke:#ff6a00;
+  stroke-width:4;
+  stroke-linecap:round;
+}
+
+.splash-pulse{
+  fill:none;
+  stroke:#00c2ff;
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-dasharray:26 240;
+  animation:splashBorePulse 1.8s linear infinite;
+}
+
+.splash-entry{
+  fill:#00c2ff;
+}
+
+.splash-head{
+  fill:#ff6a00;
+  filter:drop-shadow(0 0 8px rgba(255,106,0,.8));
+}
+
+@keyframes splashBorePulse{
+  from{stroke-dashoffset:266;}
+  to{stroke-dashoffset:0;}
+}
+
+.splash-lines{
+  display:grid;
+  gap:8px;
+  color:#e2e8f0;
+  font-size:14px;
+  letter-spacing:.5px;
+}
+
+.splash-lines div{
+  opacity:0;
+  animation:splashLineIn .45s ease forwards;
+}
+
+.splash-lines div:nth-child(1){animation-delay:.1s;}
+.splash-lines div:nth-child(2){animation-delay:.35s;}
+.splash-lines div:nth-child(3){animation-delay:.55s;}
+.splash-lines div:nth-child(4){animation-delay:.75s;}
+.splash-lines div:nth-child(5){animation-delay:.95s;}
+.splash-lines div:nth-child(6){animation-delay:1.15s;}
+
+@keyframes splashLineIn{
+  from{opacity:0; transform:translateY(6px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 </style>
 </head>
 <body>
+
+<div id="conduitSplash">
+  <div class="splash-inner">
+
+    <div class="splash-logo">CONDUIT</div>
+    <div class="splash-subtitle">Regional Development Intelligence Platform</div>
+
+    <div class="splash-bore">
+      <svg viewBox="0 0 260 90" xmlns="http://www.w3.org/2000/svg">
+        <path class="splash-surface" d="M18 24 H242" />
+        <path class="splash-path" d="M24 28 C68 28, 74 72, 130 72 C186 72, 192 28, 236 28" />
+        <path class="splash-pulse" d="M24 28 C68 28, 74 72, 130 72 C186 72, 192 28, 236 28" />
+        <circle class="splash-entry" cx="24" cy="28" r="6" />
+        <polygon class="splash-head" points="230,20 250,28 230,36" />
+      </svg>
+    </div>
+
+    <div class="splash-lines">
+      <div>Initializing Intelligence Engine...</div>
+      <div>✓ County Intelligence</div>
+      <div>✓ Builder Intelligence</div>
+      <div>✓ GIS Layers</div>
+      <div>✓ Locate Signals</div>
+      <div>✓ AI Analysis</div>
+    </div>
+
+  </div>
+</div>
+
 <div class="container">
 
 <header>
@@ -3878,6 +4021,21 @@ if (document.getElementById("orgSearch")) {
   log('Regional county intelligence online.');
   log('Builder100 tracking initialized.');
 };
+// ======================================
+// CONDUIT STARTUP SEQUENCE
+// ======================================
+
+window.addEventListener("load", () => {
+
+    const splash = document.getElementById("conduitSplash");
+
+    setTimeout(() => {
+
+        splash?.classList.add("splash-hidden");
+
+    }, 2500);
+
+});
 
 </script>
 </body>
