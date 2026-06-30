@@ -1350,6 +1350,93 @@ gap:12px;
   }
 }
 
+/* =======================================================
+   ASK CONDUIT
+======================================================= */
+
+.ask-conduit{
+  background:rgba(15,23,42,.58);
+  border:1px solid rgba(255,106,0,.22);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 0 24px rgba(255,106,0,.08);
+}
+
+.ask-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:18px;
+}
+
+.ask-header h3{
+  margin:0;
+  color:#ff6a00;
+  letter-spacing:1.5px;
+}
+
+.ask-badge{
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(0,194,255,.10);
+  border:1px solid rgba(0,194,255,.25);
+  color:#00c2ff;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+#askConduitInput{
+  width:100%;
+  min-height:84px;
+  resize:vertical;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(2,6,23,.55);
+  color:#e2e8f0;
+  padding:16px;
+  font-size:15px;
+  outline:none;
+}
+
+#askConduitInput:focus{
+  border-color:rgba(0,194,255,.35);
+  box-shadow:0 0 18px rgba(0,194,255,.10);
+}
+
+.ask-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:14px 0;
+}
+
+.ask-actions button{
+  border:none;
+  border-radius:999px;
+  padding:10px 14px;
+  background:rgba(255,106,0,.12);
+  color:#ffb86b;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.ask-actions button:first-child{
+  background:linear-gradient(135deg,#ff6a00,#00c2ff);
+  color:white;
+}
+
+.ask-response{
+  margin-top:16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.035);
+  padding:18px;
+  color:#dbeafe;
+  line-height:1.6;
+}
+
 </style>
 </head>
 <body>
@@ -1896,6 +1983,41 @@ gap:12px;
 
   </div>
 </div>
+<!-- ASK CONDUIT -->
+
+<div class="ask-conduit">
+  <div class="ask-header">
+    <div>
+      <h3>ASK CONDUIT</h3>
+      <div class="sub">Query the latest regional intelligence package.</div>
+    </div>
+    <div class="ask-badge">ANALYST MODE</div>
+  </div>
+
+  <textarea
+    id="askConduitInput"
+    placeholder="Example: Where should Spectrum prioritize expansion next?"
+  ></textarea>
+
+  <div class="ask-actions">
+    <button onclick="askConduit()">Analyze</button>
+    <button onclick="askSuggested('Where should Spectrum prioritize expansion next?')">
+      Expansion Priority
+    </button>
+    <button onclick="askSuggested('Which county has the strongest builder momentum?')">
+      Builder Momentum
+    </button>
+    <button onclick="askSuggested('What are the strongest telecom opportunities?')">
+      Telecom Opportunities
+    </button>
+  </div>
+
+  <div id="askConduitResponse" class="ask-response">
+    Ask Conduit a question about projects, parcels, builders, GIS, locate signals, or opportunities.
+  </div>
+</div>
+
+<br>
 
 
     <!-- SECONDARY SIGNAL STATS -->
@@ -4180,6 +4302,89 @@ if (engineLabel){
 
     },2500);
 
+}
+
+// ======================================
+// ASK CONDUIT
+// ======================================
+
+function askSuggested(question) {
+  document.getElementById("askConduitInput").value = question;
+  askConduit();
+}
+
+async function askConduit() {
+  const question = document.getElementById("askConduitInput").value.trim();
+  const responseBox = document.getElementById("askConduitResponse");
+
+  if (!question) {
+    responseBox.innerHTML = "Enter a question or choose a suggested analysis.";
+    return;
+  }
+
+  responseBox.innerHTML = "Analyzing Conduit intelligence package...";
+
+  try {
+    const [briefRes, activityRes, projectsRes, landRes, buildersRes, patternsRes] =
+      await Promise.all([
+        fetch("executive_brief.json"),
+        fetch("activity_feed.json"),
+        fetch("projects.json"),
+        fetch("land_intelligence.json"),
+        fetch("builder_portfolios.json"),
+        fetch("locate_patterns.json")
+      ]);
+
+    const brief = await briefRes.json();
+    const activity = await activityRes.json();
+    const projects = await projectsRes.json();
+    const land = await landRes.json();
+    const builders = await buildersRes.json();
+    const patterns = await patternsRes.json();
+
+    const countyCounts = {};
+    projects.forEach(p => {
+      if (p.county) countyCounts[p.county] = (countyCounts[p.county] || 0) + 1;
+    });
+
+    const topProjectCounty =
+      Object.entries(countyCounts).sort((a,b) => b[1] - a[1])[0];
+
+    const topLand = [...land]
+      .sort((a,b) => Number(b.watch_score || 0) - Number(a.watch_score || 0))
+      .slice(0,3);
+
+    const highSignals = patterns.filter(p =>
+      String(p.opportunity || "").toLowerCase() === "high"
+    );
+
+    responseBox.innerHTML = `
+      <strong>Analysis Complete</strong><br><br>
+
+      <strong>Question:</strong> ${question}<br><br>
+
+      <strong>Recommendation:</strong><br>
+      ${brief.counties_to_watch?.[0] || "Review Mecklenburg, Cleveland, and Gaston based on current activity."}
+      <br><br>
+
+      <strong>Supporting Intelligence:</strong>
+      <ul>
+        <li>${projects.length} development projects indexed.</li>
+        <li>${land.length} land intelligence parcels evaluated.</li>
+        <li>${builders.length} builder communities monitored.</li>
+        <li>${highSignals.length} high-priority infrastructure signals detected.</li>
+        ${topProjectCounty ? `<li>${topProjectCounty[0]} has the highest project concentration with ${topProjectCounty[1]} records.</li>` : ""}
+        ${topLand[0] ? `<li>Highest land watch signal: ${topLand[0].county || ""} parcel owned by ${topLand[0].owner || "unknown owner"}.</li>` : ""}
+      </ul>
+
+      <strong>Latest Activity:</strong><br>
+      ${activity.slice(0,3).map(a => `${a.time} • ${a.type}: ${a.message}`).join("<br>")}
+    `;
+
+  } catch (error) {
+    console.error("Ask Conduit failed", error);
+    responseBox.innerHTML = "Could not analyze Conduit data package.";
+  }
 }
 
 </script>
