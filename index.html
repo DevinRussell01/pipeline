@@ -781,6 +781,143 @@ a:hover{
   }
 }
 
+:root {
+  --conduit-orange: #ff6a00;
+  --conduit-blue: #00c2ff;
+  --conduit-green: #4ade80;
+}
+
+.engine-card.engine-v2 {
+  background: linear-gradient(135deg, rgba(12, 18, 28, 0.88), rgba(8, 12, 20, 0.72));
+  border: 1px solid rgba(0, 194, 255, 0.24);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 0 28px rgba(0, 194, 255, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.engine-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.engine-header h3 {
+  margin: 0;
+  letter-spacing: 1.8px;
+  color: var(--conduit-orange);
+}
+
+.engine-status {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--conduit-green);
+  opacity: 0.9;
+}
+
+.bore-icon-v2 {
+  width: 120px;
+  min-width: 120px;
+  height: 54px;
+  filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.28));
+}
+
+.bore-icon-v2 svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bore-surface {
+  fill: none;
+  stroke: rgba(148, 163, 184, 0.38);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 6 7;
+}
+
+.bore-guide {
+  fill: none;
+  stroke: rgba(255, 106, 0, 0.16);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.bore-path {
+  fill: none;
+  stroke: var(--conduit-orange);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+.bore-pulse {
+  fill: none;
+  stroke: var(--conduit-blue);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  stroke-dasharray: 22 210;
+  animation: borePulse 3.2s linear infinite;
+}
+
+.bore-entry {
+  fill: var(--conduit-blue);
+  opacity: 0.95;
+}
+
+.bore-head {
+  fill: var(--conduit-orange);
+  filter: drop-shadow(0 0 7px rgba(255, 106, 0, 0.75));
+}
+
+@keyframes borePulse {
+  from { stroke-dashoffset: 232; }
+  to { stroke-dashoffset: 0; }
+}
+
+#engineMessage {
+  margin: 18px 0 14px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.engine-bar {
+  height: 5px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.engine-progress {
+  height: 100%;
+  width: 36%;
+  background: linear-gradient(90deg, var(--conduit-orange), var(--conduit-blue), var(--conduit-green));
+  animation: engineFlow 4s linear infinite;
+}
+
+@keyframes engineFlow {
+  from { margin-left: -40%; }
+  to { margin-left: 100%; }
+}
+
+.engine-metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  color: rgba(226, 232, 240, 0.82);
+}
+
+.engine-metrics span {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
 </style>
 </head>
 <body>
@@ -1165,6 +1302,49 @@ a:hover{
   </div>
 
   <br>
+
+<!-- INTELLIGENCE ENGINE -->
+
+<div class="engine-card engine-v2">
+
+  <div class="engine-header">
+
+    <div class="bore-icon bore-icon-v2" aria-hidden="true">
+      <svg viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+        <path class="bore-surface" d="M12 24 H208" />
+        <path class="bore-guide" d="M18 28 C52 28, 58 70, 110 70 C162 70, 168 28, 202 28" />
+        <path class="bore-path" d="M18 28 C52 28, 58 70, 110 70 C162 70, 168 28, 202 28" />
+        <path class="bore-pulse" d="M18 28 C52 28, 58 70, 110 70 C162 70, 168 28, 202 28" />
+        <circle class="bore-entry" cx="18" cy="28" r="6" />
+        <polygon class="bore-head" points="198,20 216,28 198,36" />
+      </svg>
+    </div>
+
+    <div>
+      <h3>CONDUIT INTELLIGENCE ENGINE</h3>
+      <div class="engine-status">ACTIVE MONITORING · AI BRIEF CURRENT</div>
+    </div>
+
+  </div>
+
+  <div id="engineMessage">Monitoring County Feeds...</div>
+
+  <div class="engine-bar">
+    <div class="engine-progress"></div>
+  </div>
+
+  <div class="engine-metrics">
+    <span id="engineProjects">111 Projects</span>
+    <span id="engineParcels">319 Parcels</span>
+    <span id="engineBuilders">15 Builders</span>
+    <span id="engineSignals">3 Signals</span>
+  </div>
+
+</div>
+
+<br>
+
+<br>
 
   <!-- CONDUIT AI -->
 
