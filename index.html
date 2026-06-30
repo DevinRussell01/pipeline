@@ -2853,6 +2853,7 @@ ORGANIZATIONS.forEach(org => {
 // PROJECT DATABASE
 // =====================================================
 
+let ASK_CONDUIT = {};
 let PROJECTS = [];
 let BUILDER_PORTFOLIOS = [];
 let LOCATE_HEAT_SIGNALS = [];
@@ -3827,6 +3828,22 @@ async function loadActivityFeed() {
   }
 }
 
+async function loadAskConduitAnswers() {
+
+    try{
+
+        const response = await fetch("ask_conduit_answers.json");
+
+        ASK_CONDUIT = await response.json();
+
+    }catch(err){
+
+        console.error("Could not load ask_conduit_answers.json");
+
+    }
+
+}
+
 async function loadBuilderPortfolios() {
   try {
     const response = await fetch("builder_portfolios.json");
@@ -4189,6 +4206,7 @@ if (document.getElementById("orgSearch")) {
     
     loadExecutiveBrief();
     loadActivityFeed();
+    loadAskConduitAnswers();
 
     fetch("land_intelligence.json")
 
@@ -4313,7 +4331,41 @@ function askSuggested(question) {
   askConduit();
 }
 
-async function askConduit() {
+function getAskConduitKey(question) {
+  const q = question.toLowerCase();
+
+  if (
+    q.includes("builder") ||
+    q.includes("homebuilder") ||
+    q.includes("community") ||
+    q.includes("momentum")
+  ) {
+    return "Which county has the strongest builder momentum?";
+  }
+
+  if (
+    q.includes("telecom") ||
+    q.includes("fiber") ||
+    q.includes("bore") ||
+    q.includes("utility")
+  ) {
+    return "What are the strongest telecom opportunities?";
+  }
+
+  if (
+    q.includes("expand") ||
+    q.includes("expansion") ||
+    q.includes("prioritize") ||
+    q.includes("where should") ||
+    q.includes("best county")
+  ) {
+    return "Where should Spectrum prioritize expansion next?";
+  }
+
+  return null;
+}
+
+function askConduit() {
   const question = document.getElementById("askConduitInput").value.trim();
   const responseBox = document.getElementById("askConduitResponse");
 
@@ -4322,112 +4374,46 @@ async function askConduit() {
     return;
   }
 
-  responseBox.innerHTML = "Analyzing Conduit intelligence package...";
+  const answerKey = getAskConduitKey(question);
+  const answer = answerKey ? ASK_CONDUIT.answers?.[answerKey] : null;
 
-  try {
-    const [briefRes, activityRes, projectsRes, landRes, buildersRes, patternsRes] =
-      await Promise.all([
-        fetch("executive_brief.json"),
-        fetch("activity_feed.json"),
-        fetch("projects.json"),
-        fetch("land_intelligence.json"),
-        fetch("builder_portfolios.json"),
-        fetch("locate_patterns.json")
-      ]);
-
-    const brief = await briefRes.json();
-    const activity = await activityRes.json();
-    const projects = await projectsRes.json();
-    const land = await landRes.json();
-    const builders = await buildersRes.json();
-    const patterns = await patternsRes.json();
-
-    const countyCounts = {};
-    projects.forEach(p => {
-      if (p.county) countyCounts[p.county] = (countyCounts[p.county] || 0) + 1;
-    });
-
-    const topProjectCounty =
-      Object.entries(countyCounts).sort((a, b) => b[1] - a[1])[0];
-
-    const topLand = [...land]
-      .sort((a, b) => Number(b.watch_score || 0) - Number(a.watch_score || 0))
-      .slice(0, 3);
-
-    const highSignals = patterns.filter(p =>
-      String(p.opportunity || "").toLowerCase() === "high"
-    );
-
-    const q = question.toLowerCase();
-
-    let recommendation = "";
-    let reasoning = [];
-
-    if (q.includes("builder")) {
-      recommendation = "Mecklenburg and Gaston show the strongest builder momentum.";
-      reasoning = [
-        `${builders.length} builder communities are currently monitored.`,
-        "Builder activity is concentrated around Mecklenburg, Gaston, and Union.",
-        "D.R. Horton, Eastwood Homes, and Taylor Morrison appear in current portfolio intelligence."
-      ];
-
-    } else if (q.includes("telecom") || q.includes("fiber")) {
-      recommendation = "Mecklenburg and Cabarrus currently show the strongest telecom opportunity signals.";
-      reasoning = [
-        `${highSignals.length} high-priority infrastructure signals detected.`,
-        "Locate pattern intelligence points to telecom and directional bore activity.",
-        "Westinghouse Blvd and Concord Mills Blvd remain key corridors to review."
-      ];
-
-    } else if (q.includes("expand") || q.includes("expansion") || q.includes("prioritize")) {
-      recommendation =
-        brief.counties_to_watch?.[0] ||
-        "Cleveland, Mecklenburg, and Cabarrus should remain top priorities.";
-
-      reasoning = [
-        `${projects.length} development projects indexed.`,
-        `${land.length} land intelligence parcels evaluated.`,
-        `${topProjectCounty?.[0] || "Mecklenburg"} has the highest project concentration.`,
-        topLand[0]
-          ? `Highest land watch signal: ${topLand[0].county || ""} parcel owned by ${topLand[0].owner || "unknown owner"}.`
-          : "High-watch land parcels remain a key expansion signal."
-      ];
-
-    } else {
-      recommendation =
-        brief.summary ||
-        "Current Conduit intelligence supports continued monitoring of Mecklenburg, Cleveland, Cabarrus, Gaston, and Union.";
-
-      reasoning = [
-        `${projects.length} projects indexed.`,
-        `${land.length} parcels evaluated.`,
-        `${builders.length} builder communities monitored.`,
-        `${patterns.length} locate patterns analyzed.`
-      ];
-    }
-
+  if (!answer) {
     responseBox.innerHTML = `
-      <strong>Analysis Complete</strong><br><br>
-
-      <strong>Question:</strong> ${question}<br><br>
-
-      <strong>Recommendation:</strong><br>
-      ${recommendation}
+      <strong>Analysis Not Precomputed</strong><br><br>
+      This question has not been pre-analyzed yet. Try one of the suggested intelligence questions.
       <br><br>
-
-      <strong>Supporting Intelligence:</strong>
-      <ul>
-        ${reasoning.map(r => `<li>${r}</li>`).join("")}
-      </ul>
-
-      <strong>Latest Activity:</strong><br>
-      ${activity.slice(0, 3).map(a => `${a.time} • ${a.type}: ${a.message}`).join("<br>")}
+      <em>Live custom AI analysis is planned for the next version.</em>
     `;
-
-  } catch (error) {
-    console.error("Ask Conduit failed", error);
-    responseBox.innerHTML = "Could not analyze Conduit data package.";
+    return;
   }
+
+  const nextActions = Array.isArray(answer.next_action)
+    ? answer.next_action
+    : [answer.next_action];
+
+  responseBox.innerHTML = `
+    <strong>Analysis Complete</strong><br><br>
+
+    <strong>Question:</strong> ${question}<br><br>
+
+    <strong>Recommendation:</strong><br>
+    ${answer.recommendation || "No recommendation available."}
+    <br><br>
+
+    <strong>Confidence:</strong>
+    ${answer.confidence || "Not specified"}
+    <br><br>
+
+    <strong>Supporting Intelligence:</strong>
+    <ul>
+      ${(answer.reasoning || []).map(r => `<li>${r}</li>`).join("")}
+    </ul>
+
+    <strong>Recommended Next Action:</strong>
+    <ul>
+      ${nextActions.filter(Boolean).map(a => `<li>${a}</li>`).join("")}
+    </ul>
+  `;
 }
 
 </script>
