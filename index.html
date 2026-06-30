@@ -3687,6 +3687,24 @@ async function loadExecutiveBrief() {
   }
 }
 
+async function loadActivityFeed() {
+  try {
+    const response = await fetch("activity_feed.json");
+    const feed = await response.json();
+
+    document.getElementById("intelFeed").innerHTML =
+      feed.map(item => `
+        <div class="intel-item">
+          <span class="intel-time">${item.time || ""}</span>
+          <span><strong>${item.type || "Intel"}:</strong> ${item.message || ""}</span>
+        </div>
+      `).join("");
+
+  } catch (error) {
+    console.error("Could not load activity_feed.json", error);
+  }
+}
+
 async function loadBuilderPortfolios() {
   try {
     const response = await fetch("builder_portfolios.json");
@@ -4048,6 +4066,9 @@ if (document.getElementById("orgSearch")) {
     renderWatchlists();
     
     loadExecutiveBrief();
+    loadActivityFeed();
+
+    fetch("land_intelligence.json")
 
     fetch("land_intelligence.json")
       .then(res => res.json())
