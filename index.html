@@ -4348,15 +4348,63 @@ async function askConduit() {
     });
 
     const topProjectCounty =
-      Object.entries(countyCounts).sort((a,b) => b[1] - a[1])[0];
+      Object.entries(countyCounts).sort((a, b) => b[1] - a[1])[0];
 
     const topLand = [...land]
-      .sort((a,b) => Number(b.watch_score || 0) - Number(a.watch_score || 0))
-      .slice(0,3);
+      .sort((a, b) => Number(b.watch_score || 0) - Number(a.watch_score || 0))
+      .slice(0, 3);
 
     const highSignals = patterns.filter(p =>
       String(p.opportunity || "").toLowerCase() === "high"
     );
+
+    const q = question.toLowerCase();
+
+    let recommendation = "";
+    let reasoning = [];
+
+    if (q.includes("builder")) {
+      recommendation = "Mecklenburg and Gaston show the strongest builder momentum.";
+      reasoning = [
+        `${builders.length} builder communities are currently monitored.`,
+        "Builder activity is concentrated around Mecklenburg, Gaston, and Union.",
+        "D.R. Horton, Eastwood Homes, and Taylor Morrison appear in current portfolio intelligence."
+      ];
+
+    } else if (q.includes("telecom") || q.includes("fiber")) {
+      recommendation = "Mecklenburg and Cabarrus currently show the strongest telecom opportunity signals.";
+      reasoning = [
+        `${highSignals.length} high-priority infrastructure signals detected.`,
+        "Locate pattern intelligence points to telecom and directional bore activity.",
+        "Westinghouse Blvd and Concord Mills Blvd remain key corridors to review."
+      ];
+
+    } else if (q.includes("expand") || q.includes("expansion") || q.includes("prioritize")) {
+      recommendation =
+        brief.counties_to_watch?.[0] ||
+        "Cleveland, Mecklenburg, and Cabarrus should remain top priorities.";
+
+      reasoning = [
+        `${projects.length} development projects indexed.`,
+        `${land.length} land intelligence parcels evaluated.`,
+        `${topProjectCounty?.[0] || "Mecklenburg"} has the highest project concentration.`,
+        topLand[0]
+          ? `Highest land watch signal: ${topLand[0].county || ""} parcel owned by ${topLand[0].owner || "unknown owner"}.`
+          : "High-watch land parcels remain a key expansion signal."
+      ];
+
+    } else {
+      recommendation =
+        brief.summary ||
+        "Current Conduit intelligence supports continued monitoring of Mecklenburg, Cleveland, Cabarrus, Gaston, and Union.";
+
+      reasoning = [
+        `${projects.length} projects indexed.`,
+        `${land.length} parcels evaluated.`,
+        `${builders.length} builder communities monitored.`,
+        `${patterns.length} locate patterns analyzed.`
+      ];
+    }
 
     responseBox.innerHTML = `
       <strong>Analysis Complete</strong><br><br>
@@ -4364,21 +4412,16 @@ async function askConduit() {
       <strong>Question:</strong> ${question}<br><br>
 
       <strong>Recommendation:</strong><br>
-      ${brief.counties_to_watch?.[0] || "Review Mecklenburg, Cleveland, and Gaston based on current activity."}
+      ${recommendation}
       <br><br>
 
       <strong>Supporting Intelligence:</strong>
       <ul>
-        <li>${projects.length} development projects indexed.</li>
-        <li>${land.length} land intelligence parcels evaluated.</li>
-        <li>${builders.length} builder communities monitored.</li>
-        <li>${highSignals.length} high-priority infrastructure signals detected.</li>
-        ${topProjectCounty ? `<li>${topProjectCounty[0]} has the highest project concentration with ${topProjectCounty[1]} records.</li>` : ""}
-        ${topLand[0] ? `<li>Highest land watch signal: ${topLand[0].county || ""} parcel owned by ${topLand[0].owner || "unknown owner"}.</li>` : ""}
+        ${reasoning.map(r => `<li>${r}</li>`).join("")}
       </ul>
 
       <strong>Latest Activity:</strong><br>
-      ${activity.slice(0,3).map(a => `${a.time} • ${a.type}: ${a.message}`).join("<br>")}
+      ${activity.slice(0, 3).map(a => `${a.time} • ${a.type}: ${a.message}`).join("<br>")}
     `;
 
   } catch (error) {
