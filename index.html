@@ -1289,6 +1289,67 @@ gap:12px;
   to{opacity:1; transform:translateY(0);}
 }
 
+/* =======================================================
+   LIVE INTELLIGENCE FEED
+======================================================= */
+
+.dashboard-row{
+  display:grid;
+  grid-template-columns:2fr .85fr;
+  gap:22px;
+  align-items:start;
+}
+
+.intel-feed{
+  background:rgba(15,23,42,.58);
+  border:1px solid rgba(0,194,255,.18);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 0 24px rgba(0,194,255,.10);
+  min-height:100%;
+}
+
+.intel-feed h3{
+  margin:0 0 18px;
+  color:#00c2ff;
+  letter-spacing:1.5px;
+  font-size:1rem;
+}
+
+#intelFeed{
+  display:grid;
+  gap:12px;
+}
+
+.intel-item{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color:#dbeafe;
+  font-size:.92rem;
+  line-height:1.35;
+}
+
+.intel-item:last-child{
+  border-bottom:none;
+}
+
+.intel-time{
+  color:#ff6a00;
+  font-weight:800;
+  font-size:.78rem;
+  min-width:42px;
+  letter-spacing:.5px;
+}
+
+@media(max-width:1100px){
+  .dashboard-row{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1749,6 +1810,8 @@ gap:12px;
     </div>
 
     <!-- EXECUTIVE BRIEF -->
+    <div class="dashboard-row">
+
     <div class="brief-v2" id="executiveBriefCard">
 
       <div class="brief-header">
@@ -1793,6 +1856,47 @@ gap:12px;
       </div>
 
     </div>
+    <div class="intel-feed">
+
+    <h3>LIVE INTELLIGENCE</h3>
+
+    <div id="intelFeed">
+
+    <div class="intel-item">
+    <span class="intel-time">09:42</span>
+    Executive Brief Generated
+    </div>
+
+    <div class="intel-item">
+    <span class="intel-time">09:39</span>
+    Mecklenburg Planning Activity
+    </div>
+
+    <div class="intel-item">
+    <span class="intel-time">09:36</span>
+    Google Fiber Locate Signal
+    </div>
+
+    <div class="intel-item">
+    <span class="intel-time">09:33</span>
+    Builder Portfolio Updated
+    </div>
+
+    <div class="intel-item">
+    <span class="intel-time">09:30</span>
+    Land Intelligence Refreshed
+    </div>
+
+    <div class="intel-item">
+    <span class="intel-time">09:27</span>
+    Opportunity Scores Updated
+    </div>
+
+    </div>
+
+  </div>
+</div>
+
 
     <!-- SECONDARY SIGNAL STATS -->
     <div class="signal-mini-grid">
