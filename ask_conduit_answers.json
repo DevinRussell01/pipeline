@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-06-30 16:43:04",
+  "answers": {
+    "Where should Spectrum prioritize expansion next?": {
+      "recommendation": "Spectrum should prioritize expansion in Cleveland County and Mecklenburg County next, with strong consideration for Cabarrus County as a strategic secondary focus.",
+      "confidence": "Very High",
+      "reasoning": [
+        "Cleveland County has the highest concentration of large, high-watch score parcels owned by LLCs, indicating imminent large-scale land development opportunities.",
+        "Mecklenburg County shows very high-confidence telecom locate patterns along Westinghouse Boulevard, overlapping with multiple high-watch land parcels and active builder subdivisions, signaling immediate infrastructure demand.",
+        "Cabarrus County exhibits emerging very high-confidence directional boring and utility construction signals near commercial growth corridors at Concord Mills Boulevard, suggesting early-stage fiber network expansion.",
+        "Union and Gaston counties show moderate to steady builder and utility activity but lack the combination of high watch parcels and high-confidence telecom signals present in Cleveland and Mecklenburg.",
+        "No existing projects overlap with the strongest locate signals, providing Spectrum a timing advantage for early network deployments in these key areas."
+      ],
+      "next_action": "Begin targeted GIS analysis and land acquisition efforts in Cleveland County's high-watch parcels. Engage local builders and coordinate with utility providers around Westinghouse Boulevard in Mecklenburg County to support fiber infrastructure expansion. Initiate partnerships for network deployment near Concord Mills Boulevard in Cabarrus County to capitalize on early expansion signals."
+    },
+    "Which county has the strongest builder momentum?": {
+      "recommendation": "Focus on Mecklenburg County for immediate builder partnerships and telecom infrastructure deployment due to strong builder momentum and active approved subdivisions.",
+      "confidence": "High",
+      "reasoning": [
+        "Mecklenburg County has significant approved subdivisions and ongoing single-family home projects.",
+        "Strong telecom infrastructure signals along Westinghouse Boulevard indicate active fiber and utility construction.",
+        "Mecklenburg shows very high-confidence locate patterns overlapping with multiple high-watch land parcels.",
+        "Other counties like Cleveland have high land development potential but less evidence of active builder momentum.",
+        "Cabarrus and Union counties show early or moderate-stage activity but not as developed as Mecklenburg."
+      ],
+      "next_action": "Engage builders in Mecklenburg County to synchronize infrastructure and land development. Coordinate with telecom providers to support ongoing fiber expansion along Westinghouse Boulevard."
+    },
+    "What are the strongest telecom opportunities?": {
+      "recommendation": "Prioritize telecom infrastructure expansion and land acquisition efforts in Cleveland, Mecklenburg, and Cabarrus counties, focusing on high-watch parcels, active builder communities, and telecom locate signals along key commercial and industrial corridors.",
+      "confidence": "Very High",
+      "reasoning": [
+        "Cleveland County has the highest concentration of large, high-watch parcels suggesting imminent large-scale land development.",
+        "Mecklenburg County shows strong builder activity with approved subdivisions complemented by robust fiber and utility construction signals along Westinghouse Boulevard.",
+        "Cabarrus County presents emerging very high-confidence telecom locate signals near commercial growth areas like Concord Mills Boulevard, indicating network expansion opportunities.",
+        "Utility and telecom locate patterns in these areas correlate with active and planned industrial and commercial developments, enhancing the likelihood of successful network deployment.",
+        "Union County's moderate utility signals indicate earlier-stage opportunities but lack immediate development or parcel activity, making it a secondary focus."
+      ],
+      "next_action": [
+        "Engage with builders and landowners in Cleveland County to secure strategic parcels and align telecom infrastructure plans with upcoming development.",
+        "Collaborate with telecom providers and utilities in Mecklenburg and Cabarrus counties to support ongoing and planned fiber deployment around Westinghouse and Concord Mills Boulevards.",
+        "Implement GIS-driven monitoring of high-watch parcels and locate signals to swiftly identify emerging projects and infrastructure needs in these priority counties.",
+        "Establish a watchlist for Union County to track early utility signals for timely entry into future development phases.",
+        "Coordinate with local planning and zoning authorities to anticipate shifts that may affect telecom buildout timelines and resource allocation."
+      ]
+    }
+  }
+}

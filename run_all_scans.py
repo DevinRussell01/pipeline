@@ -17,6 +17,7 @@ scripts = [
     "detect_locate_patterns.py",
     "generate_ai_brief.py",
     "generate_activity_feed.py",
+    "generate_ask_conduit.py",
 ]
 
 for script in scripts:
