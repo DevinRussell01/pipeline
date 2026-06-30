@@ -875,11 +875,17 @@ a:hover{
   to { stroke-dashoffset: 0; }
 }
 
-#engineMessage {
-  margin: 18px 0 14px;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
+#engineMessage{
+  margin:18px 0 14px;
+  font-size:1.05rem;
+  font-weight:600;
+  color:rgba(255,255,255,.95);
+
+  transition:opacity .25s ease;
+
+  min-height:24px;
+
+  letter-spacing:.3px;
 }
 
 .engine-bar {
@@ -3997,7 +4003,59 @@ if (document.getElementById("orgSearch")) {
 // CONDUIT STARTUP SEQUENCE
 // ======================================
 
+// ======================================
+// CONDUIT INTELLIGENCE ENGINE
+// ======================================
 
+const engineMessages = [
+
+    "Initializing County Intelligence...",
+
+    "Scanning Planning Boards...",
+
+    "Analyzing Builder Activity...",
+
+    "Correlating GIS Parcels...",
+
+    "Processing Locate Tickets...",
+
+    "Scoring Development Opportunities...",
+
+    "Generating Executive Brief...",
+
+    "Intelligence Current"
+
+];
+
+let engineIndex = 0;
+
+const engineLabel = document.getElementById("engineMessage");
+
+if (engineLabel){
+
+    setInterval(() => {
+
+        engineIndex++;
+
+        if(engineIndex >= engineMessages.length){
+
+            engineIndex = 0;
+
+        }
+
+        engineLabel.style.opacity = 0;
+
+        setTimeout(() => {
+
+            engineLabel.textContent = engineMessages[engineIndex];
+
+            engineLabel.style.opacity = 1;
+
+        },200);
+
+    },2500);
+
+}
 
 </script>
 </body>
