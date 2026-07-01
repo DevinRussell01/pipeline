@@ -1,41 +1,41 @@
 {
-  "summary": "Current intelligence reflects significant actionable signals across key counties, with Cleveland County showing multiple high-watch large land parcels owned by LLCs indicating potential development activity. Mecklenburg County hosts numerous approved residential projects and notable builder activity, coupled with very high-confidence telecom locate and development patterns around Westinghouse Boulevard suggesting imminent fiber infrastructure or utility expansion in an industrial corridor. Cabarrus County exhibits active telecom-related locate signals near major commercial growth zones with high-value land parcels, while Union County signals moderate utility activity near a development corridor without tracked parcels yet. Builder presence is strong in Gaston, Mecklenburg, and Union counties, emphasizing ongoing and upcoming residential community growth. This multi-county landscape requires focused land monitoring, telecom infrastructure engagement, and builder partnership strategies to leverage expanding development and fiber deployment opportunities.",
+  "summary": "Current land development intelligence highlights Cleveland County as a critical area due to multiple large land parcels with very high watch scores held by LLC owners, signaling potential acquisition or development activity. Mecklenburg County shows vigorous builder activity with multiple approved subdivision projects and several active single-family home communities by major builders like D.R. Horton and Eastwood Homes. Telecom and utility infrastructure activity is concentrated along Westinghouse Boulevard in Mecklenburg and Concord Mills Boulevard in Cabarrus, indicating growing infrastructure investment in industrial and commercial corridors. Locate patterns and watch scores strongly suggest these areas, plus Union County's emerging utility signals, as priorities for monitoring development and infrastructure deployments through GIS and builder project tracking.",
   "key_findings": [
-    "Cleveland County features multiple large land parcels (335-739 acres) with highest watch scores (9), mostly LLC owned, signaling potential large-scale development or investment.",
-    "Mecklenburg County shows high volume of approved residential subdivisions and townhome projects, indicating robust builder activity and land development momentum.",
-    "Very high-confidence telecom locate pattern in Mecklenburg on Westinghouse Boulevard aligns with multiple high-watch parcels, suggesting fiber/utility infrastructure expansion.",
-    "Cabarrus County has directional bore telecom activity adjacent to large high-watch land holdings including Charlotte Motor Speedway LLC parcel, signaling network growth in commercial areas.",
-    "Union County signals utility construction with moderate confidence but currently lacks associated tracked land or projects, indicating early stage or smaller scale activity."
+    "Cleveland County contains the largest high-watch-score land parcels (9/10) primarily owned by LLCs, suggesting upcoming development or speculation.",
+    "Mecklenburg leads builder activity with multiple approved subdivisions and active single-family communities, supported by 15 builder communities tracked.",
+    "High-confidence locate patterns in Mecklenburg and Cabarrus counties align with telecom and utility work in growth corridors, highlighting infrastructure expansion.",
+    "Union County shows moderate utility activity signals with no current tracked parcels or projects, representing early-stage opportunity.",
+    "Brunswick County exhibits ongoing zoning and development activity, but lacks detailed project or parcel-level signals currently."
   ],
   "top_opportunities": [
-    "Engage Cleveland County landowners with high watch scores for early-stage development or telecom infrastructure partnerships.",
-    "Leverage Mecklenburg fiber construction signal on Westinghouse Boulevard to coordinate telecom deployments or capture utility construction contracts.",
-    "Target Cabarrus County commercial zones near Concord Mills Boulevard for fiber-to-the-premises and underground utility expansion initiatives.",
-    "Deploy GIS resources to monitor Mecklenburg approved subdivisions for emerging buildout timelines and infrastructure coordination needs.",
-    "Anticipate upcoming builder projects in Gaston and Union counties to proactively support infrastructure and connectivity planning."
+    "Engage Cleveland County landowners and LLC owners to assess potential development or land use shifts on large, high-watch parcels.",
+    "Leverage Mecklenburg\u2019s high builder presence and recent subdivision approvals to propose targeted telecom infrastructure enhancements particularly fiber expansions.",
+    "Monitor ongoing telecom directional bore and fiber construction signals in Cabarrus County near Concord Mills Boulevard for early infrastructure partnership.",
+    "Develop strategic GIS overlays integrating high-watch parcels with current locate patterns to anticipate utility corridors and builder expansions especially in Mecklenburg.",
+    "Track Union County's emerging utility activity closely to identify follow-up development projects and land acquisition opportunities."
   ],
   "telecom_insights": [
-    "Mecklenburg\u2019s locate pattern indicates significant telecom fiber/utility construction in industrial corridors, supported by multiple adjacent high-watch land parcels.",
-    "Cabarrus County identified telecom directional bore activity with high risk and opportunity scores, suggesting competitive fiber network expansion or upgrades.",
-    "Union County telecom/utility signals are moderate but warrant watchlist inclusion for potential growth in less tracked areas.",
-    "Telecom locate signals frequently correlate with high-watch land parcels, reinforcing the strategic value of integrating GIS parcel analytics with locate data.",
-    "No current projects overlap directly with telecom locate signals, implying pre-construction or early infrastructure phases."
+    "Mecklenburg\u2019s Westinghouse Boulevard is a focal point of fiber and utility construction with four nearby high watch parcels owned by large material companies.",
+    "Cabarrus County exhibits significant telecom expansion signals around Concord Mills Boulevard, with directional boring indicating fiber network upgrades.",
+    "Locate patterns confirm very high confidence in telecom activity in Mecklenburg and Cabarrus, supporting investments in underground and aerial fiber infrastructure.",
+    "Union County\u2019s South Rocky River Road shows utility construction without immediate parcels or projects, indicating potential pipeline development infrastructure build-outs.",
+    "No current projects directly coincide with telecom locate patterns, suggesting opportunities for proactive infrastructure deployment aligned with builder growth."
   ],
   "counties_to_watch": [
-    "Cleveland - due to concentration of large, high watch score parcels and LLC ownership patterns indicating development interest.",
-    "Mecklenburg - driven by active subdivision projects, significant builder communities, and high-confidence telecom locate and development clusters.",
-    "Cabarrus - with emerging telecom directional bore activity near commercial hubs and adjacent high-value land parcels.",
-    "Union - as utility construction signals emerge without tracked parcels, representing an early-stage opportunity.",
-    "Gaston - given strong builder activity and detected planning/zoning signals suggesting ongoing residential development."
+    "Cleveland \u2013 highest concentration of large, high-watch, LLC-owned parcels signaling imminent land development or speculation.",
+    "Mecklenburg \u2013 active builder community, multiple approved subdivision projects, and robust telecom infrastructure construction signals.",
+    "Cabarrus \u2013 emerging telecom directional bore and utility construction activity around commercial zones near Concord Mills Blvd.",
+    "Union \u2013 low current land/project signal but medium confidence utility locate pattern suggests pre-development infrastructure activity.",
+    "Brunswick \u2013 ongoing planning and zoning activity detected, signaling potential future land development."
   ],
   "recommended_actions": [
-    "Initiate targeted outreach and relationship building with Cleveland LLC landowners to identify development intents and infrastructure needs.",
-    "Coordinate with telecom providers in Mecklenburg around Westinghouse Boulevard to align fiber rollout with high-watch land parcels and development projects.",
-    "Deploy enhanced GIS monitoring and land parcel analytics in Cabarrus and Mecklenburg counties to closely track evolving locate signals and project approvals.",
-    "Engage builders active in Gaston and Mecklenburg for collaboration on infrastructure planning and early integration of telecom connectivity in new communities.",
-    "Establish a watchlist update cadence focused on Union and Gaston counties to capture early signals of utility and telecom expansion for timely intervention."
+    "Initiate direct engagement with key Cleveland parcel owners to clarify development intentions and secure early-stage partnerships or monitoring agreements.",
+    "Coordinate GIS-driven deployment of telecom infrastructure with major builders in Mecklenburg to leverage approved subdivisions and active communities.",
+    "Align telecom infrastructure planning with locate pattern hotspots in Mecklenburg (Westinghouse Blvd) and Cabarrus (Concord Mills Blvd) for strategic fiber expansions.",
+    "Establish a watchlist for Union County\u2019s utility signals to track forthcoming development interest and land acquisitions.",
+    "Increase monitoring of Brunswick County zoning activities for emerging opportunities to integrate land development intelligence with builder and telecom infrastructure planning."
   ],
-  "generated_at": "2026-06-30 16:44:27",
+  "generated_at": "2026-07-01 09:49:46",
   "source_counts": {
     "projects": 111,
     "land_parcels": 319,
