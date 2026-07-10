@@ -57,20 +57,6 @@
     },
     {
         "county": "Cleveland",
-        "owner": "THE BLANTON FARM LLC",
-        "owner2": null,
-        "pid": "30492",
-        "pin": "2527835357",
-        "acres": 739.28,
-        "x": 1228550.13789747,
-        "y": 573374.60801749,
-        "lat": 35.29784382916522,
-        "lon": -81.58580507579408,
-        "llc_flag": true,
-        "watch_score": 9
-    },
-    {
-        "county": "Cleveland",
         "owner": "STATE OF NORTH CAROLINA",
         "owner2": "NC DEPT OF ADMINISTRATION",
         "pid": "12966",
@@ -142,7 +128,7 @@
     {
         "county": "Cleveland",
         "owner": "WHITE PHILLIS G. heirs",
-        "owner2": "GREENE DAVID PHILLIP JR. ET AL",
+        "owner2": "GREENE DAVID PHILLIP JR. ET AL LIFE ESTATE",
         "pid": "30728",
         "pin": "2519371735",
         "acres": 444.44,
@@ -200,12 +186,12 @@
         "owner": "DUKE ENERGY CAROLINAS LLC",
         "owner2": null,
         "pid": "315",
-        "pin": "1574521672",
+        "pin": "1574840424",
         "acres": 367.48,
-        "x": 1175175.6744833,
-        "y": 542622.47391481,
-        "lat": 35.20942855314683,
-        "lon": -81.76175337468115,
+        "x": 1178025.18847588,
+        "y": 544443.55004363,
+        "lat": 35.214647774598,
+        "lon": -81.75238628176778,
         "llc_flag": false,
         "watch_score": 2
     },
@@ -306,6 +292,20 @@
         "lon": -81.65666434999335,
         "llc_flag": false,
         "watch_score": 5
+    },
+    {
+        "county": "Cleveland",
+        "owner": "SOUTH FORK VENTURES LLC",
+        "owner2": null,
+        "pid": "30492",
+        "pin": "2537008942",
+        "acres": 308.59,
+        "x": 1228550.13789747,
+        "y": 573374.60801749,
+        "lat": 35.29784382916522,
+        "lon": -81.58580507579408,
+        "llc_flag": true,
+        "watch_score": 9
     },
     {
         "county": "Cleveland",
@@ -1335,11 +1335,11 @@
         "owner2": "",
         "pid": "154420",
         "pin": "3514-40-0863",
-        "acres": 3547.94,
-        "x": -81.29676872,
-        "y": 35.21423756,
-        "lat": 35.21423756,
-        "lon": -81.29676872,
+        "acres": 3547.98,
+        "x": -81.29676877,
+        "y": 35.21423745,
+        "lat": 35.21423745,
+        "lon": -81.29676877,
         "llc_flag": false,
         "watch_score": 2
     },
@@ -1765,7 +1765,7 @@
     },
     {
         "county": "Gaston",
-        "owner": "DUKE VENTURES REAL ESTATE LLC",
+        "owner": "GASTON COUNTY",
         "owner2": "",
         "pid": "191727",
         "pin": "3582-19-8148",
@@ -1774,8 +1774,8 @@
         "y": 35.18631932,
         "lat": 35.18631932,
         "lon": -81.06906198,
-        "llc_flag": true,
-        "watch_score": 8
+        "llc_flag": false,
+        "watch_score": 2
     },
     {
         "county": "Gaston",
@@ -1821,7 +1821,7 @@
     },
     {
         "county": "Gaston",
-        "owner": "DUKE VENTURES REAL ESTATE LLC",
+        "owner": "GASTON COUNTY",
         "owner2": "",
         "pid": "201275",
         "pin": "3582-04-1808",
@@ -1830,8 +1830,8 @@
         "y": 35.17442304,
         "lat": 35.17442304,
         "lon": -81.07457679,
-        "llc_flag": true,
-        "watch_score": 8
+        "llc_flag": false,
+        "watch_score": 2
     },
     {
         "county": "Gaston",
@@ -2493,7 +2493,7 @@
     },
     {
         "county": "Gaston",
-        "owner": "DUKE VENTURES REAL ESTATE LLC",
+        "owner": "GASTON COUNTY",
         "owner2": "",
         "pid": "201273",
         "pin": "3572-98-9990",
@@ -2502,8 +2502,8 @@
         "y": 35.18545936,
         "lat": 35.18545936,
         "lon": -81.07522354,
-        "llc_flag": true,
-        "watch_score": 8
+        "llc_flag": false,
+        "watch_score": 2
     },
     {
         "county": "Gaston",
@@ -2907,22 +2907,6 @@
     },
     {
         "county": "Mecklenburg",
-        "owner": "CRESCENT RIVER DISTRICT LLC",
-        "owner2": "",
-        "pid": "11327135",
-        "pin": "4503458318",
-        "acres": 383.93,
-        "x": -80.99257911306591,
-        "y": 35.2054695919365,
-        "lat": 35.2054695919365,
-        "lon": -80.99257911306591,
-        "llc_flag": true,
-        "watch_score": 9,
-        "acreage_source": "Shape.STArea / 43560",
-        "owner_source": "POLARIS"
-    },
-    {
-        "county": "Mecklenburg",
         "owner": "CARMEL COUNTRY CLUB INC",
         "owner2": "",
         "pid": "21166101",
@@ -2932,6 +2916,22 @@
         "y": 35.100131146612,
         "lat": 35.100131146612,
         "lon": -80.81937354458667,
+        "llc_flag": true,
+        "watch_score": 9,
+        "acreage_source": "Shape.STArea / 43560",
+        "owner_source": "POLARIS"
+    },
+    {
+        "county": "Mecklenburg",
+        "owner": "CRESCENT RIVER DISTRICT LLC",
+        "owner2": "",
+        "pid": "11327135",
+        "pin": "4503455467",
+        "acres": 345.31,
+        "x": -80.99258254044352,
+        "y": 35.20556081664431,
+        "lat": 35.20556081664431,
+        "lon": -80.99258254044352,
         "llc_flag": true,
         "watch_score": 9,
         "acreage_source": "Shape.STArea / 43560",
@@ -3439,11 +3439,11 @@
         "owner2": "",
         "pid": "00101N01",
         "pin": "4621488422",
-        "acres": 212.15,
-        "x": -80.93549819461481,
-        "y": 35.43363745682997,
-        "lat": 35.43363745682997,
-        "lon": -80.93549819461481,
+        "acres": 211.94,
+        "x": -80.93549850394751,
+        "y": 35.43373204503756,
+        "lat": 35.43373204503756,
+        "lon": -80.93549850394751,
         "llc_flag": false,
         "watch_score": 2,
         "acreage_source": "Shape.STArea / 43560",
