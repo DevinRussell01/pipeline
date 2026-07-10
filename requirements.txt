@@ -1,4 +1,5 @@
 requests
 beautifulsoup4
 openai
-python-dotenvpyproj==3.7.2
+python-dotenv
+pyproj==3.7.2
