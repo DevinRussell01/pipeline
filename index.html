@@ -1861,7 +1861,7 @@ gap:12px;
       <div class="engine-metrics">
         <span id="engineProjects">111 Projects</span>
         <span id="engineParcels">319 Parcels</span>
-        <span id="engineBuilders">15 Builders</span>
+        <span id="engineBuilders">15 Communities</span>
         <span id="engineSignals">3 Signals</span>
       </div>
 
@@ -3857,7 +3857,7 @@ async function loadBuilderPortfolios() {
 
       const engineBuilders = document.getElementById("engineBuilders");
       if (engineBuilders) {
-      engineBuilders.textContent = `${data.length} Builders`;
+      engineBuilders.textContent = `${data.length} Communities`;
       }
       const builders = [...new Set(data.map(x => x.builder))];
       const counties = [...new Set(data.map(x => x.county))];
