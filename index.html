@@ -3776,6 +3776,11 @@ async function loadProjectsFromJson() {
 
     document.getElementById("projectCount").innerText = PROJECTS.length;
 
+    const engineProjects = document.getElementById("engineProjects");
+    if (engineProjects) {
+    engineProjects.textContent = `${PROJECTS.length} Projects`;
+    }
+
     populateProjectFilters(PROJECTS);
     filterProjectsTable();
 
@@ -3849,6 +3854,11 @@ async function loadBuilderPortfolios() {
     const response = await fetch("builder_portfolios.json");
     const data = await response.json();
     BUILDER_PORTFOLIOS = data;
+
+      const engineBuilders = document.getElementById("engineBuilders");
+      if (engineBuilders) {
+      engineBuilders.textContent = `${data.length} Builders`;
+      }
       const builders = [...new Set(data.map(x => x.builder))];
       const counties = [...new Set(data.map(x => x.county))];
       const statuses = [...new Set(data.map(x => x.status))];
@@ -4164,11 +4174,20 @@ if (document.getElementById('builderCount')) {
   document.getElementById('builderCount').innerText = BUILDERS.length;
 }
 
-if (document.getElementById('projectCount')) {
+if (document.getElementById("projectCount")) {
   fetch("projects.json")
     .then(res => res.json())
     .then(projects => {
-      document.getElementById("projectCount").textContent = projects.length;
+      document.getElementById("projectCount").textContent =
+        projects.length;
+
+      const engineProjects =
+        document.getElementById("engineProjects");
+
+      if (engineProjects) {
+        engineProjects.textContent =
+          `${projects.length} Projects`;
+      }
     });
 }
 
@@ -4209,20 +4228,32 @@ if (document.getElementById("orgSearch")) {
     loadAskConduitAnswers();
 
     fetch("land_intelligence.json")
-
-    fetch("land_intelligence.json")
       .then(res => res.json())
       .then(parcels => {
+
         document.getElementById("dashboardParcelCount").textContent =
           parcels.length;
-      });
 
-    fetch("locate_tickets.json")
-      .then(res => res.json())
-      .then(signals => {
-        document.getElementById("dashboardSignalCount").textContent =
-          signals.length;
-      });
+        const engineParcels = document.getElementById("engineParcels");
+        if (engineParcels) {
+          engineParcels.textContent = `${parcels.length} Parcels`;
+        }
+
+  });
+
+  fetch("locate_tickets.json")
+    .then(res => res.json())
+    .then(signals => {
+
+      document.getElementById("dashboardSignalCount").textContent =
+        signals.length;
+
+      const engineSignals = document.getElementById("engineSignals");
+      if (engineSignals) {
+        engineSignals.textContent = `${signals.length} Signals`;
+      }
+
+  });
 
     fetch("locate_patterns.json")
       .then(res => res.json())
