@@ -12,7 +12,7 @@
         "nearby_project_count": 0,
         "reason": "Locate signal overlaps with multiple high-watch parcels, suggesting possible site development or infrastructure preparation.",
         "source_ticket": "LOCATE-MECK-001",
-        "created_date": "2026-07-11"
+        "created_date": "2026-07-12"
     },
     {
         "pattern_id": "PATTERN-Cabarrus-002",
@@ -27,7 +27,7 @@
         "nearby_project_count": 0,
         "reason": "Telecom or boring activity may indicate fiber expansion, competitive entry, or new network construction.",
         "source_ticket": "LOCATE-CAB-001",
-        "created_date": "2026-07-11"
+        "created_date": "2026-07-12"
     },
     {
         "pattern_id": "PATTERN-Union-003",
@@ -42,6 +42,6 @@
         "nearby_project_count": 0,
         "reason": "Union locate signal near 0 project(s) and 0 tracked parcel(s).",
         "source_ticket": "LOCATE-UNION-001",
-        "created_date": "2026-07-11"
+        "created_date": "2026-07-12"
     }
 ]
