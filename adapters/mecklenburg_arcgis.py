@@ -38,6 +38,41 @@ def clean(value):
 
     return value
 
+def geometry_center(geometry):
+    """
+    Returns a representative latitude and longitude for an ArcGIS
+    point, polygon, or polyline geometry in EPSG:4326.
+    """
+
+    if not geometry:
+        return None, None
+
+    # Point geometry
+    if geometry.get("x") is not None and geometry.get("y") is not None:
+        return float(geometry["y"]), float(geometry["x"])
+
+    points = []
+
+    # Polygon geometry
+    for ring in geometry.get("rings", []):
+        for point in ring:
+            if len(point) >= 2:
+                points.append(point)
+
+    # Polyline geometry
+    for path in geometry.get("paths", []):
+        for point in path:
+            if len(point) >= 2:
+                points.append(point)
+
+    if not points:
+        return None, None
+
+    lon = sum(float(point[0]) for point in points) / len(points)
+    lat = sum(float(point[1]) for point in points) / len(points)
+
+    return lat, lon
+
 def normalize_status(value):
     text = str(value or "").strip()
 
@@ -83,7 +118,8 @@ def get_page(offset):
     params = {
         "where": "1=1",
         "outFields": "*",
-        "returnGeometry": "false",
+        "returnGeometry": "true",
+        "outSR": "4326",
         "f": "json",
         "resultOffset": offset,
         "resultRecordCount": PAGE_SIZE,
@@ -137,6 +173,16 @@ def scan_mecklenburg_arcgis():
 
     for feature in features:
         attributes = feature.get("attributes", {})
+        geometry = feature.get("geometry", {})
+
+        lat, lon = geometry_center(geometry)
+
+        coordinate_text = ""
+
+        if lat is not None and lon is not None:
+            lat = round(lat, 8)
+            lon = round(lon, 8)
+            coordinate_text = f"{lat:.8f}, {lon:.8f}"
 
         object_id = attributes.get("OBJECTID")
         global_id = attributes.get("GlobalID")
