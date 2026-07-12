@@ -258,6 +258,11 @@ def scan_mecklenburg_arcgis():
             ),
             "object_id": object_id,
             "global_id": global_id,
+                        "lat": lat,
+            "lon": lon,
+            "coordinates": coordinate_text,
+            "coordinate_source": "Charlotte-Mecklenburg ArcGIS subdivision geometry",
+            "coordinate_confidence": "High" if coordinate_text else "Missing",
             "source_system": "Charlotte-Mecklenburg ArcGIS",
             "source_record_id": source_record_id,
             "source_url": (

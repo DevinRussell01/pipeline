@@ -86,6 +86,11 @@ def is_operational_project(record):
 
 def meaningful_snapshot(record):
     fields = [
+        "lat",
+        "lon",
+        "coordinates",
+        "coordinate_source",
+        "coordinate_confidence",
         "case_number",
         "address",
         "acreage",
