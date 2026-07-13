@@ -3577,11 +3577,21 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
 
         const components = item.score_components || {};
 
-        textElement.textContent =
-          `${item.county} - ${item.street} | ` +
-          `Signal ${components.source_signal || 0}, ` +
-          `Projects ${components.project_proximity || 0}, ` +
-          `Land ${components.land_concentration || 0}`;
+        textElement.innerHTML = `
+          <div style="font-weight:700; margin-bottom:6px;">
+            ${item.county || "Regional"} — ${item.street || "Location unavailable"}
+          </div>
+
+          <div>${item.nearby_project_count || 0} nearby development projects</div>
+
+          <div>${item.nearby_land_count || 0} strategic land records</div>
+
+          <div>${
+            item.work_type ||
+            item.category ||
+            "Infrastructure activity detected"
+          }</div>
+        `;
       }
       document.getElementById("summaryTopOpportunity").textContent =
         actionQueue[0]
