@@ -1447,12 +1447,12 @@ gap:12px;
 
 <div class="hero-content">
 
- 
+
   <div class="sub hero-tagline">
     Land, development, builder, and utility activity signals converted into actionable growth intelligence.
   </div>
 
-  
+
 
 </div>
 
@@ -1521,20 +1521,20 @@ gap:12px;
 
   <div class="stats" id="opportunityCards">
 
-  <div class="stat">
-    <strong id="opp1Score">--</strong>
-    <span id="opp1Text">Loading...</span>
-  </div>
+    <div class="stat" id="actionCard1">
+      <strong id="opp1Score">--</strong>
+      <span id="opp1Text">Loading...</span>
+    </div>
 
-  <div class="stat">
-    <strong id="opp2Score">--</strong>
-    <span id="opp2Text">Loading...</span>
-  </div>
+    <div class="stat" id="actionCard2">
+      <strong id="opp2Score">--</strong>
+      <span id="opp2Text">Loading...</span>
+    </div>
 
-  <div class="stat">
-    <strong id="opp3Score">--</strong>
-    <span id="opp3Text">Loading...</span>
-  </div>
+    <div class="stat" id="actionCard3">
+      <strong id="opp3Score">--</strong>
+      <span id="opp3Text">Loading...</span>
+    </div>
 
 </div>
 
@@ -3526,9 +3526,9 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
 
         renderLocateTickets();
 
-      
 
-    
+
+
     })
     .catch(error => {
       console.error("Could not load locate tickets", error);
@@ -3540,37 +3540,57 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
         (a, b) => Number(b.opportunity_score || 0) - Number(a.opportunity_score || 0)
       );
 
-      if (sorted[0]) {
-        document.getElementById("opp1Score").textContent =
-          `${getOpportunityTier(sorted[0].opportunity_score)} • ${sorted[0].opportunity_score}`;
+      const ACTION_THRESHOLD = 10;
 
-        document.getElementById("opp1Text").textContent =
-          `${sorted[0].county} - ${sorted[0].street}`;
-      }
+      const actionQueue = sorted.filter(
+        item => Number(item.opportunity_score || 0) >= ACTION_THRESHOLD
+      );
 
-      if (sorted[1]) {
-        document.getElementById("opp2Score").textContent =
-          `${getOpportunityTier(sorted[1].opportunity_score)} • ${sorted[1].opportunity_score}`;
+      for (let index = 0; index < 3; index++) {
+        const item = actionQueue[index];
 
-        document.getElementById("opp2Text").textContent =
-          `${sorted[1].county} - ${sorted[1].street}`;
-      }
+        const card = document.getElementById(
+          `actionCard${index + 1}`
+        );
 
-      if (sorted[2]) {
-        document.getElementById("opp3Score").textContent =
-          `${getOpportunityTier(sorted[2].opportunity_score)} • ${sorted[2].opportunity_score}`;
+        const scoreElement = document.getElementById(
+          `opp${index + 1}Score`
+        );
 
-        document.getElementById("opp3Text").textContent =
-          `${sorted[2].county} - ${sorted[2].street}`;
+        const textElement = document.getElementById(
+          `opp${index + 1}Text`
+        );
+
+        if (!card) {
+          continue;
+        }
+
+        if (!item) {
+          card.style.display = "none";
+          continue;
+        }
+
+        card.style.display = "";
+
+        scoreElement.textContent =
+          `${getOpportunityTier(item.opportunity_score)} • ${item.opportunity_score}`;
+
+        const components = item.score_components || {};
+
+        textElement.textContent =
+          `${item.county} - ${item.street} | ` +
+          `Signal ${components.source_signal || 0}, ` +
+          `Projects ${components.project_proximity || 0}, ` +
+          `Land ${components.land_concentration || 0}`;
       }
       document.getElementById("summaryTopOpportunity").textContent =
-        sorted[0]
-          ? `${sorted[0].county} - ${sorted[0].street} (${getOpportunityTier(sorted[0].opportunity_score)} • ${sorted[0].opportunity_score})`
+        actionQueue[0]
+          ? `${actionQueue[0].county} - ${actionQueue[0].street} (${getOpportunityTier(actionQueue[0].opportunity_score)} • ${actionQueue[0].opportunity_score})`
           : "No opportunities detected";
 
           document.getElementById("summaryAction").textContent =
-            sorted[0]
-              ? getSummaryAction(sorted[0])
+            actionQueue[0]
+              ? getSummaryAction(actionQueue[0])
               : "No action available.";
 
           document.getElementById("locateCorrelationTable").innerHTML =
@@ -3597,7 +3617,7 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
     .catch(error => {
       console.error("Could not load locate correlations", error);
     });
-  
+
     fetch('locate_patterns.json')
     .then(res => res.json())
     .then(patterns => {
@@ -3799,17 +3819,19 @@ async function loadExecutiveBrief() {
 
     const refreshLabel = document.getElementById("engineLastRefresh");
 
-    if (refreshLabel && data.generated_at) {
-    const parsed = new Date(data.generated_at.replace(" ", "T"));
+    if (refreshLabel && brief.generated_at) {
+      const parsed = new Date(
+        brief.generated_at.replace(" ", "T")
+      );
 
-    refreshLabel.textContent = Number.isNaN(parsed.getTime())
-      ? data.generated_at
-      : parsed.toLocaleString([], {
-          month: "short",
-          day: "numeric",
-          hour: "numeric",
-          minute: "2-digit"
-        });
+      refreshLabel.textContent = Number.isNaN(parsed.getTime())
+        ? brief.generated_at
+        : parsed.toLocaleString([], {
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+          });
     }
 
     document.getElementById("briefGenerated").textContent =
@@ -4240,7 +4262,7 @@ if (document.getElementById("orgSearch")) {
     loadBuilderPortfolios();
 
     renderWatchlists();
-    
+
     loadExecutiveBrief();
     loadActivityFeed();
     loadAskConduitAnswers();
