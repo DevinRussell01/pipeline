@@ -4,15 +4,15 @@
         "county": "Mecklenburg",
         "street": "Westinghouse Boulevard",
         "pattern_type": "Development / Infrastructure Cluster",
-        "confidence_score": 15,
+        "confidence_score": 19,
         "confidence_label": "Very High",
         "opportunity": "High",
         "nearby_land_count": 4,
         "nearby_high_watch_land_count": 4,
-        "nearby_project_count": 0,
+        "nearby_project_count": 15,
         "reason": "Locate signal overlaps with multiple high-watch parcels, suggesting possible site development or infrastructure preparation.",
         "source_ticket": "LOCATE-MECK-001",
-        "created_date": "2026-07-12"
+        "created_date": "2026-07-13"
     },
     {
         "pattern_id": "PATTERN-Cabarrus-002",
@@ -27,7 +27,7 @@
         "nearby_project_count": 0,
         "reason": "Telecom or boring activity may indicate fiber expansion, competitive entry, or new network construction.",
         "source_ticket": "LOCATE-CAB-001",
-        "created_date": "2026-07-12"
+        "created_date": "2026-07-13"
     },
     {
         "pattern_id": "PATTERN-Union-003",
@@ -42,6 +42,6 @@
         "nearby_project_count": 0,
         "reason": "Union locate signal near 0 project(s) and 0 tracked parcel(s).",
         "source_ticket": "LOCATE-UNION-001",
-        "created_date": "2026-07-12"
+        "created_date": "2026-07-13"
     }
 ]

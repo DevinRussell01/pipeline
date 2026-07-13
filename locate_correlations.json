@@ -7,11 +7,47 @@
         "work_type": "Fiber / Utility Construction",
         "category": "Telecom",
         "risk_score": 9,
-        "opportunity_score": 15,
-        "nearby_project_count": 0,
+        "opportunity_score": 19,
+        "nearby_project_count": 15,
         "nearby_land_count": 4,
         "nearby_high_watch_land_count": 4,
-        "nearby_projects": [],
+        "nearby_projects": [
+            {
+                "name": "20148107",
+                "county": "Mecklenburg",
+                "distance_miles": 2.86,
+                "status": "Revisions",
+                "address": "10021 STEELE CREEK RD, CHARLOTTE, NC 28273"
+            },
+            {
+                "name": "20143102",
+                "county": "Mecklenburg",
+                "distance_miles": 1.88,
+                "status": "Approved",
+                "address": "No Address"
+            },
+            {
+                "name": "19905103",
+                "county": "Mecklenburg",
+                "distance_miles": 2.98,
+                "status": "Revisions",
+                "address": "15207 SHOPTON RD W, MECKLENBURG, NC 00000"
+            },
+            {
+                "name": "19906169",
+                "county": "Mecklenburg",
+                "distance_miles": 2.24,
+                "status": "Approved",
+                "address": "13320 STEELE CREEK RD, CHARLOTTE, NC 28278"
+            },
+            {
+                "name": "20143102",
+                "county": "Mecklenburg",
+                "distance_miles": 1.88,
+                "status": "Approved",
+                "address": "12841 STEELE CREEK RD, CHARLOTTE, NC 28273"
+            }
+        ],
         "nearby_land": [
             {
                 "owner": "MARTIN MARIETTA MATERIALS INC",
@@ -43,7 +79,7 @@
             }
         ],
         "signal": "Utility construction signal in high-growth industrial corridor",
-        "summary": "Mecklenburg locate signal near 0 project(s) and 4 tracked parcel(s)."
+        "summary": "Mecklenburg locate signal near 15 project(s) and 4 tracked parcel(s)."
     },
     {
         "ticket_id": "LOCATE-CAB-001",
