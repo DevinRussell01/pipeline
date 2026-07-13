@@ -1848,7 +1848,10 @@ gap:12px;
 
         <div>
           <h3>CONDUIT INTELLIGENCE ENGINE</h3>
-          <div class="engine-status">ACTIVE MONITORING · AI BRIEF CURRENT</div>
+          <div class="engine-status">
+            ACTIVE MONITORING · LAST REFRESH
+            <span id="engineLastRefresh">Loading...</span>
+          </div>
         </div>
       </div>
 
@@ -1859,10 +1862,10 @@ gap:12px;
       </div>
 
       <div class="engine-metrics">
-        <span id="engineProjects">111 Projects</span>
-        <span id="engineParcels">319 Parcels</span>
-        <span id="engineBuilders">15 Communities</span>
-        <span id="engineSignals">3 Signals</span>
+        <span id="engineProjects">-- Projects</span>
+        <span id="engineParcels">-- Parcels</span>
+        <span id="engineBuilders">-- Communities</span>
+        <span id="engineSignals">-- Signals</span>
       </div>
 
     </div>
@@ -3793,6 +3796,21 @@ async function loadExecutiveBrief() {
   try {
     const response = await fetch("executive_brief.json");
     const brief = await response.json();
+
+    const refreshLabel = document.getElementById("engineLastRefresh");
+
+    if (refreshLabel && data.generated_at) {
+    const parsed = new Date(data.generated_at.replace(" ", "T"));
+
+    refreshLabel.textContent = Number.isNaN(parsed.getTime())
+      ? data.generated_at
+      : parsed.toLocaleString([], {
+          month: "short",
+          day: "numeric",
+          hour: "numeric",
+          minute: "2-digit"
+        });
+    }
 
     document.getElementById("briefGenerated").textContent =
       brief.generated_at || "Unknown";
