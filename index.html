@@ -1907,7 +1907,9 @@ gap:12px;
       <div class="brief-header">
         <div>
           <h3>Executive Intelligence Brief</h3>
-          <div class="sub">Generated from latest Conduit scan.</div>
+          <div class="sub" id="briefProvenance">
+            Generated from latest Conduit scan.
+          </div>
         </div>
 
         <div class="brief-generated">
@@ -3846,6 +3848,31 @@ async function loadExecutiveBrief() {
 
     document.getElementById("briefGenerated").textContent =
       brief.generated_at || "Unknown";
+
+    const sourceCounts = brief.source_counts || {};
+    const provenance = document.getElementById("briefProvenance");
+
+    if (provenance) {
+      provenance.textContent =
+        `Generated from ` +
+        `${Number(sourceCounts.projects || 0).toLocaleString()} development records, ` +
+        `${Number(sourceCounts.land_parcels || 0).toLocaleString()} strategic land records, ` +
+        `${Number(sourceCounts.builder_communities || 0).toLocaleString()} builder communities, and ` +
+        `${Number(sourceCounts.locate_patterns || 0).toLocaleString()} infrastructure signals.`;
+    }
+
+    const sourceCounts = brief.source_counts || {};
+
+    const provenance = document.getElementById("briefProvenance");
+
+    if (provenance) {
+      provenance.textContent =
+      `Generated from ` +
+        `${Number(sourceCounts.projects || 0).toLocaleString()} projects, ` +
+        `${Number(sourceCounts.land_parcels || 0).toLocaleString()} parcels, ` +
+        `${Number(sourceCounts.builder_communities || 0).toLocaleString()} communities, and ` +
+        `${Number(sourceCounts.locate_signals || 0).toLocaleString()} infrastructure signals.`;
+    }
 
     document.getElementById("briefSummary").textContent =
       brief.summary || "No executive summary available.";
