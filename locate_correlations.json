@@ -4,137 +4,281 @@
         "county": "Mecklenburg",
         "city": "Charlotte",
         "street": "Westinghouse Boulevard",
+        "lat": 35.1168,
+        "lon": -80.9504,
+        "coordinates": "35.11680000, -80.95040000",
         "work_type": "Fiber / Utility Construction",
         "category": "Telecom",
         "risk_score": 9,
-        "opportunity_score": 19,
-        "nearby_project_count": 15,
+        "opportunity_score": 21,
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 9,
+            "project_proximity": 6,
+            "land_concentration": 6
+        },
+        "score_explanation": [
+            "Source signal contributes 9 point(s)",
+            "14 distinct projects within 3 miles",
+            "Closest project is 1.29 miles away",
+            "4 tracked parcel(s) within 3 miles",
+            "4 nearby parcels have watch scores of 8 or 9"
+        ],
+        "nearby_project_count": 14,
         "nearby_land_count": 4,
         "nearby_high_watch_land_count": 4,
         "nearby_projects": [
             {
-                "name": "20148107",
+                "name": "HSP-Project Joule",
+                "case_number": "20306203",
                 "county": "Mecklenburg",
-                "distance_miles": 2.86,
-                "status": "Revisions",
-                "address": "10021 STEELE CREEK RD, CHARLOTTE, NC 28273"
+                "distance_miles": 1.29,
+                "status": "Approved",
+                "address": "800 WESTINGHOUSE BV, CHARLOTTE, NC 28273",
+                "coordinates": "35.11727751, -80.92756533",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
             },
             {
-                "name": "20143102",
+                "name": "Ayrsley Town Homes",
+                "case_number": "20309154",
+                "county": "Mecklenburg",
+                "distance_miles": 1.35,
+                "status": "Approved",
+                "address": "2139 BONNER BRIDGE CT, CHARLOTTE, NC 28273",
+                "coordinates": "35.13141276, -80.93453051",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
+            },
+            {
+                "name": "Choate Circle Apartments",
+                "case_number": "21917287",
+                "county": "Mecklenburg",
+                "distance_miles": 1.66,
+                "status": "Approved",
+                "address": "13607 CHOATE CR, CHARLOTTE, NC 28273",
+                "coordinates": "35.10298822, -80.97434907",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
+            },
+            {
+                "name": "MS Square at Steele Creek",
+                "case_number": "20143102",
                 "county": "Mecklenburg",
                 "distance_miles": 1.88,
                 "status": "Approved",
-                "address": "No Address"
+                "address": "No Address",
+                "coordinates": "35.11719207, -80.98361417",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
             },
             {
-                "name": "19905103",
+                "name": "JMJ Preserve",
+                "case_number": "19943294",
                 "county": "Mecklenburg",
-                "distance_miles": 2.98,
-                "status": "Revisions",
-                "address": "15207 SHOPTON RD W, MECKLENBURG, NC 00000"
+                "distance_miles": 2.13,
+                "status": "Approved",
+                "address": "12300 SAM NEELY RD, CHARLOTTE, NC 28278",
+                "coordinates": "35.12512387, -80.98668778",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
             },
             {
-                "name": "19906169",
+                "name": "Sandy Porter THs",
+                "case_number": "20102108",
+                "county": "Mecklenburg",
+                "distance_miles": 2.17,
+                "status": "Approved",
+                "address": "3500 SANDY PORTER RD, CHARLOTTE, NC 28273",
+                "coordinates": "35.14823149, -80.95079316",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
+            },
+            {
+                "name": "Parkside Crossing Townhomes",
+                "case_number": "19906169",
                 "county": "Mecklenburg",
                 "distance_miles": 2.24,
                 "status": "Approved",
-                "address": "13320 STEELE CREEK RD, CHARLOTTE, NC 28278"
+                "address": "13320 STEELE CREEK RD, CHARLOTTE, NC 28278",
+                "coordinates": "35.11045787, -80.98931895",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
             },
             {
-                "name": "20143102",
+                "name": "Yardly Steele Creek",
+                "case_number": "19906118",
                 "county": "Mecklenburg",
-                "distance_miles": 1.88,
+                "distance_miles": 2.24,
                 "status": "Approved",
-                "address": "12841 STEELE CREEK RD, CHARLOTTE, NC 28273"
+                "address": "13308 STEELE CREEK RD, CHARLOTTE, NC 28273",
+                "coordinates": "35.11307865, -80.98975910",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
+            },
+            {
+                "name": "Northway At Hamilton",
+                "case_number": "21932390",
+                "county": "Mecklenburg",
+                "distance_miles": 2.84,
+                "status": "Approved",
+                "address": "12708 HAMILTON RD, CHARLOTTE, NC 28273",
+                "coordinates": "35.08680904, -80.98484207",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
+            },
+            {
+                "name": "Sledge Road Development",
+                "case_number": "19912114",
+                "county": "Mecklenburg",
+                "distance_miles": 2.85,
+                "status": "Revisions",
+                "address": "13930 SLEDGE RD, MECKLENBURG, NC 28278",
+                "coordinates": "35.12251574, -81.00033652",
+                "units": 0,
+                "priority_score": 7,
+                "intelligence_type": "Residential Development",
+                "source_url": " "
             }
         ],
         "nearby_land": [
             {
-                "owner": "MARTIN MARIETTA MATERIALS INC",
-                "acres": 223.67,
+                "owner": "CAROWINDS LLC",
+                "acres": 153.46,
                 "watch_score": 8,
-                "distance_miles": 2.02,
-                "pid": "20313101"
+                "distance_miles": 0.92,
+                "pid": "20315208",
+                "coordinates": "35.10417124, -80.94519848"
             },
             {
                 "owner": "MARTIN MARIETTA MATERIALS INC",
                 "acres": 184.78,
                 "watch_score": 8,
                 "distance_miles": 1.72,
-                "pid": "20312101"
+                "pid": "20312101",
+                "coordinates": "35.10869960, -80.92158757"
+            },
+            {
+                "owner": "MARTIN MARIETTA MATERIALS INC",
+                "acres": 223.67,
+                "watch_score": 8,
+                "distance_miles": 2.02,
+                "pid": "20313101",
+                "coordinates": "35.10370786, -80.91850714"
             },
             {
                 "owner": "VULCAN LANDS INC",
                 "acres": 159.85,
                 "watch_score": 8,
                 "distance_miles": 2.92,
-                "pid": "20513102"
-            },
-            {
-                "owner": "CAROWINDS LLC",
-                "acres": 153.46,
-                "watch_score": 8,
-                "distance_miles": 0.92,
-                "pid": "20315208"
+                "pid": "20513102",
+                "coordinates": "35.12084206, -80.89890706"
             }
         ],
         "signal": "Utility construction signal in high-growth industrial corridor",
-        "summary": "Mecklenburg locate signal near 15 project(s) and 4 tracked parcel(s)."
+        "summary": "Mecklenburg signal near 14 distinct project(s) and 4 tracked parcel(s)."
     },
     {
         "ticket_id": "LOCATE-CAB-001",
         "county": "Cabarrus",
         "city": "Concord",
         "street": "Concord Mills Boulevard",
+        "lat": 35.3706,
+        "lon": -80.7252,
+        "coordinates": "35.37060000, -80.72520000",
         "work_type": "Directional Bore / Utility Work",
         "category": "Telecom",
         "risk_score": 8,
-        "opportunity_score": 14,
+        "opportunity_score": 12,
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 4
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)",
+            "3 tracked parcel(s) within 3 miles",
+            "1 nearby parcel(s) have high watch scores"
+        ],
         "nearby_project_count": 0,
         "nearby_land_count": 3,
         "nearby_high_watch_land_count": 1,
         "nearby_projects": [],
         "nearby_land": [
             {
-                "owner": "CHARLOTTE MOTOR SPEEDWAY LLC",
-                "acres": 837.48,
-                "watch_score": 9,
-                "distance_miles": 2.8,
-                "pid": "45988876150000"
-            },
-            {
                 "owner": "CITY OF CONCORD",
                 "acres": 587.27,
                 "watch_score": 2,
                 "distance_miles": 1.23,
-                "pid": "46900022520000"
+                "pid": "46900022520000",
+                "coordinates": "35.38542801, -80.71321132"
             },
             {
                 "owner": "CITY OF CONCORD",
                 "acres": 313.23,
                 "watch_score": 2,
                 "distance_miles": 1.93,
-                "pid": "45995270340000"
+                "pid": "45995270340000",
+                "coordinates": "35.36760503, -80.69118637"
+            },
+            {
+                "owner": "CHARLOTTE MOTOR SPEEDWAY LLC",
+                "acres": 837.48,
+                "watch_score": 9,
+                "distance_miles": 2.8,
+                "pid": "45988876150000",
+                "coordinates": "35.35646701, -80.67865108"
             }
         ],
         "signal": "Possible underground utility or telecom work near commercial growth zone",
-        "summary": "Cabarrus locate signal near 0 project(s) and 3 tracked parcel(s)."
+        "summary": "Cabarrus signal near 0 distinct project(s) and 3 tracked parcel(s)."
     },
     {
         "ticket_id": "LOCATE-UNION-001",
         "county": "Union",
         "city": "Monroe",
         "street": "South Rocky River Road",
+        "lat": 35.0176,
+        "lon": -80.5495,
+        "coordinates": "35.01760000, -80.54950000",
         "work_type": "Utility Construction",
         "category": "Utility",
         "risk_score": 8,
         "opportunity_score": 8,
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 0
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)"
+        ],
         "nearby_project_count": 0,
         "nearby_land_count": 0,
         "nearby_high_watch_land_count": 0,
         "nearby_projects": [],
         "nearby_land": [],
         "signal": "Utility activity signal near active development corridor",
-        "summary": "Union locate signal near 0 project(s) and 0 tracked parcel(s)."
+        "summary": "Union signal near 0 distinct project(s) and 0 tracked parcel(s)."
     }
 ]

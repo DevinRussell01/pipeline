@@ -129,6 +129,52 @@ def calculate_watch_score(owner, acres):
 
     return score, llc_flag
 
+def fetch_arcgis_pages(url, base_params, page_size=1000):
+    features = []
+    offset = 0
+
+    while True:
+        params = {
+            **base_params,
+            "resultOffset": offset,
+            "resultRecordCount": page_size,
+        }
+
+        response = requests.get(
+            url,
+            params=params,
+            timeout=45,
+            headers={
+                "User-Agent": "Conduit Regional Intelligence Platform"
+            },
+        )
+
+        response.raise_for_status()
+        data = response.json()
+
+        if "error" in data:
+            raise RuntimeError(
+                f"ArcGIS error from {url}: {data['error']}"
+            )
+
+        page = data.get("features", [])
+        features.extend(page)
+
+        exceeded = data.get(
+            "exceededTransferLimit",
+            False,
+        )
+
+        if not page:
+            break
+
+        if len(page) < page_size and not exceeded:
+            break
+
+        offset += len(page)
+
+    return features
+
 
 def fetch_county_land(config):
     county = config["county"]
@@ -147,17 +193,19 @@ def fetch_county_land(config):
         "outFields": out_fields,
         "returnGeometry": "false",
         "f": "json",
-        "resultRecordCount": 100,
-        "orderByFields": f"{fields['acres']} DESC"
+        "orderByFields": f"{fields['acres']} DESC",
     }
 
-    response = requests.get(config["url"], params=params)
-    data = response.json()
+    features = fetch_arcgis_pages(
+        config["url"],
+        params,
+        page_size=1000,
+    )
 
     parcels = []
     seen_ids = set()
 
-    for feature in data.get("features", []):
+    for feature in features:
         attr = feature.get("attributes", {})
 
         pid = attr.get(fields["pid"])

@@ -4,14 +4,28 @@
         "county": "Mecklenburg",
         "street": "Westinghouse Boulevard",
         "pattern_type": "Development / Infrastructure Cluster",
-        "confidence_score": 19,
+        "confidence_score": 21,
         "confidence_label": "Very High",
         "opportunity": "High",
         "nearby_land_count": 4,
         "nearby_high_watch_land_count": 4,
-        "nearby_project_count": 15,
+        "nearby_project_count": 14,
         "reason": "Locate signal overlaps with multiple high-watch parcels, suggesting possible site development or infrastructure preparation.",
         "source_ticket": "LOCATE-MECK-001",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 9,
+            "project_proximity": 6,
+            "land_concentration": 6
+        },
+        "score_explanation": [
+            "Source signal contributes 9 point(s)",
+            "14 distinct projects within 3 miles",
+            "Closest project is 1.29 miles away",
+            "4 tracked parcel(s) within 3 miles",
+            "4 nearby parcels have watch scores of 8 or 9"
+        ],
+        "coordinates": "35.11680000, -80.95040000",
         "created_date": "2026-07-13"
     },
     {
@@ -19,14 +33,26 @@
         "county": "Cabarrus",
         "street": "Concord Mills Boulevard",
         "pattern_type": "Telecom Expansion Signal",
-        "confidence_score": 14,
-        "confidence_label": "Very High",
+        "confidence_score": 12,
+        "confidence_label": "Moderate",
         "opportunity": "High",
         "nearby_land_count": 3,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
         "reason": "Telecom or boring activity may indicate fiber expansion, competitive entry, or new network construction.",
         "source_ticket": "LOCATE-CAB-001",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 4
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)",
+            "3 tracked parcel(s) within 3 miles",
+            "1 nearby parcel(s) have high watch scores"
+        ],
+        "coordinates": "35.37060000, -80.72520000",
         "created_date": "2026-07-13"
     },
     {
@@ -35,13 +61,23 @@
         "street": "South Rocky River Road",
         "pattern_type": "General Utility Activity",
         "confidence_score": 8,
-        "confidence_label": "Moderate",
+        "confidence_label": "Low",
         "opportunity": "Medium",
         "nearby_land_count": 0,
         "nearby_high_watch_land_count": 0,
         "nearby_project_count": 0,
-        "reason": "Union locate signal near 0 project(s) and 0 tracked parcel(s).",
+        "reason": "Union signal near 0 distinct project(s) and 0 tracked parcel(s).",
         "source_ticket": "LOCATE-UNION-001",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 0
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)"
+        ],
+        "coordinates": "35.01760000, -80.54950000",
         "created_date": "2026-07-13"
     }
 ]
