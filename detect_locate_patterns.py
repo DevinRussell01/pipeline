@@ -37,11 +37,11 @@ for item in correlations:
         opportunity = "High" if score >= 10 else "Medium"
         reason = "Locate signal is near multiple tracked land parcels, increasing development relevance."
 
-    if score >= 14:
+    if score >= 20:
         confidence_label = "Very High"
-    elif score >= 10:
+    elif score >= 15:
         confidence_label = "High"
-    elif score >= 7:
+    elif score >= 10:
         confidence_label = "Moderate"
     else:
         confidence_label = "Low"
@@ -59,6 +59,10 @@ for item in correlations:
         "nearby_project_count": item.get("nearby_project_count"),
         "reason": reason,
         "source_ticket": item.get("ticket_id"),
+        "score_version": item.get("score_version"),
+        "score_components": item.get("score_components", {}),
+        "score_explanation": item.get("score_explanation", []),
+        "coordinates": item.get("coordinates", ""),
         "created_date": datetime.now().strftime("%Y-%m-%d")
     })
 
