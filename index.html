@@ -3889,19 +3889,6 @@ async function loadExecutiveBrief() {
         `${Number(sourceCounts.locate_patterns || 0).toLocaleString()} infrastructure signals.`;
     }
 
-    const sourceCounts = brief.source_counts || {};
-
-    const provenance = document.getElementById("briefProvenance");
-
-    if (provenance) {
-      provenance.textContent =
-      `Generated from ` +
-        `${Number(sourceCounts.projects || 0).toLocaleString()} projects, ` +
-        `${Number(sourceCounts.land_parcels || 0).toLocaleString()} parcels, ` +
-        `${Number(sourceCounts.builder_communities || 0).toLocaleString()} communities, and ` +
-        `${Number(sourceCounts.locate_signals || 0).toLocaleString()} infrastructure signals.`;
-    }
-
     document.getElementById("briefSummary").textContent =
       brief.summary || "No executive summary available.";
 
