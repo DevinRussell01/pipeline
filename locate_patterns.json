@@ -26,18 +26,18 @@
             "4 nearby parcels have watch scores of 8 or 9"
         ],
         "coordinates": "35.11680000, -80.95040000",
-        "created_date": "2026-07-21"
+        "created_date": "2026-07-22"
     },
     {
         "pattern_id": "PATTERN-Cabarrus-002",
         "county": "Cabarrus",
         "street": "Concord Mills Boulevard",
         "pattern_type": "Telecom Expansion Signal",
-        "confidence_score": 12,
+        "confidence_score": 10,
         "confidence_label": "Moderate",
         "opportunity": "High",
         "nearby_land_count": 3,
-        "nearby_high_watch_land_count": 1,
+        "nearby_high_watch_land_count": 0,
         "nearby_project_count": 0,
         "reason": "Telecom or boring activity may indicate fiber expansion, competitive entry, or new network construction.",
         "source_ticket": "LOCATE-CAB-001",
@@ -45,15 +45,14 @@
         "score_components": {
             "source_signal": 8,
             "project_proximity": 0,
-            "land_concentration": 4
+            "land_concentration": 2
         },
         "score_explanation": [
             "Source signal contributes 8 point(s)",
-            "3 tracked parcel(s) within 3 miles",
-            "1 nearby parcel(s) have high watch scores"
+            "3 tracked parcel(s) within 3 miles"
         ],
         "coordinates": "35.37060000, -80.72520000",
-        "created_date": "2026-07-21"
+        "created_date": "2026-07-22"
     },
     {
         "pattern_id": "PATTERN-Union-003",
@@ -78,6 +77,6 @@
             "Source signal contributes 8 point(s)"
         ],
         "coordinates": "35.01760000, -80.54950000",
-        "created_date": "2026-07-21"
+        "created_date": "2026-07-22"
     }
 ]
