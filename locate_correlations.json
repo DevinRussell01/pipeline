@@ -207,42 +207,43 @@
         "work_type": "Directional Bore / Utility Work",
         "category": "Telecom",
         "risk_score": 8,
-        "opportunity_score": 10,
+        "opportunity_score": 12,
         "score_version": "2.0",
         "score_components": {
             "source_signal": 8,
             "project_proximity": 0,
-            "land_concentration": 2
+            "land_concentration": 4
         },
         "score_explanation": [
             "Source signal contributes 8 point(s)",
-            "3 tracked parcel(s) within 3 miles"
+            "3 tracked parcel(s) within 3 miles",
+            "1 nearby parcel(s) have high watch scores"
         ],
         "nearby_project_count": 0,
         "nearby_land_count": 3,
-        "nearby_high_watch_land_count": 0,
+        "nearby_high_watch_land_count": 1,
         "nearby_projects": [],
         "nearby_land": [
             {
-                "owner": "Description:",
-                "acres": 586.32,
-                "watch_score": 5,
+                "owner": "CITY OF CONCORD",
+                "acres": 587.27,
+                "watch_score": 2,
                 "distance_miles": 1.23,
                 "pid": "46900022520000",
                 "coordinates": "35.38542801, -80.71321132"
             },
             {
-                "owner": "Description:",
-                "acres": 315.32,
-                "watch_score": 5,
+                "owner": "CITY OF CONCORD",
+                "acres": 313.23,
+                "watch_score": 2,
                 "distance_miles": 1.93,
                 "pid": "45995270340000",
                 "coordinates": "35.36760503, -80.69118637"
             },
             {
-                "owner": "Description:",
-                "acres": 839.34,
-                "watch_score": 5,
+                "owner": "CHARLOTTE MOTOR SPEEDWAY LLC",
+                "acres": 837.48,
+                "watch_score": 9,
                 "distance_miles": 2.8,
                 "pid": "45988876150000",
                 "coordinates": "35.35646701, -80.67865108"
