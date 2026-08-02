@@ -2,6 +2,188 @@
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
+    "pid": "226102853051",
+    "parcel_number": "0054A061",
+    "owner": "BOWDEN ALAN B",
+    "legal_description": "L-61 PH-1 GRIST CREEK RUN PLAT 19/7",
+    "acres": "",
+    "lat": 34.33756756335892,
+    "lon": -78.11114664449516,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102854541",
+    "parcel_number": "0054A057",
+    "owner": "LANCASTER HEIDI MICHELLE",
+    "legal_description": "L-57 GRIST CREEK RUN PLAT 19/8",
+    "acres": "",
+    "lat": 34.338945723003675,
+    "lon": -78.11085025646533,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102865265",
+    "parcel_number": "0054A051",
+    "owner": "BOYD KENNETH JR AND",
+    "legal_description": "L-51 GRIST CREEK RUN PH 1 PLAT 18/218",
+    "acres": "",
+    "lat": 34.340979005796505,
+    "lon": -78.11034698920595,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102866526",
+    "parcel_number": "0054A049",
+    "owner": "DEVANE JAMES E ET",
+    "legal_description": "L-49R PH-1 GRIST CREEK PL 24/514",
+    "acres": "",
+    "lat": 34.3417753973104,
+    "lon": -78.1101726439721,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102866743",
+    "parcel_number": "0054A047",
+    "owner": "ALBARRAN MIGUEL PALACIOS AND",
+    "legal_description": "L-47 PH-I GRIST CREEK RUN PLAT 19/8",
+    "acres": "",
+    "lat": 34.34229137285057,
+    "lon": -78.11005577733334,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102866885",
+    "parcel_number": "0054A046",
+    "owner": "MESSER AMY E",
+    "legal_description": "L-46 GRIST CREEK RUN PH 1 PLAT 18/218",
+    "acres": "",
+    "lat": 34.342631066130416,
+    "lon": -78.11003328919931,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226112874460",
+    "parcel_number": "0054A039",
+    "owner": "ARTHUR DORIS WEST ETUX",
+    "legal_description": "L-39R GRIST CREEK RUN PLAT 20/145",
+    "acres": "",
+    "lat": 34.34385630190309,
+    "lon": -78.11038007922264,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226112873087",
+    "parcel_number": "0054A036",
+    "owner": "PAGE LEON R ET",
+    "legal_description": "L-36R GRIST CREEK PLAT 19/454",
+    "acres": "",
+    "lat": 34.34313235736241,
+    "lon": -78.11103403363451,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226112862592",
+    "parcel_number": "0054A031",
+    "owner": "WHITE THOMAS W ETUX",
+    "legal_description": "L-31 GRIST CREEK RUN PH I PLAT 19/8",
+    "acres": "",
+    "lat": 34.34164167788058,
+    "lon": -78.1113055896049,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226112851766",
+    "parcel_number": "0054A024",
+    "owner": "RAND JOHN L ETALS",
+    "legal_description": "L-24 GRIST CREEK RUN PHASE 1 PLAT 19/8",
+    "acres": "",
+    "lat": 34.33954689448405,
+    "lon": -78.11175344566416,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102851137",
+    "parcel_number": "0054A018",
+    "owner": "KING ARNOLD ETUX",
+    "legal_description": "L-18 GRIST CREEK RUN PH-I PLAT 19/7-8",
+    "acres": "",
+    "lat": 34.337994193092456,
+    "lon": -78.11182132266624,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226102757135",
+    "parcel_number": "0054A015",
+    "owner": "ASHWORTH CHARLES LEE",
+    "legal_description": "L-15 GRIST CREEK RUN PH-I PLAT 18/217",
+    "acres": "",
+    "lat": 34.337943206317,
+    "lon": -78.11312458790154,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226104749820",
+    "parcel_number": "0054A012",
+    "owner": "MCKNIGHT ROBERT ONEAL ETUX",
+    "legal_description": "L-12 GRIST CREEK RUN PH-1 PLAT 19/7",
+    "acres": "",
+    "lat": 34.33694817972374,
+    "lon": -78.1127619683105,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226104748584",
+    "parcel_number": "0054A009",
+    "owner": "COMPTON COREY S",
+    "legal_description": "L-9R 1.89AC GRIST CREEK RUN PH-1 PL 26/304",
+    "acres": "",
+    "lat": 34.336263015631786,
+    "lon": -78.11278465782469,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
     "pid": "200618315454",
     "parcel_number": "231OC015",
     "owner": "PILKINGTON MICHAEL W ET",
@@ -10,7 +192,7 @@
     "lat": 33.91692259706003,
     "lon": -78.32913945563757,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -23,7 +205,7 @@
     "lat": 33.91722538383358,
     "lon": -78.32606276820012,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -36,7 +218,7 @@
     "lat": 33.91887259811558,
     "lon": -78.33816405362104,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -49,7 +231,7 @@
     "lat": 33.91909412738209,
     "lon": -78.33700294157498,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -62,7 +244,7 @@
     "lat": 33.919839445291686,
     "lon": -78.3316219197481,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -75,7 +257,7 @@
     "lat": 33.91818373895913,
     "lon": -78.32965237519026,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -88,7 +270,7 @@
     "lat": 33.918863249968325,
     "lon": -78.33010649404774,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -101,7 +283,7 @@
     "lat": 33.919338395033975,
     "lon": -78.33007215823883,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -114,7 +296,7 @@
     "lat": 33.91870815471976,
     "lon": -78.34219992776686,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -127,7 +309,7 @@
     "lat": 33.9142840737329,
     "lon": -78.34303084561027,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -140,7 +322,7 @@
     "lat": 33.916693030855555,
     "lon": -78.3341823857757,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -153,7 +335,7 @@
     "lat": 33.9182390296855,
     "lon": -78.34141960610025,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -166,7 +348,7 @@
     "lat": 33.91916235369555,
     "lon": -78.32718446198807,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -179,7 +361,7 @@
     "lat": 33.91565989093883,
     "lon": -78.34235980941317,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -192,7 +374,7 @@
     "lat": 33.91711293629805,
     "lon": -78.33340649486931,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -205,7 +387,7 @@
     "lat": 33.918798295421745,
     "lon": -78.336599806623,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -218,7 +400,7 @@
     "lat": 33.91378661637574,
     "lon": -78.34337898273427,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -231,7 +413,7 @@
     "lat": 33.918957251192204,
     "lon": -78.3365921216827,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -244,7 +426,46 @@
     "lat": 33.91907217412165,
     "lon": -78.33664631853668,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226104843717",
+    "parcel_number": "0054A063",
+    "owner": "JERRY KRISTINE IRENE",
+    "legal_description": "L-63 GRIST CREEK RUN PH I PLAT 19/7",
+    "acres": "",
+    "lat": 34.336913140584336,
+    "lon": -78.11129698531803,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226104842695",
+    "parcel_number": "0054A064",
+    "owner": "JOHNSON LAWRENCE JR",
+    "legal_description": "L-64 GRIST CREEK RUN PH-I PLAT 19/7",
+    "acres": "",
+    "lat": 34.33657952651839,
+    "lon": -78.11136888177182,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "226104841190",
+    "parcel_number": "0054A068",
+    "owner": "CARROLL DONALD LEE III",
+    "legal_description": "L-68&69 1.45 AC PH-1 GRIST CRK RN PL 18/217",
+    "acres": "",
+    "lat": 34.33488635278709,
+    "lon": -78.11185477767845,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -257,7 +478,7 @@
     "lat": 33.919221341584134,
     "lon": -78.33660182609287,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -270,7 +491,7 @@
     "lat": 33.920162574544996,
     "lon": -78.32610204851981,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -283,7 +504,7 @@
     "lat": 33.91978288804201,
     "lon": -78.32865629704267,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -296,7 +517,7 @@
     "lat": 33.919466553404106,
     "lon": -78.33116174784168,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -309,7 +530,7 @@
     "lat": 33.88315870926825,
     "lon": -78.46340827850804,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -322,7 +543,7 @@
     "lat": 33.88293406982641,
     "lon": -78.46292352848957,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -335,7 +556,33 @@
     "lat": 33.88347673518041,
     "lon": -78.4630700035894,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "204615548253",
+    "parcel_number": "234GN00801",
+    "owner": "SWISHER SYLVIA ETVIR",
+    "legal_description": "TR-A & P/O B B-284 S-18 LONG BEACH PL-136/16",
+    "acres": "",
+    "lat": 33.92378679176216,
+    "lon": -78.18971140141267,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "201620800312",
+    "parcel_number": "232OG01602",
+    "owner": "WOLFSON CRAIG ETUX",
+    "legal_description": "L-35 B-4 S-B S E HOLDEN PLAT 3/28",
+    "acres": "",
+    "lat": 33.91353321039221,
+    "lon": -78.28148535185264,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -348,7 +595,7 @@
     "lat": 33.926613100086506,
     "lon": -78.35113984907382,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -361,7 +608,7 @@
     "lat": 33.92698599960032,
     "lon": -78.34802164186273,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -374,7 +621,7 @@
     "lat": 33.885021420501616,
     "lon": -78.44999949866072,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -387,7 +634,7 @@
     "lat": 33.882554330208905,
     "lon": -78.45392254548688,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -400,7 +647,7 @@
     "lat": 33.884285548808336,
     "lon": -78.44818677279441,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -413,7 +660,7 @@
     "lat": 33.8837989976317,
     "lon": -78.45227608188317,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -426,7 +673,7 @@
     "lat": 33.88361101499237,
     "lon": -78.452899525157,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -439,7 +686,7 @@
     "lat": 33.88345181878085,
     "lon": -78.45352772235728,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -452,7 +699,7 @@
     "lat": 33.88525321449639,
     "lon": -78.44909691451161,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -465,7 +712,7 @@
     "lat": 33.88587423937555,
     "lon": -78.44969331574109,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -478,7 +725,7 @@
     "lat": 33.8843996105253,
     "lon": -78.44990048552705,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -491,7 +738,7 @@
     "lat": 33.88479929363986,
     "lon": -78.4503044052105,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -504,7 +751,7 @@
     "lat": 33.8873386002043,
     "lon": -78.45027424386271,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -517,7 +764,7 @@
     "lat": 33.885581002089026,
     "lon": -78.4430466549188,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -530,7 +777,7 @@
     "lat": 33.88573304189587,
     "lon": -78.44250638522337,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -543,7 +790,7 @@
     "lat": 33.88429786662093,
     "lon": -78.45022499136441,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -556,7 +803,7 @@
     "lat": 33.88503456887234,
     "lon": -78.44938917234929,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -569,7 +816,7 @@
     "lat": 33.88531637740484,
     "lon": -78.45107882813213,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -582,7 +829,7 @@
     "lat": 33.88351912193807,
     "lon": -78.45336911957978,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -595,7 +842,7 @@
     "lat": 33.8856866949253,
     "lon": -78.44268564856358,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -608,7 +855,7 @@
     "lat": 33.88565441322022,
     "lon": -78.45059728221499,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -621,7 +868,7 @@
     "lat": 33.88441360729427,
     "lon": -78.45068721854557,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -634,7 +881,7 @@
     "lat": 33.88417166316765,
     "lon": -78.4507472590144,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -647,7 +894,7 @@
     "lat": 33.88316938397769,
     "lon": -78.45152299118531,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -660,7 +907,7 @@
     "lat": 33.92475180824138,
     "lon": -78.35490398803077,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -673,7 +920,7 @@
     "lat": 33.9252331399051,
     "lon": -78.35166993632768,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -686,7 +933,7 @@
     "lat": 33.914982849837926,
     "lon": -78.35955365240922,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -699,7 +946,7 @@
     "lat": 33.91633462948001,
     "lon": -78.35980240878494,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -712,7 +959,7 @@
     "lat": 33.916433086953695,
     "lon": -78.35991476709252,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -725,7 +972,7 @@
     "lat": 33.916601395080214,
     "lon": -78.35988910863554,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
@@ -738,565 +985,318 @@
     "lat": 33.870327564654,
     "lon": -78.50468849474501,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "104700107572",
-    "parcel_number": "2100010601",
-    "owner": "COX EARLENE H",
-    "legal_description": "1.23 AC US 17 PLAT 92/73",
+    "pid": "205614431542",
+    "parcel_number": "234EG044",
+    "owner": "WIGGINS PRICE CONNIE M",
+    "legal_description": "L-75 B-200 S-14 TRANQUIL HARBOUR PL-6/34",
     "acres": "",
-    "lat": 33.94260574715644,
-    "lon": -78.53269418033577,
+    "lat": 33.92159743711681,
+    "lon": -78.16240420785243,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103602792753",
-    "parcel_number": "2100008905",
-    "owner": "GREY GOLD INVESTMENTS LLC",
-    "legal_description": "L-4 2.59 ACRES ORTIE MARLOWE PL 33/106 US HWY 17",
+    "pid": "203607681457",
+    "parcel_number": "217NA010",
+    "owner": "MIXON MELISSA FAITH ETVIR",
+    "legal_description": "L-309 LOCKWOOD FOLLY PHA III PLAT U/17",
     "acres": "",
-    "lat": 33.94071929996039,
-    "lon": -78.54740241806377,
+    "lat": 33.935596543210366,
+    "lon": -78.22145020334128,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103602698538",
-    "parcel_number": "2100008901",
-    "owner": "MARLOWE ALFRED LEE",
-    "legal_description": ".34AC PLAT 17/151 OFF US 17",
+    "pid": "206703426895",
+    "parcel_number": "219KD001",
+    "owner": "NEVILLE JOSEPH T ETUX",
+    "legal_description": "L-1 RESERVE ELLINGTON @ ST JAMES PL 33/434",
     "acres": "",
-    "lat": 33.94030988225064,
-    "lon": -78.54893910132405,
+    "lat": 33.946915641027736,
+    "lon": -78.12765325025529,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103602696663",
-    "parcel_number": "2100008902",
-    "owner": "MARLOWE JAMES",
-    "legal_description": "L-1 2.50 ACRES ORTIE MARLOWE PL 33/106 US HWY 17",
+    "pid": "219014245352",
+    "parcel_number": "157CB012",
+    "owner": "NAPLES JUDY LYNN",
+    "legal_description": "L-48 PART-1 S-12  BSL PLAT H/347",
     "acres": "",
-    "lat": 33.9403100690087,
-    "lon": -78.54928575494556,
+    "lat": 34.032746626760506,
+    "lon": -78.03450217726187,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103602693812",
-    "parcel_number": "21000088",
-    "owner": "GORE TIM E ET",
-    "legal_description": "L-14-15 10.22AC PL 3/19 US 17",
+    "pid": "218014429609",
+    "parcel_number": "157IA003",
+    "owner": "YARBROUGH DANNY R ET",
+    "legal_description": "L-16 S-10 BOIL SPR LAKES",
     "acres": "",
-    "lat": 33.94088575289131,
-    "lon": -78.55052433610993,
+    "lat": 34.02837317625839,
+    "lon": -78.0596008292099,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103602594218",
-    "parcel_number": "21000085",
-    "owner": "HUGHES BONITA GORE",
-    "legal_description": "L-210X150 IRR",
+    "pid": "300700005905",
+    "parcel_number": "222IB035",
+    "owner": "JOLLEY BRANDON C ETUX",
+    "legal_description": "L-35 S-2 TURTLEWOOD PLAT 32/535",
     "acres": "",
-    "lat": 33.939472914980406,
-    "lon": -78.55339271061922,
+    "lat": 33.94061714682906,
+    "lon": -78.00945072422056,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601496189",
-    "parcel_number": "21000023",
-    "owner": "PICKETT GEORGE EDWARD V",
-    "legal_description": "L-10-12 B-P/O 4 1.69 AC PL-3/19",
+    "pid": "300700004919",
+    "parcel_number": "222IB036",
+    "owner": "MARTIN DONNA B ETVIR",
+    "legal_description": "L-36 S-2 TURTLEWOOD PLAT 32/535",
     "acres": "",
-    "lat": 33.939440878772096,
-    "lon": -78.55594462056193,
+    "lat": 33.940780925879935,
+    "lon": -78.0096593565393,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601490140",
-    "parcel_number": "21000021",
-    "owner": "GAUSE LYDIA A (LT)",
-    "legal_description": "B-1&2 2.12 AC PL-3/19",
+    "pid": "300700003719",
+    "parcel_number": "222IB039",
+    "owner": "BURGESS JAMES F ETUX",
+    "legal_description": "L-39 S-2 TURTLEWOOD PLAT 32/8",
     "acres": "",
-    "lat": 33.93904934389584,
-    "lon": -78.55802986506148,
+    "lat": 33.940547832700275,
+    "lon": -78.0098532573009,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601492162",
-    "parcel_number": "2100002101",
-    "owner": "STANLEY CARRIE GAUSE ETVIR",
-    "legal_description": "B-3 1.76 AC PL-3/19",
+    "pid": "300700005786",
+    "parcel_number": "222IB049",
+    "owner": "DIETRICH LISA M",
+    "legal_description": "L-49 S-2 TURTLEWOOD PLAT 32/8",
     "acres": "",
-    "lat": 33.93917169602679,
-    "lon": -78.5574922394829,
+    "lat": 33.940383064357476,
+    "lon": -78.00930511307982,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601285782",
-    "parcel_number": "2100002004",
-    "owner": "BRUNSWICK PARTNERS LLC",
-    "legal_description": "TR-B .50AC PLAT K/218 US 17",
+    "pid": "205720801250",
+    "parcel_number": "219PB011    ",
+    "owner": "DEAN & ELIZABETH JONES LIVING TRUST ETALS",
+    "legal_description": "L-136 WOODLANDS PARK PLAT 79/67",
     "acres": "",
-    "lat": 33.937963913396146,
-    "lon": -78.56290655535956,
+    "lat": 33.939830229422114,
+    "lon": -78.14904158070712,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601283637",
-    "parcel_number": "2100002001",
-    "owner": "BRUNSWICK PARTNERS LLC",
-    "legal_description": "TR-1 2.04ACRES PLAT J/147 US 17",
+    "pid": "219010265068",
+    "parcel_number": "157CB005",
+    "owner": "GILMORE DAVID T",
+    "legal_description": "L-21-25 PART 1 S-12 PL H/347 & 1858-1268",
     "acres": "",
-    "lat": 33.93781926773233,
-    "lon": -78.56353287768547,
+    "lat": 34.03779794741165,
+    "lon": -78.0346007413698,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601181574",
-    "parcel_number": "21000125",
-    "owner": "CAW CAW LAND CORPORATION",
-    "legal_description": "10.72 AC BRUNSWICK PLANTATION",
+    "pid": "207617123077",
+    "parcel_number": "236ID01701",
+    "owner": "MCNAMARA MEGAN ETVIR",
+    "legal_description": "L-33 S-5 TRANQUIL HARBOR PLAT 5-49",
     "acres": "",
-    "lat": 33.93770183251575,
-    "lon": -78.56679630975322,
+    "lat": 33.91721168301345,
+    "lon": -78.10556695328462,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "103601087347",
-    "parcel_number": "21000019",
-    "owner": "SMITH HAROLD KEITH",
-    "legal_description": "PARCEL-B .90AC PLAT 60/65 SR 1303",
+    "pid": "217901054395",
+    "parcel_number": "021DB032",
+    "owner": "WALSH DAVID S ETUX",
+    "legal_description": "L-138  PH-20 S-2 TIMBER RIDGE AT CP PL- 123-89",
     "acres": "",
-    "lat": 33.937055286721396,
-    "lon": -78.56901461822675,
+    "lat": 34.28343860565947,
+    "lon": -78.10455296707451,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "102602980185",
-    "parcel_number": "20900015",
-    "owner": "CROW CREEK LAND DEVELOPMENT LLC",
-    "legal_description": "1.57AC SR 1303",
+    "pid": "217901055171",
+    "parcel_number": "021DB041",
+    "owner": "KAMIS WILLIAM H ETUX",
+    "legal_description": "L-147 PH-20 S-2 TIMBER RIDGE @ CP PL-123/89",
     "acres": "",
-    "lat": 33.93659497784521,
-    "lon": -78.5745043814526,
+    "lat": 34.28281484235193,
+    "lon": -78.10425913746836,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "102602889112",
-    "parcel_number": "20900016",
-    "owner": "GRIFFIN ROSA",
-    "legal_description": "1.61 ACRES NC 1303",
+    "pid": "217913044871",
+    "parcel_number": "021DB058",
+    "owner": "HEARN MARK G ETUX",
+    "legal_description": "L-164 PH-20 S-2 TIMBER RIDGE AT CP PL- 123-89",
     "acres": "",
-    "lat": 33.936424995656026,
-    "lon": -78.57500307794389,
+    "lat": 34.28197592838249,
+    "lon": -78.10460905771676,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "102602776932",
-    "parcel_number": "22500139",
-    "owner": "CROW CREEK PROPERTY OWNERS ASSN INC",
-    "legal_description": "TR-A-C .75AC PLAT 54/39",
+    "pid": "216902958465",
+    "parcel_number": "021ED046",
+    "owner": "MAUER PETER W ETUX",
+    "legal_description": "L-46 S-1 PH 20 TIMBER RIDGE AT CP PL-119-43",
     "acres": "",
-    "lat": 33.93584723254623,
-    "lon": -78.57926739129903,
+    "lat": 34.283642515038295,
+    "lon": -78.1066563157747,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "114200252317",
-    "parcel_number": "1020006702",
-    "owner": "LILLY JOSHUA T ETUX",
-    "legal_description": "L-D TR-1 4.97 AC PL-138/51",
+    "pid": "216904949526",
+    "parcel_number": "021ED012",
+    "owner": "TEMPLE CELESTE A AND",
+    "legal_description": "L-12 S-1 PH 20 TIMBER RIDGE AT CP PL-119-44",
     "acres": "",
-    "lat": 34.093477228808624,
-    "lon": -78.5302625272886,
+    "lat": 34.281222719156204,
+    "lon": -78.10644387034164,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "114200159414",
-    "parcel_number": "1020006704",
-    "owner": "LILLY JOSHUA T ETUX",
-    "legal_description": "L-B 0.74 AC PL-138/51",
+    "pid": "216904942799",
+    "parcel_number": "016DA019",
+    "owner": "BONAVENTURE EUGENE ETUX",
+    "legal_description": "L-225 S-3 PH 20 TIMBER RIDGE AT CP PL-125-22",
     "acres": "",
-    "lat": 34.09381023268011,
-    "lon": -78.53141986737204,
+    "lat": 34.28188768409812,
+    "lon": -78.10852315972235,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "114100972937",
-    "parcel_number": "1170004502",
-    "owner": "FITZGERALD TRUST",
-    "legal_description": "L-1 12.79 AC PL-139/39",
+    "pid": "216904945197",
+    "parcel_number": "021ED007",
+    "owner": "JOSEPH F MAGRI REV TRUST THE AND",
+    "legal_description": "L- 7  S-1 PH 20 TIMBER RIDGE AT CP PL-119-44",
     "acres": "",
-    "lat": 34.07298337418104,
-    "lon": -78.50695068843204,
+    "lat": 34.28017672684313,
+    "lon": -78.10759360814276,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "105506495463",
-    "parcel_number": "242FE005",
-    "owner": "DANDY HENRIETTA",
-    "legal_description": "L-405 BLDG-4 .05AC PL 53/4 VILLAS @ S/RIDGE",
+    "pid": "217913041542",
+    "parcel_number": "021ED058",
+    "owner": "OBRIEN PATRICK ETUX",
+    "legal_description": "L-105 S-1 PH 20 TIMBER RIDGE AT CP PL-119-44",
     "acres": "",
-    "lat": 33.91222140520743,
-    "lon": -78.49062638526495,
+    "lat": 34.28101405230073,
+    "lon": -78.10577080184956,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "105506498129",
-    "parcel_number": "242FH004",
-    "owner": "MAHAR ETHEL",
-    "legal_description": "L-304 VILLAS @ SUNSET RIDGE PL 75/43",
+    "pid": "217913040791",
+    "parcel_number": "021ED056",
+    "owner": "DEANGELIS ELIZABETH",
+    "legal_description": "L-103 S-1 PH 20 TIMBER RIDGE AT CP PL-119-44",
     "acres": "",
-    "lat": 33.91154409324585,
-    "lon": -78.48980270868599,
+    "lat": 34.28166502034879,
+    "lon": -78.10608002171708,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "105506498221",
-    "parcel_number": "242FH003",
-    "owner": "ABRAMOSKI RAYMOND ETUX",
-    "legal_description": "L-303 VILLAS @ SUNSET RIDGE PLAT 75/43",
+    "pid": "217901152951",
+    "parcel_number": "021DA030",
+    "owner": "PARLETT CHARLES A ETUX",
+    "legal_description": "L-77 S-1 PH-20 TIMBER RIDGE AT CP PL-122-12-13",
     "acres": "",
-    "lat": 33.911602437681985,
-    "lon": -78.48978959916464,
+    "lat": 34.28483731573039,
+    "lon": -78.10198265824751,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "105506498216",
-    "parcel_number": "242FH001",
-    "owner": "GOINS ANDREW L III ETUX",
-    "legal_description": "L-301 VILLAS @ SUNSET RIDGE PLAT 75/43",
+    "pid": "217913041623",
+    "parcel_number": "021ED057",
+    "owner": "LALLO CARL J ETUX",
+    "legal_description": "L-104 S-1 PH 20 TIMBER RIDGE AT CP PL-119-44",
     "acres": "",
-    "lat": 33.91173614525279,
-    "lon": -78.48982219307807,
+    "lat": 34.281438282222105,
+    "lon": -78.10577947855924,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   },
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "105506497380",
-    "parcel_number": "242FF006",
-    "owner": "VON DERHEIDE BARRY ETUX",
-    "legal_description": "L-206 BLDG-2 VILLAS SUNSET RIDGE PL 57/79",
+    "pid": "216904943266",
+    "parcel_number": "016DA003",
+    "owner": "JOHN SHACKELFORD & KAREN V KOONCE TR ETALS",
+    "legal_description": "L-173  S-3 PH 20 TIMBER RIDGE AT CP PL-125-22",
     "acres": "",
-    "lat": 33.911869718501954,
-    "lon": -78.48993542239083,
+    "lat": 34.280427981947156,
+    "lon": -78.10835079853037,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497373",
-    "parcel_number": "242FF005",
-    "owner": "CAPIZZUTO MICHELE A AND",
-    "legal_description": "L-205 BLDG-2 VILLAS SUNSET RIDGE PL 57/79",
-    "acres": "",
-    "lat": 33.911945211127446,
-    "lon": -78.48993384353375,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497377",
-    "parcel_number": "242FF003",
-    "owner": "HUGHES PHYLLIS A AND",
-    "legal_description": "L-203 BLDG-2 VILLAS SUNSET RIDGE PL 57/79",
-    "acres": "",
-    "lat": 33.912079754449096,
-    "lon": -78.48997231964593,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497460",
-    "parcel_number": "242FF002",
-    "owner": "BURNETTE DENNIS H ETUX",
-    "legal_description": "L-202 BLDG-2 VILLAS SUNSET RIDGE PL 57/79",
-    "acres": "",
-    "lat": 33.912144244891856,
-    "lon": -78.48997995942652,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506495458",
-    "parcel_number": "242FE003",
-    "owner": "SCHUTZBACH ROBERT A JR ETUX",
-    "legal_description": "L-403 BLDG-4 .04AC PL 53/4 VILLAS @ S/RIDGE",
-    "acres": "",
-    "lat": 33.91235344023224,
-    "lon": -78.4906207565494,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497458",
-    "parcel_number": "242FD005",
-    "owner": "JASINA THOMAS ETUX",
-    "legal_description": "L-105 BLDG-1 .05AC VILL @ S/RIDGE PL 53/3",
-    "acres": "",
-    "lat": 33.9123528496637,
-    "lon": -78.49003000119754,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497543",
-    "parcel_number": "242FD003",
-    "owner": "SATAPATHY LILABATI",
-    "legal_description": "L-103 BLDG-1 .04AC VILL @ S/RIDGE PL 53/3",
-    "acres": "",
-    "lat": 33.91248726011866,
-    "lon": -78.49004352551519,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497535",
-    "parcel_number": "242FD002",
-    "owner": "COOPER BRUCE A ETUX",
-    "legal_description": "L-102 BLDG-1 .04AC VILL @ S/RIDGE PL 53/3",
-    "acres": "",
-    "lat": 33.91255133557869,
-    "lon": -78.49005619095792,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506497538",
-    "parcel_number": "242FD001",
-    "owner": "POWELL SHARON BROWN AND",
-    "legal_description": "L-101 BLDG-1 .05AC VILL @ S/RIDGE PL 53/3",
-    "acres": "",
-    "lat": 33.91262051548173,
-    "lon": -78.49009141888229,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506495543",
-    "parcel_number": "242FE001",
-    "owner": "VANDREW ALAN T ETUX",
-    "legal_description": "L-401 BLDG-4 .05AC PL 53/4 VILLAS @ S/RIDGE",
-    "acres": "",
-    "lat": 33.91248965376108,
-    "lon": -78.49063848238535,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506496124",
-    "parcel_number": "242FQ010",
-    "owner": "FRANKLIN SCOTT ETUX",
-    "legal_description": "L-601 VILLAS @ SUNSET RIDGE PL 110/99",
-    "acres": "",
-    "lat": 33.911419605135315,
-    "lon": -78.49046924093508,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506496127",
-    "parcel_number": "242FQ009",
-    "owner": "FRANKENBURG TERRENCE AND",
-    "legal_description": "L-602 VILLAS @ SUNSET RIDGE PL 110/99",
-    "acres": "",
-    "lat": 33.91148797183409,
-    "lon": -78.49043464388367,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506496214",
-    "parcel_number": "242FQ006",
-    "owner": "KAMINSKY LILLIAN E ET",
-    "legal_description": "L-605 VILLAS @ SUNSET RIDGE PL 110/99",
-    "acres": "",
-    "lat": 33.91168650793184,
-    "lon": -78.49047383140558,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "200616944384",
-    "parcel_number": "231FB02601",
-    "owner": "PERAKIS JASON ETUX",
-    "legal_description": "L-40 SANDY SHOALS PLAT 9/64",
-    "acres": "",
-    "lat": 33.92476417590005,
-    "lon": -78.30957676601655,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105506495551",
-    "parcel_number": "242FE002",
-    "owner": "ABD PROPERTIES LLC",
-    "legal_description": "L-402 BLDG-4 .04AC PL 53/4 VILLAS S/RIDGE",
-    "acres": "",
-    "lat": 33.91241406062226,
-    "lon": -78.49062270165331,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "108713243241",
-    "parcel_number": "213FC035",
-    "owner": "HAUBERT MICHAEL AND",
-    "legal_description": "L-35 VILLAGE POINT EST PHA III PLAT S/292",
-    "acres": "",
-    "lat": 33.95213387805761,
-    "lon": -78.39866961871219,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "108713137495",
-    "parcel_number": "213FA003",
-    "owner": "GORE REGINA M",
-    "legal_description": "L-3 PHASE I VILLAGE POINT EST PLAT P/51",
-    "acres": "",
-    "lat": 33.950255843412535,
-    "lon": -78.40064014313865,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "108713137535",
-    "parcel_number": "213FA001",
-    "owner": "GORE REGINA",
-    "legal_description": "L-1 PHA I VILLAGE POINT PLAT P/51",
-    "acres": "",
-    "lat": 33.95056152391988,
-    "lon": -78.40089896847641,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "108714249203",
-    "parcel_number": "213FC029",
-    "owner": "OCONNOR KYLE LEONARD AND",
-    "legal_description": "L-29 VILLAGE POINT EST PHA III PLAT S/292",
-    "acres": "",
-    "lat": 33.95239330708511,
-    "lon": -78.39699375228292,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "108714237692",
-    "parcel_number": "213FB010",
-    "owner": "DYCUS KEITH FRAZIER",
-    "legal_description": "L-10 PHASE II VILLAGE POINT EST PLAT Q/78",
-    "acres": "",
-    "lat": 33.95078183490923,
-    "lon": -78.3971787949465,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-01"
+    "last_scanned": "2026-08-02"
   }
 ]
