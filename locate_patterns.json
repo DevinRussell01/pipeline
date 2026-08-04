@@ -9,7 +9,7 @@
         "opportunity": "High",
         "nearby_land_count": 4,
         "nearby_high_watch_land_count": 4,
-        "nearby_project_count": 14,
+        "nearby_project_count": 16,
         "reason": "Locate signal overlaps with multiple high-watch parcels, suggesting possible site development or infrastructure preparation.",
         "source_ticket": "LOCATE-MECK-001",
         "score_version": "2.0",
@@ -20,13 +20,13 @@
         },
         "score_explanation": [
             "Source signal contributes 9 point(s)",
-            "14 distinct projects within 3 miles",
+            "16 distinct projects within 3 miles",
             "Closest project is 1.29 miles away",
             "4 tracked parcel(s) within 3 miles",
             "4 nearby parcels have watch scores of 8 or 9"
         ],
         "coordinates": "35.11680000, -80.95040000",
-        "created_date": "2026-08-03"
+        "created_date": "2026-08-04"
     },
     {
         "pattern_id": "PATTERN-Cabarrus-002",
@@ -53,7 +53,7 @@
             "1 nearby parcel(s) have high watch scores"
         ],
         "coordinates": "35.37060000, -80.72520000",
-        "created_date": "2026-08-03"
+        "created_date": "2026-08-04"
     },
     {
         "pattern_id": "PATTERN-Union-003",
@@ -78,6 +78,6 @@
             "Source signal contributes 8 point(s)"
         ],
         "coordinates": "35.01760000, -80.54950000",
-        "created_date": "2026-08-03"
+        "created_date": "2026-08-04"
     }
 ]

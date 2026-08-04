@@ -19,18 +19,18 @@
         },
         "score_explanation": [
             "Source signal contributes 9 point(s)",
-            "14 distinct projects within 3 miles",
+            "16 distinct projects within 3 miles",
             "Closest project is 1.29 miles away",
             "4 tracked parcel(s) within 3 miles",
             "4 nearby parcels have watch scores of 8 or 9"
         ],
-        "nearby_project_count": 14,
+        "nearby_project_count": 16,
         "nearby_land_count": 4,
         "nearby_high_watch_land_count": 4,
         "nearby_projects": [
             {
                 "name": "HSP-Project Joule",
-                "case_number": "20306203",
+                "case_number": "LDCP-2025-00846",
                 "county": "Mecklenburg",
                 "distance_miles": 1.29,
                 "status": "Approved",
@@ -56,7 +56,7 @@
             },
             {
                 "name": "Choate Circle Apartments",
-                "case_number": "21917287",
+                "case_number": "LDCP-2024-00621",
                 "county": "Mecklenburg",
                 "distance_miles": 1.66,
                 "status": "Approved",
@@ -69,7 +69,7 @@
             },
             {
                 "name": "MS Square at Steele Creek",
-                "case_number": "20143102",
+                "case_number": "LDCP-2025-00482",
                 "county": "Mecklenburg",
                 "distance_miles": 1.88,
                 "status": "Approved",
@@ -82,7 +82,7 @@
             },
             {
                 "name": "JMJ Preserve",
-                "case_number": "19943294",
+                "case_number": "LDCP-2025-00267",
                 "county": "Mecklenburg",
                 "distance_miles": 2.13,
                 "status": "Approved",
@@ -95,7 +95,7 @@
             },
             {
                 "name": "Sandy Porter THs",
-                "case_number": "20102108",
+                "case_number": "LDCP-2025-00265",
                 "county": "Mecklenburg",
                 "distance_miles": 2.17,
                 "status": "Approved",
@@ -107,13 +107,13 @@
                 "source_url": " "
             },
             {
-                "name": "Parkside Crossing Townhomes",
-                "case_number": "19906169",
+                "name": "The Grove at Sandy Porter",
+                "case_number": "LDCP-2026-00382",
                 "county": "Mecklenburg",
-                "distance_miles": 2.24,
-                "status": "Approved",
-                "address": "13320 STEELE CREEK RD, CHARLOTTE, NC 28278",
-                "coordinates": "35.11045787, -80.98931895",
+                "distance_miles": 2.17,
+                "status": "Revisions",
+                "address": "3500 SANDY PORTER RD, CHARLOTTE, NC 28273",
+                "coordinates": "35.14823149, -80.95079316",
                 "units": 0,
                 "priority_score": 7,
                 "intelligence_type": "Residential Development",
@@ -121,7 +121,7 @@
             },
             {
                 "name": "Yardly Steele Creek",
-                "case_number": "19906118",
+                "case_number": "LDCP-2025-00504",
                 "county": "Mecklenburg",
                 "distance_miles": 2.24,
                 "status": "Approved",
@@ -133,26 +133,26 @@
                 "source_url": " "
             },
             {
-                "name": "Northway At Hamilton",
-                "case_number": "21932390",
+                "name": "Parkside Crossing Townhomes",
+                "case_number": "LDCP-2024-00166",
                 "county": "Mecklenburg",
-                "distance_miles": 2.84,
+                "distance_miles": 2.24,
                 "status": "Approved",
-                "address": "12708 HAMILTON RD, CHARLOTTE, NC 28273",
-                "coordinates": "35.08680904, -80.98484207",
+                "address": "13320 STEELE CREEK RD, CHARLOTTE, NC 28278",
+                "coordinates": "35.11045787, -80.98931895",
                 "units": 0,
                 "priority_score": 7,
                 "intelligence_type": "Residential Development",
                 "source_url": " "
             },
             {
-                "name": "Sledge Road Development",
-                "case_number": "19912114",
+                "name": "Borderstone Place",
+                "case_number": "LDCP-2026-00423",
                 "county": "Mecklenburg",
-                "distance_miles": 2.85,
+                "distance_miles": 2.5,
                 "status": "Revisions",
-                "address": "13930 SLEDGE RD, MECKLENBURG, NC 28278",
-                "coordinates": "35.12251574, -81.00033652",
+                "address": "0 HAMILTON RD, CHARLOTTE, NC 00000",
+                "coordinates": "35.08589944, -80.97329488",
                 "units": 0,
                 "priority_score": 7,
                 "intelligence_type": "Residential Development",
@@ -194,7 +194,7 @@
             }
         ],
         "signal": "Utility construction signal in high-growth industrial corridor",
-        "summary": "Mecklenburg signal near 14 distinct project(s) and 4 tracked parcel(s)."
+        "summary": "Mecklenburg signal near 16 distinct project(s) and 4 tracked parcel(s)."
     },
     {
         "ticket_id": "LOCATE-CAB-001",
