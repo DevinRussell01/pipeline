@@ -3891,55 +3891,48 @@ function filterProjectsTable() {
 
   });
 
-  const reviewed = isReviewed(project);
+  document.getElementById("projectTable").innerHTML =
+  filtered.map(project => {
 
-  return `
+    const reviewed = isReviewed(project);
 
-  <tr style="${
-  reviewed
-  ? "opacity:.45;text-decoration:line-through;"
-  : ""
-  }">
+    return `
 
-  <td>${project.county || ""}</td>
+      <tr style="${
+        reviewed
+          ? "opacity:.45;text-decoration:line-through;"
+          : ""
+      }">
 
-  <td>${project.case_number || ""}</td>
+        <td>${project.county || ""}</td>
 
-  <td>${project.address || ""}</td>
+        <td>${project.case_number || ""}</td>
 
-  <td>${project.acreage || ""}</td>
+        <td>${project.address || ""}</td>
 
-  <td>${project.owner || ""}</td>
+        <td>${project.acreage || ""}</td>
 
-  <td>${project.applicant || ""}</td>
+        <td>${project.owner || ""}</td>
 
-  <td>${project.zoning_change || ""}</td>
+        <td>${project.applicant || ""}</td>
 
-  <td>
+        <td>${project.zoning_change || ""}</td>
 
-  <a href="${project.source_url || "#"}"
-  target="_blank">
+        <td>
+          <a href="${project.source_url || "#"}" target="_blank">
+            Source
+          </a>
+        </td>
 
-  Source
+        <td>
+          <button onclick='toggleReviewed(${JSON.stringify(project)})'>
+            ${reviewed ? "Undo" : "Reviewed"}
+          </button>
+        </td>
 
-  </a>
+      </tr>
 
-  </td>
-
-  <td>
-
-  <button
-  onclick='toggleReviewed(${JSON.stringify(project)})'>
-
-  ${reviewed ? "Undo" : "Reviewed"}
-
-  </button>
-
-  </td>
-
-  </tr>
-
-  `;
+    `;
 
   }).join("");
 }
