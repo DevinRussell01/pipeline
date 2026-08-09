@@ -1460,23 +1460,23 @@ gap:12px;
 
 <div class="nav">
   <button class="tab active" onclick="showSection(0)">Dashboard</button>
-  <button class="tab" onclick="showSection(1)">Scanner</button>
-  <button class="tab" onclick="showSection(2)">Projects</button>
+  <button class="tab" onclick="showSection(1)">Scan Center</button>
+  <button class="tab" onclick="showSection(2)">Development</button>
   <button class="tab" onclick="showSection(3)">Organizations</button>
-  <button class="tab" onclick="showSection(4)">Counties</button>
-  <button class="tab" onclick="showSection(5)">Map</button>
+  <button class="tab" onclick="showSection(4)">County Intelligence</button>
+  <button class="tab" onclick="showSection(5)">Regional Map</button>
   <button class="tab" onclick="showSection(6)">Tools</button>
   <button class="tab" onclick="showSection(7)">Land</button>
-  <button class="tab" onclick="showSection(8)">Signals</button>
-  <button class="tab" onclick="showSection(9)">Builders</button>
+  <button class="tab" onclick="showSection(8)">811 Locate Intelligence</button>
+  <button class="tab" onclick="showSection(9)">Builder Intelligence</button>
   <button class="tab" onclick="showSection(10)">Watchlists</button>
-  <button class="tab" onclick="showSection(11)">Framework</button>
+  <button class="tab" onclick="showSection(11)">Framework Intelligence</button>
   </div>
 
 <!-- LOCATE INTELLIGENCE -->
 <div class="section" id="section-8">
 
-  <h2>Signals Intelligence</h2>
+  <h2>Locate Intelligence</h2>
 
   <p class="sub">
     Infrastructure, development, and utility activity aggregated into a single intelligence view.
@@ -1485,7 +1485,7 @@ gap:12px;
   <br>
 
 <div class="framework-card highlight" id="signalsExecutiveSummary">
-  <h3>Signals Executive Summary</h3>
+  <h3>811 Locate Intelligence Summary</h3>
 
   <p>
     <strong id="summarySignalCount">0</strong> active infrastructure signals detected.
@@ -1568,7 +1568,7 @@ gap:12px;
 
 <br>
 
-<h3>Active Infrastructure Signals</h3>
+<h3>Active 811 Locate Requests</h3>
 
 <p class="sub">
   Current utility, telecom, development, and infrastructure activity detected and monitored by Conduit.
@@ -1627,7 +1627,7 @@ gap:12px;
 <div class="stats" style="margin-top:24px;">
   <div class="stat">
     <strong id="locateTicketCount">0</strong>
-    <span>Active Infrastructure Signals</span>
+    <span>Active 811 Locate Requestss</span>
   </div>
 
   <div class="stat">
@@ -1720,7 +1720,7 @@ gap:12px;
 
 <div class="section" id="section-9">
 
-  <h2>Builders</h2>
+  <h2>Builder Intelligence</h2>
 
   <div class="sub">
     Active and future single-family communities tracked from builder websites.
@@ -1890,10 +1890,10 @@ gap:12px;
       </div>
 
       <div class="engine-metrics">
-        <span id="engineProjects">-- Projects</span>
-        <span id="engineParcels">-- Parcels</span>
-        <span id="engineBuilders">-- Communities</span>
-        <span id="engineSignals">-- Signals</span>
+        <span id="engineProjects">-- Development Projects</span>
+        <span id="engineParcels">-- Strategic Land</span>
+        <span id="engineBuilders">-- Builder Communities</span>
+        <span id="engineSignals">-- 811 Locates</span>
       </div>
 
     </div>
@@ -1902,19 +1902,19 @@ gap:12px;
     <div class="dashboard-kpis">
 
       <div class="kpi-card">
-        <span>Projects</span>
+        <span>Development Projects</span>
         <strong id="projectCount">0</strong>
         <small>Tracked development records</small>
       </div>
 
       <div class="kpi-card">
-        <span>Parcels</span>
+        <span>Strategic Land</span>
         <strong id="dashboardParcelCount">0</strong>
         <small>Strategic land records monitored</small>
       </div>
 
       <div class="kpi-card" onclick="showSection(8)">
-        <span>Signals</span>
+        <span>811 Locate Requests</span>
         <strong id="dashboardSignalCount">0</strong>
         <small>Active infrastructure signals analyzed</small>
       </div>
@@ -2102,7 +2102,7 @@ Awaiting scan.
 
 <!-- PROJECTS -->
 <div class="section" id="section-2">
-<h2>Detected Development Projects</h2>
+<h2>Development Projects</h2>
 
 <div class="filters">
 
@@ -2194,7 +2194,7 @@ Awaiting scan.
 
 <!-- MAP -->
 <div class="section" id="section-5">
-<h2>Regional Growth Map</h2>
+<h2>Regional Intelligence Map</h2>
 
 <div class="map-controls">
   <label><input type="checkbox" id="toggleHotspots" checked> Growth Hotspots</label>
@@ -3948,7 +3948,7 @@ async function loadProjectsFromJson() {
 
     const engineProjects = document.getElementById("engineProjects");
     if (engineProjects) {
-    engineProjects.textContent = `${PROJECTS.length} Projects`;
+    engineProjects.textContent = `${PROJECTS.length} Development Projects`;
     }
 
     populateProjectFilters(PROJECTS);
@@ -4056,7 +4056,7 @@ async function loadBuilderPortfolios() {
 
       const engineBuilders = document.getElementById("engineBuilders");
       if (engineBuilders) {
-      engineBuilders.textContent = `${data.length} Communities`;
+      engineBuilders.textContent = `${data.length} Builder Communities`;
       }
       const builders = [...new Set(data.map(x => x.builder))];
       const counties = [...new Set(data.map(x => x.county))];
@@ -4385,7 +4385,7 @@ if (document.getElementById("projectCount")) {
 
       if (engineProjects) {
         engineProjects.textContent =
-          `${projects.length} Projects`;
+          `${projects.length} Development Projects`;
       }
     });
 }
@@ -4435,7 +4435,7 @@ if (document.getElementById("orgSearch")) {
 
         const engineParcels = document.getElementById("engineParcels");
         if (engineParcels) {
-          engineParcels.textContent = `${parcels.length} Parcels`;
+          engineParcels.textContent = `${parcels.length} Strategic Land`;
         }
 
   });
@@ -4449,7 +4449,7 @@ if (document.getElementById("orgSearch")) {
 
       const engineSignals = document.getElementById("engineSignals");
       if (engineSignals) {
-        engineSignals.textContent = `${signals.length} Signals`;
+        engineSignals.textContent = `${signals.length} 811 Locates`;
       }
 
   });
