@@ -2105,10 +2105,21 @@ Awaiting scan.
 <h2>Detected Development Projects</h2>
 
 <div class="filters">
+
   <label>County</label>
+
   <select id="projectCountyFilter" onchange="filterProjectsTable()">
     <option value="">All Counties</option>
   </select>
+
+  <label style="margin-left:20px;">
+    <input
+      type="checkbox"
+      id="hideReviewedProjects"
+      onchange="filterProjectsTable()">
+    Hide Reviewed
+  </label>
+
 </div>
 
 <br>
@@ -3863,12 +3874,22 @@ function populateProjectFilters(projects) {
 function filterProjectsTable() {
   const county = document.getElementById("projectCountyFilter")?.value || "";
 
-  const filtered = PROJECTS.filter(project => {
-    return !county || project.county === county;
-  });
+  const hideReviewed =
+  document.getElementById("hideReviewedProjects")?.checked;
 
-  document.getElementById("projectTable").innerHTML =
-  filtered.map(project => {
+  const filtered = PROJECTS.filter(project => {
+
+    if (county && project.county !== county) {
+      return false;
+    }
+
+    if (hideReviewed && isReviewed(project)) {
+      return false;
+    }
+
+    return true;
+
+  });
 
   const reviewed = isReviewed(project);
 
