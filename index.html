@@ -2125,6 +2125,7 @@ Awaiting scan.
 <th>Applicant</th>
 <th>Zoning Change</th>
 <th>Source</th>
+<th>Review</th>
 </tr>
 </thead>
 <tbody id="projectTable"></tbody>
@@ -3796,6 +3797,56 @@ function rebuildLocateHeatLayer() {
   }
 }
 
+function getProjectKey(project) {
+  return (
+    project.source_record_id ||
+    `${project.county}|${project.case_number}|${project.address}`
+  );
+}
+
+function getReviewedProjects() {
+  return JSON.parse(
+    localStorage.getItem("reviewedProjects") || "[]"
+  );
+}
+
+function isReviewed(project) {
+  return getReviewedProjects().includes(
+    getProjectKey(project)
+  );
+}
+
+function toggleReviewed(project) {
+
+  const reviewed = getReviewedProjects();
+
+  const key = getProjectKey(project);
+
+  const index = reviewed.indexOf(key);
+
+  if (index >= 0) {
+    reviewed.splice(index, 1);
+  } else {
+    reviewed.push(key);
+  }
+
+  localStorage.setItem(
+    "reviewedProjects",
+    JSON.stringify(reviewed)
+  );
+
+  filterProjectsTable();
+
+}
+
+function resetReviewedProjects() {
+
+  localStorage.removeItem("reviewedProjects");
+
+  filterProjectsTable();
+
+}
+
 function populateProjectFilters(projects) {
   const filter = document.getElementById("projectCountyFilter");
   if (!filter) return;
@@ -3816,18 +3867,60 @@ function filterProjectsTable() {
     return !county || project.county === county;
   });
 
-  document.getElementById("projectTable").innerHTML = filtered.map(p => `
-    <tr>
-      <td>${p.county || ""}</td>
-      <td>${p.case_number || ""}</td>
-      <td>${p.address || ""}</td>
-      <td>${p.acreage || ""}</td>
-      <td>${p.owner || ""}</td>
-      <td>${p.applicant || ""}</td>
-      <td>${p.zoning_change || ""}</td>
-      <td><a href="${p.source_url || "#"}" target="_blank">Source</a></td>
-    </tr>
-  `).join("");
+  document.getElementById("projectTable").innerHTML =
+  filtered.map(project => {
+
+  const reviewed = isReviewed(project);
+
+  return `
+
+  <tr style="${
+  reviewed
+  ? "opacity:.45;text-decoration:line-through;"
+  : ""
+  }">
+
+  <td>${project.county || ""}</td>
+
+  <td>${project.case_number || ""}</td>
+
+  <td>${project.address || ""}</td>
+
+  <td>${project.acreage || ""}</td>
+
+  <td>${project.owner || ""}</td>
+
+  <td>${project.applicant || ""}</td>
+
+  <td>${project.zoning_change || ""}</td>
+
+  <td>
+
+  <a href="${project.source_url || "#"}"
+  target="_blank">
+
+  Source
+
+  </a>
+
+  </td>
+
+  <td>
+
+  <button
+  onclick='toggleReviewed(${JSON.stringify(project)})'>
+
+  ${reviewed ? "Undo" : "Reviewed"}
+
+  </button>
+
+  </td>
+
+  </tr>
+
+  `;
+
+  }).join("");
 }
 
 async function loadProjectsFromJson() {
