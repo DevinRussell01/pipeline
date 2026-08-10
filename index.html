@@ -1663,10 +1663,10 @@ gap:12px;
 
 <br>
 
-<h3>High-Confidence Locate Correlations</h3>
+<h3>811 Locate Opportunities</h3>
 
 <div class="sub">
-  Utility activity correlated against nearby projects and tracked land parcels.
+  811 locate activity evaluated alongside nearby development projects and strategic land records.
 </div>
 
 <br>
@@ -1680,7 +1680,7 @@ gap:12px;
         <th>Work Type</th>
         <th>Opportunity Index</th>
         <th>Nearby Projects</th>
-        <th>Nearby Parcels</th>
+        <th>Nearby Strategic Land</th>
         <th>Summary</th>
         <th>Opportunity Narrative</th>
       </tr>
@@ -1691,10 +1691,10 @@ gap:12px;
 
 <br>
 
-<h3>Locate Pattern Intelligence</h3>
+<h3>811 Activity Patterns</h3>
 
 <div class="sub">
-  Engineering interpretation of utility activity patterns and potential opportunities.
+  Recurring 811 locate activity evaluated for potential infrastructure expansion patterns.
 </div>
 
 <br>
@@ -1808,7 +1808,7 @@ gap:12px;
     <option value="false">Non-LLC</option>
   </select>
 
-  <label>Minimum Watch Score</label>
+  <label>Minimum Land Priority Score</label>
   <select id="landScoreFilter" onchange="filterLandIntelligence()">
     <option value="0">All</option>
     <option value="2">2+</option>
@@ -1828,7 +1828,7 @@ gap:12px;
           <th>Acres</th>
           <th>PID</th>
           <th>LLC</th>
-          <th>Watch Score</th>
+          <th>Land Priority Score</th>
         </tr>
       </thead>
 
@@ -1916,13 +1916,13 @@ gap:12px;
       <div class="kpi-card" onclick="showSection(8)">
         <span>811 Locate Requests</span>
         <strong id="dashboardSignalCount">0</strong>
-        <small>Active infrastructure signals analyzed</small>
+        <small>Active 811 locate requests analyzed</small>
       </div>
 
       <div class="kpi-card" onclick="showSection(8)">
         <span>Action Queue</span>
         <strong id="dashboardOpportunityCount">0</strong>
-        <small>High-confidence signals requiring review</small>
+        <small>High-confidence opportunities requiring review</small>
       </div>
 
     </div>
@@ -2112,6 +2112,16 @@ Awaiting scan.
     <option value="">All Counties</option>
   </select>
 
+  <label style="margin-left:20px;">Search</label>
+
+  <input
+    id="projectSearch"
+    type="text"
+    placeholder="Case, address, owner, applicant..."
+    oninput="filterProjectsTable()"
+    style="min-width:280px;"
+  >
+
   <label style="margin-left:20px;">
     <input
       type="checkbox"
@@ -2129,12 +2139,12 @@ Awaiting scan.
 <thead>
 <tr>
 <th>County</th>
-<th>Case</th>
+<th>Case / Project ID</th>
 <th>Address</th>
 <th>Acreage</th>
 <th>Owner</th>
 <th>Applicant</th>
-<th>Zoning Change</th>
+<th>Project Details</th>
 <th>Source</th>
 <th>Review</th>
 </tr>
@@ -2313,36 +2323,37 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
   </div>
 
   <div class="framework-card">
-    <h3>What is a Signal?</h3>
+    <h3>What is 811 Locate Activity?</h3>
     <p>
-      A signal is any activity that may indicate future telecommunications demand,
-      infrastructure investment, development growth, or network expansion.
+      811 locate requests are often one of the earliest public indicators of future utility and telecommunications construction. Conduit combines locate activity with development, land, builder, and GIS intelligence to identify areas where infrastructure investment may be accelerating.
     </p>
 
     <ul>
-      <li>Fiber Construction</li>
-      <li>Directional Bore Activity</li>
-      <li>Utility Expansion</li>
-      <li>Residential Development</li>
-      <li>Builder Activity</li>
-      <li>Large Parcel Activity</li>
+      <li>Fiber locate requests</li>
+      <li>Directional boring requests</li>
+      <li>Electric utility locates</li>
+      <li>Gas utility locates</li>
+      <li>Water & sewer locates</li>
+      <li>Telecommunications locate requests</li>
     </ul>
   </div>
 
   <div class="framework-card">
     <h3>What is an Opportunity?</h3>
-    <p>
-      Opportunities are identified when multiple independent signals converge within
-      the same geographic area.
-    </p>
+      <p>
+        Opportunities are identified when multiple independent indicators — such as 811 locate activity,
+        nearby development projects, strategic land activity, and builder growth — point to increased
+        infrastructure demand within the same geographic area.
+      </p>
   </div>
 
   <div class="framework-card wide">
     <h3>Opportunity Index</h3>
 
     <p>
-      The Opportunity Index is a weighted signal score. Higher values indicate
-      stronger signal convergence and greater justification for investigation.
+        The Opportunity Index combines 811 locate activity, nearby development, and strategic land
+        concentration into a single prioritization score. Higher values indicate stronger evidence
+        that an area warrants analyst review.
     </p>
 
     <p>
@@ -2350,35 +2361,33 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
     </p>
 
     <div class="score-table">
-      <div><strong>0-5</strong><span>Low Signal</span></div>
-      <div><strong>6-10</strong><span>Moderate Signal</span></div>
-      <div><strong>11-15</strong><span>High Signal</span></div>
+      <div><strong>0-5</strong><span>Low Opportunity</span></div>
+      <div><strong>6-10</strong><span>Moderate Opportunity</span></div>
+      <div><strong>11-15</strong><span>High Opportunity</span></div>
       <div><strong>16+</strong><span>Priority Opportunity</span></div>
     </div>
 
   </div>
 
-  <div class="framework-card">
     <h3>Current Intelligence Sources</h3>
 
     <ul>
       <li>County Development Records</li>
-      <li>Tracked Land Parcels</li>
-      <li>Builder Activity</li>
-      <li>Utility Locate Intelligence</li>
-      <li>GIS Mapping Layers</li>
-      <li>Infrastructure Activity</li>
+      <li>Strategic Land Records</li>
+      <li>Builder Community Activity</li>
+      <li>811 Locate Activity</li>
+      <li>GIS Parcel Intelligence</li>
+      <li>Infrastructure Development Activity</li>
     </ul>
-  </div>
 
   <div class="framework-card">
     <h3>Current Coverage</h3>
 
     <ul>
-      <li>110+ Development Projects</li>
-      <li>319+ Tracked Parcels</li>
-      <li>Utility Locate Signals</li>
-      <li>Multi-County Coverage</li>
+      <li><span id="frameworkProjectCount">--</span> Development Projects</li>
+      <li><span id="frameworkLandCount">--</span> Strategic Land Records</li>
+      <li><span id="frameworkLocateCount">--</span> Active 811 Locate Requests</li>
+      <li>Multi-County Regional Coverage</li>
       <li>GIS Intelligence Layers</li>
     </ul>
   </div>
@@ -2387,18 +2396,18 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
   <h3>Telecommunications Use Cases</h3>
 
   <p>
-    Conduit is designed to support regional telecom expansion strategy by turning
-    scattered development, land, utility, and infrastructure activity into actionable
-    market intelligence.
+      Conduit supports regional telecommunications planning by combining development,
+      strategic land, builder, GIS, and 811 locate intelligence into one actionable
+      regional view.
   </p>
 
   <ul>
-    <li><strong>Growth Corridor Identification:</strong> identify areas where development and infrastructure activity are concentrating.</li>
-    <li><strong>Competitive Activity Awareness:</strong> monitor utility and telecom-related activity that may indicate market movement.</li>
-    <li><strong>Builder Engagement Opportunities:</strong> identify active builders and communities that may require broadband coordination.</li>
-    <li><strong>Broadband Expansion Planning:</strong> support early review of future service areas and potential network growth.</li>
-    <li><strong>Market Intelligence:</strong> consolidate county, land, builder, and infrastructure data into one regional view.</li>
-    <li><strong>Infrastructure Monitoring:</strong> track locate and construction activity that may indicate utility or network investment.</li>
+    <li><strong>Growth Corridor Identification:</strong> identify areas where development, strategic land, and infrastructure demand are concentrating.</li>
+    <li><strong>Competitive Activity Awareness:</strong> monitor 811 locate activity and other indicators that may suggest utility or telecommunications investment.</li>
+    li><strong>Builder Engagement Opportunities:</strong> identify active builder communities that may require broadband planning or coordination.</li>
+    <li><strong>Broadband Expansion Planning:</strong> support earlier review of future service areas and potential network growth.</li>
+    <li><strong>Regional Market Intelligence:</strong> combine county development, strategic land, builder, GIS, and 811 locate data into one operational view.</li>
+    <li><strong>Infrastructure Monitoring:</strong> track 811 locate requests and related development activity that may indicate upcoming construction or network investment.</li>
   </ul>
 </div>
 
@@ -3220,7 +3229,7 @@ function rebuildGrowthMapLayers() {
         Acres: ${parcel.acres || ""}<br>
         PID: ${parcel.pid || ""}<br>
         LLC Flag: ${parcel.llc_flag ? "YES" : "NO"}<br>
-        Watch Score: ${parcel.watch_score || 0}<br><br>
+        Land Priority Score: ${parcel.watch_score || 0}<br><br>
 
         <button onclick="hideGrowthMapItem('${parcelId.replace(/'/g, "\\'")}')">
           Hide Land Marker
@@ -3649,8 +3658,8 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
             sorted.map(item => {
               const narrative =
                 `${item.nearby_project_count || 0} nearby development projects and ` +
-                `${item.nearby_land_count || 0} tracked parcels detected near ` +
-                `${item.work_type || "utility activity"}, creating a potential expansion signal.`;
+                `${item.nearby_land_count || 0} strategic land records detected near ` +
+                `${item.work_type || "811 locate activity"}, indicating a potential infrastructure opportunity.`;
 
               return `
                 <tr>
@@ -3874,6 +3883,11 @@ function populateProjectFilters(projects) {
 function filterProjectsTable() {
   const county = document.getElementById("projectCountyFilter")?.value || "";
 
+  const search =
+  document.getElementById("projectSearch")?.value
+    .trim()
+    .toLowerCase() || "";
+
   const hideReviewed =
   document.getElementById("hideReviewedProjects")?.checked;
 
@@ -3882,6 +3896,27 @@ function filterProjectsTable() {
     if (county && project.county !== county) {
       return false;
     }
+    if (search) {
+      const searchableText = [
+        project.county,
+        project.case_number,
+        project.address,
+        project.owner,
+        project.applicant,
+        project.zoning_change,
+        project.description,
+        project.status,
+        project.intelligence_type
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+
+      if (!searchableText.includes(search)) {
+        return false;
+      }
+    }
+
 
     if (hideReviewed && isReviewed(project)) {
       return false;
@@ -3945,6 +3980,14 @@ async function loadProjectsFromJson() {
     PROJECTS = Array.isArray(projectData) ? projectData : [projectData];
 
     document.getElementById("projectCount").innerText = PROJECTS.length;
+
+    const frameworkProjectCount =
+      document.getElementById("frameworkProjectCount");
+
+    if (frameworkProjectCount) {
+      frameworkProjectCount.textContent =
+        PROJECTS.length.toLocaleString();
+    }
 
     const engineProjects = document.getElementById("engineProjects");
     if (engineProjects) {
@@ -4182,6 +4225,14 @@ async function loadLandIntelligence() {
 
     populateLandFilters(data);
 
+    const frameworkLandCount =
+      document.getElementById("frameworkLandCount");
+
+    if (frameworkLandCount) {
+      frameworkLandCount.textContent =
+        data.length.toLocaleString();
+    }
+
     filterLandIntelligence();
 
     return;
@@ -4262,7 +4313,7 @@ function renderOrganizations(search = "", category = "") {
         </div>
 
         <div class="sub" style="margin-top:6px;color:${scoreColor};font-weight:700;">
-          Watch Score: ${org.watchScore}
+          Priority Score: ${org.watchScore}
         </div>
       </a>
     `;
@@ -4440,19 +4491,27 @@ if (document.getElementById("orgSearch")) {
 
   });
 
-  fetch("locate_tickets.json")
-    .then(res => res.json())
-    .then(signals => {
+    fetch("locate_tickets.json")
+      .then(res => res.json())
+      .then(signals => {
 
-      document.getElementById("dashboardSignalCount").textContent =
-        signals.length;
+        document.getElementById("dashboardSignalCount").textContent =
+          signals.length;
 
-      const engineSignals = document.getElementById("engineSignals");
-      if (engineSignals) {
-        engineSignals.textContent = `${signals.length} 811 Locates`;
-      }
+        const engineSignals = document.getElementById("engineSignals");
+        if (engineSignals) {
+          engineSignals.textContent = `${signals.length} 811 Locates`;
+        }
 
-  });
+        const frameworkLocateCount =
+          document.getElementById("frameworkLocateCount");
+
+        if (frameworkLocateCount) {
+          frameworkLocateCount.textContent =
+            signals.length.toLocaleString();
+        }
+
+    });
 
     fetch("locate_patterns.json")
       .then(res => res.json())
