@@ -10,23 +10,22 @@
         "work_type": "Fiber / Utility Construction",
         "category": "Telecom",
         "risk_score": 9,
-        "opportunity_score": 21,
+        "opportunity_score": 17,
         "score_version": "2.0",
         "score_components": {
             "source_signal": 9,
             "project_proximity": 6,
-            "land_concentration": 6
+            "land_concentration": 2
         },
         "score_explanation": [
             "Source signal contributes 9 point(s)",
-            "16 distinct projects within 3 miles",
+            "17 distinct projects within 3 miles",
             "Closest project is 1.29 miles away",
-            "4 tracked parcel(s) within 3 miles",
-            "4 nearby parcels have watch scores of 8 or 9"
+            "4 tracked parcel(s) within 3 miles"
         ],
-        "nearby_project_count": 16,
+        "nearby_project_count": 17,
         "nearby_land_count": 4,
-        "nearby_high_watch_land_count": 4,
+        "nearby_high_watch_land_count": 0,
         "nearby_projects": [
             {
                 "name": "HSP-Project Joule",
@@ -161,40 +160,40 @@
         ],
         "nearby_land": [
             {
-                "owner": "CAROWINDS LLC",
+                "owner": "Unknown",
                 "acres": 153.46,
-                "watch_score": 8,
+                "watch_score": 2,
                 "distance_miles": 0.92,
                 "pid": "20315208",
                 "coordinates": "35.10417124, -80.94519848"
             },
             {
-                "owner": "MARTIN MARIETTA MATERIALS INC",
+                "owner": "Unknown",
                 "acres": 184.78,
-                "watch_score": 8,
+                "watch_score": 2,
                 "distance_miles": 1.72,
                 "pid": "20312101",
                 "coordinates": "35.10869960, -80.92158757"
             },
             {
-                "owner": "MARTIN MARIETTA MATERIALS INC",
+                "owner": "Unknown",
                 "acres": 223.67,
-                "watch_score": 8,
+                "watch_score": 2,
                 "distance_miles": 2.02,
                 "pid": "20313101",
                 "coordinates": "35.10370786, -80.91850714"
             },
             {
-                "owner": "VULCAN LANDS INC",
+                "owner": "Unknown",
                 "acres": 159.85,
-                "watch_score": 8,
+                "watch_score": 2,
                 "distance_miles": 2.92,
                 "pid": "20513102",
                 "coordinates": "35.12084206, -80.89890706"
             }
         ],
         "signal": "Utility construction signal in high-growth industrial corridor",
-        "summary": "Mecklenburg signal near 16 distinct project(s) and 4 tracked parcel(s)."
+        "summary": "Mecklenburg signal near 17 distinct project(s) and 4 tracked parcel(s)."
     },
     {
         "ticket_id": "LOCATE-CAB-001",
