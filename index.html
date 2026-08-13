@@ -1788,7 +1788,7 @@ gap:12px;
   <h2>Land Intelligence</h2>
 
   <div class="sub">
-    Large parcel + LLC ownership tracking for development intelligence.
+      Strategic parcel monitoring using acreage, ownership structure, and development indicators.
   </div>
 
   <br>
@@ -2160,7 +2160,7 @@ Awaiting scan.
   <h2>Organizations Intelligence</h2>
 
   <div class="sub">
-    Tracking builders, developers, engineering firms, utilities, and regional growth organizations.
+    Monitor the organizations shaping regional growth, utility infrastructure, and residential development.
   </div>
 
   <br>
@@ -2168,7 +2168,7 @@ Awaiting scan.
   <input
     id="orgSearch"
     type="text"
-    placeholder="Search organizations..."
+    placeholder="Search builders, developers, utilities, engineering firms..."
     style="
       width:100%;
       margin-top:16px;
@@ -2198,7 +2198,14 @@ Awaiting scan.
 
 <!-- COUNTIES -->
 <div class="section" id="section-4">
-<h2>County + Planning Sources</h2>
+<h2>County Intelligence</h2>
+
+<div class="sub">
+  Planning portals, development records, GIS resources, and public intelligence sources organized by county.
+</div>
+
+<br>
+
 <div class="grid" id="countyGrid"></div>
 </div>
 
@@ -2208,9 +2215,9 @@ Awaiting scan.
 
 <div class="map-controls">
   <label><input type="checkbox" id="toggleHotspots" checked> Growth Hotspots</label>
-  <label><input type="checkbox" id="toggleProjects" checked> Projects</label>
-  <label><input type="checkbox" id="toggleLand" checked> Land Parcels</label>
-  <label><input type="checkbox" id="toggleWatchlists" checked> Watchlist Candidates</label>
+  <label><input type="checkbox" id="toggleProjects" checked> Development Projects</label>
+  <label><input type="checkbox" id="toggleLand" checked> Strategic Land</label>
+  <label><input type="checkbox" id="toggleWatchlists" checked> Priority Land Candidates</label>
 
   <label>County</label>
   <select id="growthMapCountyFilter" onchange="rebuildGrowthMapLayers()">
@@ -2221,7 +2228,7 @@ Awaiting scan.
 <br>
 
 <button class="big-btn" onclick="resetHiddenGrowthMapItems()">
-  Restore Hidden Growth Map Markers
+  Restore Hidden Map Items
 </button>
 
 <br><br>
@@ -2234,7 +2241,7 @@ Awaiting scan.
 <h2>Intelligence Tools</h2>
 
 <div class="sub">
-  Utilities for parsing agendas, development records, and intelligence sources.
+  Analyst utilities for reviewing planning records, development activity, and Conduit intelligence datasets.
 </div>
 
 <br>
@@ -2256,10 +2263,10 @@ Analyze Agenda
 </p>
 
 <div class="filters">
-  <button onclick="exportSignalsCSV()">Export Signals CSV</button>
-  <button onclick="exportProjectsCSV()">Export Projects CSV</button>
-  <button onclick="exportLandCSV()">Export Land CSV</button>
-  <button onclick="exportWatchlistsCSV()">Export Watchlists CSV</button>
+  <button onclick="exportSignalsCSV()">Export 811 Locate Activity</button>
+  <button onclick="exportProjectsCSV()">Export Development Projects</button>
+  <button onclick="exportLandCSV()">Export Strategic Land</button>
+  <button onclick="exportWatchlistsCSV()">Export Priority Land Candidates</button>
 </div>
 
 </div>
@@ -4309,7 +4316,7 @@ function renderOrganizations(search = "", category = "") {
         </div>
 
         <div class="sub">
-          Source: ${org.source}
+        Intelligence Source: ${org.source}
         </div>
 
         <div class="sub" style="margin-top:6px;color:${scoreColor};font-weight:700;">

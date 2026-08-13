@@ -13,23 +13,39 @@
     "county": "Gaston",
     "case_number": "REZ-26-03-06-00243",
     "address": "Mic Lock Pl., Dallas, NC",
-    "acreage": "",
-    "owner": "",
+    "acreage": 6.06,
+    "owner": "CARPENTER ZACHARY",
     "applicant": "Zachary Carpenter",
     "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
     "description": "Zoning map change for parcels 169984 & 312523.",
-    "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
+    "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4",
+    "lat": 35.330465825,
+    "lon": -81.183914785,
+    "gis_address": "1048 MIC LOCK PL",
+    "parcel_ids": [
+      "169984",
+      "312523"
+    ],
+    "gis_source": "Gaston County PublicGIS Parcels MapServer",
+    "last_scanned": "2026-08-13"
   },
   {
     "county": "Gaston",
     "case_number": "REZ-26-03-26-00244",
     "address": "Red Yam Farm Rd., Dallas, NC",
-    "acreage": "",
-    "owner": "",
+    "acreage": 11.63,
+    "owner": "WOOTEN SARAH LEIGHANN",
     "applicant": "Sarah Wooten",
     "zoning_change": "R-1 Single Family Limited with US Overlay -> R-2 Single Family Moderate with US Overlay",
     "description": "Zoning map change for parcels 168347.",
-    "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4"
+    "source_url": "https://gaston.legistar.com/View.ashx?M=A&ID=1347779&GUID=619549F2-2D5A-4DB4-ABA4-DB913D83F2A4",
+    "lat": 35.34659509,
+    "lon": -81.20037523,
+    "parcel_ids": [
+      "168347"
+    ],
+    "gis_source": "Gaston County PublicGIS Parcels MapServer",
+    "last_scanned": "2026-08-13"
   },
   {
     "county": "Cleveland",
@@ -436,7 +452,7 @@
     "applicant": "Automated County Scanner",
     "zoning_change": "Detected planning/zoning activity: rezoning, development, zoning",
     "source_url": "https://gaston.granicus.com/boards/w/611252dc4b79d0a7/boards/52857",
-    "last_scanned": "2026-06-10"
+    "last_scanned": "2026-08-13"
   },
   {
     "county": "Brunswick",

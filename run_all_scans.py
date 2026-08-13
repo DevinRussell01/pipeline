@@ -16,7 +16,7 @@ scripts = [
     "scan_brunswick_projects.py",
     "scan_brunswick_gis.py",
     "land_intelligence.py",
-    "scan_locate_signals.py",
+    "scan_nc811_live.py",
     "correlate_locate_signals.py",
     "detect_locate_patterns.py",
     "generate_ai_brief.py",

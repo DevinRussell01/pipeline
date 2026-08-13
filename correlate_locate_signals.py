@@ -7,8 +7,7 @@ print("-----------------------------------------------")
 
 SCORE_VERSION = "2.0"
 PROJECT_RADIUS_MILES = 3
-LAND_RADIUS_MILES = 3
-
+LAND_RADIUS_MILES = 1.5
 
 def load_json(path):
     try:
@@ -237,6 +236,16 @@ for locate in locates:
         if parcel.get("county") != locate_county:
             continue
 
+        acres = float(parcel.get("acres") or 0)
+        watch_score = int(parcel.get("watch_score") or 0)
+
+        # Only use strategically meaningful parcels
+        if acres < 5:
+            continue
+
+        if watch_score < 6:
+            continue
+
         distance = distance_miles(
             locate_lat,
             locate_lon,
@@ -249,10 +258,11 @@ for locate in locates:
 
         nearby_land.append({
             "owner": parcel.get("owner") or "Unknown",
-            "acres": parcel.get("acres"),
-            "watch_score": parcel.get("watch_score"),
+            "acres": acres,
+            "watch_score": watch_score,
             "distance_miles": round(distance, 2),
             "pid": parcel.get("pid"),
+            "llc_flag": parcel.get("llc_flag"),
             "coordinates": (
                 f"{float(parcel.get('lat')):.8f}, "
                 f"{float(parcel.get('lon')):.8f}"
