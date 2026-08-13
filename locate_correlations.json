@@ -1,5 +1,126 @@
 [
     {
+        "ticket_id": "2622502215",
+        "county": "Gaston",
+        "city": "Bessemer City",
+        "street": "115 Central Ave",
+        "lat": 35.29658960721895,
+        "lon": -81.27771215142117,
+        "coordinates": "35.29658961, -81.27771215",
+        "work_type": "811 Locate Request",
+        "category": "Utility",
+        "risk_score": 8,
+        "opportunity_score": 11,
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 3
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)",
+            "10 tracked parcel(s) within 3 miles"
+        ],
+        "nearby_project_count": 0,
+        "nearby_land_count": 10,
+        "nearby_high_watch_land_count": 0,
+        "nearby_projects": [],
+        "nearby_land": [
+            {
+                "owner": "DEVELOPMENT SOLUTIONS GROUP LLC",
+                "acres": 36.07,
+                "watch_score": 6,
+                "distance_miles": 0.69,
+                "pid": "315929",
+                "llc_flag": true,
+                "coordinates": "35.29809506, -81.28985422"
+            },
+            {
+                "owner": "SKY KING INC",
+                "acres": 65.05,
+                "watch_score": 7,
+                "distance_miles": 1.0,
+                "pid": "152057",
+                "llc_flag": true,
+                "coordinates": "35.29248071, -81.26063902"
+            },
+            {
+                "owner": "DCA REAL ESTATE HOLDINGS LLC",
+                "acres": 26.43,
+                "watch_score": 6,
+                "distance_miles": 1.08,
+                "pid": "151214",
+                "llc_flag": true,
+                "coordinates": "35.31226152, -81.27780159"
+            },
+            {
+                "owner": "ADVANCED DRAINAGE SYSTEMS INC",
+                "acres": 42.13,
+                "watch_score": 6,
+                "distance_miles": 1.11,
+                "pid": "300468",
+                "llc_flag": true,
+                "coordinates": "35.28323553, -81.26681343"
+            },
+            {
+                "owner": "TOSAF INC",
+                "acres": 25.27,
+                "watch_score": 6,
+                "distance_miles": 1.11,
+                "pid": "224475",
+                "llc_flag": true,
+                "coordinates": "35.28579879, -81.26315795"
+            },
+            {
+                "owner": "DCA REAL ESTATE HOLDINGS LLC",
+                "acres": 51.48,
+                "watch_score": 7,
+                "distance_miles": 1.2,
+                "pid": "151222",
+                "llc_flag": true,
+                "coordinates": "35.31335321, -81.27194814"
+            },
+            {
+                "owner": "CREEKSIDE COTTAGES HOMEOWNERS ASSOCIATION INC",
+                "acres": 27.07,
+                "watch_score": 6,
+                "distance_miles": 1.3,
+                "pid": "315308",
+                "llc_flag": true,
+                "coordinates": "35.29210006, -81.25537600"
+            },
+            {
+                "owner": "DHOLLANDIA US LLC",
+                "acres": 43.4,
+                "watch_score": 6,
+                "distance_miles": 1.35,
+                "pid": "227694",
+                "llc_flag": true,
+                "coordinates": "35.28457882, -81.25874121"
+            },
+            {
+                "owner": "BBB&C ENTERPRISES LLC",
+                "acres": 26.29,
+                "watch_score": 6,
+                "distance_miles": 1.35,
+                "pid": "307414",
+                "llc_flag": true,
+                "coordinates": "35.28914061, -81.25556934"
+            },
+            {
+                "owner": "AMAZON.COM SERVICES LLC",
+                "acres": 48.25,
+                "watch_score": 6,
+                "distance_miles": 1.42,
+                "pid": "306089",
+                "llc_flag": true,
+                "coordinates": "35.28112887, -81.26108262"
+            }
+        ],
+        "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County",
+        "summary": "Gaston signal near 0 distinct project(s) and 10 tracked parcel(s)."
+    },
+    {
         "ticket_id": "2622407393",
         "county": "Gaston",
         "city": "Bessemer City",
@@ -253,16 +374,16 @@
         "coordinates": "35.28793061, -81.27296170",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 10,
+        "opportunity_score": 15,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -1537,16 +1658,16 @@
         "coordinates": "35.29597245, -81.25780650",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -4293,16 +4414,16 @@
         "coordinates": "35.30190418, -81.25501271",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "13 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -5980,16 +6101,16 @@
         "coordinates": "35.28893405, -81.27768765",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "10 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -6102,16 +6223,16 @@
         "coordinates": "35.28870577, -81.27666917",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "11 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -6224,16 +6345,16 @@
         "coordinates": "35.29594200, -81.27745200",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 5,
+        "risk_score": 8,
+        "opportunity_score": 11,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 3
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "10 tracked parcel(s) within 3 miles"
         ],
         "nearby_project_count": 0,
@@ -9662,16 +9783,16 @@
         "coordinates": "35.28933079, -81.27910219",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 10,
+        "opportunity_score": 15,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "10 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -10124,16 +10245,16 @@
         "coordinates": "35.29291580, -81.26947712",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -10246,16 +10367,16 @@
         "coordinates": "35.29291580, -81.26947712",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 10,
+        "opportunity_score": 15,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -11286,16 +11407,16 @@
         "coordinates": "35.27928395, -81.26497537",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 10,
+        "opportunity_score": 15,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "16 tracked parcel(s) within 3 miles",
             "2 nearby parcel(s) have high watch scores"
         ],
@@ -11408,16 +11529,16 @@
         "coordinates": "35.28786260, -81.28075287",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 5,
+        "risk_score": 10,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 3
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "9 tracked parcel(s) within 3 miles"
         ],
         "nearby_project_count": 0,
@@ -11754,16 +11875,16 @@
         "coordinates": "35.28142914, -81.26140385",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 6,
+        "opportunity_score": 11,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 6,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 6 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -12082,16 +12203,16 @@
         "coordinates": "35.28744200, -81.26770100",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -12204,16 +12325,16 @@
         "coordinates": "35.28744200, -81.26770100",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -14728,16 +14849,16 @@
         "coordinates": "35.28744200, -81.26770100",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -15826,16 +15947,16 @@
         "coordinates": "35.29291580, -81.26947712",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -16070,16 +16191,16 @@
         "coordinates": "35.29154546, -81.27340256",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 10,
+        "opportunity_score": 15,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -21202,16 +21323,16 @@
         "coordinates": "35.29611740, -81.25783159",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 7,
+        "risk_score": 8,
+        "opportunity_score": 13,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -24130,16 +24251,16 @@
         "coordinates": "35.29014661, -81.28354708",
         "work_type": "811 Locate Request",
         "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 5,
+        "risk_score": 6,
+        "opportunity_score": 9,
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 6,
             "project_proximity": 0,
             "land_concentration": 3
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 6 point(s)",
             "6 tracked parcel(s) within 3 miles"
         ],
         "nearby_project_count": 0,
@@ -29427,117 +29548,5 @@
         ],
         "signal": "Live NC811 UPDT locate request in Bessemer City, Gaston County",
         "summary": "Gaston signal near 0 distinct project(s) and 11 tracked parcel(s)."
-    },
-    {
-        "ticket_id": "2617507746",
-        "county": "Gaston",
-        "city": "Bessemer City",
-        "street": "E Iowa Ave",
-        "lat": 35.29131187050414,
-        "lon": -81.27890722037353,
-        "coordinates": "35.29131187, -81.27890722",
-        "work_type": "811 Locate Request",
-        "category": "Utility",
-        "risk_score": 2,
-        "opportunity_score": 5,
-        "score_version": "2.0",
-        "score_components": {
-            "source_signal": 2,
-            "project_proximity": 0,
-            "land_concentration": 3
-        },
-        "score_explanation": [
-            "Source signal contributes 2 point(s)",
-            "9 tracked parcel(s) within 3 miles"
-        ],
-        "nearby_project_count": 0,
-        "nearby_land_count": 9,
-        "nearby_high_watch_land_count": 0,
-        "nearby_projects": [],
-        "nearby_land": [
-            {
-                "owner": "DEVELOPMENT SOLUTIONS GROUP LLC",
-                "acres": 36.07,
-                "watch_score": 6,
-                "distance_miles": 0.78,
-                "pid": "315929",
-                "llc_flag": true,
-                "coordinates": "35.29809506, -81.28985422"
-            },
-            {
-                "owner": "ADVANCED DRAINAGE SYSTEMS INC",
-                "acres": 42.13,
-                "watch_score": 6,
-                "distance_miles": 0.88,
-                "pid": "300468",
-                "llc_flag": true,
-                "coordinates": "35.28323553, -81.26681343"
-            },
-            {
-                "owner": "TOSAF INC",
-                "acres": 25.27,
-                "watch_score": 6,
-                "distance_miles": 0.97,
-                "pid": "224475",
-                "llc_flag": true,
-                "coordinates": "35.28579879, -81.26315795"
-            },
-            {
-                "owner": "SKY KING INC",
-                "acres": 65.05,
-                "watch_score": 7,
-                "distance_miles": 1.03,
-                "pid": "152057",
-                "llc_flag": true,
-                "coordinates": "35.29248071, -81.26063902"
-            },
-            {
-                "owner": "AMAZON.COM SERVICES LLC",
-                "acres": 48.25,
-                "watch_score": 6,
-                "distance_miles": 1.23,
-                "pid": "306089",
-                "llc_flag": true,
-                "coordinates": "35.28112887, -81.26108262"
-            },
-            {
-                "owner": "DHOLLANDIA US LLC",
-                "acres": 43.4,
-                "watch_score": 6,
-                "distance_miles": 1.23,
-                "pid": "227694",
-                "llc_flag": true,
-                "coordinates": "35.28457882, -81.25874121"
-            },
-            {
-                "owner": "BBB&C ENTERPRISES LLC",
-                "acres": 26.29,
-                "watch_score": 6,
-                "distance_miles": 1.32,
-                "pid": "307414",
-                "llc_flag": true,
-                "coordinates": "35.28914061, -81.25556934"
-            },
-            {
-                "owner": "CREEKSIDE COTTAGES HOMEOWNERS ASSOCIATION INC",
-                "acres": 27.07,
-                "watch_score": 6,
-                "distance_miles": 1.33,
-                "pid": "315308",
-                "llc_flag": true,
-                "coordinates": "35.29210006, -81.25537600"
-            },
-            {
-                "owner": "DCA REAL ESTATE HOLDINGS LLC",
-                "acres": 26.43,
-                "watch_score": 6,
-                "distance_miles": 1.45,
-                "pid": "151214",
-                "llc_flag": true,
-                "coordinates": "35.31226152, -81.27780159"
-            }
-        ],
-        "signal": "Live NC811 UPDT locate request in Bessemer City, Gaston County",
-        "summary": "Gaston signal near 0 distinct project(s) and 9 tracked parcel(s)."
     }
 ]

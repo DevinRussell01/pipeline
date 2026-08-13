@@ -19,11 +19,24 @@ headers = {
 
 def priority_score(priority):
     """
-    Base intelligence value for a verified live 811 locate request.
+    Operational urgency score for a live 811 locate request.
 
-    Ticket urgency is preserved separately in the priority field and
-    does not directly imply a stronger development opportunity.
+    This score reflects ticket priority, not development opportunity.
+    Opportunity potential is evaluated separately by Conduit's
+    correlation engine.
     """
+
+    priority = str(priority or "").upper()
+
+    if priority == "EMER":
+        return 10
+
+    if priority == "RUSH":
+        return 8
+
+    if priority == "SHRT":
+        return 6
+
     return 2
 
 

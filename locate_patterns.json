@@ -2,6 +2,32 @@
     {
         "pattern_id": "PATTERN-Gaston-001",
         "county": "Gaston",
+        "street": "115 Central Ave",
+        "pattern_type": "Land Development Proximity Signal",
+        "confidence_score": 11,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
+        "nearby_land_count": 10,
+        "nearby_high_watch_land_count": 0,
+        "nearby_project_count": 0,
+        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
+        "source_ticket": "2622502215",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 3
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)",
+            "10 tracked parcel(s) within 3 miles"
+        ],
+        "coordinates": "35.29658961, -81.27771215",
+        "created_date": "2026-08-13"
+    },
+    {
+        "pattern_id": "PATTERN-Gaston-002",
+        "county": "Gaston",
         "street": "305 E Lee Ave",
         "pattern_type": "Land Development Proximity Signal",
         "confidence_score": 7,
@@ -27,7 +53,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-002",
+        "pattern_id": "PATTERN-Gaston-003",
         "county": "Gaston",
         "street": "724 Gastonia Hwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -54,13 +80,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-003",
+        "pattern_id": "PATTERN-Gaston-004",
         "county": "Gaston",
         "street": "502 E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 15,
+        "confidence_label": "High",
+        "opportunity": "High",
         "nearby_land_count": 12,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -68,12 +94,12 @@
         "source_ticket": "2622209776",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -81,7 +107,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-004",
+        "pattern_id": "PATTERN-Gaston-005",
         "county": "Gaston",
         "street": "1844 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -108,7 +134,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-005",
+        "pattern_id": "PATTERN-Gaston-006",
         "county": "Gaston",
         "street": "1839 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -135,7 +161,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-006",
+        "pattern_id": "PATTERN-Gaston-007",
         "county": "Gaston",
         "street": "106 Todd Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -162,7 +188,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-007",
+        "pattern_id": "PATTERN-Gaston-008",
         "county": "Gaston",
         "street": "110 W Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -188,7 +214,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-008",
+        "pattern_id": "PATTERN-Gaston-009",
         "county": "Gaston",
         "street": "211 E Ohio Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -215,7 +241,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-009",
+        "pattern_id": "PATTERN-Gaston-010",
         "county": "Gaston",
         "street": "140 Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -241,7 +267,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-010",
+        "pattern_id": "PATTERN-Gaston-011",
         "county": "Gaston",
         "street": "1860 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -268,7 +294,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-011",
+        "pattern_id": "PATTERN-Gaston-012",
         "county": "Gaston",
         "street": "801 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -295,7 +321,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-012",
+        "pattern_id": "PATTERN-Gaston-013",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -321,7 +347,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-013",
+        "pattern_id": "PATTERN-Gaston-014",
         "county": "Gaston",
         "street": "122 E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -347,13 +373,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-014",
+        "pattern_id": "PATTERN-Gaston-015",
         "county": "Gaston",
         "street": "1858 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 12,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -361,12 +387,12 @@
         "source_ticket": "2621706701",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -374,7 +400,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-015",
+        "pattern_id": "PATTERN-Gaston-016",
         "county": "Gaston",
         "street": "207 N 7Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -401,7 +427,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-016",
+        "pattern_id": "PATTERN-Gaston-017",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -427,7 +453,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-017",
+        "pattern_id": "PATTERN-Gaston-018",
         "county": "Gaston",
         "street": "122 E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -453,7 +479,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-018",
+        "pattern_id": "PATTERN-Gaston-019",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -479,7 +505,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-019",
+        "pattern_id": "PATTERN-Gaston-020",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -505,7 +531,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-020",
+        "pattern_id": "PATTERN-Gaston-021",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -531,7 +557,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-021",
+        "pattern_id": "PATTERN-Gaston-022",
         "county": "Gaston",
         "street": "619 Athenia Pl",
         "pattern_type": "Land Development Proximity Signal",
@@ -558,7 +584,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-022",
+        "pattern_id": "PATTERN-Gaston-023",
         "county": "Gaston",
         "street": "706 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -585,7 +611,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-023",
+        "pattern_id": "PATTERN-Gaston-024",
         "county": "Gaston",
         "street": "E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -612,7 +638,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-024",
+        "pattern_id": "PATTERN-Gaston-025",
         "county": "Gaston",
         "street": "606-610 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -639,7 +665,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-025",
+        "pattern_id": "PATTERN-Gaston-026",
         "county": "Gaston",
         "street": "E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -666,7 +692,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-026",
+        "pattern_id": "PATTERN-Gaston-027",
         "county": "Gaston",
         "street": "506-514 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -693,7 +719,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-027",
+        "pattern_id": "PATTERN-Gaston-028",
         "county": "Gaston",
         "street": "E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -720,7 +746,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-028",
+        "pattern_id": "PATTERN-Gaston-029",
         "county": "Gaston",
         "street": "806 Edgewood Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -747,7 +773,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-029",
+        "pattern_id": "PATTERN-Gaston-030",
         "county": "Gaston",
         "street": "Althenia Pl",
         "pattern_type": "Land Development Proximity Signal",
@@ -774,7 +800,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-030",
+        "pattern_id": "PATTERN-Gaston-031",
         "county": "Gaston",
         "street": "Althenia Pl",
         "pattern_type": "Land Development Proximity Signal",
@@ -801,7 +827,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-031",
+        "pattern_id": "PATTERN-Gaston-032",
         "county": "Gaston",
         "street": "Edgewood Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -828,7 +854,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-032",
+        "pattern_id": "PATTERN-Gaston-033",
         "county": "Gaston",
         "street": "231 Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -855,7 +881,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-033",
+        "pattern_id": "PATTERN-Gaston-034",
         "county": "Gaston",
         "street": "504-506 S 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -882,7 +908,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-034",
+        "pattern_id": "PATTERN-Gaston-035",
         "county": "Gaston",
         "street": "S 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -909,7 +935,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-035",
+        "pattern_id": "PATTERN-Gaston-036",
         "county": "Gaston",
         "street": "501 S 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -936,7 +962,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-036",
+        "pattern_id": "PATTERN-Gaston-037",
         "county": "Gaston",
         "street": "507-601 S 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -963,13 +989,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-037",
+        "pattern_id": "PATTERN-Gaston-038",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 13,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -977,12 +1003,12 @@
         "source_ticket": "2621508584",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "13 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -990,7 +1016,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-038",
+        "pattern_id": "PATTERN-Gaston-039",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -1016,7 +1042,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-039",
+        "pattern_id": "PATTERN-Gaston-040",
         "county": "Gaston",
         "street": "Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1042,7 +1068,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-040",
+        "pattern_id": "PATTERN-Gaston-041",
         "county": "Gaston",
         "street": "Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1068,7 +1094,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-041",
+        "pattern_id": "PATTERN-Gaston-042",
         "county": "Gaston",
         "street": "Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1094,7 +1120,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-042",
+        "pattern_id": "PATTERN-Gaston-043",
         "county": "Gaston",
         "street": "Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1120,7 +1146,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-043",
+        "pattern_id": "PATTERN-Gaston-044",
         "county": "Gaston",
         "street": "Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1146,7 +1172,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-044",
+        "pattern_id": "PATTERN-Gaston-045",
         "county": "Gaston",
         "street": "1858 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -1173,7 +1199,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-045",
+        "pattern_id": "PATTERN-Gaston-046",
         "county": "Gaston",
         "street": "Central Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1199,7 +1225,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-046",
+        "pattern_id": "PATTERN-Gaston-047",
         "county": "Gaston",
         "street": "Central Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1225,7 +1251,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-047",
+        "pattern_id": "PATTERN-Gaston-048",
         "county": "Gaston",
         "street": "Central Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1251,7 +1277,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-048",
+        "pattern_id": "PATTERN-Gaston-049",
         "county": "Gaston",
         "street": "Sharon Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1277,7 +1303,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-049",
+        "pattern_id": "PATTERN-Gaston-050",
         "county": "Gaston",
         "street": "Sharon Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1303,7 +1329,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-050",
+        "pattern_id": "PATTERN-Gaston-051",
         "county": "Gaston",
         "street": "Chadwick Ct",
         "pattern_type": "Land Development Proximity Signal",
@@ -1329,13 +1355,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-051",
+        "pattern_id": "PATTERN-Gaston-052",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 10,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -1343,12 +1369,12 @@
         "source_ticket": "2619704306",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "10 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -1356,13 +1382,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-052",
+        "pattern_id": "PATTERN-Gaston-053",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 11,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -1370,12 +1396,12 @@
         "source_ticket": "2619704296",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "11 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -1383,13 +1409,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-053",
+        "pattern_id": "PATTERN-Gaston-054",
         "county": "Gaston",
         "street": "116 Central Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 5,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 11,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 10,
         "nearby_high_watch_land_count": 0,
         "nearby_project_count": 0,
@@ -1397,19 +1423,19 @@
         "source_ticket": "2621001329",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 3
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "10 tracked parcel(s) within 3 miles"
         ],
         "coordinates": "35.29594200, -81.27745200",
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-054",
+        "pattern_id": "PATTERN-Gaston-055",
         "county": "Gaston",
         "street": "1844 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -1436,7 +1462,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-055",
+        "pattern_id": "PATTERN-Gaston-056",
         "county": "Gaston",
         "street": "1841 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -1463,7 +1489,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-056",
+        "pattern_id": "PATTERN-Gaston-057",
         "county": "Gaston",
         "street": "1842 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -1490,7 +1516,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-057",
+        "pattern_id": "PATTERN-Gaston-058",
         "county": "Gaston",
         "street": "113 W Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1516,7 +1542,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-058",
+        "pattern_id": "PATTERN-Gaston-059",
         "county": "Gaston",
         "street": "116 E Maryland Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1542,7 +1568,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-059",
+        "pattern_id": "PATTERN-Gaston-060",
         "county": "Gaston",
         "street": "Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -1568,7 +1594,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-060",
+        "pattern_id": "PATTERN-Gaston-061",
         "county": "Gaston",
         "street": "1856 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -1595,7 +1621,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-061",
+        "pattern_id": "PATTERN-Gaston-062",
         "county": "Gaston",
         "street": "Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -1621,7 +1647,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-062",
+        "pattern_id": "PATTERN-Gaston-063",
         "county": "Gaston",
         "street": "Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -1647,7 +1673,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-063",
+        "pattern_id": "PATTERN-Gaston-064",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1673,7 +1699,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-064",
+        "pattern_id": "PATTERN-Gaston-065",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1699,7 +1725,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-065",
+        "pattern_id": "PATTERN-Gaston-066",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1725,7 +1751,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-066",
+        "pattern_id": "PATTERN-Gaston-067",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1751,7 +1777,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-067",
+        "pattern_id": "PATTERN-Gaston-068",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1777,7 +1803,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-068",
+        "pattern_id": "PATTERN-Gaston-069",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1803,7 +1829,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-069",
+        "pattern_id": "PATTERN-Gaston-070",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1829,7 +1855,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-070",
+        "pattern_id": "PATTERN-Gaston-071",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1855,7 +1881,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-071",
+        "pattern_id": "PATTERN-Gaston-072",
         "county": "Gaston",
         "street": "Puetts Chapel Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -1881,7 +1907,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-072",
+        "pattern_id": "PATTERN-Gaston-073",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -1907,7 +1933,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-073",
+        "pattern_id": "PATTERN-Gaston-074",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -1933,7 +1959,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-074",
+        "pattern_id": "PATTERN-Gaston-075",
         "county": "Gaston",
         "street": "E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1959,7 +1985,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-075",
+        "pattern_id": "PATTERN-Gaston-076",
         "county": "Gaston",
         "street": "140 Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -1985,7 +2011,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-076",
+        "pattern_id": "PATTERN-Gaston-077",
         "county": "Gaston",
         "street": "140 Helen Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2011,7 +2037,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-077",
+        "pattern_id": "PATTERN-Gaston-078",
         "county": "Gaston",
         "street": "205 Todd Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2038,7 +2064,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-078",
+        "pattern_id": "PATTERN-Gaston-079",
         "county": "Gaston",
         "street": "1836 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2065,7 +2091,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-079",
+        "pattern_id": "PATTERN-Gaston-080",
         "county": "Gaston",
         "street": "1840 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2092,7 +2118,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-080",
+        "pattern_id": "PATTERN-Gaston-081",
         "county": "Gaston",
         "street": "1840 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2119,7 +2145,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-081",
+        "pattern_id": "PATTERN-Gaston-082",
         "county": "Gaston",
         "street": "231 Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -2146,7 +2172,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-082",
+        "pattern_id": "PATTERN-Gaston-083",
         "county": "Gaston",
         "street": "1852 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2173,7 +2199,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-083",
+        "pattern_id": "PATTERN-Gaston-084",
         "county": "Gaston",
         "street": "1854 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2200,13 +2226,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-084",
+        "pattern_id": "PATTERN-Gaston-085",
         "county": "Gaston",
         "street": "223 E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 15,
+        "confidence_label": "High",
+        "opportunity": "High",
         "nearby_land_count": 10,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -2214,12 +2240,12 @@
         "source_ticket": "2620307848",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "10 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -2227,7 +2253,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-085",
+        "pattern_id": "PATTERN-Gaston-086",
         "county": "Gaston",
         "street": "219 W Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2253,7 +2279,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-086",
+        "pattern_id": "PATTERN-Gaston-087",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -2279,7 +2305,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-087",
+        "pattern_id": "PATTERN-Gaston-088",
         "county": "Gaston",
         "street": "N 12Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -2305,7 +2331,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-088",
+        "pattern_id": "PATTERN-Gaston-089",
         "county": "Gaston",
         "street": "W Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2331,13 +2357,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-089",
+        "pattern_id": "PATTERN-Gaston-090",
         "county": "Gaston",
         "street": "1007 Jonathan Dr",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 14,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -2345,39 +2371,12 @@
         "source_ticket": "2618701451",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
-            "14 tracked parcel(s) within 3 miles",
-            "1 nearby parcel(s) have high watch scores"
-        ],
-        "coordinates": "35.29291580, -81.26947712",
-        "created_date": "2026-08-13"
-    },
-    {
-        "pattern_id": "PATTERN-Gaston-090",
-        "county": "Gaston",
-        "street": "1007 Jonathan Dr",
-        "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
-        "nearby_land_count": 14,
-        "nearby_high_watch_land_count": 1,
-        "nearby_project_count": 0,
-        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
-        "source_ticket": "2620209111",
-        "score_version": "2.0",
-        "score_components": {
-            "source_signal": 2,
-            "project_proximity": 0,
-            "land_concentration": 5
-        },
-        "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -2386,6 +2385,33 @@
     },
     {
         "pattern_id": "PATTERN-Gaston-091",
+        "county": "Gaston",
+        "street": "1007 Jonathan Dr",
+        "pattern_type": "Land Development Proximity Signal",
+        "confidence_score": 15,
+        "confidence_label": "High",
+        "opportunity": "High",
+        "nearby_land_count": 14,
+        "nearby_high_watch_land_count": 1,
+        "nearby_project_count": 0,
+        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
+        "source_ticket": "2620209111",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 10,
+            "project_proximity": 0,
+            "land_concentration": 5
+        },
+        "score_explanation": [
+            "Source signal contributes 10 point(s)",
+            "14 tracked parcel(s) within 3 miles",
+            "1 nearby parcel(s) have high watch scores"
+        ],
+        "coordinates": "35.29291580, -81.26947712",
+        "created_date": "2026-08-13"
+    },
+    {
+        "pattern_id": "PATTERN-Gaston-092",
         "county": "Gaston",
         "street": "604 E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2412,7 +2438,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-092",
+        "pattern_id": "PATTERN-Gaston-093",
         "county": "Gaston",
         "street": "105-107 Central Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2438,7 +2464,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-093",
+        "pattern_id": "PATTERN-Gaston-094",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2464,7 +2490,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-094",
+        "pattern_id": "PATTERN-Gaston-095",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2491,7 +2517,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-095",
+        "pattern_id": "PATTERN-Gaston-096",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2517,7 +2543,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-096",
+        "pattern_id": "PATTERN-Gaston-097",
         "county": "Gaston",
         "street": "Yellow Jacket Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -2543,7 +2569,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-097",
+        "pattern_id": "PATTERN-Gaston-098",
         "county": "Gaston",
         "street": "413 Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -2570,7 +2596,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-098",
+        "pattern_id": "PATTERN-Gaston-099",
         "county": "Gaston",
         "street": "1636 Cottage Creek Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2597,13 +2623,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-099",
+        "pattern_id": "PATTERN-Gaston-100",
         "county": "Gaston",
         "street": "403 Dover Dr",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 15,
+        "confidence_label": "High",
+        "opportunity": "High",
         "nearby_land_count": 16,
         "nearby_high_watch_land_count": 2,
         "nearby_project_count": 0,
@@ -2611,12 +2637,12 @@
         "source_ticket": "2620108012",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "16 tracked parcel(s) within 3 miles",
             "2 nearby parcel(s) have high watch scores"
         ],
@@ -2624,13 +2650,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-100",
+        "pattern_id": "PATTERN-Gaston-101",
         "county": "Gaston",
         "street": "N 11Th St",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 5,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 9,
         "nearby_high_watch_land_count": 0,
         "nearby_project_count": 0,
@@ -2638,19 +2664,19 @@
         "source_ticket": "2620107141",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 3
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "9 tracked parcel(s) within 3 miles"
         ],
         "coordinates": "35.28786260, -81.28075287",
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-101",
+        "pattern_id": "PATTERN-Gaston-102",
         "county": "Gaston",
         "street": "123 E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2676,7 +2702,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-102",
+        "pattern_id": "PATTERN-Gaston-103",
         "county": "Gaston",
         "street": "1838 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2703,13 +2729,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-103",
+        "pattern_id": "PATTERN-Gaston-104",
         "county": "Gaston",
         "street": "231 Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 11,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 14,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -2717,12 +2743,12 @@
         "source_ticket": "2620101027",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 6,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 6 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -2730,7 +2756,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-104",
+        "pattern_id": "PATTERN-Gaston-105",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2756,7 +2782,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-105",
+        "pattern_id": "PATTERN-Gaston-106",
         "county": "Gaston",
         "street": "N 11Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -2782,40 +2808,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-106",
-        "county": "Gaston",
-        "street": "725 E Maine Ave",
-        "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
-        "nearby_land_count": 12,
-        "nearby_high_watch_land_count": 1,
-        "nearby_project_count": 0,
-        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
-        "source_ticket": "2618801037",
-        "score_version": "2.0",
-        "score_components": {
-            "source_signal": 2,
-            "project_proximity": 0,
-            "land_concentration": 5
-        },
-        "score_explanation": [
-            "Source signal contributes 2 point(s)",
-            "12 tracked parcel(s) within 3 miles",
-            "1 nearby parcel(s) have high watch scores"
-        ],
-        "coordinates": "35.28744200, -81.26770100",
-        "created_date": "2026-08-13"
-    },
-    {
         "pattern_id": "PATTERN-Gaston-107",
         "county": "Gaston",
         "street": "725 E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 12,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -2823,12 +2822,12 @@
         "source_ticket": "2618801037",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -2837,6 +2836,33 @@
     },
     {
         "pattern_id": "PATTERN-Gaston-108",
+        "county": "Gaston",
+        "street": "725 E Maine Ave",
+        "pattern_type": "Land Development Proximity Signal",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
+        "nearby_land_count": 12,
+        "nearby_high_watch_land_count": 1,
+        "nearby_project_count": 0,
+        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
+        "source_ticket": "2618801037",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 8,
+            "project_proximity": 0,
+            "land_concentration": 5
+        },
+        "score_explanation": [
+            "Source signal contributes 8 point(s)",
+            "12 tracked parcel(s) within 3 miles",
+            "1 nearby parcel(s) have high watch scores"
+        ],
+        "coordinates": "35.28744200, -81.26770100",
+        "created_date": "2026-08-13"
+    },
+    {
+        "pattern_id": "PATTERN-Gaston-109",
         "county": "Gaston",
         "street": "1536 Cottage Creek Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -2863,7 +2889,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-109",
+        "pattern_id": "PATTERN-Gaston-110",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2890,7 +2916,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-110",
+        "pattern_id": "PATTERN-Gaston-111",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2917,7 +2943,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-111",
+        "pattern_id": "PATTERN-Gaston-112",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2944,7 +2970,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-112",
+        "pattern_id": "PATTERN-Gaston-113",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2971,7 +2997,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-113",
+        "pattern_id": "PATTERN-Gaston-114",
         "county": "Gaston",
         "street": "2408 Gelsinger Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -2998,7 +3024,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-114",
+        "pattern_id": "PATTERN-Gaston-115",
         "county": "Gaston",
         "street": "903 N 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -3025,7 +3051,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-115",
+        "pattern_id": "PATTERN-Gaston-116",
         "county": "Gaston",
         "street": "N 10Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -3052,7 +3078,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-116",
+        "pattern_id": "PATTERN-Gaston-117",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3079,7 +3105,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-117",
+        "pattern_id": "PATTERN-Gaston-118",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3106,7 +3132,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-118",
+        "pattern_id": "PATTERN-Gaston-119",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3132,7 +3158,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-119",
+        "pattern_id": "PATTERN-Gaston-120",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3158,7 +3184,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-120",
+        "pattern_id": "PATTERN-Gaston-121",
         "county": "Gaston",
         "street": "1850 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3185,7 +3211,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-121",
+        "pattern_id": "PATTERN-Gaston-122",
         "county": "Gaston",
         "street": "311 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3212,7 +3238,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-122",
+        "pattern_id": "PATTERN-Gaston-123",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -3239,7 +3265,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-123",
+        "pattern_id": "PATTERN-Gaston-124",
         "county": "Gaston",
         "street": "N 10Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -3266,7 +3292,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-124",
+        "pattern_id": "PATTERN-Gaston-125",
         "county": "Gaston",
         "street": "N 10Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -3293,7 +3319,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-125",
+        "pattern_id": "PATTERN-Gaston-126",
         "county": "Gaston",
         "street": "E Lee Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3320,7 +3346,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-126",
+        "pattern_id": "PATTERN-Gaston-127",
         "county": "Gaston",
         "street": "E Lee Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3347,7 +3373,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-127",
+        "pattern_id": "PATTERN-Gaston-128",
         "county": "Gaston",
         "street": "521 E Ohio Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3374,13 +3400,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-128",
+        "pattern_id": "PATTERN-Gaston-129",
         "county": "Gaston",
         "street": "725 E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 12,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -3388,12 +3414,12 @@
         "source_ticket": "2618801037",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -3401,7 +3427,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-129",
+        "pattern_id": "PATTERN-Gaston-130",
         "county": "Gaston",
         "street": "403 E Alabama Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3428,7 +3454,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-130",
+        "pattern_id": "PATTERN-Gaston-131",
         "county": "Gaston",
         "street": "1831 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3455,7 +3481,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-131",
+        "pattern_id": "PATTERN-Gaston-132",
         "county": "Gaston",
         "street": "Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -3482,7 +3508,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-132",
+        "pattern_id": "PATTERN-Gaston-133",
         "county": "Gaston",
         "street": "Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -3509,7 +3535,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-133",
+        "pattern_id": "PATTERN-Gaston-134",
         "county": "Gaston",
         "street": "Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -3536,7 +3562,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-134",
+        "pattern_id": "PATTERN-Gaston-135",
         "county": "Gaston",
         "street": "Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -3563,7 +3589,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-135",
+        "pattern_id": "PATTERN-Gaston-136",
         "county": "Gaston",
         "street": "Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -3590,7 +3616,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-136",
+        "pattern_id": "PATTERN-Gaston-137",
         "county": "Gaston",
         "street": "231 Southridge Pkwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -3617,13 +3643,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-137",
+        "pattern_id": "PATTERN-Gaston-138",
         "county": "Gaston",
         "street": "1007 Jonathan Dr",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 14,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -3631,12 +3657,12 @@
         "source_ticket": "2618701451",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "14 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -3644,7 +3670,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-138",
+        "pattern_id": "PATTERN-Gaston-139",
         "county": "Gaston",
         "street": "606 E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3671,13 +3697,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-139",
+        "pattern_id": "PATTERN-Gaston-140",
         "county": "Gaston",
         "street": "419 E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 15,
+        "confidence_label": "High",
+        "opportunity": "High",
         "nearby_land_count": 12,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -3685,12 +3711,12 @@
         "source_ticket": "2619102582",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 10,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 10 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -3698,7 +3724,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-140",
+        "pattern_id": "PATTERN-Gaston-141",
         "county": "Gaston",
         "street": "Ashley Place Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3725,7 +3751,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-141",
+        "pattern_id": "PATTERN-Gaston-142",
         "county": "Gaston",
         "street": "Ashley Place Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3752,7 +3778,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-142",
+        "pattern_id": "PATTERN-Gaston-143",
         "county": "Gaston",
         "street": "Ashley Place Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3779,7 +3805,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-143",
+        "pattern_id": "PATTERN-Gaston-144",
         "county": "Gaston",
         "street": "Ashley Place Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3806,7 +3832,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-144",
+        "pattern_id": "PATTERN-Gaston-145",
         "county": "Gaston",
         "street": "Ashley Place Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3833,7 +3859,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-145",
+        "pattern_id": "PATTERN-Gaston-146",
         "county": "Gaston",
         "street": "Adason Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -3860,7 +3886,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-146",
+        "pattern_id": "PATTERN-Gaston-147",
         "county": "Gaston",
         "street": "Jacourt Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -3887,7 +3913,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-147",
+        "pattern_id": "PATTERN-Gaston-148",
         "county": "Gaston",
         "street": "Toncin Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3914,7 +3940,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-148",
+        "pattern_id": "PATTERN-Gaston-149",
         "county": "Gaston",
         "street": "Toncin Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3941,7 +3967,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-149",
+        "pattern_id": "PATTERN-Gaston-150",
         "county": "Gaston",
         "street": "Toncin Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3968,7 +3994,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-150",
+        "pattern_id": "PATTERN-Gaston-151",
         "county": "Gaston",
         "street": "Toncin Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -3995,7 +4021,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-151",
+        "pattern_id": "PATTERN-Gaston-152",
         "county": "Gaston",
         "street": "Toncin Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4022,7 +4048,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-152",
+        "pattern_id": "PATTERN-Gaston-153",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4049,7 +4075,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-153",
+        "pattern_id": "PATTERN-Gaston-154",
         "county": "Gaston",
         "street": "Airways Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4076,7 +4102,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-154",
+        "pattern_id": "PATTERN-Gaston-155",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -4103,7 +4129,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-155",
+        "pattern_id": "PATTERN-Gaston-156",
         "county": "Gaston",
         "street": "Jackson Ct",
         "pattern_type": "Land Development Proximity Signal",
@@ -4130,7 +4156,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-156",
+        "pattern_id": "PATTERN-Gaston-157",
         "county": "Gaston",
         "street": "Todd Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4157,7 +4183,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-157",
+        "pattern_id": "PATTERN-Gaston-158",
         "county": "Gaston",
         "street": "Todd Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4184,7 +4210,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-158",
+        "pattern_id": "PATTERN-Gaston-159",
         "county": "Gaston",
         "street": "Todd Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4211,7 +4237,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-159",
+        "pattern_id": "PATTERN-Gaston-160",
         "county": "Gaston",
         "street": "Arc St",
         "pattern_type": "Land Development Proximity Signal",
@@ -4238,7 +4264,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-160",
+        "pattern_id": "PATTERN-Gaston-161",
         "county": "Gaston",
         "street": "Costner Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4265,7 +4291,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-161",
+        "pattern_id": "PATTERN-Gaston-162",
         "county": "Gaston",
         "street": "Costner Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4292,7 +4318,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-162",
+        "pattern_id": "PATTERN-Gaston-163",
         "county": "Gaston",
         "street": "Costner Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4319,7 +4345,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-163",
+        "pattern_id": "PATTERN-Gaston-164",
         "county": "Gaston",
         "street": "Arc St",
         "pattern_type": "Land Development Proximity Signal",
@@ -4346,7 +4372,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-164",
+        "pattern_id": "PATTERN-Gaston-165",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -4373,7 +4399,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-165",
+        "pattern_id": "PATTERN-Gaston-166",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -4400,7 +4426,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-166",
+        "pattern_id": "PATTERN-Gaston-167",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -4427,7 +4453,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-167",
+        "pattern_id": "PATTERN-Gaston-168",
         "county": "Gaston",
         "street": "1848 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4454,7 +4480,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-168",
+        "pattern_id": "PATTERN-Gaston-169",
         "county": "Gaston",
         "street": "103 Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -4480,7 +4506,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-169",
+        "pattern_id": "PATTERN-Gaston-170",
         "county": "Gaston",
         "street": "604 E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4507,7 +4533,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-170",
+        "pattern_id": "PATTERN-Gaston-171",
         "county": "Gaston",
         "street": "1834 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4534,7 +4560,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-171",
+        "pattern_id": "PATTERN-Gaston-172",
         "county": "Gaston",
         "street": "111 E Maryland Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4560,7 +4586,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-172",
+        "pattern_id": "PATTERN-Gaston-173",
         "county": "Gaston",
         "street": "725 E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4587,7 +4613,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-173",
+        "pattern_id": "PATTERN-Gaston-174",
         "county": "Gaston",
         "street": "511  E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4614,7 +4640,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-174",
+        "pattern_id": "PATTERN-Gaston-175",
         "county": "Gaston",
         "street": "212 W Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4640,7 +4666,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-175",
+        "pattern_id": "PATTERN-Gaston-176",
         "county": "Gaston",
         "street": "N 11Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -4666,7 +4692,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-176",
+        "pattern_id": "PATTERN-Gaston-177",
         "county": "Gaston",
         "street": "N 11Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -4692,7 +4718,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-177",
+        "pattern_id": "PATTERN-Gaston-178",
         "county": "Gaston",
         "street": "E Ohio Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4719,33 +4745,6 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-178",
-        "county": "Gaston",
-        "street": "E Ohio Ave",
-        "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
-        "nearby_land_count": 10,
-        "nearby_high_watch_land_count": 1,
-        "nearby_project_count": 0,
-        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
-        "source_ticket": "2618706520",
-        "score_version": "2.0",
-        "score_components": {
-            "source_signal": 2,
-            "project_proximity": 0,
-            "land_concentration": 5
-        },
-        "score_explanation": [
-            "Source signal contributes 2 point(s)",
-            "10 tracked parcel(s) within 3 miles",
-            "1 nearby parcel(s) have high watch scores"
-        ],
-        "coordinates": "35.28720273, -81.27983786",
-        "created_date": "2026-08-13"
-    },
-    {
         "pattern_id": "PATTERN-Gaston-179",
         "county": "Gaston",
         "street": "E Ohio Ave",
@@ -4757,7 +4756,7 @@
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
         "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
-        "source_ticket": "2618706530",
+        "source_ticket": "2618706520",
         "score_version": "2.0",
         "score_components": {
             "source_signal": 2,
@@ -4784,7 +4783,7 @@
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
         "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
-        "source_ticket": "2618706520",
+        "source_ticket": "2618706530",
         "score_version": "2.0",
         "score_components": {
             "source_signal": 2,
@@ -4801,6 +4800,33 @@
     },
     {
         "pattern_id": "PATTERN-Gaston-181",
+        "county": "Gaston",
+        "street": "E Ohio Ave",
+        "pattern_type": "Land Development Proximity Signal",
+        "confidence_score": 7,
+        "confidence_label": "Low",
+        "opportunity": "Medium",
+        "nearby_land_count": 10,
+        "nearby_high_watch_land_count": 1,
+        "nearby_project_count": 0,
+        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
+        "source_ticket": "2618706520",
+        "score_version": "2.0",
+        "score_components": {
+            "source_signal": 2,
+            "project_proximity": 0,
+            "land_concentration": 5
+        },
+        "score_explanation": [
+            "Source signal contributes 2 point(s)",
+            "10 tracked parcel(s) within 3 miles",
+            "1 nearby parcel(s) have high watch scores"
+        ],
+        "coordinates": "35.28720273, -81.27983786",
+        "created_date": "2026-08-13"
+    },
+    {
+        "pattern_id": "PATTERN-Gaston-182",
         "county": "Gaston",
         "street": "E Ohio Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4826,13 +4852,13 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-182",
+        "pattern_id": "PATTERN-Gaston-183",
         "county": "Gaston",
         "street": "1843 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 7,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
+        "confidence_score": 13,
+        "confidence_label": "Moderate",
+        "opportunity": "High",
         "nearby_land_count": 12,
         "nearby_high_watch_land_count": 1,
         "nearby_project_count": 0,
@@ -4840,12 +4866,12 @@
         "source_ticket": "2618704631",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 8,
             "project_proximity": 0,
             "land_concentration": 5
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 8 point(s)",
             "12 tracked parcel(s) within 3 miles",
             "1 nearby parcel(s) have high watch scores"
         ],
@@ -4853,7 +4879,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-183",
+        "pattern_id": "PATTERN-Gaston-184",
         "county": "Gaston",
         "street": "107 Crescent Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -4880,7 +4906,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-184",
+        "pattern_id": "PATTERN-Gaston-185",
         "county": "Gaston",
         "street": "514 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4907,7 +4933,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-185",
+        "pattern_id": "PATTERN-Gaston-186",
         "county": "Gaston",
         "street": "510 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4934,7 +4960,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-186",
+        "pattern_id": "PATTERN-Gaston-187",
         "county": "Gaston",
         "street": "506 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4961,7 +4987,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-187",
+        "pattern_id": "PATTERN-Gaston-188",
         "county": "Gaston",
         "street": "503 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -4988,7 +5014,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-188",
+        "pattern_id": "PATTERN-Gaston-189",
         "county": "Gaston",
         "street": "307 S 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5015,7 +5041,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-189",
+        "pattern_id": "PATTERN-Gaston-190",
         "county": "Gaston",
         "street": "1007 Jonathan Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5042,7 +5068,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-190",
+        "pattern_id": "PATTERN-Gaston-191",
         "county": "Gaston",
         "street": "1830 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5069,7 +5095,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-191",
+        "pattern_id": "PATTERN-Gaston-192",
         "county": "Gaston",
         "street": "1832 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5096,7 +5122,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-192",
+        "pattern_id": "PATTERN-Gaston-193",
         "county": "Gaston",
         "street": "403 E Louisiana Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5123,7 +5149,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-193",
+        "pattern_id": "PATTERN-Gaston-194",
         "county": "Gaston",
         "street": "115 Terrace Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5150,7 +5176,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-194",
+        "pattern_id": "PATTERN-Gaston-195",
         "county": "Gaston",
         "street": "415 E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5177,7 +5203,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-195",
+        "pattern_id": "PATTERN-Gaston-196",
         "county": "Gaston",
         "street": "1846 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5204,7 +5230,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-196",
+        "pattern_id": "PATTERN-Gaston-197",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -5231,7 +5257,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-197",
+        "pattern_id": "PATTERN-Gaston-198",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -5258,7 +5284,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-198",
+        "pattern_id": "PATTERN-Gaston-199",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -5285,7 +5311,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-199",
+        "pattern_id": "PATTERN-Gaston-200",
         "county": "Gaston",
         "street": "Costner School Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -5312,7 +5338,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-200",
+        "pattern_id": "PATTERN-Gaston-201",
         "county": "Gaston",
         "street": "N 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5339,7 +5365,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-201",
+        "pattern_id": "PATTERN-Gaston-202",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5366,7 +5392,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-202",
+        "pattern_id": "PATTERN-Gaston-203",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5393,7 +5419,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-203",
+        "pattern_id": "PATTERN-Gaston-204",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5420,7 +5446,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-204",
+        "pattern_id": "PATTERN-Gaston-205",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5447,7 +5473,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-205",
+        "pattern_id": "PATTERN-Gaston-206",
         "county": "Gaston",
         "street": "604 E Georgia Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5474,11 +5500,11 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-206",
+        "pattern_id": "PATTERN-Gaston-207",
         "county": "Gaston",
         "street": "116 W Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 5,
+        "confidence_score": 9,
         "confidence_label": "Low",
         "opportunity": "Medium",
         "nearby_land_count": 6,
@@ -5488,19 +5514,19 @@
         "source_ticket": "2618106182",
         "score_version": "2.0",
         "score_components": {
-            "source_signal": 2,
+            "source_signal": 6,
             "project_proximity": 0,
             "land_concentration": 3
         },
         "score_explanation": [
-            "Source signal contributes 2 point(s)",
+            "Source signal contributes 6 point(s)",
             "6 tracked parcel(s) within 3 miles"
         ],
         "coordinates": "35.29014661, -81.28354708",
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-207",
+        "pattern_id": "PATTERN-Gaston-208",
         "county": "Gaston",
         "street": "124 Terrace Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5527,7 +5553,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-208",
+        "pattern_id": "PATTERN-Gaston-209",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5554,7 +5580,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-209",
+        "pattern_id": "PATTERN-Gaston-210",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5581,7 +5607,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-210",
+        "pattern_id": "PATTERN-Gaston-211",
         "county": "Gaston",
         "street": "E Maine Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5608,7 +5634,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-211",
+        "pattern_id": "PATTERN-Gaston-212",
         "county": "Gaston",
         "street": "E Lee Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5635,7 +5661,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-212",
+        "pattern_id": "PATTERN-Gaston-213",
         "county": "Gaston",
         "street": "E Lee Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5662,7 +5688,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-213",
+        "pattern_id": "PATTERN-Gaston-214",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5689,7 +5715,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-214",
+        "pattern_id": "PATTERN-Gaston-215",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5716,7 +5742,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-215",
+        "pattern_id": "PATTERN-Gaston-216",
         "county": "Gaston",
         "street": "1844 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5743,7 +5769,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-216",
+        "pattern_id": "PATTERN-Gaston-217",
         "county": "Gaston",
         "street": "805 Edgewood Rd",
         "pattern_type": "Land Development Proximity Signal",
@@ -5770,7 +5796,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-217",
+        "pattern_id": "PATTERN-Gaston-218",
         "county": "Gaston",
         "street": "1007 Gastonia Hwy",
         "pattern_type": "Land Development Proximity Signal",
@@ -5797,7 +5823,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-218",
+        "pattern_id": "PATTERN-Gaston-219",
         "county": "Gaston",
         "street": "E Lee Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5824,7 +5850,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-219",
+        "pattern_id": "PATTERN-Gaston-220",
         "county": "Gaston",
         "street": "E Ohio Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5851,7 +5877,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-220",
+        "pattern_id": "PATTERN-Gaston-221",
         "county": "Gaston",
         "street": "E Maryland Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5878,7 +5904,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-221",
+        "pattern_id": "PATTERN-Gaston-222",
         "county": "Gaston",
         "street": "1843 Broom Maker Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -5905,7 +5931,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-222",
+        "pattern_id": "PATTERN-Gaston-223",
         "county": "Gaston",
         "street": "N 9Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -5932,7 +5958,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-223",
+        "pattern_id": "PATTERN-Gaston-224",
         "county": "Gaston",
         "street": "E Maryland Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5959,7 +5985,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-224",
+        "pattern_id": "PATTERN-Gaston-225",
         "county": "Gaston",
         "street": "402 E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -5986,7 +6012,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-225",
+        "pattern_id": "PATTERN-Gaston-226",
         "county": "Gaston",
         "street": "Wilton Ct",
         "pattern_type": "Land Development Proximity Signal",
@@ -6013,7 +6039,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-226",
+        "pattern_id": "PATTERN-Gaston-227",
         "county": "Gaston",
         "street": "Apple Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -6040,7 +6066,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-227",
+        "pattern_id": "PATTERN-Gaston-228",
         "county": "Gaston",
         "street": "Apple Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -6067,7 +6093,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-228",
+        "pattern_id": "PATTERN-Gaston-229",
         "county": "Gaston",
         "street": "Jonathan Dr",
         "pattern_type": "Land Development Proximity Signal",
@@ -6094,7 +6120,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-229",
+        "pattern_id": "PATTERN-Gaston-230",
         "county": "Gaston",
         "street": "N 6Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -6121,7 +6147,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-230",
+        "pattern_id": "PATTERN-Gaston-231",
         "county": "Gaston",
         "street": "N 6Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -6148,7 +6174,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-231",
+        "pattern_id": "PATTERN-Gaston-232",
         "county": "Gaston",
         "street": "E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6175,7 +6201,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-232",
+        "pattern_id": "PATTERN-Gaston-233",
         "county": "Gaston",
         "street": "N 7Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -6202,7 +6228,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-233",
+        "pattern_id": "PATTERN-Gaston-234",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6229,7 +6255,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-234",
+        "pattern_id": "PATTERN-Gaston-235",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6256,7 +6282,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-235",
+        "pattern_id": "PATTERN-Gaston-236",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6283,7 +6309,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-236",
+        "pattern_id": "PATTERN-Gaston-237",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6310,7 +6336,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-237",
+        "pattern_id": "PATTERN-Gaston-238",
         "county": "Gaston",
         "street": "N 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -6337,7 +6363,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-238",
+        "pattern_id": "PATTERN-Gaston-239",
         "county": "Gaston",
         "street": "E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6364,7 +6390,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-239",
+        "pattern_id": "PATTERN-Gaston-240",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6391,7 +6417,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-240",
+        "pattern_id": "PATTERN-Gaston-241",
         "county": "Gaston",
         "street": "E Texas Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6418,7 +6444,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-241",
+        "pattern_id": "PATTERN-Gaston-242",
         "county": "Gaston",
         "street": "N 8Th St",
         "pattern_type": "Land Development Proximity Signal",
@@ -6445,7 +6471,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-242",
+        "pattern_id": "PATTERN-Gaston-243",
         "county": "Gaston",
         "street": "Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -6471,7 +6497,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-243",
+        "pattern_id": "PATTERN-Gaston-244",
         "county": "Gaston",
         "street": "Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -6497,7 +6523,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-244",
+        "pattern_id": "PATTERN-Gaston-245",
         "county": "Gaston",
         "street": "Sunset Ln",
         "pattern_type": "Land Development Proximity Signal",
@@ -6523,7 +6549,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-245",
+        "pattern_id": "PATTERN-Gaston-246",
         "county": "Gaston",
         "street": "E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6550,7 +6576,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-246",
+        "pattern_id": "PATTERN-Gaston-247",
         "county": "Gaston",
         "street": "E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6576,7 +6602,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-247",
+        "pattern_id": "PATTERN-Gaston-248",
         "county": "Gaston",
         "street": "E Florida Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6602,7 +6628,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-248",
+        "pattern_id": "PATTERN-Gaston-249",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6629,7 +6655,7 @@
         "created_date": "2026-08-13"
     },
     {
-        "pattern_id": "PATTERN-Gaston-249",
+        "pattern_id": "PATTERN-Gaston-250",
         "county": "Gaston",
         "street": "E Iowa Ave",
         "pattern_type": "Land Development Proximity Signal",
@@ -6653,32 +6679,6 @@
             "1 nearby parcel(s) have high watch scores"
         ],
         "coordinates": "35.29104284, -81.27746229",
-        "created_date": "2026-08-13"
-    },
-    {
-        "pattern_id": "PATTERN-Gaston-250",
-        "county": "Gaston",
-        "street": "E Iowa Ave",
-        "pattern_type": "Land Development Proximity Signal",
-        "confidence_score": 5,
-        "confidence_label": "Low",
-        "opportunity": "Medium",
-        "nearby_land_count": 9,
-        "nearby_high_watch_land_count": 0,
-        "nearby_project_count": 0,
-        "reason": "Locate signal is near multiple tracked land parcels, increasing development relevance.",
-        "source_ticket": "2617507746",
-        "score_version": "2.0",
-        "score_components": {
-            "source_signal": 2,
-            "project_proximity": 0,
-            "land_concentration": 3
-        },
-        "score_explanation": [
-            "Source signal contributes 2 point(s)",
-            "9 tracked parcel(s) within 3 miles"
-        ],
-        "coordinates": "35.29131187, -81.27890722",
         "created_date": "2026-08-13"
     }
 ]

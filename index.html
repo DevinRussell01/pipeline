@@ -1578,32 +1578,37 @@ gap:12px;
 
 <div class="filters">
 
-  <label>Utility Type</label>
-  <select id="signalUtilityFilter" onchange="renderLocateTickets()">
-    <option value="">All</option>
-    <option value="telecom">Telecom</option>
-    <option value="power">Power</option>
-    <option value="gas">Gas</option>
-    <option value="water">Water</option>
-    <option value="sewer">Sewer</option>
-    <option value="boring">Directional Bore</option>
-  </select>
-
   <label>County</label>
   <select id="signalCountyFilter" onchange="renderLocateTickets()">
     <option value="">All Counties</option>
   </select>
 
-  <label>Minimum Risk</label>
-  <select id="signalRiskFilter" onchange="renderLocateTickets()">
-    <option value="0">All</option>
-    <option value="5">5+</option>
-    <option value="8">8+</option>
-    <option value="10">10+</option>
+  <label>City</label>
+  <select id="signalCityFilter" onchange="renderLocateTickets()">
+    <option value="">All Cities</option>
   </select>
-  <label>
-    <input
-      type="checkbox"
+
+  <label>Ticket Type</label>
+  <select id="signalTicketTypeFilter" onchange="renderLocateTickets()">
+    <option value="">All Types</option>
+  </select>
+
+<label>Priority</label>
+<select id="signalPriorityFilter" onchange="renderLocateTickets()">
+  <option value="">All Priorities</option>
+</select>
+
+<label>Minimum Risk</label>
+<select id="signalRiskFilter" onchange="renderLocateTickets()">
+  <option value="0">All Risk Scores</option>
+  <option value="6">6+ Elevated</option>
+  <option value="8">8+ High</option>
+  <option value="10">10 Emergency</option>
+</select>
+
+<label>
+  <input
+    type="checkbox"
       id="toggleLocateHeat"
       checked
       onchange="toggleLocateHeatLayer()">
@@ -1627,7 +1632,7 @@ gap:12px;
 <div class="stats" style="margin-top:24px;">
   <div class="stat">
     <strong id="locateTicketCount">0</strong>
-    <span>Active 811 Locate Requestss</span>
+    <span>Active 811 Locate Requests</span>
   </div>
 
   <div class="stat">
@@ -1637,7 +1642,7 @@ gap:12px;
 
   <div class="stat">
     <strong id="locateTelecomCount">0</strong>
-    <span>Telecom / Utility Signals</span>
+    <span>Emergency Priority Tickets</span>
   </div>
 </div>
 
@@ -1650,11 +1655,11 @@ gap:12px;
         <th>County</th>
         <th>City</th>
         <th>Street</th>
-        <th>Work Type</th>
-        <th>Category</th>
+        <th>Ticket Type</th>
+        <th>Priority</th>
+        <th>Excavator</th>
+        <th>Work Date</th>
         <th>Risk</th>
-        <th>Signal</th>
-        <th>Drivers</th>
       </tr>
     </thead>
     <tbody id="locateTicketTable"></tbody>
@@ -2218,6 +2223,7 @@ Awaiting scan.
   <label><input type="checkbox" id="toggleProjects" checked> Development Projects</label>
   <label><input type="checkbox" id="toggleLand" checked> Strategic Land</label>
   <label><input type="checkbox" id="toggleWatchlists" checked> Priority Land Candidates</label>
+  <label><input type="checkbox" id="toggle811" checked> Live 811 Activity</label>
 
   <label>County</label>
   <select id="growthMapCountyFilter" onchange="rebuildGrowthMapLayers()">
@@ -2343,6 +2349,29 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
       <li>Water & sewer locates</li>
       <li>Telecommunications locate requests</li>
     </ul>
+    </div>
+
+  <div class="framework-card">
+    <h3>811 Risk Score</h3>
+
+    <p>
+      Conduit assigns an operational Risk Score to live 811 locate requests
+      based on the priority classification supplied with the ticket. The score
+      helps analysts separate routine locate activity from time-sensitive or
+      urgent infrastructure activity.
+    </p>
+
+    <p>
+      Risk Score does not indicate the likelihood of telecommunications
+      expansion and is separate from Conduit’s Opportunity Index.
+    </p>
+
+    <div class="score-table">
+      <div><strong>2</strong><span>Routine — normal locate activity</span></div>
+      <div><strong>6</strong><span>Elevated — short-notice activity</span></div>
+      <div><strong>8</strong><span>High — rush locate activity</span></div>
+      <div><strong>10</strong><span>Emergency — emergency locate activity</span></div>
+    </div>
   </div>
 
   <div class="framework-card">
@@ -3049,6 +3078,7 @@ function initMap() {
   landLayer = L.layerGroup().addTo(window.pipelineMap);
   watchlistLayer = L.layerGroup().addTo(window.pipelineMap);
   gisLayer = L.layerGroup().addTo(window.pipelineMap);
+  locateGrowthLayer = L.layerGroup().addTo(window.pipelineMap);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     .addTo(window.pipelineMap);
@@ -3095,6 +3125,13 @@ function initMap() {
         : window.pipelineMap.removeLayer(watchlistLayer);
     });
 
+  document.getElementById("toggle811")
+    ?.addEventListener("change", function() {
+      this.checked
+        ? window.pipelineMap.addLayer(locateGrowthLayer)
+        : window.pipelineMap.removeLayer(locateGrowthLayer);
+    });
+
   fetch("projects.json")
     .then(response => response.json())
     .then(data => {
@@ -3104,6 +3141,18 @@ function initMap() {
     })
     .catch(error => {
       console.error("Could not load projects map layer", error);
+    });
+
+  fetch("locate_tickets.json")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Live 811 tickets loaded:", data.length);
+      LOCATE_TICKETS = data;
+      populateLocateFilters();
+      rebuildGrowthMapLayers();
+    })
+    .catch(error => {
+      console.error("Could not load live 811 map layer", error);
     });
 
   fetch("land_intelligence.json")
@@ -3142,7 +3191,8 @@ function populateGrowthMapCountyFilter() {
   const counties = [
     ...new Set([
       ...MAP_PROJECTS.map(p => p.county).filter(Boolean),
-      ...MAP_LAND_PARCELS.map(p => p.county).filter(Boolean)
+      ...MAP_LAND_PARCELS.map(p => p.county).filter(Boolean),
+      ...LOCATE_TICKETS.map(t => t.county).filter(Boolean)
     ])
   ].sort();
 
@@ -3169,11 +3219,13 @@ function rebuildGrowthMapLayers() {
   if (landLayer) window.pipelineMap.removeLayer(landLayer);
   if (watchlistLayer) window.pipelineMap.removeLayer(watchlistLayer);
   if (gisLayer) window.pipelineMap.removeLayer(gisLayer);
+  if (locateGrowthLayer) window.pipelineMap.removeLayer(locateGrowthLayer);
 
   projectLayer = L.layerGroup();
   landLayer = L.layerGroup();
   watchlistLayer = L.layerGroup();
   gisLayer = L.layerGroup();
+  locateGrowthLayer = L.layerGroup();
 
   MAP_PROJECTS.forEach(project => {
     const lat = Number(project.lat);
@@ -3278,6 +3330,66 @@ function rebuildGrowthMapLayers() {
     }
   });
 
+  LOCATE_TICKETS.forEach(ticket => {
+    const lat = Number(ticket.lat);
+    const lon = Number(ticket.lon);
+
+    if (!lat || !lon) return;
+    if (countyFilter && ticket.county !== countyFilter) return;
+
+    const itemId = String(
+      "811-" + (ticket.ticket_id || `${lat},${lon}`)
+    );
+
+    if (hidden.includes(itemId)) return;
+
+    const workDate = ticket.work_date
+      ? new Date(ticket.work_date).toLocaleDateString()
+      : "";
+
+    L.circleMarker([lat, lon], {
+      radius: 5,
+      color: "#22d3ee",
+      fillColor: "#22d3ee",
+      fillOpacity: 0.85,
+      weight: 2
+    })
+    .addTo(locateGrowthLayer)
+    .bindPopup(`
+      <strong>Live 811 Locate</strong><br>
+      Ticket: ${ticket.ticket_id || ""}<br>
+      ${ticket.street || ""}<br>
+      ${ticket.city || ""}${ticket.city && ticket.county ? ", " : ""}${ticket.county || ""} County<br><br>
+
+      Type: ${ticket.ticket_type || ""}<br>
+      Priority: ${ticket.priority || ""}<br>
+      Excavator: ${ticket.excavator || ticket.company || ""}<br>
+      Work Date: ${workDate}<br>
+      Risk Score: ${ticket.risk_score || 0}<br><br>
+
+      Source: ${ticket.source || "NC811"}<br><br>
+
+      <button onclick="hideGrowthMapItem('${itemId.replace(/'/g, "\\'")}')">
+        Hide 811 Marker
+      </button>
+    `);
+  });
+
+    if (
+    countyFilter &&
+    document.getElementById("toggle811")?.checked !== false &&
+    locateGrowthLayer.getLayers().length > 0
+  ) {
+    const bounds = locateGrowthLayer.getBounds();
+
+    if (bounds.isValid()) {
+      window.pipelineMap.fitBounds(bounds, {
+        padding: [30, 30],
+        maxZoom: 12
+      });
+    }
+  }
+
   GIS_INTELLIGENCE.forEach(item => {
     const lat = Number(item.lat);
     const lon = Number(item.lon);
@@ -3308,11 +3420,17 @@ function rebuildGrowthMapLayers() {
   if (document.getElementById("toggleWatchlists")?.checked !== false) {
     watchlistLayer.addTo(window.pipelineMap);
   }
+
+  if (document.getElementById("toggle811")?.checked !== false) {
+    locateGrowthLayer.addTo(window.pipelineMap);
+  }
+
   gisLayer.addTo(window.pipelineMap);
 }
 
 let locateMapLoaded = false;
 let LOCATE_TICKETS = [];
+let locateGrowthLayer = null;
 let locateTicketLayer = null;
 let locateHeatLayer = null;
 
@@ -3393,40 +3511,107 @@ function resetHiddenSignals() {
   renderLocateTickets();
 }
 
+function populateLocateFilters() {
+  const configs = [
+    {
+      id: "signalCountyFilter",
+      values: LOCATE_TICKETS.map(t => t.county),
+      label: "All Counties"
+    },
+    {
+      id: "signalCityFilter",
+      values: LOCATE_TICKETS.map(t => t.city),
+      label: "All Cities"
+    },
+    {
+      id: "signalTicketTypeFilter",
+      values: LOCATE_TICKETS.map(t => t.ticket_type),
+      label: "All Types"
+    },
+    {
+      id: "signalPriorityFilter",
+      values: LOCATE_TICKETS.map(t => t.priority),
+      label: "All Priorities"
+    }
+  ];
+
+  configs.forEach(config => {
+    const element = document.getElementById(config.id);
+    if (!element) return;
+
+    const currentValue = element.value;
+
+    const values = [
+      ...new Set(
+        config.values
+          .filter(Boolean)
+          .map(value => String(value))
+      )
+    ].sort();
+
+    element.innerHTML =
+      `<option value="">${config.label}</option>` +
+      values.map(value =>
+        `<option value="${value}">${value}</option>`
+      ).join("");
+
+    if (values.includes(currentValue)) {
+      element.value = currentValue;
+    }
+  });
+}
+
 function renderLocateTickets() {
-  const utilityFilter = String(document.getElementById("signalUtilityFilter")?.value || "").toLowerCase();
-  const countyFilter = String(document.getElementById("signalCountyFilter")?.value || "");
-  const minRisk = Number(document.getElementById("signalRiskFilter")?.value || 0);
+  const countyFilter =
+    String(document.getElementById("signalCountyFilter")?.value || "");
+
+  const cityFilter =
+    String(document.getElementById("signalCityFilter")?.value || "");
+
+  const ticketTypeFilter =
+    String(document.getElementById("signalTicketTypeFilter")?.value || "");
+
+  const priorityFilter =
+    String(document.getElementById("signalPriorityFilter")?.value || "");
+
+  const riskFilter =
+    Number(document.getElementById("signalRiskFilter")?.value || 0);
 
   const hiddenSignals = getHiddenSignals();
 
   let tickets = LOCATE_TICKETS.filter(ticket => {
-    const category = String(ticket.category || "").toLowerCase();
-    const workType = String(ticket.work_type || "").toLowerCase();
     const county = String(ticket.county || "");
-    const risk = Number(ticket.risk_score || 0);
-
-    const utilityMatch =
-      !utilityFilter ||
-      category.includes(utilityFilter) ||
-      workType.includes(utilityFilter) ||
-      (utilityFilter === "boring" && (workType.includes("bore") || workType.includes("directional")));
+    const city = String(ticket.city || "");
+    const ticketType = String(ticket.ticket_type || "");
+    const priority = String(ticket.priority || "");
+    const riskScore = Number(ticket.risk_score || 0);
 
     const countyMatch =
       !countyFilter || county === countyFilter;
 
+    const cityMatch =
+      !cityFilter || city === cityFilter;
+
+    const ticketTypeMatch =
+      !ticketTypeFilter || ticketType === ticketTypeFilter;
+
+    const priorityMatch =
+      !priorityFilter || priority === priorityFilter;
+
     const riskMatch =
-      risk >= minRisk;
+      !riskFilter || riskScore >= riskFilter;
 
     const hiddenMatch =
       !hiddenSignals.includes(
         String(ticket.ticket_id || ticket.street || "")
       );
 
-    return utilityMatch &&
-            countyMatch &&
-            riskMatch &&
-            hiddenMatch;
+    return countyMatch &&
+           cityMatch &&
+           ticketTypeMatch &&
+           priorityMatch &&
+           riskMatch &&
+           hiddenMatch;
   });
 
   document.getElementById("locateTicketCount").textContent = tickets.length;
@@ -3444,27 +3629,33 @@ function renderLocateTickets() {
 
   document.getElementById("locateCountyCount").textContent = counties.length;
 
-  const telecomSignals = tickets.filter(t =>
-    String(t.category || "").toLowerCase().includes("telecom") ||
-    String(t.work_type || "").toLowerCase().includes("fiber") ||
-    String(t.work_type || "").toLowerCase().includes("bore")
+  const emergencyTickets = tickets.filter(t =>
+    String(t.priority || "").toUpperCase() === "EMER"
   );
 
-  document.getElementById("locateTelecomCount").textContent = telecomSignals.length;
+  document.getElementById("locateTelecomCount").textContent =
+    emergencyTickets.length;
 
   document.getElementById("locateTicketTable").innerHTML =
-    tickets.map(ticket => `
-      <tr>
-        <td>${ticket.county || ""}</td>
-        <td>${ticket.city || ""}</td>
-        <td>${ticket.street || ""}</td>
-        <td>${ticket.work_type || ""}</td>
-        <td>${ticket.category || ""}</td>
-        <td>${ticket.risk_score || 0}</td>
-        <td>${ticket.signal || ""}</td>
-        <td>${getLocateSignalDrivers(ticket).join(", ")}</td>
-      </tr>
-    `).join("");
+    tickets.map(ticket => {
+
+      const workDate = ticket.work_date
+        ? new Date(ticket.work_date).toLocaleDateString()
+        : "";
+
+      return `
+        <tr>
+          <td>${ticket.county || ""}</td>
+          <td>${ticket.city || ""}</td>
+          <td>${ticket.street || ""}</td>
+          <td>${ticket.ticket_type || ""}</td>
+          <td>${ticket.priority || ""}</td>
+          <td>${ticket.excavator || ticket.company || ""}</td>
+          <td>${workDate}</td>
+          <td>${ticket.risk_score || 0}</td>
+        </tr>
+      `;
+    }).join("");
 
   if (window.locateMap) {
     if (locateTicketLayer) {
@@ -3488,13 +3679,21 @@ function renderLocateTickets() {
       })
       .addTo(locateTicketLayer)
       .bindPopup(`
-        <strong>${ticket.ticket_id || "Locate Signal"}</strong><br>
-        ${ticket.county || ""} County<br>
-        ${ticket.work_type || ""}<br>
-        Risk Score: ${ticket.risk_score || 0}<br><br>
+        <strong>811 Locate ${ticket.ticket_id || ""}</strong><br>
+        ${ticket.street || ""}<br>
+        ${ticket.city || ""}${ticket.city && ticket.county ? ", " : ""}${ticket.county || ""} County<br><br>
+
+        Type: ${ticket.ticket_type || ""}<br>
+        Priority: ${ticket.priority || ""}<br>
+        Excavator: ${ticket.excavator || ticket.company || ""}<br>
+        Work Date: ${
+          ticket.work_date
+            ? new Date(ticket.work_date).toLocaleDateString()
+            : ""
+        }<br><br>
 
         <button onclick="hideLocateSignal('${String(ticket.ticket_id || ticket.street || "").replace(/'/g, "\\'")}')">
-          Hide Signal
+          Hide 811 Marker
         </button>
       `);
     });
@@ -3563,34 +3762,21 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       console.error("Could not load locate intelligence layer", error);
     });
 
-      fetch('locate_tickets.json')
-    .then(res => res.json())
-    .then(tickets => {
-      LOCATE_TICKETS = tickets;
+    fetch('locate_tickets.json')
+      .then(res => res.json())
+      .then(tickets => {
+        LOCATE_TICKETS = tickets;
 
-      const countyFilter =
-        document.getElementById("signalCountyFilter");
-
-      countyFilter.innerHTML =
-        '<option value="">All Counties</option>' +
-        [...new Set(
-          tickets
-            .map(t => t.county)
-            .filter(Boolean)
-            .sort()
-        )]
-        .map(c => `<option value="${c}">${c}</option>`)
-        .join("");
-
+        populateLocateFilters();
         renderLocateTickets();
 
-
-
-
-    })
-    .catch(error => {
-      console.error("Could not load locate tickets", error);
-    });
+        if (window.pipelineMap) {
+          rebuildGrowthMapLayers();
+        }
+      })
+      .catch(error => {
+        console.error("Could not load locate tickets", error);
+      });
   fetch('locate_correlations.json')
     .then(res => res.json())
     .then(correlations => {
@@ -3804,13 +3990,18 @@ function rebuildLocateHeatLayer() {
       fillOpacity: 0.8
     })
     .addTo(locateHeatLayer)
-    .bindPopup(`
-      <strong>${ticket.company || "Regional Signal"}</strong><br>
-      ${ticket.category || ""}<br>
-      Tickets: ${ticket.tickets || 0}<br><br>
+   .bindPopup(`
+      <strong>811 Locate Activity</strong><br>
+      ${ticket.street || ""}<br>
+      ${ticket.city || ""}${ticket.city && ticket.county ? ", " : ""}${ticket.county || ""} County<br><br>
+
+      Ticket: ${ticket.ticket_id || ""}<br>
+      Type: ${ticket.ticket_type || ""}<br>
+      Priority: ${ticket.priority || ""}<br>
+      Excavator: ${ticket.excavator || ticket.company || ""}<br><br>
 
       <button onclick="hideHeatSignal('${signalId.replace(/'/g, "\\'")}')">
-        Hide Heat Signal
+        Hide Heat Marker
       </button>
     `);
 
@@ -4359,19 +4550,27 @@ function downloadCSV(filename, rows) {
 function exportSignalsCSV() {
   const rows = LOCATE_TICKETS.map(ticket => ({
     ticket_id: ticket.ticket_id || "",
+    revision: ticket.revision || "",
     county: ticket.county || "",
     city: ticket.city || "",
     street: ticket.street || "",
-    work_type: ticket.work_type || "",
-    category: ticket.category || "",
+    cross_streets: Array.isArray(ticket.cross_streets)
+      ? ticket.cross_streets.join(" | ")
+      : "",
+    ticket_type: ticket.ticket_type || "",
+    priority: ticket.priority || "",
+    excavator: ticket.excavator || ticket.company || "",
+    status: ticket.status || "",
+    created_date: ticket.created_date || "",
+    work_date: ticket.work_date || "",
+    expires_date: ticket.expires_date || "",
     risk_score: ticket.risk_score || 0,
-    signal: ticket.signal || "",
-    drivers: getLocateSignalDrivers(ticket).join(" | "),
+    source: ticket.source || "",
     latitude: ticket.lat || "",
     longitude: ticket.lon || ""
   }));
 
-  downloadCSV("conduit_signals_export.csv", rows);
+  downloadCSV("conduit_811_locate_activity.csv", rows);
 }
 
 function exportProjectsCSV() {

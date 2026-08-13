@@ -1,5 +1,32 @@
 [
   {
+    "ticket_id": "2622502215",
+    "revision": "000",
+    "state": "NC",
+    "county": "Gaston",
+    "city": "Bessemer City",
+    "street": "115 Central Ave",
+    "cross_streets": [
+      "N 12Th St"
+    ],
+    "work_type": "811 Locate Request",
+    "category": "Utility",
+    "excavator": "MARK PICKLESIMER",
+    "company": "MARK PICKLESIMER",
+    "status": "Active 811 Locate",
+    "ticket_type": "NEW",
+    "priority": "RUSH",
+    "created_date": "2026-08-13T13:10:24.066Z",
+    "work_date": "2026-08-13T13:10:24.020Z",
+    "expires_date": "2026-09-16T03:59:59.999Z",
+    "lat": 35.29658960721895,
+    "lon": -81.27771215142117,
+    "risk_score": 8,
+    "source": "NC811 Public Near Ticket",
+    "source_type": "public_811_live",
+    "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
+  },
+  {
     "ticket_id": "2622407393",
     "revision": "000",
     "state": "NC",
@@ -75,7 +102,7 @@
     "expires_date": "2026-09-11T03:59:59.999Z",
     "lat": 35.28793060927842,
     "lon": -81.27296170286412,
-    "risk_score": 2,
+    "risk_score": 10,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -371,7 +398,7 @@
     "expires_date": "2026-09-02T03:59:59.999Z",
     "lat": 35.295972451165255,
     "lon": -81.25780650239848,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -996,7 +1023,7 @@
     "expires_date": "2026-08-13T03:59:59.999Z",
     "lat": 35.30190417655207,
     "lon": -81.25501270699387,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -1376,7 +1403,7 @@
     "expires_date": "2026-08-19T03:59:59.999Z",
     "lat": 35.28893404506872,
     "lon": -81.27768765266188,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 3HRS locate request in Bessemer City, Gaston County"
@@ -1403,7 +1430,7 @@
     "expires_date": "2026-08-19T03:59:59.999Z",
     "lat": 35.288705774495604,
     "lon": -81.27666916749826,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 3HRS locate request in Bessemer City, Gaston County"
@@ -1431,7 +1458,7 @@
     "expires_date": "2026-09-01T03:59:59.999Z",
     "lat": 35.29594200066881,
     "lon": -81.27745199998039,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -2280,7 +2307,7 @@
     "expires_date": "2026-08-25T03:59:59.999Z",
     "lat": 35.289330790419626,
     "lon": -81.2791021864047,
-    "risk_score": 2,
+    "risk_score": 10,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -2417,7 +2444,7 @@
     "expires_date": "2026-08-07T03:59:59.999Z",
     "lat": 35.29291580384732,
     "lon": -81.26947711592165,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 RXMT locate request in Bessemer City, Gaston County"
@@ -2444,7 +2471,7 @@
     "expires_date": "2026-08-22T03:59:59.999Z",
     "lat": 35.29291580384732,
     "lon": -81.26947711592165,
-    "risk_score": 2,
+    "risk_score": 10,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -2687,7 +2714,7 @@
     "expires_date": "2026-08-21T03:59:59.999Z",
     "lat": 35.27928395286596,
     "lon": -81.26497537359067,
-    "risk_score": 2,
+    "risk_score": 10,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -2714,7 +2741,7 @@
     "expires_date": "2026-08-21T03:59:59.999Z",
     "lat": 35.28786260207414,
     "lon": -81.280752868708,
-    "risk_score": 2,
+    "risk_score": 10,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -2796,7 +2823,7 @@
     "expires_date": "2026-08-21T03:59:59.999Z",
     "lat": 35.28142913991853,
     "lon": -81.26140384958796,
-    "risk_score": 2,
+    "risk_score": 6,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -2880,7 +2907,7 @@
     "expires_date": "2026-08-08T03:59:59.999Z",
     "lat": 35.28744200066861,
     "lon": -81.26770099998107,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 RXMT locate request in Bessemer City, Gaston County"
@@ -2908,7 +2935,7 @@
     "expires_date": "2026-08-08T03:59:59.999Z",
     "lat": 35.28744200066861,
     "lon": -81.26770099998107,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 RXMT locate request in Bessemer City, Gaston County"
@@ -3477,7 +3504,7 @@
     "expires_date": "2026-08-08T03:59:59.999Z",
     "lat": 35.28744200066861,
     "lon": -81.26770099998107,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 3HRS locate request in Bessemer City, Gaston County"
@@ -3724,7 +3751,7 @@
     "expires_date": "2026-08-07T03:59:59.999Z",
     "lat": 35.29291580384732,
     "lon": -81.26947711592165,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 3HRS locate request in Bessemer City, Gaston County"
@@ -3778,7 +3805,7 @@
     "expires_date": "2026-08-13T03:59:59.999Z",
     "lat": 35.29154545682984,
     "lon": -81.27340256124289,
-    "risk_score": 2,
+    "risk_score": 10,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -4953,7 +4980,7 @@
     "expires_date": "2026-07-29T03:59:59.999Z",
     "lat": 35.296117397666876,
     "lon": -81.25783158681668,
-    "risk_score": 2,
+    "risk_score": 8,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -5599,7 +5626,7 @@
     "expires_date": "2026-08-04T03:59:59.999Z",
     "lat": 35.290146610061115,
     "lon": -81.28354708409088,
-    "risk_score": 2,
+    "risk_score": 6,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
     "signal": "Live NC811 NEW locate request in Bessemer City, Gaston County"
@@ -6770,33 +6797,6 @@
     "expires_date": "2026-07-28T03:59:59.999Z",
     "lat": 35.2910428427067,
     "lon": -81.27746228742798,
-    "risk_score": 2,
-    "source": "NC811 Public Near Ticket",
-    "source_type": "public_811_live",
-    "signal": "Live NC811 UPDT locate request in Bessemer City, Gaston County"
-  },
-  {
-    "ticket_id": "2617507746",
-    "revision": "000",
-    "state": "NC",
-    "county": "Gaston",
-    "city": "Bessemer City",
-    "street": "E Iowa Ave",
-    "cross_streets": [
-      "N 11Th St"
-    ],
-    "work_type": "811 Locate Request",
-    "category": "Utility",
-    "excavator": "AMALIA HUERTAS",
-    "company": "AMALIA HUERTAS",
-    "status": "Active 811 Locate",
-    "ticket_type": "UPDT",
-    "priority": "NORM",
-    "created_date": "2026-06-24T20:14:47.632Z",
-    "work_date": "2026-06-30T04:00:00.000Z",
-    "expires_date": "2026-07-28T03:59:59.999Z",
-    "lat": 35.29131187050414,
-    "lon": -81.27890722037353,
     "risk_score": 2,
     "source": "NC811 Public Near Ticket",
     "source_type": "public_811_live",
