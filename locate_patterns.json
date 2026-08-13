@@ -25,7 +25,7 @@
             "4 tracked parcel(s) within 3 miles"
         ],
         "coordinates": "35.11680000, -80.95040000",
-        "created_date": "2026-08-12"
+        "created_date": "2026-08-13"
     },
     {
         "pattern_id": "PATTERN-Cabarrus-002",
@@ -52,7 +52,7 @@
             "1 nearby parcel(s) have high watch scores"
         ],
         "coordinates": "35.37060000, -80.72520000",
-        "created_date": "2026-08-12"
+        "created_date": "2026-08-13"
     },
     {
         "pattern_id": "PATTERN-Union-003",
@@ -77,6 +77,6 @@
             "Source signal contributes 8 point(s)"
         ],
         "coordinates": "35.01760000, -80.54950000",
-        "created_date": "2026-08-12"
+        "created_date": "2026-08-13"
     }
 ]
