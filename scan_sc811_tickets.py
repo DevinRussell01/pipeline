@@ -1,4 +1,4 @@
-print("Summit Atlas — SC811 Ticket Scanner")
+print("Conduit 2.0 — SC811 Ticket Scanner")
 print("-----------------------------------")
 print("SC811 scanner placeholder active.")
 print("Future source: SC811 / Exactix ticket data")

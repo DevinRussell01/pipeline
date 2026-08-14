@@ -3,7 +3,7 @@ from datetime import datetime
 
 OUTPUT_FILE = "projects.json"
 
-print("Summit Atlas County Scanner")
+print("Conduit 2.0 — County Scanner")
 print("---------------------------")
 
 new_projects = [
@@ -13,7 +13,7 @@ new_projects = [
         "address": "Belmont / Gastonia Growth Corridor",
         "acreage": "",
         "owner": "",
-        "applicant": "Summit Atlas Test Scan",
+        "applicant": "Conduit 2.0 Test Scan",
         "zoning_change": "Automated scanner test project",
         "source_url": "https://www.gastongov.com/",
         "last_scanned": datetime.now().strftime("%Y-%m-%d")

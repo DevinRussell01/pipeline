@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-print("Summit Atlas — Locate Signal Scanner")
+print("Conduit 2.0 — Locate Signal Scanner")
 print("------------------------------------")
 
 today = datetime.now().strftime("%Y-%m-%d")

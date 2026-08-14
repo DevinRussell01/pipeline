@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-print("Summit Atlas — Locate Pattern Detector")
+print("Conduit 2.0 — Legacy Locate Pattern Detector")
 print("--------------------------------------")
 
 with open("locate_correlations.json") as f:

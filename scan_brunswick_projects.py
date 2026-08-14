@@ -11,7 +11,7 @@ headers = {
     "User-Agent": "Mozilla/5.0"
 }
 
-print("Summit Atlas — Brunswick Project Scanner")
+print("Conduit 2.0 — Brunswick Project Scanner")
 print("---------------------------------------")
 
 response = requests.get(SOURCE_URL, headers=headers, timeout=15)

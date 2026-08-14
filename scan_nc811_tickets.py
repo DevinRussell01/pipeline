@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 
-print("Summit Atlas — NC811 Ticket Scanner")
+print("Conduit 2.0 — NC811 Ticket Scanner")
 print("-----------------------------------")
 
 # Temporary structured seed data.
