@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 print("===================================")
-print("CONDUIT SCAN CENTER")
+print("CONDUIT 2.0 SCAN CENTER")
 print("===================================")
 print(f"Started: {datetime.now().isoformat(timespec='seconds')}", flush=True)
 
@@ -17,8 +17,7 @@ scripts = [
     "scan_brunswick_gis.py",
     "land_intelligence.py",
     "scan_nc811_live.py",
-    "correlate_locate_signals.py",
-    "detect_locate_patterns.py",
+    "topaz_infrastructure_activity.py",
     "generate_ai_brief.py",
     "generate_activity_feed.py",
     "generate_ask_conduit.py",

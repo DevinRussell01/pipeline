@@ -48,45 +48,79 @@ COUNTIES = [
 # =====================================================
 
 def calculate_watch_score(owner, acres):
-    owner_upper = str(owner or "").upper()
+    """
+    Classify parcel ownership and calculate strategic land watch score.
+
+    Returns:
+        watch_score
+        llc_flag
+        strategic_owner_flag
+        owner_type
+    """
+
+    owner_upper = str(owner or "").strip().upper()
+    acres = float(acres or 0)
 
     public_owner_keywords = [
         "STATE OF NORTH CAROLINA",
         "STATE OF NC",
-
         "CLEVELAND COUNTY",
         "GASTON COUNTY",
         "MECKLENBURG COUNTY",
         "CABARRUS COUNTY",
-
         "COUNTY OF",
         "CITY OF",
         "TOWN OF",
-
         "BOARD OF EDUCATION",
-
         "DUKE ENERGY",
         "DUKE POWER",
-
         "WATER AND SEWER AUTHORITY",
         "CITY OF CONCORD"
     ]
-    
 
-    is_public_owner = any(keyword in owner_upper for keyword in public_owner_keywords)
+    is_public_owner = any(
+        keyword in owner_upper
+        for keyword in public_owner_keywords
+    )
 
     if is_public_owner:
-        return 2, False
+        return 2, False, False, "Public/Utility"
+
+    institutional_keywords = [
+        "CONSERVANCY",
+        "LAND TRUST",
+        "PARKS & RECREATION",
+        "PARKS AND RECREATION",
+        "CHURCH",
+        "BAPTIST",
+        "METHODIST",
+        "PRESBYTERIAN",
+        "LUTHERAN",
+        "CATHOLIC",
+        "MINISTRIES",
+        "MINISTRY",
+        "FOUNDATION",
+        "SCHOOL",
+        "UNIVERSITY",
+        "COLLEGE",
+        "HOSPITAL"
+    ]
+
+    is_institutional_owner = any(
+        keyword in owner_upper
+        for keyword in institutional_keywords
+    )
+
+    if is_institutional_owner:
+        return 2, False, False, "Institutional/Nonprofit"
 
     if owner_upper in ["UNKNOWN", "", "NONE"]:
-        acres = float(acres or 0)
-
         if acres >= 300:
-            return 3, False
+            return 3, False, False, "Unknown"
         elif acres >= 100:
-            return 2, False
+            return 2, False, False, "Unknown"
         else:
-            return 1, False
+            return 1, False, False, "Unknown"
 
     score = 0
 
@@ -99,35 +133,81 @@ def calculate_watch_score(owner, acres):
     elif acres >= 25:
         score += 2
 
-    keywords = [
-        "LLC",
-        "INC",
-        "CORP",
-        "CORPORATION",
-        "CO",
-        "COMPANY",
-        "HOLDINGS",
-        "PROPERTIES",
-        "PROPERTY",
+    # Literal LLC ownership only.
+    llc_flag = "LLC" in owner_upper
+
+    developer_keywords = [
         "DEVELOPMENT",
+        "DEVELOPER",
         "DEVELOPERS",
-        "INVESTMENTS",
-        "VENTURES",
-        "LAND",
-        "REALTY",
-        "REAL ESTATE",
         "HOMES",
+        "HOME",
         "BUILDERS",
         "BUILDER",
         "CONSTRUCTION"
     ]
 
-    llc_flag = any(word in owner_upper for word in keywords)
+    investment_keywords = [
+        "HOLDINGS",
+        "PROPERTIES",
+        "PROPERTY",
+        "INVESTMENTS",
+        "VENTURES",
+        "REALTY",
+        "REAL ESTATE"
+    ]
 
-    if llc_flag:
+    corporate_keywords = [
+        " INC",
+        "INC.",
+        "CORP",
+        "CORPORATION",
+        "COMPANY"
+    ]
+
+    is_developer = any(
+        keyword in owner_upper
+        for keyword in developer_keywords
+    )
+
+    is_investment_owner = any(
+        keyword in owner_upper
+        for keyword in investment_keywords
+    )
+
+    is_corporate = any(
+        keyword in owner_upper
+        for keyword in corporate_keywords
+    )
+
+    strategic_owner_flag = (
+        llc_flag
+        or is_developer
+        or is_investment_owner
+    )
+
+    if is_developer:
+        owner_type = "Developer/Builder"
+    elif llc_flag:
+        owner_type = "LLC"
+    elif is_investment_owner:
+        owner_type = "Investment/Property"
+    elif is_corporate:
+        owner_type = "Corporate"
+    else:
+        owner_type = "Individual/Other"
+
+    if strategic_owner_flag:
         score += 4
+    elif is_corporate:
+        score += 2
 
-    return score, llc_flag
+    return (
+        score,
+        llc_flag,
+        strategic_owner_flag,
+        owner_type
+    )
 
 def fetch_arcgis_pages(url, base_params, page_size=1000):
     features = []
@@ -229,7 +309,9 @@ def fetch_county_land(config):
         elif x and y:
             lon, lat = transformer.transform(x, y)
 
-        watch_score, llc_flag = calculate_watch_score(owner, acres)
+        watch_score, llc_flag, strategic_owner_flag, owner_type = (
+            calculate_watch_score(owner, acres)
+        )
 
         parcels.append({
             "county": county,
@@ -243,6 +325,8 @@ def fetch_county_land(config):
             "lat": lat,
             "lon": lon,
             "llc_flag": llc_flag,
+            "strategic_owner_flag": strategic_owner_flag,
+            "owner_type": owner_type,
             "watch_score": watch_score
         })
 
@@ -322,7 +406,9 @@ def fetch_mecklenburg_land():
 
         owner = get_mecklenburg_owner(pid)
 
-        watch_score, llc_flag = calculate_watch_score(owner, acres)
+        watch_score, llc_flag, strategic_owner_flag, owner_type = (
+            calculate_watch_score(owner, acres)
+        )
 
         parcels.append({
             "county": "Mecklenburg",
@@ -336,6 +422,8 @@ def fetch_mecklenburg_land():
             "lat": lat,
             "lon": lon,
             "llc_flag": llc_flag,
+            "strategic_owner_flag": strategic_owner_flag,
+            "owner_type": owner_type,
             "watch_score": watch_score,
             "acreage_source": "Shape.STArea / 43560",
             "owner_source": "POLARIS"
@@ -453,7 +541,9 @@ def fetch_union_land():
         lat = geom.get("y")
         lon = geom.get("x")
 
-        watch_score, llc_flag = calculate_watch_score(owner, acres)
+        watch_score, llc_flag, strategic_owner_flag, owner_type = (
+            calculate_watch_score(owner, acres)
+        )
 
         parcels.append({
             "county": "Union",
@@ -471,6 +561,8 @@ def fetch_union_land():
             "zoning_admin": attr.get("ZoningAdmin"),
             "fire_district": attr.get("FireDistrict"),
             "llc_flag": llc_flag,
+            "strategic_owner_flag": strategic_owner_flag,
+            "owner_type": owner_type,
             "watch_score": watch_score,
             "acreage_source": "DEVNET Deeded Acres",
             "owner_source": "DEVNET"
@@ -578,7 +670,9 @@ def fetch_cabarrus_land():
 
         acres = deeded_acres if deeded_acres else gis_acres
 
-        watch_score, llc_flag = calculate_watch_score(owner, acres)
+        watch_score, llc_flag, strategic_owner_flag, owner_type = (
+            calculate_watch_score(owner, acres)
+        )
 
         parcels.append({
             "county": "Cabarrus",
@@ -594,6 +688,8 @@ def fetch_cabarrus_land():
             "lat": lat,
             "lon": lon,
             "llc_flag": llc_flag,
+            "strategic_owner_flag": strategic_owner_flag,
+            "owner_type": owner_type,
             "watch_score": watch_score,
             "acreage_source": "Cabarrus Tax Card / GIS Shape Area",
             "owner_source": "Cabarrus Tax Appraisal Card"

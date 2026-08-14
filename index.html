@@ -1485,18 +1485,18 @@ gap:12px;
   <br>
 
 <div class="framework-card highlight" id="signalsExecutiveSummary">
-  <h3>811 Locate Intelligence Summary</h3>
+  <h3>TOPAZ Infrastructure Intelligence Summary</h3>
 
   <p>
-    <strong id="summarySignalCount">0</strong> active infrastructure signals detected.
+    <strong id="summarySignalCount">0</strong> active infrastructure records analyzed.
   </p>
 
   <p>
-    <strong id="summaryPriorityCount">0</strong> action queue items identified.
+    <strong id="summaryPriorityCount">0</strong> priority opportunities identified.
   </p>
 
   <p>
-    <strong id="summaryCandidateCount">0</strong> priority expansion candidates.
+    <strong id="summaryCandidateCount">0</strong> elevated opportunities identified.
   </p>
 
   <p>
@@ -1520,31 +1520,32 @@ gap:12px;
   </p>
 
   <div class="framework-card" style="margin-bottom:18px;">
-    <strong>Opportunity Index</strong>
+    <strong>TOPAZ Opportunity Score</strong>
 
     <div style="margin-top:10px; display:flex; gap:20px; flex-wrap:wrap;">
 
       <div>
-        <strong>20+</strong><br>
-        Immediate Review
+        <strong>8-10</strong><br>
+        Priority
       </div>
 
       <div>
-        <strong>15–19</strong><br>
-        High Confidence
+        <strong>6-7</strong><br>
+        Elevated
       </div>
 
       <div>
-        <strong>10–14</strong><br>
-        Moderate
+        <strong>4-5</strong><br>
+        Monitor
       </div>
 
       <div>
-        <strong>&lt;10</strong><br>
-        Monitoring
+        <strong>1-3</strong><br>
+        Low Signal
       </div>
 
     </div>
+</div>
 </div>
 
 <div class="stats" id="opportunityCards">
@@ -1568,15 +1569,30 @@ gap:12px;
 
 <br>
 
-<h3>Active 811 Locate Requests</h3>
+<h3>Infrastructure Activity Intelligence</h3>
 
 <p class="sub">
-  Current utility, telecom, development, and infrastructure activity detected and monitored by Conduit.
+  Powered by TOPAZ — live 811 activity classified into actionable clusters and individual signals, then evaluated against development and strategic land intelligence.
 </p>
 
 <br>
 
 <div class="filters">
+
+  <label>Activity</label>
+  <select id="topazActivityFilter" onchange="clearTopazClusterFocus(); renderLocateTickets();">
+    <option value="">All Activity</option>
+    <option value="Cluster">Clusters</option>
+    <option value="Single">Singles</option>
+  </select>
+
+  <label>Minimum Opportunity</label>
+  <select id="topazOpportunityFilter" onchange="clearTopazClusterFocus(); renderLocateTickets();">
+    <option value="0">All Scores</option>
+    <option value="4">4+ Monitor</option>
+    <option value="6">6+ Elevated</option>
+    <option value="8">8+ Priority</option>
+  </select>
 
   <label>County</label>
   <select id="signalCountyFilter" onchange="renderLocateTickets()">
@@ -1642,7 +1658,7 @@ gap:12px;
 
   <div class="stat">
     <strong id="locateTelecomCount">0</strong>
-    <span>Emergency Priority Tickets</span>
+    <span>Priority Opportunities 8+</span>
   </div>
 </div>
 
@@ -1655,11 +1671,11 @@ gap:12px;
         <th>County</th>
         <th>City</th>
         <th>Street</th>
-        <th>Ticket Type</th>
+        <th>Activity</th>
         <th>Priority</th>
         <th>Excavator</th>
         <th>Work Date</th>
-        <th>Risk</th>
+        <th>Opportunity</th>
       </tr>
     </thead>
     <tbody id="locateTicketTable"></tbody>
@@ -1668,10 +1684,50 @@ gap:12px;
 
 <br>
 
-<h3>811 Locate Opportunities</h3>
+<h3>TOPAZ Intelligence Summary</h3>
 
 <div class="sub">
-  811 locate activity evaluated alongside nearby development projects and strategic land records.
+  Infrastructure activity converted into actionable intelligence through spatial clustering,
+  development convergence, and strategic land context.
+</div>
+
+<br>
+
+<div class="stats">
+
+  <div class="stat"
+       onclick="setTopazSummaryFilter('all')"
+       style="cursor:pointer">
+    <strong id="topazSummaryActive">0</strong>
+    <span>Active Tickets</span>
+  </div>
+
+  <div class="stat"
+       onclick="setTopazSummaryFilter('clusters')"
+       style="cursor:pointer">
+    <strong id="topazSummaryClusters">0</strong>
+    <span>Activity Clusters</span>
+  </div>
+
+  <div class="stat"
+       onclick="setTopazSummaryFilter('singles')"
+       style="cursor:pointer">
+    <strong id="topazSummarySingles">0</strong>
+    <span>Single Tickets</span>
+  </div>
+
+  <div class="stat"
+       onclick="setTopazSummaryFilter('priority')"
+       style="cursor:pointer">
+    <strong id="topazSummaryPriority">0</strong>
+    <span>Priority Opportunities 8+</span>
+  </div>
+
+  <div class="stat">
+    <strong id="topazSummaryHighest">0</strong>
+    <span>Highest Opportunity</span>
+  </div>
+
 </div>
 
 <br>
@@ -1680,46 +1736,22 @@ gap:12px;
   <table>
     <thead>
       <tr>
+        <th>Priority</th>
         <th>County</th>
-        <th>Street</th>
-        <th>Work Type</th>
-        <th>Opportunity Index</th>
-        <th>Nearby Projects</th>
-        <th>Nearby Strategic Land</th>
-        <th>Summary</th>
-        <th>Opportunity Narrative</th>
-      </tr>
-    </thead>
-    <tbody id="locateCorrelationTable"></tbody>
-  </table>
-</div>
-
-<br>
-
-<h3>811 Activity Patterns</h3>
-
-<div class="sub">
-  Recurring 811 locate activity evaluated for potential infrastructure expansion patterns.
-</div>
-
-<br>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr>
-        <th>Pattern Type</th>
-        <th>County</th>
-        <th>Street</th>
-        <th>Confidence</th>
+        <th>Activity</th>
+        <th>Tickets</th>
         <th>Opportunity</th>
-        <th>Business Impact</th>
-        <th>Recommended Action</th>
+        <th>Development Context</th>
+        <th>Strategic Land</th>
+        <th>Assessment</th>
+        <th>Action</th>
       </tr>
     </thead>
-    <tbody id="locatePatternTable"></tbody>
+    <tbody id="topazPriorityTable"></tbody>
   </table>
 </div>
+
+<br>
 
 </div>
 
@@ -2099,7 +2131,7 @@ gap:12px;
 </button>
 
 <div class="log" id="log">
-Conduit v1 initialized.
+Conduit 2.0 initialized.
 Awaiting scan.
 </div>
 
@@ -2335,76 +2367,86 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
     </p>
   </div>
 
-  <div class="framework-card">
-    <h3>What is 811 Locate Activity?</h3>
+  <div class="framework-card wide">
+    <h3>Infrastructure Activity Intelligence powered by TOPAZ</h3>
+
     <p>
-      811 locate requests are often one of the earliest public indicators of future utility and telecommunications construction. Conduit combines locate activity with development, land, builder, and GIS intelligence to identify areas where infrastructure investment may be accelerating.
+      TOPAZ analyzes live public 811 locate activity as an independent
+      infrastructure intelligence layer integrated into Conduit 2.0.
+      Rather than treating every locate request as an opportunity, TOPAZ
+      separates isolated activity from concentrated infrastructure activity
+      and evaluates the surrounding development context.
+    </p>
+  </div>
+
+  <div class="framework-card">
+    <h3>Activity Classification</h3>
+
+    <p>
+      Active 811 tickets are classified as either Singles or Clusters.
+      Clusters represent multiple active locate requests concentrated within
+      a compact geographic area. The current clustering radius is 0.10 mile.
+    </p>
+
+    <div class="score-table">
+      <div><strong>Cluster</strong><span>Concentrated infrastructure activity</span></div>
+      <div><strong>Single</strong><span>Isolated locate activity retained for context</span></div>
+    </div>
+  </div>
+
+  <div class="framework-card">
+    <h3>Supporting Intelligence</h3>
+
+    <p>
+      Infrastructure activity is evaluated against independent Conduit
+      intelligence sources to determine whether the activity overlaps with
+      signals of potential growth.
     </p>
 
     <ul>
-      <li>Fiber locate requests</li>
-      <li>Directional boring requests</li>
-      <li>Electric utility locates</li>
-      <li>Gas utility locates</li>
-      <li>Water & sewer locates</li>
-      <li>Telecommunications locate requests</li>
+      <li>Nearby development projects</li>
+      <li>Strategic land ownership</li>
+      <li>LLC-owned parcels</li>
+      <li>Geographic concentration of active locate requests</li>
     </ul>
-    </div>
-
-  <div class="framework-card">
-    <h3>811 Risk Score</h3>
-
-    <p>
-      Conduit assigns an operational Risk Score to live 811 locate requests
-      based on the priority classification supplied with the ticket. The score
-      helps analysts separate routine locate activity from time-sensitive or
-      urgent infrastructure activity.
-    </p>
-
-    <p>
-      Risk Score does not indicate the likelihood of telecommunications
-      expansion and is separate from Conduit’s Opportunity Index.
-    </p>
-
-    <div class="score-table">
-      <div><strong>2</strong><span>Routine — normal locate activity</span></div>
-      <div><strong>6</strong><span>Elevated — short-notice activity</span></div>
-      <div><strong>8</strong><span>High — rush locate activity</span></div>
-      <div><strong>10</strong><span>Emergency — emergency locate activity</span></div>
-    </div>
   </div>
 
   <div class="framework-card">
-    <h3>What is an Opportunity?</h3>
-      <p>
-        Opportunities are identified when multiple independent indicators — such as 811 locate activity,
-        nearby development projects, strategic land activity, and builder growth — point to increased
-        infrastructure demand within the same geographic area.
-      </p>
+    <h3>Operational Risk</h3>
+
+    <p>
+      Ticket priority remains available as operational context, but it does
+      not determine whether an area represents a development opportunity.
+      Routine, rush, short-notice, and emergency classifications describe
+      the locate request itself rather than the underlying market opportunity.
+    </p>
   </div>
 
   <div class="framework-card wide">
-    <h3>Opportunity Index</h3>
+    <h3>TOPAZ Opportunity Score</h3>
 
     <p>
-        The Opportunity Index combines 811 locate activity, nearby development, and strategic land
-        concentration into a single prioritization score. Higher values indicate stronger evidence
-        that an area warrants analyst review.
+      TOPAZ assigns infrastructure activity an Opportunity Score from 1 to 10.
+      The score measures convergence between 811 activity and independent
+      development or strategic-land intelligence.
     </p>
 
     <p>
-      It is not a 0-100 score, percentage, probability, or forecast.
+      A dense cluster alone does not automatically represent a high-value
+      opportunity. Concentrated activity in an established area may represent
+      maintenance, overbuild, replacement, or routine infrastructure work.
+      Scores rise when the same activity occurs near development or strategic
+      land signals.
     </p>
 
     <div class="score-table">
-      <div><strong>0-5</strong><span>Low Opportunity</span></div>
-      <div><strong>6-10</strong><span>Moderate Opportunity</span></div>
-      <div><strong>11-15</strong><span>High Opportunity</span></div>
-      <div><strong>16+</strong><span>Priority Opportunity</span></div>
+      <div><strong>1-3</strong><span>Low Signal - limited supporting intelligence</span></div>
+      <div><strong>4-5</strong><span>Monitor - meaningful activity with limited convergence</span></div>
+      <div><strong>6-7</strong><span>Elevated - strong supporting intelligence</span></div>
+      <div><strong>8-10</strong><span>Priority - strong infrastructure and development convergence</span></div>
     </div>
-
   </div>
-
+  <div class="framework-card">
     <h3>Current Intelligence Sources</h3>
 
     <ul>
@@ -2415,6 +2457,7 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
       <li>GIS Parcel Intelligence</li>
       <li>Infrastructure Development Activity</li>
     </ul>
+  </div>
 
   <div class="framework-card">
     <h3>Current Coverage</h3>
@@ -2440,7 +2483,7 @@ How Conduit identifies, scores, and prioritizes regional telecommunications oppo
   <ul>
     <li><strong>Growth Corridor Identification:</strong> identify areas where development, strategic land, and infrastructure demand are concentrating.</li>
     <li><strong>Competitive Activity Awareness:</strong> monitor 811 locate activity and other indicators that may suggest utility or telecommunications investment.</li>
-    li><strong>Builder Engagement Opportunities:</strong> identify active builder communities that may require broadband planning or coordination.</li>
+    <li><strong>Builder Engagement Opportunities:</strong> identify active builder communities that may require broadband planning or coordination.</li>
     <li><strong>Broadband Expansion Planning:</strong> support earlier review of future service areas and potential network growth.</li>
     <li><strong>Regional Market Intelligence:</strong> combine county development, strategic land, builder, GIS, and 811 locate data into one operational view.</li>
     <li><strong>Infrastructure Monitoring:</strong> track 811 locate requests and related development activity that may indicate upcoming construction or network investment.</li>
@@ -3430,6 +3473,12 @@ function rebuildGrowthMapLayers() {
 
 let locateMapLoaded = false;
 let LOCATE_TICKETS = [];
+let TOPAZ_ACTIVITY = [];
+let TOPAZ_CLUSTERS = [];
+let TOPAZ_ACTIVITY_BY_TICKET = new Map();
+let TOPAZ_CLUSTER_BY_ID = new Map();
+let activeTopazClusterId = null;
+
 let locateGrowthLayer = null;
 let locateTicketLayer = null;
 let locateHeatLayer = null;
@@ -3561,6 +3610,539 @@ function populateLocateFilters() {
   });
 }
 
+
+function rebuildTopazIndexes() {
+  TOPAZ_ACTIVITY_BY_TICKET = new Map(
+    TOPAZ_ACTIVITY
+      .filter(item => item.ticket_id)
+      .map(item => [String(item.ticket_id), item])
+  );
+
+  TOPAZ_CLUSTER_BY_ID = new Map(
+    TOPAZ_CLUSTERS
+      .filter(item => item.cluster_id)
+      .map(item => [String(item.cluster_id), item])
+  );
+}
+
+function getTopazActivity(ticket) {
+  return TOPAZ_ACTIVITY_BY_TICKET.get(
+    String(ticket.ticket_id || "")
+  ) || null;
+}
+
+function clearTopazClusterFocus() {
+  activeTopazClusterId = null;
+}
+
+function focusTopazCluster(clusterId) {
+  activeTopazClusterId = String(clusterId || "");
+
+  const activityFilter =
+    document.getElementById("topazActivityFilter");
+
+  if (activityFilter) {
+    activityFilter.value = "Cluster";
+  }
+
+  renderLocateTickets();
+
+  if (window.locateMap && locateTicketLayer) {
+    const bounds = locateTicketLayer.getBounds();
+
+    if (bounds.isValid()) {
+      window.locateMap.fitBounds(bounds, {
+        padding: [40, 40],
+        maxZoom: 17
+      });
+    }
+  }
+}
+
+function getTopazScoreLabel(score) {
+  score = Number(score || 0);
+
+  if (score >= 8) return "Priority";
+  if (score >= 6) return "Elevated";
+  if (score >= 4) return "Monitor";
+
+  return "Low";
+}
+
+function buildTopazPopup(ticket, activity) {
+  const ticketId = String(ticket.ticket_id || "");
+  const activityType = activity?.activity_type || "Single";
+  const score = Number(activity?.opportunity_score || 1);
+  const clusterId = activity?.cluster_id || "";
+
+  const projectDistance =
+    activity?.nearest_project_distance != null
+      ? `${activity.nearest_project_distance} mi`
+      : "None";
+
+  const landDistance =
+    activity?.nearest_strategic_land_distance != null
+      ? `${activity.nearest_strategic_land_distance} mi`
+      : "None";
+
+  const cluster = clusterId
+    ? TOPAZ_CLUSTER_BY_ID.get(String(clusterId))
+    : null;
+
+  const ticketCount =
+    cluster?.ticket_count ||
+    activity?.cluster_ticket_count ||
+    1;
+
+  const clusterButton = clusterId
+    ? `
+      <button onclick="focusTopazCluster('${String(clusterId).replace(/'/g, "\\'")}')">
+        View Cluster (${ticketCount})
+      </button><br><br>
+    `
+    : "";
+
+  return `
+    <div style="min-width:260px;">
+      <strong>TOPAZ Infrastructure Activity</strong><br>
+      <span style="opacity:.75;">${activityType}</span><br><br>
+
+      <strong>Opportunity Score: ${score}/10</strong><br>
+      ${getTopazScoreLabel(score)}<br><br>
+
+      Ticket: ${ticketId}<br>
+      ${ticket.street || ""}<br>
+      ${ticket.city || ""}${ticket.city && ticket.county ? ", " : ""}${ticket.county || ""} County<br><br>
+
+      ${clusterId ? `Cluster: ${clusterId}<br>Cluster Size: ${ticketCount}<br>` : ""}
+      Risk Score: ${ticket.risk_score || 0}<br>
+      Priority: ${ticket.priority || ""}<br><br>
+
+      Nearby Development: ${projectDistance}<br>
+      Strategic Land: ${landDistance}<br><br>
+
+      <strong>Intelligence:</strong><br>
+      ${activity?.opportunity_reason || "Individual 811 activity signal."}<br><br>
+
+      ${clusterButton}
+
+      <button onclick="hideLocateSignal('${ticketId.replace(/'/g, "\\'")}')">
+        Hide
+      </button>
+    </div>
+  `;
+}
+
+
+function setTopazSummaryFilter(mode) {
+
+  clearTopazClusterFocus();
+
+  const activityFilter =
+    document.getElementById("topazActivityFilter");
+
+  const opportunityFilter =
+    document.getElementById("topazOpportunityFilter");
+
+  if (!activityFilter || !opportunityFilter) return;
+
+  activityFilter.value = "";
+  opportunityFilter.value = "0";
+
+  if (mode === "clusters") {
+    activityFilter.value = "Cluster";
+  }
+
+  if (mode === "singles") {
+    activityFilter.value = "Single";
+  }
+
+  if (mode === "priority") {
+    opportunityFilter.value = "8";
+  }
+
+  renderLocateTickets();
+}
+
+
+
+function renderTopazExecutiveSummary() {
+  const activity = Array.isArray(TOPAZ_ACTIVITY)
+    ? TOPAZ_ACTIVITY
+    : [];
+
+  const clusters = Array.isArray(TOPAZ_CLUSTERS)
+    ? TOPAZ_CLUSTERS
+    : [];
+
+  const priority = activity.filter(
+    item => Number(item.opportunity_score || 0) >= 8
+  );
+
+  const elevated = activity.filter(
+    item => {
+      const score = Number(item.opportunity_score || 0);
+      return score >= 6 && score < 8;
+    }
+  );
+
+  const ranked = [...activity].sort(
+    (a, b) =>
+      Number(b.opportunity_score || 0) -
+      Number(a.opportunity_score || 0)
+  );
+
+  const highest = ranked[0] || null;
+
+  const signalCount =
+    document.getElementById("summarySignalCount");
+
+  const priorityCount =
+    document.getElementById("summaryPriorityCount");
+
+  const candidateCount =
+    document.getElementById("summaryCandidateCount");
+
+  const topOpportunity =
+    document.getElementById("summaryTopOpportunity");
+
+  const summaryAction =
+    document.getElementById("summaryAction");
+
+  if (signalCount) {
+    signalCount.textContent =
+      activity.length.toLocaleString();
+  }
+
+  if (priorityCount) {
+    priorityCount.textContent =
+      priority.length.toLocaleString();
+  }
+
+  if (candidateCount) {
+    candidateCount.textContent =
+      elevated.length.toLocaleString();
+  }
+
+  if (topOpportunity) {
+    if (highest) {
+      const location =
+        highest.street ||
+        highest.city ||
+        highest.county ||
+        "Regional activity";
+
+      topOpportunity.textContent =
+        `${highest.county || "Regional"} - ${location} ` +
+        `(TOPAZ ${Number(highest.opportunity_score || 0)}/10)`;
+    } else {
+      topOpportunity.textContent =
+        "No active opportunity detected";
+    }
+  }
+
+  if (summaryAction) {
+    if (!highest) {
+      summaryAction.textContent =
+        "Continue regional monitoring.";
+    } else {
+      const score =
+        Number(highest.opportunity_score || 0);
+
+      if (score >= 8) {
+        summaryAction.textContent =
+          "Priority review - validate development context, land ownership, serviceability, and competitive infrastructure activity.";
+      } else if (score >= 6) {
+        summaryAction.textContent =
+          "Elevated review - monitor activity and validate nearby development or strategic land convergence.";
+      } else if (score >= 4) {
+        summaryAction.textContent =
+          "Monitor - meaningful infrastructure activity detected with limited independent convergence.";
+      } else {
+        summaryAction.textContent =
+          "Low signal - retain for context and continue monitoring.";
+      }
+    }
+  }
+
+  // Keep the three existing Action Queue cards useful.
+  const topClusters = [...clusters]
+    .sort(
+      (a, b) =>
+        Number(b.opportunity_score || 0) -
+        Number(a.opportunity_score || 0)
+    )
+    .slice(0, 3);
+
+  for (let index = 0; index < 3; index++) {
+    const cluster = topClusters[index];
+
+    const card =
+      document.getElementById(`actionCard${index + 1}`);
+
+    const scoreElement =
+      document.getElementById(`opp${index + 1}Score`);
+
+    const textElement =
+      document.getElementById(`opp${index + 1}Text`);
+
+    if (!card) continue;
+
+    if (!cluster) {
+      card.style.display = "none";
+      continue;
+    }
+
+    card.style.display = "";
+
+    const score =
+      Number(cluster.opportunity_score || 0);
+
+    if (scoreElement) {
+      scoreElement.textContent =
+        `TOPAZ ${score}/10`;
+    }
+
+    if (textElement) {
+      textElement.innerHTML = `
+        <div style="font-weight:700; margin-bottom:6px;">
+          ${cluster.county || "Regional"} -
+          ${cluster.city || cluster.cluster_id || "Infrastructure Cluster"}
+        </div>
+
+        <div>
+          ${Number(cluster.ticket_count || 0).toLocaleString()}
+          active locate requests
+        </div>
+
+        <div>
+          ${cluster.project_proximity_label || "No"} development convergence
+        </div>
+
+        <div>
+          ${cluster.strategic_land_proximity_label || "No"} strategic-land convergence
+        </div>
+
+        <div style="margin-top:7px;">
+          ${cluster.opportunity_reason || "Infrastructure activity detected"}
+        </div>
+
+        <button
+          style="margin-top:9px;"
+          onclick="focusTopazCluster('${String(cluster.cluster_id || "").replace(/'/g, "\\'")}')">
+          View Cluster
+        </button>
+      `;
+    }
+  }
+}
+
+
+function renderTopazDashboardMetrics() {
+  const activity = Array.isArray(TOPAZ_ACTIVITY)
+    ? TOPAZ_ACTIVITY
+    : [];
+
+  const clusters = Array.isArray(TOPAZ_CLUSTERS)
+    ? TOPAZ_CLUSTERS
+    : [];
+
+  const priority = activity.filter(
+    item => Number(item.opportunity_score || 0) >= 8
+  );
+
+  const elevated = activity.filter(
+    item => Number(item.opportunity_score || 0) >= 6
+  );
+
+  const dashboardOpportunityCount =
+    document.getElementById("dashboardOpportunityCount");
+
+  const dashPatternCount =
+    document.getElementById("dashPatternCount");
+
+  const dashHighConfidenceCount =
+    document.getElementById("dashHighConfidenceCount");
+
+  const dashTelecomPatternCount =
+    document.getElementById("dashTelecomPatternCount");
+
+  const dashDevelopmentPatternCount =
+    document.getElementById("dashDevelopmentPatternCount");
+
+  if (dashboardOpportunityCount) {
+    dashboardOpportunityCount.textContent =
+      priority.length.toLocaleString();
+  }
+
+  if (dashPatternCount) {
+    dashPatternCount.textContent =
+      clusters.length.toLocaleString();
+  }
+
+  if (dashHighConfidenceCount) {
+    dashHighConfidenceCount.textContent =
+      elevated.length.toLocaleString();
+  }
+
+  if (dashTelecomPatternCount) {
+    dashTelecomPatternCount.textContent =
+      activity.filter(
+        item =>
+          String(item.activity_type || "").toLowerCase() ===
+          "cluster"
+      ).length.toLocaleString();
+  }
+
+  if (dashDevelopmentPatternCount) {
+    dashDevelopmentPatternCount.textContent =
+      clusters.filter(
+        item =>
+          Number(item.nearby_project_count || 0) > 0 ||
+          Number(item.nearby_strategic_land_count || 0) > 0 ||
+          Number(item.nearby_llc_land_count || 0) > 0
+      ).length.toLocaleString();
+  }
+}
+
+function renderTopazSummary() {
+
+  const activeCount = TOPAZ_ACTIVITY.length;
+
+  const clusterRecords = TOPAZ_ACTIVITY.filter(
+    row => String(row.activity_type || "") === "Cluster"
+  );
+
+  const singleRecords = TOPAZ_ACTIVITY.filter(
+    row => String(row.activity_type || "") === "Single"
+  );
+
+  const priorityRecords = TOPAZ_ACTIVITY.filter(
+    row => Number(row.opportunity_score || 0) >= 8
+  );
+
+  const highestScore = TOPAZ_ACTIVITY.reduce(
+    (highest, row) =>
+      Math.max(highest, Number(row.opportunity_score || 0)),
+    0
+  );
+
+  const activeEl =
+    document.getElementById("topazSummaryActive");
+
+  const clustersEl =
+    document.getElementById("topazSummaryClusters");
+
+  const singlesEl =
+    document.getElementById("topazSummarySingles");
+
+  const priorityEl =
+    document.getElementById("topazSummaryPriority");
+
+  const highestEl =
+    document.getElementById("topazSummaryHighest");
+
+  if (activeEl) {
+    activeEl.textContent = activeCount.toLocaleString();
+  }
+
+  if (clustersEl) {
+    clustersEl.textContent = TOPAZ_CLUSTERS.length.toLocaleString();
+  }
+
+  if (singlesEl) {
+    singlesEl.textContent = singleRecords.length.toLocaleString();
+  }
+
+  if (priorityEl) {
+    priorityEl.textContent = priorityRecords.length.toLocaleString();
+  }
+
+  if (highestEl) {
+    highestEl.textContent = highestScore.toFixed(0);
+  }
+
+
+  const table =
+    document.getElementById("topazPriorityTable");
+
+  if (!table) return;
+
+
+  const ranked = [...TOPAZ_CLUSTERS]
+    .sort(
+      (a, b) =>
+        Number(b.opportunity_score || 0) -
+        Number(a.opportunity_score || 0)
+    )
+    .slice(0, 15);
+
+
+  table.innerHTML = ranked.map(cluster => {
+
+    const score =
+      Number(cluster.opportunity_score || 0);
+
+    const clusterId =
+      String(cluster.cluster_id || "");
+
+    const county =
+      cluster.county || "—";
+
+    const ticketCount =
+      Number(cluster.ticket_count || 0);
+
+    const projectDistance =
+      cluster.nearest_project_distance;
+
+    const landDistance =
+      cluster.nearest_strategic_land_distance;
+
+    const projectContext =
+      projectDistance == null
+        ? "None"
+        : `${Number(projectDistance).toFixed(2)} mi`;
+
+    const landContext =
+      landDistance == null
+        ? "None"
+        : `${Number(landDistance).toFixed(2)} mi`;
+
+    let priority = "Monitor";
+
+    if (score >= 8) {
+      priority = "Priority";
+    } else if (score >= 6) {
+      priority = "Elevated";
+    } else if (score >= 4) {
+      priority = "Review";
+    }
+
+    const assessment =
+      cluster.opportunity_reason ||
+      "Infrastructure activity cluster detected.";
+
+    return `
+      <tr>
+        <td><strong>${priority}</strong></td>
+        <td>${county}</td>
+        <td>${clusterId}</td>
+        <td>${ticketCount}</td>
+        <td><strong>${score.toFixed(0)}/10</strong></td>
+        <td>${projectContext}</td>
+        <td>${landContext}</td>
+        <td>${assessment}</td>
+        <td>
+          <button onclick="focusTopazCluster('${clusterId.replace(/'/g, "\\'")}')">
+            View Cluster
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+
 function renderLocateTickets() {
   const countyFilter =
     String(document.getElementById("signalCountyFilter")?.value || "");
@@ -3577,125 +4159,344 @@ function renderLocateTickets() {
   const riskFilter =
     Number(document.getElementById("signalRiskFilter")?.value || 0);
 
+  const activityFilter =
+    String(document.getElementById("topazActivityFilter")?.value || "");
+
+  const opportunityFilter =
+    Number(document.getElementById("topazOpportunityFilter")?.value || 0);
+
   const hiddenSignals = getHiddenSignals();
 
   let tickets = LOCATE_TICKETS.filter(ticket => {
+    const activity = getTopazActivity(ticket);
+
     const county = String(ticket.county || "");
     const city = String(ticket.city || "");
     const ticketType = String(ticket.ticket_type || "");
     const priority = String(ticket.priority || "");
     const riskScore = Number(ticket.risk_score || 0);
 
-    const countyMatch =
-      !countyFilter || county === countyFilter;
+    const activityType =
+      String(activity?.activity_type || "Single");
 
-    const cityMatch =
-      !cityFilter || city === cityFilter;
+    const opportunityScore =
+      Number(activity?.opportunity_score || 1);
 
-    const ticketTypeMatch =
-      !ticketTypeFilter || ticketType === ticketTypeFilter;
+    const clusterId =
+      String(activity?.cluster_id || "");
 
-    const priorityMatch =
-      !priorityFilter || priority === priorityFilter;
-
-    const riskMatch =
-      !riskFilter || riskScore >= riskFilter;
-
-    const hiddenMatch =
+    return (
+      (!countyFilter || county === countyFilter) &&
+      (!cityFilter || city === cityFilter) &&
+      (!ticketTypeFilter || ticketType === ticketTypeFilter) &&
+      (!priorityFilter || priority === priorityFilter) &&
+      (!riskFilter || riskScore >= riskFilter) &&
+      (!activityFilter || activityType === activityFilter) &&
+      (!opportunityFilter || opportunityScore >= opportunityFilter) &&
+      (!activeTopazClusterId || clusterId === activeTopazClusterId) &&
       !hiddenSignals.includes(
         String(ticket.ticket_id || ticket.street || "")
-      );
-
-    return countyMatch &&
-           cityMatch &&
-           ticketTypeMatch &&
-           priorityMatch &&
-           riskMatch &&
-           hiddenMatch;
+      )
+    );
   });
 
-  document.getElementById("locateTicketCount").textContent = tickets.length;
+  // -----------------------------------------------------
+  // SUMMARY METRICS
+  // -----------------------------------------------------
+
+  document.getElementById("locateTicketCount").textContent =
+    tickets.length;
 
   document.getElementById("summarySignalCount").textContent =
     tickets.length;
 
   const counties = [
-    ...new Set(
-      tickets
-        .map(t => t.county)
-        .filter(Boolean)
-    )
+    ...new Set(tickets.map(t => t.county).filter(Boolean))
   ];
 
-  document.getElementById("locateCountyCount").textContent = counties.length;
+  document.getElementById("locateCountyCount").textContent =
+    counties.length;
 
-  const emergencyTickets = tickets.filter(t =>
-    String(t.priority || "").toUpperCase() === "EMER"
-  );
+  const priorityCount = tickets.filter(ticket => {
+    const activity = getTopazActivity(ticket);
+    return Number(activity?.opportunity_score || 0) >= 8;
+  }).length;
 
   document.getElementById("locateTelecomCount").textContent =
-    emergencyTickets.length;
+    priorityCount;
+
+  // -----------------------------------------------------
+  // TABLE — UNDERLYING TICKETS
+  // -----------------------------------------------------
 
   document.getElementById("locateTicketTable").innerHTML =
     tickets.map(ticket => {
+      const activity = getTopazActivity(ticket);
 
       const workDate = ticket.work_date
         ? new Date(ticket.work_date).toLocaleDateString()
         : "";
 
+      const activityType =
+        activity?.activity_type || "Single";
+
+      const score =
+        Number(activity?.opportunity_score || 1);
+
+      const clusterId =
+        activity?.cluster_id || "";
+
+      const activityLabel = clusterId
+        ? `${activityType} · ${clusterId}`
+        : activityType;
+
       return `
-        <tr>
+        <tr
+          style="cursor:pointer;"
+          onclick="window.locateMap && window.locateMap.setView(
+            [${Number(ticket.lat)}, ${Number(ticket.lon)}],
+            17
+          )"
+        >
           <td>${ticket.county || ""}</td>
           <td>${ticket.city || ""}</td>
           <td>${ticket.street || ""}</td>
-          <td>${ticket.ticket_type || ""}</td>
+          <td>${activityLabel}</td>
           <td>${ticket.priority || ""}</td>
           <td>${ticket.excavator || ticket.company || ""}</td>
           <td>${workDate}</td>
-          <td>${ticket.risk_score || 0}</td>
+          <td><strong>${score}/10</strong></td>
         </tr>
       `;
     }).join("");
 
-  if (window.locateMap) {
-    if (locateTicketLayer) {
-      window.locateMap.removeLayer(locateTicketLayer);
-    }
+  if (!window.locateMap) return;
 
-    locateTicketLayer = L.layerGroup().addTo(window.locateMap);
+  // -----------------------------------------------------
+  // REBUILD ACTIONABLE MAP OBJECTS
+  // -----------------------------------------------------
 
+  if (locateTicketLayer) {
+    window.locateMap.removeLayer(locateTicketLayer);
+  }
+
+  locateTicketLayer =
+    L.layerGroup().addTo(window.locateMap);
+
+  const visibleTicketIds = new Set(
+    tickets.map(ticket =>
+      String(ticket.ticket_id || "")
+    )
+  );
+
+  // -----------------------------------------------------
+  // CLUSTER OBJECTS
+  // -----------------------------------------------------
+
+  if (activityFilter !== "Single") {
+    TOPAZ_CLUSTERS.forEach(cluster => {
+      const clusterId =
+        String(cluster.cluster_id || "");
+
+      if (
+        activeTopazClusterId &&
+        clusterId !== activeTopazClusterId
+      ) {
+        return;
+      }
+
+      const memberIds = (
+        cluster.ticket_ids || []
+      ).map(String);
+
+      const visibleMembers = memberIds.filter(
+        id => visibleTicketIds.has(id)
+      );
+
+      if (!visibleMembers.length) return;
+
+      const score =
+        Number(cluster.opportunity_score || 1);
+
+      if (
+        opportunityFilter &&
+        score < opportunityFilter
+      ) {
+        return;
+      }
+
+      const lat =
+        Number(cluster.center_lat);
+
+      const lon =
+        Number(cluster.center_lon);
+
+      if (!lat || !lon) return;
+
+      const radius =
+        score >= 8 ? 15 :
+        score >= 6 ? 13 :
+        score >= 4 ? 11 : 9;
+
+      const marker = L.circleMarker(
+        [lat, lon],
+        {
+          radius,
+          color: "#13d8c7",
+          fillColor: "#13d8c7",
+          fillOpacity: 0.88,
+          weight: score >= 8 ? 4 : 3
+        }
+      );
+
+      const projectDistance =
+        cluster.nearest_project_distance != null
+          ? `${cluster.nearest_project_distance} mi`
+          : "None";
+
+      const landDistance =
+        cluster.nearest_strategic_land_distance != null
+          ? `${cluster.nearest_strategic_land_distance} mi`
+          : "None";
+
+      const cities =
+        (cluster.cities || []).join(", ");
+
+      const streets =
+        (cluster.streets || [])
+          .slice(0, 5)
+          .join("<br>");
+
+      const moreStreets =
+        (cluster.streets || []).length > 5
+          ? `<br>+${cluster.streets.length - 5} more`
+          : "";
+
+      marker
+        .addTo(locateTicketLayer)
+        .bindPopup(`
+          <div style="min-width:290px;">
+            <strong>TOPAZ Infrastructure Activity</strong><br>
+            <span style="opacity:.75;">
+              Cluster Intelligence
+            </span><br><br>
+
+            <strong>${clusterId}</strong><br>
+            ${cluster.county || ""} County
+            ${cities ? ` · ${cities}` : ""}<br><br>
+
+            <strong>Opportunity Score: ${score}/10</strong><br>
+            ${getTopazScoreLabel(score)}<br><br>
+
+            <strong>Activity</strong><br>
+            ${cluster.ticket_count || memberIds.length}
+            active 811 tickets<br>
+            ${cluster.unique_excavators || 0}
+            unique excavators<br><br>
+
+            <strong>Streets</strong><br>
+            ${streets || "Not available"}
+            ${moreStreets}<br><br>
+
+            <strong>Supporting Intelligence</strong><br>
+            Nearby Development: ${projectDistance}<br>
+            Strategic Land: ${landDistance}<br><br>
+
+            <strong>Assessment</strong><br>
+            ${cluster.opportunity_reason || ""}<br><br>
+
+            <button
+              onclick="focusTopazCluster('${clusterId.replace(/'/g, "\\'")}')"
+            >
+              View Cluster (${cluster.ticket_count || memberIds.length})
+            </button>
+          </div>
+        `);
+    });
+  }
+
+  // -----------------------------------------------------
+  // SINGLE-TICKET OBJECTS
+  // -----------------------------------------------------
+
+  if (
+    activityFilter !== "Cluster" &&
+    !activeTopazClusterId
+  ) {
     tickets.forEach(ticket => {
+      const activity = getTopazActivity(ticket);
+
+      if (
+        String(activity?.activity_type || "Single") !==
+        "Single"
+      ) {
+        return;
+      }
+
       const lat = Number(ticket.lat);
       const lon = Number(ticket.lon);
 
       if (!lat || !lon) return;
 
-      L.circleMarker([lat, lon], {
-        radius: 8,
-        color: '#facc15',
-        fillColor: '#facc15',
-        fillOpacity: 0.9,
-        weight: 2
-      })
-      .addTo(locateTicketLayer)
-      .bindPopup(`
-        <strong>811 Locate ${ticket.ticket_id || ""}</strong><br>
-        ${ticket.street || ""}<br>
-        ${ticket.city || ""}${ticket.city && ticket.county ? ", " : ""}${ticket.county || ""} County<br><br>
+      const score =
+        Number(activity?.opportunity_score || 1);
 
-        Type: ${ticket.ticket_type || ""}<br>
-        Priority: ${ticket.priority || ""}<br>
-        Excavator: ${ticket.excavator || ticket.company || ""}<br>
-        Work Date: ${
-          ticket.work_date
-            ? new Date(ticket.work_date).toLocaleDateString()
-            : ""
-        }<br><br>
+      const radius =
+        score >= 8 ? 9 :
+        score >= 6 ? 8 :
+        score >= 4 ? 7 : 5;
 
-        <button onclick="hideLocateSignal('${String(ticket.ticket_id || ticket.street || "").replace(/'/g, "\\'")}')">
-          Hide 811 Marker
-        </button>
-      `);
+      L.circleMarker(
+        [lat, lon],
+        {
+          radius,
+          color: "#000000",
+          fillColor: "#000000",
+          fillOpacity: 0.92,
+          weight: score >= 8 ? 3 : 2
+        }
+      )
+        .addTo(locateTicketLayer)
+        .bindPopup(
+          buildTopazPopup(ticket, activity)
+        );
+    });
+  }
+
+  // -----------------------------------------------------
+  // CLUSTER DRILL-DOWN
+  // -----------------------------------------------------
+
+  if (activeTopazClusterId) {
+    tickets.forEach(ticket => {
+      const activity = getTopazActivity(ticket);
+
+      if (
+        String(activity?.cluster_id || "") !==
+        activeTopazClusterId
+      ) {
+        return;
+      }
+
+      const lat = Number(ticket.lat);
+      const lon = Number(ticket.lon);
+
+      if (!lat || !lon) return;
+
+      L.circleMarker(
+        [lat, lon],
+        {
+          radius: 7,
+          color: "#f5a623",
+          fillColor: "#f5a623",
+          fillOpacity: 0.82,
+          weight: 2
+        }
+      )
+        .addTo(locateTicketLayer)
+        .bindPopup(
+          buildTopazPopup(ticket, activity)
+        );
     });
   }
 }
@@ -3762,194 +4563,35 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       console.error("Could not load locate intelligence layer", error);
     });
 
-    fetch('locate_tickets.json')
-      .then(res => res.json())
-      .then(tickets => {
+    Promise.all([
+      fetch('locate_tickets.json').then(res => res.json()),
+      fetch('topaz_activity.json').then(res => res.json()),
+      fetch('topaz_clusters.json').then(res => res.json())
+    ])
+      .then(([tickets, activity, clusters]) => {
         LOCATE_TICKETS = tickets;
+        TOPAZ_ACTIVITY = activity;
+        TOPAZ_CLUSTERS = clusters;
 
+        renderTopazSummary();
+        renderTopazExecutiveSummary();
+        renderTopazDashboardMetrics();
+
+        rebuildTopazIndexes();
         populateLocateFilters();
         renderLocateTickets();
 
         if (window.pipelineMap) {
           rebuildGrowthMapLayers();
         }
+
+        console.log(
+          `TOPAZ loaded: ${TOPAZ_ACTIVITY.length} activity records, ${TOPAZ_CLUSTERS.length} clusters`
+        );
       })
       .catch(error => {
-        console.error("Could not load locate tickets", error);
+        console.error("Could not load TOPAZ infrastructure intelligence", error);
       });
-  fetch('locate_correlations.json')
-    .then(res => res.json())
-    .then(correlations => {
-      const sorted = correlations.sort(
-        (a, b) => Number(b.opportunity_score || 0) - Number(a.opportunity_score || 0)
-      );
-
-      const ACTION_THRESHOLD = 10;
-
-      const actionQueue = sorted.filter(
-        item => Number(item.opportunity_score || 0) >= ACTION_THRESHOLD
-      );
-
-      for (let index = 0; index < 3; index++) {
-        const item = actionQueue[index];
-
-        const card = document.getElementById(
-          `actionCard${index + 1}`
-        );
-
-        const scoreElement = document.getElementById(
-          `opp${index + 1}Score`
-        );
-
-        const textElement = document.getElementById(
-          `opp${index + 1}Text`
-        );
-
-        if (!card) {
-          continue;
-        }
-
-        if (!item) {
-          card.style.display = "none";
-          continue;
-        }
-
-        card.style.display = "";
-
-        scoreElement.textContent =
-          `${getOpportunityTier(item.opportunity_score)} • ${item.opportunity_score}`;
-
-        const components = item.score_components || {};
-
-        textElement.innerHTML = `
-          <div style="font-weight:700; margin-bottom:6px;">
-            ${item.county || "Regional"} — ${item.street || "Location unavailable"}
-          </div>
-
-          <div>${item.nearby_project_count || 0} nearby development projects</div>
-
-          <div>${item.nearby_land_count || 0} strategic land records</div>
-
-          <div>${
-            item.work_type ||
-            item.category ||
-            "Infrastructure activity detected"
-          }</div>
-        `;
-      }
-      document.getElementById("summaryTopOpportunity").textContent =
-        actionQueue[0]
-          ? `${actionQueue[0].county} - ${actionQueue[0].street} (${getOpportunityTier(actionQueue[0].opportunity_score)} • ${actionQueue[0].opportunity_score})`
-          : "No opportunities detected";
-
-          document.getElementById("summaryAction").textContent =
-            actionQueue[0]
-              ? getSummaryAction(actionQueue[0])
-              : "No action available.";
-
-          document.getElementById("locateCorrelationTable").innerHTML =
-            sorted.map(item => {
-              const narrative =
-                `${item.nearby_project_count || 0} nearby development projects and ` +
-                `${item.nearby_land_count || 0} strategic land records detected near ` +
-                `${item.work_type || "811 locate activity"}, indicating a potential infrastructure opportunity.`;
-
-              return `
-                <tr>
-                  <td>${item.county || ""}</td>
-                  <td>${item.street || ""}</td>
-                  <td>${item.work_type || ""}</td>
-                  <td>${item.opportunity_score || 0}</td>
-                  <td>${item.nearby_project_count || 0}</td>
-                  <td>${item.nearby_land_count || 0}</td>
-                  <td>${item.summary || ""}</td>
-                  <td>${narrative}</td>
-                </tr>
-              `;
-            }).join("");
-    })
-    .catch(error => {
-      console.error("Could not load locate correlations", error);
-    });
-
-    fetch('locate_patterns.json')
-    .then(res => res.json())
-    .then(patterns => {
-
-      document.getElementById("summaryPriorityCount").textContent =
-        patterns.filter(
-          p => String(p.opportunity || "").toLowerCase() === "high"
-        ).length;
-
-      document.getElementById("summaryCandidateCount").textContent =
-        patterns.filter(
-          p =>
-            String(p.confidence_label || "").toLowerCase() === "very high" &&
-            String(p.opportunity || "").toLowerCase() === "high"
-        ).length;
-
-      document.getElementById("locatePatternTable").innerHTML =
-        patterns.map(pattern => {
-
-          let impact = "Regional Awareness";
-          let action = "Monitor activity and continue regional review";
-
-          const patternType = String(pattern.pattern_type || "").toLowerCase();
-          const confidence = String(pattern.confidence_label || "").toLowerCase();
-          const opportunity = String(pattern.opportunity || "").toLowerCase();
-
-          if (patternType.includes("telecom")) {
-            impact = "Potential Competitive Activity";
-            action = "Review competitor activity • Validate serviceability • Escalate for market review";
-          }
-
-          else if (
-            patternType.includes("development") ||
-            patternType.includes("infrastructure cluster")
-          ) {
-            impact = "Future Broadband Demand";
-            action = "Review nearby development • Evaluate future broadband demand • Check builder activity";
-          }
-
-          else if (
-            patternType.includes("utility corridor") ||
-            patternType.includes("corridor")
-          ) {
-              impact = "Potential Infrastructure Partnership";
-              action = "Evaluate joint trench potential • Monitor construction timing • Review network proximity";
-          }
-
-          else if (patternType.includes("general utility")) {
-            impact = "Infrastructure Awareness";
-            action = "Monitor activity and continue regional review";
-          }
-
-          if (
-            confidence === "very high" &&
-            opportunity === "high"
-          ) {
-            impact = "Priority Expansion Candidate";
-            action = "Priority review • Validate field intelligence • Escalate to regional planning";
-          }
-
-          return `
-            <tr>
-              <td>${pattern.pattern_type}</td>
-              <td>${pattern.county}</td>
-              <td>${pattern.street}</td>
-              <td>${pattern.confidence_label}</td>
-              <td>${pattern.opportunity}</td>
-              <td>${impact}</td>
-              <td>${action}</td>
-            </tr>
-          `;
-        }).join("");
-
-    })
-    .catch(error => {
-      console.error("Could not load locate patterns", error);
-    });
-
 }
 
 function rebuildLocateHeatLayer() {
@@ -4234,7 +4876,7 @@ async function loadExecutiveBrief() {
         `${Number(sourceCounts.projects || 0).toLocaleString()} development records, ` +
         `${Number(sourceCounts.land_parcels || 0).toLocaleString()} strategic land records, ` +
         `${Number(sourceCounts.builder_communities || 0).toLocaleString()} builder communities, and ` +
-        `${Number(sourceCounts.locate_patterns || 0).toLocaleString()} infrastructure signals.`;
+        `${Number(sourceCounts.topaz_activity || sourceCounts.locate_tickets || 0).toLocaleString()} infrastructure activity records.`;
     }
 
     document.getElementById("briefSummary").textContent =
@@ -4719,32 +5361,6 @@ if (document.getElementById("orgSearch")) {
 
     });
 
-    fetch("locate_patterns.json")
-      .then(res => res.json())
-      .then(patterns => {
-
-        document.getElementById("dashboardOpportunityCount").textContent =
-          patterns.filter(p => p.opportunity === "High").length;
-
-        document.getElementById("dashPatternCount").textContent =
-          patterns.length;
-
-        document.getElementById("dashHighConfidenceCount").textContent =
-          patterns.filter(
-            p => p.confidence_label === "Very High"
-          ).length;
-
-        document.getElementById("dashTelecomPatternCount").textContent =
-          patterns.filter(
-            p => p.pattern_type === "Telecom Expansion Signal"
-          ).length;
-
-        document.getElementById("dashDevelopmentPatternCount").textContent =
-          patterns.filter(
-            p => p.pattern_type === "Development / Infrastructure Cluster"
-          ).length;
-
-      });
 
     document.getElementById("builderFilter")
     .addEventListener("change", filterBuilderPortfolios);
@@ -4755,7 +5371,7 @@ if (document.getElementById("orgSearch")) {
     document.getElementById("statusFilter")
     .addEventListener("change", filterBuilderPortfolios);
 
-  log('Conduit initialized.');
+  log('Conduit 2.0 initialized.');
   log('Regional county intelligence online.');
   log('Builder100 tracking initialized.');
 };
