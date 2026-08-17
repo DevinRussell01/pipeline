@@ -2,45 +2,6 @@
   {
     "county": "Brunswick",
     "layer_type": "Tax Parcel",
-    "pid": "105507580873",
-    "parcel_number": "242FC056",
-    "owner": "FORRESTER JOSEPH M ETUX",
-    "legal_description": "L-254 PH-1S SUNSET RIDGE PLAT 43/3",
-    "acres": "",
-    "lat": 33.9105121497819,
-    "lon": -78.48889045828088,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105507582864",
-    "parcel_number": "242FC054",
-    "owner": "GRIFFIN CRAIG C ETUX",
-    "legal_description": "L-256 PH-1S SUNSET RIDGE PL 43/3",
-    "acres": "",
-    "lat": 33.910576524093486,
-    "lon": -78.48834219203971,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
-    "pid": "105507585509",
-    "parcel_number": "242FC047",
-    "owner": "WELLS KEITH AND",
-    "legal_description": "L-263 PH-1S SUNSET RIDGE PLAT 43/3",
-    "acres": "",
-    "lat": 33.90984220905728,
-    "lon": -78.48759164077462,
-    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
-  },
-  {
-    "county": "Brunswick",
-    "layer_type": "Tax Parcel",
     "pid": "105507586766",
     "parcel_number": "242FC042",
     "owner": "CUBITO JOHN A ETUX",
@@ -49,7 +10,7 @@
     "lat": 33.910276880228295,
     "lon": -78.48702049872969,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -62,7 +23,7 @@
     "lat": 33.910186316245266,
     "lon": -78.4874215136777,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -75,7 +36,7 @@
     "lat": 33.910183558986866,
     "lon": -78.48771032097079,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -88,7 +49,7 @@
     "lat": 33.91070641629446,
     "lon": -78.48775588063687,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -101,7 +62,7 @@
     "lat": 33.910822203695155,
     "lon": -78.48711771739217,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -114,7 +75,7 @@
     "lat": 33.910753064409676,
     "lon": -78.48690991258941,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -127,7 +88,7 @@
     "lat": 33.910648124097925,
     "lon": -78.48674718155003,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -140,7 +101,7 @@
     "lat": 33.91056866614092,
     "lon": -78.48658922713987,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -153,7 +114,7 @@
     "lat": 33.910200374507205,
     "lon": -78.48580305182224,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -166,7 +127,7 @@
     "lat": 33.90974239146117,
     "lon": -78.48625276017725,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -179,7 +140,7 @@
     "lat": 33.90977436153289,
     "lon": -78.48650658415139,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -192,7 +153,7 @@
     "lat": 33.90953672831833,
     "lon": -78.48678950115466,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -205,7 +166,7 @@
     "lat": 33.909300621730694,
     "lon": -78.48713424502974,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -218,7 +179,7 @@
     "lat": 33.90943710793051,
     "lon": -78.48777198669238,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -231,7 +192,7 @@
     "lat": 33.909505274183196,
     "lon": -78.48837556592645,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -244,7 +205,7 @@
     "lat": 33.90929360789325,
     "lon": -78.48826350305991,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -257,7 +218,7 @@
     "lat": 33.90843989730271,
     "lon": -78.4879935584966,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -270,7 +231,7 @@
     "lat": 33.90809123292414,
     "lon": -78.48794366784747,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -283,7 +244,7 @@
     "lat": 33.90793220609692,
     "lon": -78.48798908148946,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -296,7 +257,7 @@
     "lat": 33.90810264910549,
     "lon": -78.48855069426341,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -309,7 +270,7 @@
     "lat": 33.90824206739524,
     "lon": -78.48862438943898,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -322,7 +283,7 @@
     "lat": 33.90849047209197,
     "lon": -78.48858477790849,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -335,7 +296,7 @@
     "lat": 33.912679487717,
     "lon": -78.48678732160162,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -348,7 +309,7 @@
     "lat": 33.9122704770315,
     "lon": -78.48652059701634,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -361,7 +322,7 @@
     "lat": 33.91192668419052,
     "lon": -78.48644876990815,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -374,7 +335,7 @@
     "lat": 33.91138060738577,
     "lon": -78.48629246280264,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -387,7 +348,7 @@
     "lat": 33.91114997197272,
     "lon": -78.48546105646908,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -400,7 +361,7 @@
     "lat": 33.91138913259438,
     "lon": -78.48577388699088,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -413,7 +374,7 @@
     "lat": 33.91164046208492,
     "lon": -78.4857880250538,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -426,7 +387,7 @@
     "lat": 33.911963736434934,
     "lon": -78.48574659278134,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -439,7 +400,7 @@
     "lat": 33.91249238381619,
     "lon": -78.48595580244823,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -452,7 +413,7 @@
     "lat": 33.91281023889597,
     "lon": -78.48614858420743,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -465,7 +426,46 @@
     "lat": 33.913262987342904,
     "lon": -78.4867601266967,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "105507585509",
+    "parcel_number": "242FC047",
+    "owner": "WELLS KEITH AND",
+    "legal_description": "L-263 PH-1S SUNSET RIDGE PLAT 43/3",
+    "acres": "",
+    "lat": 33.90984220905728,
+    "lon": -78.48759164077462,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-17"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "105507582864",
+    "parcel_number": "242FC054",
+    "owner": "GRIFFIN CRAIG C ETUX",
+    "legal_description": "L-256 PH-1S SUNSET RIDGE PL 43/3",
+    "acres": "",
+    "lat": 33.910576524093486,
+    "lon": -78.48834219203971,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-17"
+  },
+  {
+    "county": "Brunswick",
+    "layer_type": "Tax Parcel",
+    "pid": "105507580873",
+    "parcel_number": "242FC056",
+    "owner": "FORRESTER JOSEPH M ETUX",
+    "legal_description": "L-254 PH-1S SUNSET RIDGE PLAT 43/3",
+    "acres": "",
+    "lat": 33.9105121497819,
+    "lon": -78.48889045828088,
+    "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -478,7 +478,7 @@
     "lat": 33.912901998633245,
     "lon": -78.48768463818504,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -491,7 +491,7 @@
     "lat": 33.91282833733036,
     "lon": -78.48787430202238,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -504,7 +504,7 @@
     "lat": 33.911668029448364,
     "lon": -78.48787034385293,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -517,7 +517,7 @@
     "lat": 33.91195044293416,
     "lon": -78.48807442908623,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -530,7 +530,7 @@
     "lat": 33.911522891172545,
     "lon": -78.48820720138426,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -543,7 +543,7 @@
     "lat": 33.91117532409278,
     "lon": -78.48920116754964,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -556,7 +556,7 @@
     "lat": 33.912406129783996,
     "lon": -78.48815228162537,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -569,7 +569,7 @@
     "lat": 33.913222452221376,
     "lon": -78.48697138250225,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -582,7 +582,7 @@
     "lat": 33.91379208502504,
     "lon": -78.48238628189928,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -595,7 +595,7 @@
     "lat": 33.912123874699056,
     "lon": -78.4884375616277,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -608,7 +608,7 @@
     "lat": 33.91201843012092,
     "lon": -78.48751066750727,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -621,7 +621,7 @@
     "lat": 33.910124488899584,
     "lon": -78.48670908311804,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -634,7 +634,7 @@
     "lat": 33.91372497131037,
     "lon": -78.48483103693648,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -647,7 +647,7 @@
     "lat": 33.90988478433709,
     "lon": -78.48800991265485,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -660,7 +660,7 @@
     "lat": 33.9095713039533,
     "lon": -78.48383533195017,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -673,7 +673,7 @@
     "lat": 33.911254334485086,
     "lon": -78.48899014708705,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -686,7 +686,7 @@
     "lat": 33.91326657775595,
     "lon": -78.48412637316919,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -699,7 +699,7 @@
     "lat": 33.914325715212094,
     "lon": -78.48223416992178,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -712,7 +712,7 @@
     "lat": 33.90987124502533,
     "lon": -78.48573562251364,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -725,7 +725,7 @@
     "lat": 33.91169008269622,
     "lon": -78.48428785192642,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -738,7 +738,7 @@
     "lat": 33.91086776422827,
     "lon": -78.48391393514957,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -751,7 +751,7 @@
     "lat": 33.91104319191901,
     "lon": -78.48377747157906,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -764,7 +764,7 @@
     "lat": 33.911228653007896,
     "lon": -78.48368533025132,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -777,7 +777,7 @@
     "lat": 33.91278691859807,
     "lon": -78.48255054503664,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -790,7 +790,7 @@
     "lat": 33.91245591265094,
     "lon": -78.48246289439422,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -803,7 +803,7 @@
     "lat": 33.91189094875859,
     "lon": -78.48194301979444,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -816,7 +816,7 @@
     "lat": 33.91215193095841,
     "lon": -78.48147157026337,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -829,7 +829,7 @@
     "lat": 33.9121814958708,
     "lon": -78.48170739655947,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -842,7 +842,7 @@
     "lat": 33.91272181899203,
     "lon": -78.48356246937408,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -855,7 +855,7 @@
     "lat": 33.91257494697883,
     "lon": -78.48348511928717,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -868,7 +868,7 @@
     "lat": 33.91225140653808,
     "lon": -78.48338847477679,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -881,7 +881,7 @@
     "lat": 33.912093840215185,
     "lon": -78.4832876753976,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -894,7 +894,7 @@
     "lat": 33.911951546217054,
     "lon": -78.4826331212779,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -907,7 +907,7 @@
     "lat": 33.91214393240971,
     "lon": -78.48268080011802,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -920,7 +920,7 @@
     "lat": 33.91232778068903,
     "lon": -78.48275124229589,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -933,7 +933,7 @@
     "lat": 33.912489587088636,
     "lon": -78.48279409391425,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -946,7 +946,7 @@
     "lat": 33.91264816608817,
     "lon": -78.48285913877746,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -959,7 +959,7 @@
     "lat": 33.91296274831568,
     "lon": -78.4817246174179,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -972,7 +972,7 @@
     "lat": 33.91298622244939,
     "lon": -78.48153686208873,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -985,7 +985,7 @@
     "lat": 33.913402194014054,
     "lon": -78.48118297121877,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -998,7 +998,7 @@
     "lat": 33.913502630093795,
     "lon": -78.48186998076825,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1011,7 +1011,7 @@
     "lat": 33.913510639266896,
     "lon": -78.48204863212088,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1024,7 +1024,7 @@
     "lat": 33.91329045948774,
     "lon": -78.48281664212791,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1037,7 +1037,7 @@
     "lat": 33.91152928053284,
     "lon": -78.48324320505765,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1050,7 +1050,7 @@
     "lat": 33.91274781630628,
     "lon": -78.48867261361468,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1063,7 +1063,7 @@
     "lat": 33.91267204967207,
     "lon": -78.48911309408103,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1076,7 +1076,7 @@
     "lat": 33.91267627503958,
     "lon": -78.48940470478793,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1089,7 +1089,7 @@
     "lat": 33.91234765917385,
     "lon": -78.48942718031469,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1102,7 +1102,7 @@
     "lat": 33.91225543875741,
     "lon": -78.48909359212998,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1115,7 +1115,7 @@
     "lat": 33.91235530856121,
     "lon": -78.4889039923296,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1128,7 +1128,7 @@
     "lat": 33.91228479617613,
     "lon": -78.48864345007964,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1141,7 +1141,7 @@
     "lat": 33.911700199840645,
     "lon": -78.48927486726191,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1154,7 +1154,7 @@
     "lat": 33.91262620912572,
     "lon": -78.48387535021797,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1167,7 +1167,7 @@
     "lat": 33.91430016980321,
     "lon": -78.48143500476236,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1180,7 +1180,7 @@
     "lat": 33.914214679093696,
     "lon": -78.48240441608202,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1193,7 +1193,7 @@
     "lat": 33.914196994822596,
     "lon": -78.48263144046392,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1206,7 +1206,7 @@
     "lat": 33.90863630368894,
     "lon": -78.48812844340691,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1219,7 +1219,7 @@
     "lat": 33.90883411200225,
     "lon": -78.48625242928381,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1232,7 +1232,7 @@
     "lat": 33.908961189654924,
     "lon": -78.48648282948366,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1245,7 +1245,7 @@
     "lat": 33.91057622001466,
     "lon": -78.48856584517515,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1258,7 +1258,7 @@
     "lat": 33.911515421922225,
     "lon": -78.48751451733457,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1271,7 +1271,7 @@
     "lat": 33.91231535545303,
     "lon": -78.48589826020265,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1284,7 +1284,7 @@
     "lat": 33.90853025313947,
     "lon": -78.4874316271608,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   },
   {
     "county": "Brunswick",
@@ -1297,6 +1297,6 @@
     "lat": 33.912465667235146,
     "lon": -78.48655045630403,
     "source_url": "https://bcgis.brunswickcountync.gov/arcgis/rest/services/Layers/TaxParcels/MapServer/0/query",
-    "last_scanned": "2026-08-15"
+    "last_scanned": "2026-08-17"
   }
 ]

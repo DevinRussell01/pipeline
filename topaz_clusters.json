@@ -3,7 +3,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0145",
+    "cluster_id": "TOPAZ-IAI-0148",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -152,7 +152,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0151",
+    "cluster_id": "TOPAZ-IAI-0154",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -171,9 +171,9 @@
       "S Caldwell St",
       "Templeton Ave"
     ],
-    "center_lat": 35.215132264229624,
-    "center_lon": -80.85108104577249,
-    "ticket_count": 15,
+    "center_lat": 35.215083019766546,
+    "center_lon": -80.8510841270836,
+    "ticket_count": 14,
     "ticket_ids": [
       "2621603065",
       "2621603116",
@@ -182,7 +182,6 @@
       "2621603098",
       "2621603034",
       "2621903206",
-      "2620202876",
       "2621603011",
       "2620402103",
       "2621006106",
@@ -191,7 +190,7 @@
       "2621603004",
       "2621603018"
     ],
-    "unique_excavators": 4,
+    "unique_excavators": 3,
     "max_risk_score": 8,
     "opportunity_score": 8,
     "opportunity_reason": "Infrastructure cluster directly adjacent to a high-value development or strategic land signal",
@@ -200,7 +199,7 @@
         "case_number": "SDRU-2023-00007",
         "address": "1203 S CALDWELL ST, CHARLOTTE, NC 28203",
         "description": "Centre South Bldg D",
-        "distance_miles": 0.042,
+        "distance_miles": 0.039,
         "proximity_strength": 5,
         "proximity_label": "Direct",
         "source_url": "https://aca-prod.accela.com/CHARLOTTE/Cap/CapDetail.aspx?Module=LandDevelopment&TabName=LandDevelopment&capID1=23SDU&capID2=00000&capID3=00007&agencyCode=CHARLOTTE"
@@ -209,7 +208,7 @@
         "case_number": "LDCP-2024-00194",
         "address": "1203 S CALDWELL ST CHARLOTTE NC 28203",
         "description": "Centre South Bldg D",
-        "distance_miles": 0.052,
+        "distance_miles": 0.049,
         "proximity_strength": 5,
         "proximity_label": "Direct",
         "source_url": " "
@@ -236,7 +235,7 @@
         "case_number": "LDCP-2025-00361",
         "address": "900 PEARL PARK WY, CHARLOTTE, NC 28204",
         "description": "The Pearl: Charlotte's Innovation District Master Infrastructure 1B",
-        "distance_miles": 0.46,
+        "distance_miles": 0.459,
         "proximity_strength": 3,
         "proximity_label": "Strong",
         "source_url": " "
@@ -254,7 +253,7 @@
         "case_number": "LDCP-2026-00178",
         "address": "908 S CLARKSON ST, CHARLOTTE, NC 28208",
         "description": "Iron District - Ph1 Infrastructure",
-        "distance_miles": 0.934,
+        "distance_miles": 0.937,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": " "
@@ -263,7 +262,7 @@
         "case_number": "LDCP-2026-00178",
         "address": "908 S CLARKSON ST, CHARLOTTE, NC 28208",
         "description": "Iron District - Ph1 Infrastructure",
-        "distance_miles": 0.934,
+        "distance_miles": 0.937,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": " "
@@ -281,7 +280,7 @@
         "case_number": "SDRUR-2022-00004",
         "address": " ",
         "description": "527 W Tremont - RTAP 2",
-        "distance_miles": 1.049,
+        "distance_miles": 1.047,
         "proximity_strength": 1,
         "proximity_label": "Weak",
         "source_url": "https://aca-prod.accela.com/CHARLOTTE/Cap/CapDetail.aspx?Module=LandDevelopment&TabName=LandDevelopment&capID1=22LUR&capID2=00000&capID3=00028"
@@ -293,7 +292,7 @@
     "nearby_land_count": 0,
     "nearby_strategic_land_count": 0,
     "nearby_llc_land_count": 0,
-    "nearest_project_distance": 0.042,
+    "nearest_project_distance": 0.039,
     "nearest_land_distance": null,
     "nearest_strategic_land_distance": null,
     "project_proximity_strength": 5,
@@ -307,7 +306,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0164",
+    "cluster_id": "TOPAZ-IAI-0167",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -456,7 +455,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0142",
+    "cluster_id": "TOPAZ-IAI-0144",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -603,7 +602,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0165",
+    "cluster_id": "TOPAZ-IAI-0168",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -743,7 +742,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0144",
+    "cluster_id": "TOPAZ-IAI-0147",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -878,7 +877,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0146",
+    "cluster_id": "TOPAZ-IAI-0149",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -1298,7 +1297,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0143",
+    "cluster_id": "TOPAZ-IAI-0145",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -1552,7 +1551,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0154",
+    "cluster_id": "TOPAZ-IAI-0157",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -1694,7 +1693,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0157",
+    "cluster_id": "TOPAZ-IAI-0160",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -1835,7 +1834,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0156",
+    "cluster_id": "TOPAZ-IAI-0159",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -1845,21 +1844,19 @@
       "207 W Brooklyn Village Ave",
       "526 S Church St",
       "S Mint St",
-      "W 1St St",
-      "W Brooklyn Village Ave"
+      "W 1St St"
     ],
-    "center_lat": 35.22558245432757,
-    "center_lon": -80.8497714162915,
-    "ticket_count": 6,
+    "center_lat": 35.225702962188066,
+    "center_lon": -80.84972803082084,
+    "ticket_count": 5,
     "ticket_ids": [
       "2622404136",
-      "2620203002",
       "2621101124",
       "2620208018",
       "2620207985",
       "2620207999"
     ],
-    "unique_excavators": 4,
+    "unique_excavators": 3,
     "max_risk_score": 2,
     "opportunity_score": 6,
     "opportunity_reason": "Infrastructure cluster with strong supporting context",
@@ -1886,7 +1883,7 @@
         "case_number": "SDRU-2023-00007",
         "address": "1203 S CALDWELL ST, CHARLOTTE, NC 28203",
         "description": "Centre South Bldg D",
-        "distance_miles": 0.764,
+        "distance_miles": 0.773,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": "https://aca-prod.accela.com/CHARLOTTE/Cap/CapDetail.aspx?Module=LandDevelopment&TabName=LandDevelopment&capID1=23SDU&capID2=00000&capID3=00007&agencyCode=CHARLOTTE"
@@ -1895,7 +1892,7 @@
         "case_number": "LDCP-2024-00194",
         "address": "1203 S CALDWELL ST CHARLOTTE NC 28203",
         "description": "Centre South Bldg D",
-        "distance_miles": 0.774,
+        "distance_miles": 0.782,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": " "
@@ -1904,7 +1901,7 @@
         "case_number": "LDCP-2025-00609",
         "address": "900 S MCDOWELL ST, CHARLOTTE, NC 28204",
         "description": "900 S. McDowell Street",
-        "distance_miles": 0.808,
+        "distance_miles": 0.814,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": " "
@@ -1913,7 +1910,7 @@
         "case_number": "LDCP-2026-00263",
         "address": "900 PEARL PARK WY, CHARLOTTE, NC 28204",
         "description": "The Pearl Master Infrastructure 1B - RTAP #1 (EC Stockpile)",
-        "distance_miles": 0.866,
+        "distance_miles": 0.872,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": " "
@@ -1922,7 +1919,7 @@
         "case_number": "LDCP-2025-00361",
         "address": "900 PEARL PARK WY, CHARLOTTE, NC 28204",
         "description": "The Pearl: Charlotte's Innovation District Master Infrastructure 1B",
-        "distance_miles": 0.877,
+        "distance_miles": 0.883,
         "proximity_strength": 2,
         "proximity_label": "Contextual",
         "source_url": " "
@@ -1931,7 +1928,7 @@
         "case_number": "LDCP-2025-00144",
         "address": "428 WEST BV, CHARLOTTE, NC 28203",
         "description": "Wilmore School Redevelopment",
-        "distance_miles": 1.069,
+        "distance_miles": 1.076,
         "proximity_strength": 1,
         "proximity_label": "Weak",
         "source_url": " "
@@ -1949,7 +1946,7 @@
         "case_number": "SDRMF-2019-00037",
         "address": "615 WEST BV, 1 CHARLOTTE, NC 28203 ",
         "description": "Kingston on West - South Site",
-        "distance_miles": 1.262,
+        "distance_miles": 1.269,
         "proximity_strength": 1,
         "proximity_label": "Weak",
         "source_url": "https://aca3.accela.com/CHARLOTTE/Cap/CapDetail.aspx?Module=LandDevelopment&TabName=LandDevelopment&capID1=19SD1&capID2=00000&capID3=00037"
@@ -1957,7 +1954,7 @@
     ],
     "nearby_land": [],
     "nearby_strategic_land": [],
-    "nearby_project_count": 12,
+    "nearby_project_count": 11,
     "nearby_land_count": 0,
     "nearby_strategic_land_count": 0,
     "nearby_llc_land_count": 0,
@@ -1975,7 +1972,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0152",
+    "cluster_id": "TOPAZ-IAI-0155",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -2110,7 +2107,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0160",
+    "cluster_id": "TOPAZ-IAI-0163",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -2246,7 +2243,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0161",
+    "cluster_id": "TOPAZ-IAI-0164",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -2550,68 +2547,6 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0131",
-    "activity_type": "Cluster",
-    "county": "Iredell",
-    "cities": [
-      "Statesville"
-    ],
-    "streets": [
-      "108 W Allison St",
-      "110 W Allison St",
-      "135 W Allison St",
-      "705 Willie Beatty Ct",
-      "709 Willie Beatty Ct",
-      "716 Caldwell St",
-      "719 Caldwell St",
-      "720 Caldwell St",
-      "722 Willie Beatty Ct",
-      "809 Caldwell St",
-      "811 4Th St",
-      "812 Caldwell St"
-    ],
-    "center_lat": 35.774209054948585,
-    "center_lon": -80.88677863032109,
-    "ticket_count": 12,
-    "ticket_ids": [
-      "2620209124",
-      "2619802558",
-      "2619802507",
-      "2620209255",
-      "2620209170",
-      "2619703632",
-      "2619400916",
-      "2620804447",
-      "2619802536",
-      "2619707173",
-      "2620209648",
-      "2619706430"
-    ],
-    "unique_excavators": 3,
-    "max_risk_score": 8,
-    "opportunity_score": 5,
-    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
-    "nearby_projects": [],
-    "nearby_land": [],
-    "nearby_strategic_land": [],
-    "nearby_project_count": 0,
-    "nearby_land_count": 0,
-    "nearby_strategic_land_count": 0,
-    "nearby_llc_land_count": 0,
-    "nearest_project_distance": null,
-    "nearest_land_distance": null,
-    "nearest_strategic_land_distance": null,
-    "project_proximity_strength": 0,
-    "strategic_land_proximity_strength": 0,
-    "project_proximity_label": "None",
-    "strategic_land_proximity_label": "None",
-    "projects_within_quarter_mile": 0,
-    "strategic_land_within_quarter_mile": 0
-  },
-  {
-    "intelligence_engine": "TOPAZ",
-    "intelligence_product": "Infrastructure Activity Intelligence",
-    "engine_version": "1.0-beta",
     "cluster_id": "TOPAZ-IAI-0061",
     "activity_type": "Cluster",
     "county": "Catawba",
@@ -2644,6 +2579,66 @@
     ],
     "unique_excavators": 4,
     "max_risk_score": 2,
+    "opportunity_score": 5,
+    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
+    "nearby_projects": [],
+    "nearby_land": [],
+    "nearby_strategic_land": [],
+    "nearby_project_count": 0,
+    "nearby_land_count": 0,
+    "nearby_strategic_land_count": 0,
+    "nearby_llc_land_count": 0,
+    "nearest_project_distance": null,
+    "nearest_land_distance": null,
+    "nearest_strategic_land_distance": null,
+    "project_proximity_strength": 0,
+    "strategic_land_proximity_strength": 0,
+    "project_proximity_label": "None",
+    "strategic_land_proximity_label": "None",
+    "projects_within_quarter_mile": 0,
+    "strategic_land_within_quarter_mile": 0
+  },
+  {
+    "intelligence_engine": "TOPAZ",
+    "intelligence_product": "Infrastructure Activity Intelligence",
+    "engine_version": "1.0-beta",
+    "cluster_id": "TOPAZ-IAI-0132",
+    "activity_type": "Cluster",
+    "county": "Iredell",
+    "cities": [
+      "Statesville"
+    ],
+    "streets": [
+      "108 W Allison St",
+      "135 W Allison St",
+      "705 Willie Beatty Ct",
+      "709 Willie Beatty Ct",
+      "716 Caldwell St",
+      "719 Caldwell St",
+      "720 Caldwell St",
+      "722 Willie Beatty Ct",
+      "809 Caldwell St",
+      "811 4Th St",
+      "812 Caldwell St"
+    ],
+    "center_lat": 35.774138408033295,
+    "center_lon": -80.88687738492284,
+    "ticket_count": 11,
+    "ticket_ids": [
+      "2620209124",
+      "2619802558",
+      "2619802507",
+      "2620209255",
+      "2620209170",
+      "2619703632",
+      "2620804447",
+      "2619802536",
+      "2619707173",
+      "2620209648",
+      "2619706430"
+    ],
+    "unique_excavators": 2,
+    "max_risk_score": 8,
     "opportunity_score": 5,
     "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
     "nearby_projects": [],
@@ -2720,7 +2715,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0153",
+    "cluster_id": "TOPAZ-IAI-0156",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -3012,7 +3007,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0158",
+    "cluster_id": "TOPAZ-IAI-0161",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -3251,7 +3246,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0155",
+    "cluster_id": "TOPAZ-IAI-0158",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -3392,7 +3387,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0147",
+    "cluster_id": "TOPAZ-IAI-0150",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -3516,7 +3511,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0150",
+    "cluster_id": "TOPAZ-IAI-0153",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -4229,7 +4224,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0132",
+    "cluster_id": "TOPAZ-IAI-0133",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -4684,7 +4679,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0139",
+    "cluster_id": "TOPAZ-IAI-0141",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -4715,6 +4710,59 @@
     ],
     "unique_excavators": 3,
     "max_risk_score": 2,
+    "opportunity_score": 4,
+    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
+    "nearby_projects": [],
+    "nearby_land": [],
+    "nearby_strategic_land": [],
+    "nearby_project_count": 0,
+    "nearby_land_count": 0,
+    "nearby_strategic_land_count": 0,
+    "nearby_llc_land_count": 0,
+    "nearest_project_distance": null,
+    "nearest_land_distance": null,
+    "nearest_strategic_land_distance": null,
+    "project_proximity_strength": 0,
+    "strategic_land_proximity_strength": 0,
+    "project_proximity_label": "None",
+    "strategic_land_proximity_label": "None",
+    "projects_within_quarter_mile": 0,
+    "strategic_land_within_quarter_mile": 0
+  },
+  {
+    "intelligence_engine": "TOPAZ",
+    "intelligence_product": "Infrastructure Activity Intelligence",
+    "engine_version": "1.0-beta",
+    "cluster_id": "TOPAZ-IAI-0179",
+    "activity_type": "Cluster",
+    "county": "Union",
+    "cities": [
+      "Monroe"
+    ],
+    "streets": [
+      "1600-1605 Tower Ct",
+      "1605 Tower Ct",
+      "1606 Rushing St",
+      "1701 Rushing St",
+      "1704 Rushing St",
+      "1707 Rushing St",
+      "500 Cherryridge Rd"
+    ],
+    "center_lat": 34.985020180088,
+    "center_lon": -80.56689517619765,
+    "ticket_count": 8,
+    "ticket_ids": [
+      "2620400171",
+      "2620500233",
+      "2620500231",
+      "2622700650",
+      "2620202950",
+      "2622400486",
+      "2620500235",
+      "2620500232"
+    ],
+    "unique_excavators": 4,
+    "max_risk_score": 8,
     "opportunity_score": 4,
     "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
     "nearby_projects": [],
@@ -5090,7 +5138,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0173",
+    "cluster_id": "TOPAZ-IAI-0176",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -5113,57 +5161,6 @@
       "2621400461"
     ],
     "unique_excavators": 3,
-    "max_risk_score": 8,
-    "opportunity_score": 4,
-    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
-    "nearby_projects": [],
-    "nearby_land": [],
-    "nearby_strategic_land": [],
-    "nearby_project_count": 0,
-    "nearby_land_count": 0,
-    "nearby_strategic_land_count": 0,
-    "nearby_llc_land_count": 0,
-    "nearest_project_distance": null,
-    "nearest_land_distance": null,
-    "nearest_strategic_land_distance": null,
-    "project_proximity_strength": 0,
-    "strategic_land_proximity_strength": 0,
-    "project_proximity_label": "None",
-    "strategic_land_proximity_label": "None",
-    "projects_within_quarter_mile": 0,
-    "strategic_land_within_quarter_mile": 0
-  },
-  {
-    "intelligence_engine": "TOPAZ",
-    "intelligence_product": "Infrastructure Activity Intelligence",
-    "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0176",
-    "activity_type": "Cluster",
-    "county": "Union",
-    "cities": [
-      "Monroe"
-    ],
-    "streets": [
-      "1600-1605 Tower Ct",
-      "1605 Tower Ct",
-      "1606 Rushing St",
-      "1704 Rushing St",
-      "1707 Rushing St",
-      "500 Cherryridge Rd"
-    ],
-    "center_lat": 34.98499903970857,
-    "center_lon": -80.5668297675305,
-    "ticket_count": 7,
-    "ticket_ids": [
-      "2620400171",
-      "2620500233",
-      "2620500231",
-      "2620202950",
-      "2622400486",
-      "2620500235",
-      "2620500232"
-    ],
-    "unique_excavators": 4,
     "max_risk_score": 8,
     "opportunity_score": 4,
     "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
@@ -5525,7 +5522,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0168",
+    "cluster_id": "TOPAZ-IAI-0171",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -6051,19 +6048,19 @@
     ],
     "streets": [
       "603 6Th Ave Sw",
-      "603-605 6Th Ave Sw",
+      "703 7Th Ave Sw",
       "7Th Ave Sw",
       "7Th St Sw"
     ],
-    "center_lat": 35.72461715611347,
-    "center_lon": -81.34894259047468,
+    "center_lat": 35.724393636131026,
+    "center_lon": -81.34935407412345,
     "ticket_count": 5,
     "ticket_ids": [
       "2622304410",
       "2621504885",
       "2621504870",
       "2622400911",
-      "2619002865"
+      "2621503723"
     ],
     "unique_excavators": 4,
     "max_risk_score": 2,
@@ -6276,7 +6273,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0134",
+    "cluster_id": "TOPAZ-IAI-0135",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -6324,7 +6321,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0167",
+    "cluster_id": "TOPAZ-IAI-0170",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -6370,7 +6367,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0174",
+    "cluster_id": "TOPAZ-IAI-0177",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -6416,7 +6413,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0179",
+    "cluster_id": "TOPAZ-IAI-0182",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -6463,7 +6460,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0183",
+    "cluster_id": "TOPAZ-IAI-0186",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -6510,7 +6507,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0184",
+    "cluster_id": "TOPAZ-IAI-0187",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -6939,7 +6936,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0149",
+    "cluster_id": "TOPAZ-IAI-0152",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -7076,7 +7073,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0163",
+    "cluster_id": "TOPAZ-IAI-0166",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -7192,7 +7189,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0166",
+    "cluster_id": "TOPAZ-IAI-0169",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -8195,7 +8192,124 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0148",
+    "cluster_id": "TOPAZ-IAI-0146",
+    "activity_type": "Cluster",
+    "county": "Mecklenburg",
+    "cities": [
+      "Charlotte"
+    ],
+    "streets": [
+      "1006 Polk St",
+      "938 Polk St",
+      "Polk St"
+    ],
+    "center_lat": 35.24158773154864,
+    "center_lon": -80.83941242277527,
+    "ticket_count": 3,
+    "ticket_ids": [
+      "2622700513",
+      "2621107027",
+      "2622100209"
+    ],
+    "unique_excavators": 3,
+    "max_risk_score": 2,
+    "opportunity_score": 4,
+    "opportunity_reason": "Infrastructure cluster with limited supporting context",
+    "nearby_projects": [
+      {
+        "case_number": "LDCP-2023-00122",
+        "address": "1022 WOODWARD AV, CHARLOTTE, NC 28206",
+        "description": "Woodward Townhomes",
+        "distance_miles": 0.695,
+        "proximity_strength": 2,
+        "proximity_label": "Contextual",
+        "source_url": " "
+      },
+      {
+        "case_number": "UDOPS-2025-00150",
+        "address": "921 WOODWARD AV, CHARLOTTE, NC 28206",
+        "description": "Camp North End - Woodward Apartments",
+        "distance_miles": 0.709,
+        "proximity_strength": 2,
+        "proximity_label": "Contextual",
+        "source_url": " "
+      },
+      {
+        "case_number": "LDCP-2025-00717",
+        "address": "530 BEATTIES FORD RD, CHARLOTTE, NC 28216",
+        "description": "Beaties Ford Road",
+        "distance_miles": 1.049,
+        "proximity_strength": 1,
+        "proximity_label": "Weak",
+        "source_url": " "
+      },
+      {
+        "case_number": "SDRMF-2023-00006",
+        "address": "2700 STATESVILLE AV, CHARLOTTE, NC 28206",
+        "description": "Statesville and Norris Townhomes",
+        "distance_miles": 1.141,
+        "proximity_strength": 1,
+        "proximity_label": "Weak",
+        "source_url": "https://aca-prod.accela.com/CHARLOTTE/Cap/CapDetail.aspx?Module=LandDevelopment&TabName=LandDevelopment&capID1=23SD1&capID2=00000&capID3=00006&agencyCode=CHARLOTTE"
+      },
+      {
+        "case_number": "08304607",
+        "address": "2011 N DAVIDSON ST, CHARLOTTE, NC 28206",
+        "description": "Aura Optimist Park RTAP",
+        "distance_miles": 1.244,
+        "proximity_strength": 1,
+        "proximity_label": "Weak",
+        "source_url": " "
+      },
+      {
+        "case_number": "08108501",
+        "address": "1001 SEIGLE AV, CHARLOTTE, NC 28205",
+        "description": "Seigle Townhomes",
+        "distance_miles": 1.318,
+        "proximity_strength": 1,
+        "proximity_label": "Weak",
+        "source_url": " "
+      },
+      {
+        "case_number": "LDCP-2026-00178",
+        "address": "908 S CLARKSON ST, CHARLOTTE, NC 28208",
+        "description": "Iron District - Ph1 Infrastructure",
+        "distance_miles": 1.442,
+        "proximity_strength": 1,
+        "proximity_label": "Weak",
+        "source_url": " "
+      },
+      {
+        "case_number": "LDCP-2026-00178",
+        "address": "908 S CLARKSON ST, CHARLOTTE, NC 28208",
+        "description": "Iron District - Ph1 Infrastructure",
+        "distance_miles": 1.442,
+        "proximity_strength": 1,
+        "proximity_label": "Weak",
+        "source_url": " "
+      }
+    ],
+    "nearby_land": [],
+    "nearby_strategic_land": [],
+    "nearby_project_count": 8,
+    "nearby_land_count": 0,
+    "nearby_strategic_land_count": 0,
+    "nearby_llc_land_count": 0,
+    "nearest_project_distance": 0.695,
+    "nearest_land_distance": null,
+    "nearest_strategic_land_distance": null,
+    "project_proximity_strength": 2,
+    "strategic_land_proximity_strength": 0,
+    "project_proximity_label": "Contextual",
+    "strategic_land_proximity_label": "None",
+    "projects_within_quarter_mile": 0,
+    "strategic_land_within_quarter_mile": 0
+  },
+  {
+    "intelligence_engine": "TOPAZ",
+    "intelligence_product": "Infrastructure Activity Intelligence",
+    "engine_version": "1.0-beta",
+    "cluster_id": "TOPAZ-IAI-0151",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -8329,7 +8443,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0159",
+    "cluster_id": "TOPAZ-IAI-0162",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -8464,7 +8578,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0162",
+    "cluster_id": "TOPAZ-IAI-0165",
     "activity_type": "Cluster",
     "county": "Mecklenburg",
     "cities": [
@@ -8893,6 +9007,51 @@
       "2621900620",
       "2620504245",
       "2620206739"
+    ],
+    "unique_excavators": 4,
+    "max_risk_score": 2,
+    "opportunity_score": 3,
+    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
+    "nearby_projects": [],
+    "nearby_land": [],
+    "nearby_strategic_land": [],
+    "nearby_project_count": 0,
+    "nearby_land_count": 0,
+    "nearby_strategic_land_count": 0,
+    "nearby_llc_land_count": 0,
+    "nearest_project_distance": null,
+    "nearest_land_distance": null,
+    "nearest_strategic_land_distance": null,
+    "project_proximity_strength": 0,
+    "strategic_land_proximity_strength": 0,
+    "project_proximity_label": "None",
+    "strategic_land_proximity_label": "None",
+    "projects_within_quarter_mile": 0,
+    "strategic_land_within_quarter_mile": 0
+  },
+  {
+    "intelligence_engine": "TOPAZ",
+    "intelligence_product": "Infrastructure Activity Intelligence",
+    "engine_version": "1.0-beta",
+    "cluster_id": "TOPAZ-IAI-0048",
+    "activity_type": "Cluster",
+    "county": "Cabarrus",
+    "cities": [
+      "Concord"
+    ],
+    "streets": [
+      "251 Sunset Dr Se",
+      "270 Sunset Dr Se",
+      "272 Virginia St Se"
+    ],
+    "center_lat": 35.40510797691625,
+    "center_lon": -80.5729826884395,
+    "ticket_count": 4,
+    "ticket_ids": [
+      "2621602884",
+      "2621600644",
+      "2622800211",
+      "2621804679"
     ],
     "unique_excavators": 4,
     "max_risk_score": 2,
@@ -9595,7 +9754,97 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
+    "cluster_id": "TOPAZ-IAI-0131",
+    "activity_type": "Cluster",
+    "county": "Iredell",
+    "cities": [
+      "Statesville"
+    ],
+    "streets": [
+      "1020 8Th St",
+      "1111 8Th St",
+      "7Th St"
+    ],
+    "center_lat": 35.77023020820177,
+    "center_lon": -80.89319721868783,
+    "ticket_count": 4,
+    "ticket_ids": [
+      "2621703984",
+      "2622304199",
+      "2622800490",
+      "2622700238"
+    ],
+    "unique_excavators": 4,
+    "max_risk_score": 2,
+    "opportunity_score": 3,
+    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
+    "nearby_projects": [],
+    "nearby_land": [],
+    "nearby_strategic_land": [],
+    "nearby_project_count": 0,
+    "nearby_land_count": 0,
+    "nearby_strategic_land_count": 0,
+    "nearby_llc_land_count": 0,
+    "nearest_project_distance": null,
+    "nearest_land_distance": null,
+    "nearest_strategic_land_distance": null,
+    "project_proximity_strength": 0,
+    "strategic_land_proximity_strength": 0,
+    "project_proximity_label": "None",
+    "strategic_land_proximity_label": "None",
+    "projects_within_quarter_mile": 0,
+    "strategic_land_within_quarter_mile": 0
+  },
+  {
+    "intelligence_engine": "TOPAZ",
+    "intelligence_product": "Infrastructure Activity Intelligence",
+    "engine_version": "1.0-beta",
     "cluster_id": "TOPAZ-IAI-0137",
+    "activity_type": "Cluster",
+    "county": "Iredell",
+    "cities": [
+      "Statesville"
+    ],
+    "streets": [
+      "331 Colony Rd",
+      "Colony Ct",
+      "Glendale Dr"
+    ],
+    "center_lat": 35.79043658987473,
+    "center_lon": -80.90371664742895,
+    "ticket_count": 4,
+    "ticket_ids": [
+      "2622700836",
+      "2621806934",
+      "2621806848",
+      "2622800494"
+    ],
+    "unique_excavators": 3,
+    "max_risk_score": 2,
+    "opportunity_score": 3,
+    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
+    "nearby_projects": [],
+    "nearby_land": [],
+    "nearby_strategic_land": [],
+    "nearby_project_count": 0,
+    "nearby_land_count": 0,
+    "nearby_strategic_land_count": 0,
+    "nearby_llc_land_count": 0,
+    "nearest_project_distance": null,
+    "nearest_land_distance": null,
+    "nearest_strategic_land_distance": null,
+    "project_proximity_strength": 0,
+    "strategic_land_proximity_strength": 0,
+    "project_proximity_label": "None",
+    "strategic_land_proximity_label": "None",
+    "projects_within_quarter_mile": 0,
+    "strategic_land_within_quarter_mile": 0
+  },
+  {
+    "intelligence_engine": "TOPAZ",
+    "intelligence_product": "Infrastructure Activity Intelligence",
+    "engine_version": "1.0-beta",
+    "cluster_id": "TOPAZ-IAI-0139",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -9640,7 +9889,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0138",
+    "cluster_id": "TOPAZ-IAI-0140",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -9685,25 +9934,24 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0141",
+    "cluster_id": "TOPAZ-IAI-0143",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
       "Statesville"
     ],
     "streets": [
-      "Glendale Dr",
       "Morrison Ct",
       "N Race St"
     ],
-    "center_lat": 35.79147294990647,
-    "center_lon": -80.90189875121473,
+    "center_lat": 35.7912733681222,
+    "center_lon": -80.90121645850678,
     "ticket_count": 4,
     "ticket_ids": [
-      "2621806848",
       "2619707459",
       "2621806977",
-      "2621806966"
+      "2621806966",
+      "2621806996"
     ],
     "unique_excavators": 1,
     "max_risk_score": 2,
@@ -9730,7 +9978,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0171",
+    "cluster_id": "TOPAZ-IAI-0174",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -9774,7 +10022,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0175",
+    "cluster_id": "TOPAZ-IAI-0178",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -9819,7 +10067,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0178",
+    "cluster_id": "TOPAZ-IAI-0181",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -9864,7 +10112,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0190",
+    "cluster_id": "TOPAZ-IAI-0193",
     "activity_type": "Cluster",
     "county": "Watauga",
     "cities": [
@@ -9908,7 +10156,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0193",
+    "cluster_id": "TOPAZ-IAI-0196",
     "activity_type": "Cluster",
     "county": "Watauga",
     "cities": [
@@ -10911,50 +11159,6 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0048",
-    "activity_type": "Cluster",
-    "county": "Cabarrus",
-    "cities": [
-      "Concord"
-    ],
-    "streets": [
-      "251 Sunset Dr Se",
-      "270 Sunset Dr Se",
-      "272 Virginia St Se"
-    ],
-    "center_lat": 35.40518029582944,
-    "center_lon": -80.57292138372732,
-    "ticket_count": 3,
-    "ticket_ids": [
-      "2621602884",
-      "2621600644",
-      "2621804679"
-    ],
-    "unique_excavators": 3,
-    "max_risk_score": 2,
-    "opportunity_score": 3,
-    "opportunity_reason": "811 activity cluster without supporting development or strategic land convergence",
-    "nearby_projects": [],
-    "nearby_land": [],
-    "nearby_strategic_land": [],
-    "nearby_project_count": 0,
-    "nearby_land_count": 0,
-    "nearby_strategic_land_count": 0,
-    "nearby_llc_land_count": 0,
-    "nearest_project_distance": null,
-    "nearest_land_distance": null,
-    "nearest_strategic_land_distance": null,
-    "project_proximity_strength": 0,
-    "strategic_land_proximity_strength": 0,
-    "project_proximity_label": "None",
-    "strategic_land_proximity_label": "None",
-    "projects_within_quarter_mile": 0,
-    "strategic_land_within_quarter_mile": 0
-  },
-  {
-    "intelligence_engine": "TOPAZ",
-    "intelligence_product": "Infrastructure Activity Intelligence",
-    "engine_version": "1.0-beta",
     "cluster_id": "TOPAZ-IAI-0055",
     "activity_type": "Cluster",
     "county": "Cabarrus",
@@ -11826,7 +12030,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0133",
+    "cluster_id": "TOPAZ-IAI-0134",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -11870,7 +12074,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0135",
+    "cluster_id": "TOPAZ-IAI-0136",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -11914,7 +12118,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0136",
+    "cluster_id": "TOPAZ-IAI-0138",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -11958,7 +12162,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0140",
+    "cluster_id": "TOPAZ-IAI-0142",
     "activity_type": "Cluster",
     "county": "Iredell",
     "cities": [
@@ -12001,7 +12205,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0169",
+    "cluster_id": "TOPAZ-IAI-0172",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12045,7 +12249,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0170",
+    "cluster_id": "TOPAZ-IAI-0173",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12089,7 +12293,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0172",
+    "cluster_id": "TOPAZ-IAI-0175",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12133,7 +12337,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0177",
+    "cluster_id": "TOPAZ-IAI-0180",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12177,7 +12381,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0180",
+    "cluster_id": "TOPAZ-IAI-0183",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12221,7 +12425,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0181",
+    "cluster_id": "TOPAZ-IAI-0184",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12265,7 +12469,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0182",
+    "cluster_id": "TOPAZ-IAI-0185",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12308,7 +12512,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0185",
+    "cluster_id": "TOPAZ-IAI-0188",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12352,7 +12556,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0186",
+    "cluster_id": "TOPAZ-IAI-0189",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12396,7 +12600,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0187",
+    "cluster_id": "TOPAZ-IAI-0190",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12440,7 +12644,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0188",
+    "cluster_id": "TOPAZ-IAI-0191",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12484,7 +12688,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0189",
+    "cluster_id": "TOPAZ-IAI-0192",
     "activity_type": "Cluster",
     "county": "Union",
     "cities": [
@@ -12526,7 +12730,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0191",
+    "cluster_id": "TOPAZ-IAI-0194",
     "activity_type": "Cluster",
     "county": "Watauga",
     "cities": [
@@ -12569,7 +12773,7 @@
     "intelligence_engine": "TOPAZ",
     "intelligence_product": "Infrastructure Activity Intelligence",
     "engine_version": "1.0-beta",
-    "cluster_id": "TOPAZ-IAI-0192",
+    "cluster_id": "TOPAZ-IAI-0195",
     "activity_type": "Cluster",
     "county": "Watauga",
     "cities": [
