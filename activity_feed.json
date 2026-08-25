@@ -1,42 +1,42 @@
 [
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "AI",
     "message": "Executive intelligence brief generated"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "Projects",
     "message": "810 development project records indexed"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "Land",
     "message": "4156 land intelligence parcels evaluated"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "Builders",
     "message": "15 builder communities monitored"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "Signals",
     "message": "250 infrastructure patterns detected"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "GIS",
     "message": "100 Brunswick GIS parcels refreshed"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "Opportunity",
     "message": "250 locate correlations analyzed"
   },
   {
-    "time": "07:00",
+    "time": "06:50",
     "type": "Watch",
-    "message": "Cleveland flagged as a county to watch"
+    "message": "Gaston flagged as a county to watch"
   }
 ]
