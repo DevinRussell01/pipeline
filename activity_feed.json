@@ -1,42 +1,42 @@
 [
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "AI",
     "message": "Executive intelligence brief generated"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "Projects",
     "message": "810 development project records indexed"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "Land",
-    "message": "4156 land intelligence parcels evaluated"
+    "message": "4155 land intelligence parcels evaluated"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "Builders",
     "message": "15 builder communities monitored"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "Signals",
     "message": "250 infrastructure patterns detected"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "GIS",
     "message": "100 Brunswick GIS parcels refreshed"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "Opportunity",
     "message": "250 locate correlations analyzed"
   },
   {
-    "time": "11:16",
+    "time": "10:49",
     "type": "Watch",
-    "message": "Gaston \u2013 Due to concentrated locate signals, live utility activity, and clustered high watch score parcels around Bessemer City. flagged as a county to watch"
+    "message": "Gaston flagged as a county to watch"
   }
 ]
