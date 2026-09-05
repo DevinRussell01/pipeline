@@ -649,7 +649,7 @@ def main():
 
             record["intelligence_engine"] = "TOPAZ"
             record["intelligence_product"] = "Infrastructure Activity Intelligence"
-            record["engine_version"] = "2.0-beta"
+            record["engine_version"] = "1.0-beta"
 
             record["activity_type"] = activity_type
             record["cluster_id"] = cluster_id
