@@ -29,6 +29,52 @@ jobs:
             OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python run_all_scans.py
 
+      - name: Validate critical intelligence outputs
+        run: |
+          python - <<'PYVALIDATE'
+          import json
+          import sys
+
+          critical_files = {
+              "locate_tickets.json": 1,
+              "locate_tickets_history.json": 1,
+              "topaz_activity.json": 1,
+              "topaz_clusters.json": 1,
+          }
+
+          failed = False
+
+          for filename, minimum in critical_files.items():
+              try:
+                  with open(filename, encoding="utf-8") as f:
+                      data = json.load(f)
+
+                  if not isinstance(data, list):
+                      print(f"FAIL: {filename} is not a JSON list")
+                      failed = True
+                      continue
+
+                  count = len(data)
+
+                  if count < minimum:
+                      print(f"FAIL: {filename} contains {count} records")
+                      failed = True
+                  else:
+                      print(f"PASS: {filename} contains {count:,} records")
+
+              except Exception as exc:
+                  print(f"FAIL: {filename}: {exc}")
+                  failed = True
+
+          if failed:
+              print("CRITICAL DATA VALIDATION FAILED")
+              sys.exit(1)
+
+          print("CRITICAL DATA VALIDATION PASSED")
+          PYVALIDATE
+
+          python validate_topaz.py
+
       - name: Commit updated data
         run: |
           git config user.name "conduit-bot"

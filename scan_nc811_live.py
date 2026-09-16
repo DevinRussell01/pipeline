@@ -1,4 +1,6 @@
 import json
+import os
+import sys
 from datetime import datetime, timezone
 
 import requests
@@ -247,6 +249,31 @@ for query in QUERY_POINTS:
         print(f"  ERROR: {error}")
 
 # =========================================================
+# COLLECTION VALIDATION / FAIL-SAFE
+# =========================================================
+#
+# Never replace a known-good NC811 dataset with an empty
+# dataset caused by an upstream/API collection failure.
+#
+# A regional scan that retrieves zero raw records is treated
+# as a failed collection, not as evidence that regional
+# excavation activity has disappeared.
+#
+
+if successful_points == 0 or len(all_raw_tickets) == 0:
+    print()
+    print("ERROR: NC811 collection produced no usable source records.")
+    print("Existing locate intelligence files were NOT overwritten.")
+    print(
+        f"Successful query points: {successful_points}/"
+        f"{len(QUERY_POINTS)}"
+    )
+    print(f"Failed query points: {failed_points}")
+    print(f"Raw records retrieved: {len(all_raw_tickets)}")
+    sys.exit(1)
+
+
+# =========================================================
 # NORMALIZE + DEDUPLICATE REVISIONS
 # =========================================================
 
@@ -431,29 +458,72 @@ active_records.sort(
 )
 
 # =========================================================
+# DATASET VALIDATION / FAIL-SAFE
+# =========================================================
+#
+# Successful HTTP responses do not automatically mean the
+# resulting operational dataset is valid. If normalization
+# or filtering produces no usable active records, preserve
+# the existing production files and fail the scan.
+#
+
+if len(history_records) == 0 or len(active_records) == 0:
+    print()
+    print("ERROR: NC811 processing produced an unusable dataset.")
+    print("Existing locate intelligence files were NOT overwritten.")
+    print(f"Raw records retrieved: {len(all_raw_tickets)}")
+    print(f"Normalized history records: {len(history_records)}")
+    print(f"Active operational tickets: {len(active_records)}")
+    sys.exit(1)
+
+
+# =========================================================
+# ATOMIC SAVE
+# =========================================================
+#
+# Write each dataset to a temporary file first, then replace
+# the production file only after serialization succeeds.
+#
+
+def atomic_json_write(filename, data):
+    temp_file = f"{filename}.tmp"
+
+    try:
+        with open(temp_file, "w", encoding="utf-8") as file:
+            json.dump(
+                data,
+                file,
+                indent=2,
+                ensure_ascii=False
+            )
+            file.flush()
+            os.fsync(file.fileno())
+
+        os.replace(temp_file, filename)
+
+    finally:
+        if os.path.exists(temp_file):
+            os.remove(temp_file)
+
+
+# =========================================================
 # SAVE HISTORY
 # =========================================================
 
-with open(HISTORY_FILE, "w", encoding="utf-8") as file:
-    json.dump(
-        history_records,
-        file,
-        indent=2,
-        ensure_ascii=False
-    )
+atomic_json_write(
+    HISTORY_FILE,
+    history_records
+)
 
 
 # =========================================================
 # SAVE ACTIVE OPERATIONAL DATASET
 # =========================================================
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
-    json.dump(
-        active_records,
-        file,
-        indent=2,
-        ensure_ascii=False
-    )
+atomic_json_write(
+    OUTPUT_FILE,
+    active_records
+)
 
 
 # =========================================================
