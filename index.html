@@ -2013,21 +2013,8 @@ gap:12px;
   <option value="10">10 Emergency</option>
 </select>
 
-<label>
-  <input
-    type="checkbox"
-      id="toggleLocateHeat"
-      checked
-      onchange="toggleLocateHeatLayer()">
-    Heat Layer
-  </label>
-
   <button onclick="resetHiddenSignals()">
     Show Hidden Signals
-  </button>
-
-  <button onclick="resetHiddenHeatSignals()">
-    Show Hidden Heat Signals
   </button>
 
 </div>
@@ -3399,7 +3386,6 @@ ORGANIZATIONS.forEach(org => {
 let ASK_CONDUIT = {};
 let PROJECTS = [];
 let BUILDER_PORTFOLIOS = [];
-let LOCATE_HEAT_SIGNALS = [];
 
 let MAP_PROJECTS = [];
 let MAP_LAND_PARCELS = [];
@@ -3891,7 +3877,6 @@ let activeTopazClusterId = null;
 
 let locateGrowthLayer = null;
 let locateTicketLayer = null;
-let locateHeatLayer = null;
 
 function getLocateSignalDrivers(ticket) {
   const drivers = [];
@@ -4911,39 +4896,6 @@ function renderLocateTickets() {
   }
 }
 
-function toggleLocateHeatLayer() {
-
-  if (!window.locateMap || !locateHeatLayer) return;
-
-  const enabled =
-    document.getElementById("toggleLocateHeat")?.checked;
-
-  if (enabled) {
-    window.locateMap.addLayer(locateHeatLayer);
-  } else {
-    window.locateMap.removeLayer(locateHeatLayer);
-  }
-}
-
-function getHiddenHeatSignals() {
-  return JSON.parse(localStorage.getItem("hiddenHeatSignals") || "[]");
-}
-
-function hideHeatSignal(signalId) {
-  const hidden = getHiddenHeatSignals();
-
-  if (!hidden.includes(signalId)) {
-    hidden.push(signalId);
-    localStorage.setItem("hiddenHeatSignals", JSON.stringify(hidden));
-  }
-
-  rebuildLocateHeatLayer();
-}
-
-function resetHiddenHeatSignals() {
-  localStorage.removeItem("hiddenHeatSignals");
-  rebuildLocateHeatLayer();
-}
 
 function initLocateMap() {
   if (locateMapLoaded) return;
@@ -4952,26 +4904,9 @@ function initLocateMap() {
 
 window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
 
-locateHeatLayer = L.layerGroup().addTo(window.locateMap);
-
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(window.locateMap);
-
-  fetch('locates.json')
-    .then(res => res.json())
-    .then(data => {
-      LOCATE_HEAT_SIGNALS = data;
-
-      rebuildLocateHeatLayer();
-
-      setTimeout(() => {
-        window.locateMap.invalidateSize();
-      }, 500);
-    })
-    .catch(error => {
-      console.error("Could not load locate intelligence layer", error);
-    });
 
     Promise.all([
       fetch('locate_tickets.json').then(res => res.json()),
@@ -5002,69 +4937,6 @@ locateHeatLayer = L.layerGroup().addTo(window.locateMap);
       .catch(error => {
         console.error("Could not load TOPAZ infrastructure intelligence", error);
       });
-}
-
-function rebuildLocateHeatLayer() {
-
-  if (!window.locateMap) return;
-
-  if (locateHeatLayer) {
-    window.locateMap.removeLayer(locateHeatLayer);
-  }
-
-  locateHeatLayer = L.layerGroup();
-
-  const hidden = getHiddenHeatSignals();
-
-  LOCATE_HEAT_SIGNALS.forEach(ticket => {
-
-    const signalId = String(
-      ticket.ticket_id ||
-      ticket.company ||
-      ticket.street ||
-      `${ticket.lat},${ticket.lon}`
-    );
-
-    if (hidden.includes(signalId)) return;
-
-    L.circle([ticket.lat, ticket.lon], {
-      radius: ticket.tickets * 600,
-      color: '#22c55e',
-      fillColor: '#22c55e',
-      fillOpacity: 0.18,
-      weight: 1
-    }).addTo(locateHeatLayer);
-
-    L.circleMarker([ticket.lat, ticket.lon], {
-      radius: 6,
-      color: '#22c55e',
-      fillColor: '#22c55e',
-      fillOpacity: 0.8
-    })
-    .addTo(locateHeatLayer)
-   .bindPopup(`
-      <strong>811 Locate Activity</strong><br>
-      ${ticket.street || ""}<br>
-      ${ticket.city || ""}${ticket.city && ticket.county ? ", " : ""}${ticket.county || ""} County<br><br>
-
-      Ticket: ${ticket.ticket_id || ""}<br>
-      Type: ${ticket.ticket_type || ""}<br>
-      Priority: ${ticket.priority || ""}<br>
-      Excavator: ${ticket.excavator || ticket.company || ""}<br><br>
-
-      <button onclick="hideHeatSignal('${signalId.replace(/'/g, "\\'")}')">
-        Hide Heat Marker
-      </button>
-    `);
-
-  });
-
-  const enabled =
-    document.getElementById("toggleLocateHeat")?.checked;
-
-  if (enabled) {
-    locateHeatLayer.addTo(window.locateMap);
-  }
 }
 
 function getProjectKey(project) {
