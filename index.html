@@ -5307,7 +5307,8 @@ async function loadExecutiveBrief() {
         `${Number(sourceCounts.projects || 0).toLocaleString()} development records, ` +
         `${Number(sourceCounts.land_parcels || 0).toLocaleString()} strategic land records, ` +
         `${Number(sourceCounts.builder_communities || 0).toLocaleString()} builder communities, and ` +
-        `${Number(sourceCounts.topaz_activity || sourceCounts.locate_tickets || 0).toLocaleString()} infrastructure activity records.`;
+        `${Number(sourceCounts.topaz_events || 0).toLocaleString()} TOPAZ Intelligence Events ` +
+        `derived from ${Number(sourceCounts.locate_tickets || 0).toLocaleString()} active 811 records.`;
     }
 
     document.getElementById("briefSummary").textContent =
