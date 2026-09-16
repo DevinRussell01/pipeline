@@ -4310,30 +4310,47 @@ function setTopazSummaryFilter(mode) {
 
 
 function renderTopazExecutiveSummary() {
-  const activity = Array.isArray(TOPAZ_ACTIVITY)
-    ? TOPAZ_ACTIVITY
+  const events = Array.isArray(TOPAZ_EVENTS)
+    ? TOPAZ_EVENTS
     : [];
 
-  const clusters = Array.isArray(TOPAZ_CLUSTERS)
-    ? TOPAZ_CLUSTERS
-    : [];
-
-  const priority = activity.filter(
-    item => Number(item.opportunity_score || 0) >= 8
+  const priority = events.filter(
+    event => Number(event.opportunity_score || 0) >= 8
   );
 
-  const elevated = activity.filter(
-    item => {
-      const score = Number(item.opportunity_score || 0);
+  const elevated = events.filter(
+    event => {
+      const score = Number(event.opportunity_score || 0);
       return score >= 6 && score < 8;
     }
   );
 
-  const ranked = [...activity].sort(
-    (a, b) =>
+  const ranked = [...events].sort((a, b) => {
+    const scoreDifference =
       Number(b.opportunity_score || 0) -
-      Number(a.opportunity_score || 0)
-  );
+      Number(a.opportunity_score || 0);
+
+    if (scoreDifference !== 0) {
+      return scoreDifference;
+    }
+
+    const aContext =
+      Number(a.nearby_project_count || 0) +
+      Number(a.nearby_strategic_land_count || 0);
+
+    const bContext =
+      Number(b.nearby_project_count || 0) +
+      Number(b.nearby_strategic_land_count || 0);
+
+    if (bContext !== aContext) {
+      return bContext - aContext;
+    }
+
+    return (
+      Number(b.ticket_count || 0) -
+      Number(a.ticket_count || 0)
+    );
+  });
 
   const highest = ranked[0] || null;
 
@@ -4354,7 +4371,7 @@ function renderTopazExecutiveSummary() {
 
   if (signalCount) {
     signalCount.textContent =
-      activity.length.toLocaleString();
+      events.length.toLocaleString();
   }
 
   if (priorityCount) {
@@ -4370,7 +4387,6 @@ function renderTopazExecutiveSummary() {
   if (topOpportunity) {
     if (highest) {
       const location =
-        highest.street ||
         highest.city ||
         highest.county ||
         "Regional activity";
@@ -4408,17 +4424,11 @@ function renderTopazExecutiveSummary() {
     }
   }
 
-  // Keep the three existing Action Queue cards useful.
-  const topClusters = [...clusters]
-    .sort(
-      (a, b) =>
-        Number(b.opportunity_score || 0) -
-        Number(a.opportunity_score || 0)
-    )
-    .slice(0, 3);
+  // Rank Clusters and Singles together as Intelligence Events.
+  const topEvents = ranked.slice(0, 3);
 
   for (let index = 0; index < 3; index++) {
-    const cluster = topClusters[index];
+    const event = topEvents[index];
 
     const card =
       document.getElementById(`actionCard${index + 1}`);
@@ -4431,7 +4441,7 @@ function renderTopazExecutiveSummary() {
 
     if (!card) continue;
 
-    if (!cluster) {
+    if (!event) {
       card.style.display = "none";
       continue;
     }
@@ -4439,7 +4449,7 @@ function renderTopazExecutiveSummary() {
     card.style.display = "";
 
     const score =
-      Number(cluster.opportunity_score || 0);
+      Number(event.opportunity_score || 0);
 
     if (scoreElement) {
       scoreElement.textContent =
@@ -4447,55 +4457,89 @@ function renderTopazExecutiveSummary() {
     }
 
     if (textElement) {
+      const typeLabel =
+        event.event_type === "Cluster"
+          ? "Infrastructure Cluster"
+          : "Single Infrastructure Event";
+
+      const location =
+        event.city ||
+        event.county ||
+        event.event_id ||
+        "Regional activity";
+
+      const ticketLabel =
+        event.ticket_count === 1
+          ? "1 active locate request"
+          : `${Number(event.ticket_count || 0).toLocaleString()} active locate requests`;
+
+      const actionButton =
+        event.event_type === "Cluster"
+          ? `
+            <button
+              style="margin-top:9px;"
+              onclick="focusTopazCluster('${String(event.event_id || "").replace(/'/g, "\\'")}')">
+              View Cluster
+            </button>
+          `
+          : "";
+
       textElement.innerHTML = `
         <div style="font-weight:700; margin-bottom:6px;">
-          ${cluster.county || "Regional"} -
-          ${cluster.city || cluster.cluster_id || "Infrastructure Cluster"}
+          ${event.county || "Regional"} -
+          ${location}
+        </div>
+
+        <div style="opacity:.78; margin-bottom:5px;">
+          ${typeLabel}
         </div>
 
         <div>
-          ${Number(cluster.ticket_count || 0).toLocaleString()}
-          active locate requests
+          ${ticketLabel}
         </div>
 
         <div>
-          ${cluster.project_proximity_label || "No"} development convergence
+          ${event.project_proximity_label || "No"} development convergence
         </div>
 
         <div>
-          ${cluster.strategic_land_proximity_label || "No"} strategic-land convergence
+          ${event.strategic_land_proximity_label || "No"} strategic-land convergence
         </div>
 
         <div style="margin-top:7px;">
-          ${cluster.opportunity_reason || "Infrastructure activity detected"}
+          ${event.opportunity_reason || "Infrastructure activity detected"}
         </div>
 
-        <button
-          style="margin-top:9px;"
-          onclick="focusTopazCluster('${String(cluster.cluster_id || "").replace(/'/g, "\\'")}')">
-          View Cluster
-        </button>
+        ${actionButton}
       `;
     }
   }
 }
 
-
 function renderTopazDashboardMetrics() {
-  const activity = Array.isArray(TOPAZ_ACTIVITY)
-    ? TOPAZ_ACTIVITY
+  const events = Array.isArray(TOPAZ_EVENTS)
+    ? TOPAZ_EVENTS
     : [];
 
-  const clusters = Array.isArray(TOPAZ_CLUSTERS)
-    ? TOPAZ_CLUSTERS
-    : [];
-
-  const priority = activity.filter(
-    item => Number(item.opportunity_score || 0) >= 8
+  const priority = events.filter(
+    event => Number(event.opportunity_score || 0) >= 8
   );
 
-  const elevated = activity.filter(
-    item => Number(item.opportunity_score || 0) >= 6
+  const elevated = events.filter(
+    event => {
+      const score = Number(event.opportunity_score || 0);
+      return score >= 6 && score < 8;
+    }
+  );
+
+  const clusters = events.filter(
+    event => event.event_type === "Cluster"
+  );
+
+  const contextEvents = events.filter(
+    event =>
+      Number(event.nearby_project_count || 0) > 0 ||
+      Number(event.nearby_strategic_land_count || 0) > 0
   );
 
   const dashboardOpportunityCount =
@@ -4520,7 +4564,7 @@ function renderTopazDashboardMetrics() {
 
   if (dashPatternCount) {
     dashPatternCount.textContent =
-      clusters.length.toLocaleString();
+      events.length.toLocaleString();
   }
 
   if (dashHighConfidenceCount) {
@@ -4530,21 +4574,12 @@ function renderTopazDashboardMetrics() {
 
   if (dashTelecomPatternCount) {
     dashTelecomPatternCount.textContent =
-      activity.filter(
-        item =>
-          String(item.activity_type || "").toLowerCase() ===
-          "cluster"
-      ).length.toLocaleString();
+      clusters.length.toLocaleString();
   }
 
   if (dashDevelopmentPatternCount) {
     dashDevelopmentPatternCount.textContent =
-      clusters.filter(
-        item =>
-          Number(item.nearby_project_count || 0) > 0 ||
-          Number(item.nearby_strategic_land_count || 0) > 0 ||
-          Number(item.nearby_llc_land_count || 0) > 0
-      ).length.toLocaleString();
+      contextEvents.length.toLocaleString();
   }
 }
 
@@ -4750,8 +4785,9 @@ function renderLocateTickets() {
   document.getElementById("locateTicketCount").textContent =
     tickets.length;
 
-  document.getElementById("summarySignalCount").textContent =
-    tickets.length;
+  // Executive TOPAZ metrics are event-level and are rendered by
+  // renderTopazExecutiveSummary(). Raw ticket filtering must not
+  // overwrite the Intelligence Event count.
 
   const counties = [
     ...new Set(tickets.map(t => t.county).filter(Boolean))
@@ -5045,48 +5081,88 @@ function renderLocateTickets() {
 }
 
 
+let topazDataPromise = null;
+
+function loadTopazData() {
+  if (topazDataPromise) {
+    return topazDataPromise;
+  }
+
+  topazDataPromise = Promise.all([
+    fetch('locate_tickets.json').then(res => res.json()),
+    fetch('topaz_activity.json').then(res => res.json()),
+    fetch('topaz_clusters.json').then(res => res.json())
+  ])
+    .then(([tickets, activity, clusters]) => {
+      LOCATE_TICKETS = tickets;
+      TOPAZ_ACTIVITY = activity;
+      TOPAZ_CLUSTERS = clusters;
+
+      rebuildTopazIndexes();
+      buildTopazIntelligenceEvents();
+
+      renderTopazSummary();
+      renderTopazExecutiveSummary();
+      renderTopazDashboardMetrics();
+
+      console.log(
+        `TOPAZ loaded: ${TOPAZ_EVENTS.length} Intelligence Events from ${LOCATE_TICKETS.length} active 811 records`
+      );
+
+      return {
+        tickets: LOCATE_TICKETS,
+        activity: TOPAZ_ACTIVITY,
+        clusters: TOPAZ_CLUSTERS,
+        events: TOPAZ_EVENTS
+      };
+    })
+    .catch(error => {
+      topazDataPromise = null;
+      console.error(
+        "Could not load TOPAZ infrastructure intelligence",
+        error
+      );
+      throw error;
+    });
+
+  return topazDataPromise;
+}
+
+
 function initLocateMap() {
   if (locateMapLoaded) return;
 
   locateMapLoaded = true;
 
-window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
+  window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(window.locateMap);
 
-    Promise.all([
-      fetch('locate_tickets.json').then(res => res.json()),
-      fetch('topaz_activity.json').then(res => res.json()),
-      fetch('topaz_clusters.json').then(res => res.json())
-    ])
-      .then(([tickets, activity, clusters]) => {
-        LOCATE_TICKETS = tickets;
-        TOPAZ_ACTIVITY = activity;
-        TOPAZ_CLUSTERS = clusters;
+  loadTopazData()
+    .then(() => {
+      populateLocateFilters();
+      renderLocateTickets();
 
-        renderTopazSummary();
-        renderTopazExecutiveSummary();
-        renderTopazDashboardMetrics();
+      if (window.pipelineMap) {
+        rebuildGrowthMapLayers();
+      }
 
-        rebuildTopazIndexes();
-        buildTopazIntelligenceEvents();
-        populateLocateFilters();
-        renderLocateTickets();
-
-        if (window.pipelineMap) {
-          rebuildGrowthMapLayers();
+      setTimeout(() => {
+        if (window.locateMap) {
+          window.locateMap.invalidateSize();
         }
-
-        console.log(
-          `TOPAZ loaded: ${TOPAZ_ACTIVITY.length} activity records, ${TOPAZ_CLUSTERS.length} clusters`
-        );
-      })
-      .catch(error => {
-        console.error("Could not load TOPAZ infrastructure intelligence", error);
-      });
+      }, 100);
+    })
+    .catch(error => {
+      console.error(
+        "Could not initialize TOPAZ infrastructure map",
+        error
+      );
+    });
 }
+
 
 function getProjectKey(project) {
   return (
@@ -5695,6 +5771,13 @@ function exportWatchlistsCSV() {
 }
 
 window.onload = () => {
+  // Load TOPAZ intelligence at application startup so executive
+  // metrics are available without requiring the user to open
+  // the Infrastructure Activity Intelligence section first.
+  loadTopazData().catch(error => {
+    console.error("TOPAZ startup load failed", error);
+  });
+
 
 if (document.getElementById('countyCount')) {
   document.getElementById('countyCount').innerText = COUNTIES.length;
