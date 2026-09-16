@@ -3871,8 +3871,12 @@ let locateMapLoaded = false;
 let LOCATE_TICKETS = [];
 let TOPAZ_ACTIVITY = [];
 let TOPAZ_CLUSTERS = [];
+let TOPAZ_EVENTS = [];
+
 let TOPAZ_ACTIVITY_BY_TICKET = new Map();
 let TOPAZ_CLUSTER_BY_ID = new Map();
+let TOPAZ_EVENT_BY_ID = new Map();
+
 let activeTopazClusterId = null;
 
 let locateGrowthLayer = null;
@@ -4003,6 +4007,150 @@ function populateLocateFilters() {
       element.value = currentValue;
     }
   });
+}
+
+
+function buildTopazIntelligenceEvents() {
+  const events = [];
+
+  // -------------------------------------------------------
+  // CLUSTERS
+  // One TOPAZ cluster = one Intelligence Event.
+  // Raw member tickets remain available through ticket_ids.
+  // -------------------------------------------------------
+
+  TOPAZ_CLUSTERS.forEach(cluster => {
+    const clusterId = String(cluster.cluster_id || "");
+
+    if (!clusterId) return;
+
+    events.push({
+      event_id: clusterId,
+      event_type: "Cluster",
+
+      opportunity_score: Number(
+        cluster.opportunity_score || 1
+      ),
+
+      opportunity_reason:
+        cluster.opportunity_reason || "",
+
+      county: cluster.county || "",
+      city: Array.isArray(cluster.cities)
+        ? cluster.cities.join(", ")
+        : "",
+
+      cities: Array.isArray(cluster.cities)
+        ? cluster.cities
+        : [],
+
+      lat: cluster.center_lat,
+      lon: cluster.center_lon,
+
+      ticket_count: Number(
+        cluster.ticket_count || 0
+      ),
+
+      ticket_ids: Array.isArray(cluster.ticket_ids)
+        ? cluster.ticket_ids.map(String)
+        : [],
+
+      nearby_project_count: Number(
+        cluster.nearby_project_count || 0
+      ),
+
+      nearby_strategic_land_count: Number(
+        cluster.nearby_strategic_land_count || 0
+      ),
+
+      nearest_project_distance:
+        cluster.nearest_project_distance ?? null,
+
+      nearest_strategic_land_distance:
+        cluster.nearest_strategic_land_distance ?? null,
+
+      project_proximity_label:
+        cluster.project_proximity_label || "None",
+
+      strategic_land_proximity_label:
+        cluster.strategic_land_proximity_label || "None",
+
+      source_record: cluster
+    });
+  });
+
+
+  // -------------------------------------------------------
+  // SINGLES
+  // A TOPAZ Single is already an independent event.
+  // -------------------------------------------------------
+
+  TOPAZ_ACTIVITY
+    .filter(activity => activity.activity_type === "Single")
+    .forEach(activity => {
+      const ticketId = String(activity.ticket_id || "");
+
+      if (!ticketId) return;
+
+      events.push({
+        event_id: `SINGLE:${ticketId}`,
+        event_type: "Single",
+
+        opportunity_score: Number(
+          activity.opportunity_score || 1
+        ),
+
+        opportunity_reason:
+          activity.opportunity_reason || "",
+
+        county: activity.county || "",
+        city: activity.city || "",
+        cities: activity.city
+          ? [activity.city]
+          : [],
+
+        lat: activity.lat,
+        lon: activity.lon,
+
+        ticket_count: 1,
+        ticket_ids: [ticketId],
+
+        nearby_project_count: Number(
+          activity.nearby_project_count || 0
+        ),
+
+        nearby_strategic_land_count: Number(
+          activity.nearby_strategic_land_count || 0
+        ),
+
+        nearest_project_distance:
+          activity.nearest_project_distance ?? null,
+
+        nearest_strategic_land_distance:
+          activity.nearest_strategic_land_distance ?? null,
+
+        project_proximity_label:
+          activity.project_proximity_label || "None",
+
+        strategic_land_proximity_label:
+          activity.strategic_land_proximity_label || "None",
+
+        source_record: activity
+      });
+    });
+
+  TOPAZ_EVENTS = events;
+
+  TOPAZ_EVENT_BY_ID = new Map(
+    TOPAZ_EVENTS.map(event => [
+      String(event.event_id),
+      event
+    ])
+  );
+
+  console.log(
+    `TOPAZ Intelligence Events built: ${TOPAZ_EVENTS.length}`
+  );
 }
 
 
@@ -4923,6 +5071,7 @@ window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
         renderTopazDashboardMetrics();
 
         rebuildTopazIndexes();
+        buildTopazIntelligenceEvents();
         populateLocateFilters();
         renderLocateTickets();
 
