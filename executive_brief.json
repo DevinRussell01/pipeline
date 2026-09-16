@@ -1,41 +1,40 @@
 {
-  "summary": "Current intelligence highlights significant land development activity concentrated in Gaston and Cleveland counties, with Union County showing notable residential and economic development initiatives. Cleveland County features multiple large parcels under strategic LLC ownership scoring highest on watchlists, signaling potential land aggregation for development. Gaston County demonstrates high utility locate requests clustered around Bessemer City, adjacent to numerous tracked parcels under active builder communities like Taylor Morrison, Eastwood Homes, and D.R. Horton, indicating infrastructure groundwork supporting ongoing and upcoming development. Union County maintains an active pipeline of residential rezoning and economic incentive projects, underscoring its growing development appeal. GIS parcel data and locate patterns reflect strategic land positioning, utility demand, and builder focus areas, collectively offering actionable insights on growth corridors and telecom infrastructure needs.",
+  "summary": "The current intelligence highlights a strong land development and builder activity focus in Gaston and Union counties, with Cleveland County showing a significant concentration of high watch score land parcels under LLC ownership, signaling strategic investment. Gaston County displays multiple high-risk and high-opportunity 811 locate requests clustered around Bessemer City, aligned with land parcels demonstrating watch scores up to 8, indicating a surge in utility infrastructure activity proximal to tracked development land. Union County is actively progressing rezoning and economic development projects, with several residential development cases on the Board of Commissioners agenda. Builder activity is heavily concentrated in Gaston, Mecklenburg, and Union counties, with notable projects from leading firms like D.R. Horton and Eastwood Homes. GIS parcel data and locate patterns collectively underscore Gaston County as a critical watch area for near-term land development and telecom infrastructure coordination.",
   "key_findings": [
-    "Cleveland County holds the largest high-watch parcels owned by strategic LLCs totaling over 300 acres each, indicating land banked for major development.",
-    "Gaston County has multiple high-opportunity 811 locate requests clustered in Bessemer City near tracked parcels with high watch scores, signaling upcoming utility work.",
-    "Union County is advancing residential rezoning and economic development incentive projects, preparing groundwork for substantial growth.",
-    "Builder activity is concentrated in Gaston (McAdenville Village, Founders Landing, Avalon, Brandon Creek), Mecklenburg (Caldwell Forest, Sonoma Hills), and Union (Secrest Meadows upcoming).",
-    "Locate patterns highlight Gaston County streets with moderate to high confidence land development proximity signals, especially along Maine Ave, Broom Maker Dr, and Lee Ave."
+    "Cleveland County leads with numerous large, high watch score parcels (300+ acres) owned by LLCs flagged as strategic.",
+    "Gaston County has multiple highly scored live 811 locate requests near Bessemer City with clustered land parcels indicating imminent utility work.",
+    "Union County shows active residential and economic development projects undergoing key public hearings and zoning changes.",
+    "Builder communities are concentrated in Gaston, Mecklenburg, and Union counties, with multiple selling and upcoming projects.",
+    "Locate patterns predominantly in Gaston County show moderate to high confidence land development proximity signals supporting utility coordination."
   ],
   "top_opportunities": [
-    "Monitor Cleveland County's high-watch LLC-owned parcels for potential land acquisition or partnerships in large-scale development.",
-    "Engage with Gaston County utility locate hotspots around Bessemer City to coordinate telecom infrastructure deployment with upcoming utility work.",
-    "Leverage Union County's active rezoning and economic development cases to position telecom and land development projects early.",
-    "Target builder communities in Gaston and Mecklenburg counties for infrastructure support and land optimization.",
-    "Utilize GIS parcel and locate pattern data in Gaston County to identify emerging land development corridors for proactive infrastructure planning."
+    "Leverage high opportunity 811 locate requests in Gaston County (Bessemer City area) to align telecom infrastructure builds with ongoing utility projects.",
+    "Target strategic LLC-owned parcels in Cleveland County for potential acquisition or partnership to capitalize on upcoming large-scale land development.",
+    "Engage with Union County planning on active rezoning and economic incentive initiatives to influence developmental infrastructure planning.",
+    "Support builders like D.R. Horton and Eastwood Homes in Mecklenburg and Gaston counties with location-specific GIS insights to optimize community utilities deployment.",
+    "Monitor Gaston County locate patterns for emerging land development signals that may precede new project launches."
   ],
   "telecom_insights": [
-    "High-frequency 811 Locate Requests in Gaston County around Bessemer City indicate imminent utility infrastructure expansions or upgrades.",
-    "Absence of nearby ongoing projects in areas with locate requests suggests untapped telecom deployment potential alongside utility work.",
-    "Coordination opportunities exist with utility work in parcels owned by high watch score LLCs, minimizing construction disruptions and leveraging land control.",
-    "Union County's active residential and economic growth signals forecast increasing demand for robust telecom infrastructure in these zones.",
-    "Gaston County GIS and locate pattern alignment supports prioritized telecom asset placement on streets with moderate to high land development signals."
+    "High-risk 811 locate requests clustered in Bessemer City present immediate telecom infrastructure coordination needs.",
+    "Presence of high watch score land parcels near locate requests implies complex underground utility landscapes requiring thorough GIS-based planning.",
+    "No direct evidence of telecom-specific builder communities, but utility category locate signals suggest increasing demand for utility infrastructure upgrades in Gaston County.",
+    "GIS parcel data can enhance telecom fiber rollout planning, particularly near development hubs in Gaston and Cleveland counties.",
+    "Close coordination with utility projects in Union County's active land use cases will be essential for timely telecom infrastructure deployment."
   ],
   "counties_to_watch": [
-    "Cleveland - for strategic large parcel developments under LLC ownership with high watch scores.",
-    "Gaston - due to clustering of locate requests and land development proximity signals in Bessemer City.",
-    "Union - significant residential rezoning and economic development projects indicating imminent growth.",
-    "Mecklenburg - builder activities suggest ongoing expansions warranting continued observation.",
-    "Brunswick - limited current signals but inclusion in tracking portfolio recommends periodic review."
+    "Gaston - Concentrated locate signals, builder communities, and high watch parcels near Bessemer City.",
+    "Cleveland - Large strategic land parcels under LLC ownership with top watch scores.",
+    "Union - Multiple active residential and economic development public hearings indicating upcoming growth.",
+    "Mecklenburg - Active builder communities pushing residential developments requiring infrastructure support."
   ],
   "recommended_actions": [
-    "Initiate engagement with LLC owners in Cleveland County to explore collaboration or acquisition opportunities on high-watch parcels.",
-    "Coordinate telecom infrastructure planning with utility locate requests in Gaston County to synchronize deployments and reduce costs.",
-    "Monitor Union County public hearings for rezoning and incentives to align telecom and land development strategies.",
-    "Leverage GIS data to map and prioritize infrastructure investments near active builder communities and emerging land development corridors.",
-    "Establish a watchlist for ongoing locate patterns and project signals in Gaston and Cleveland counties for timely response to new development activity."
+    "Prioritize integration of telecom infrastructure planning with live 811 locate requests in Gaston County to mitigate utility conflict risks.",
+    "Initiate stakeholder engagement with strategic landowners in Cleveland County for potential early involvement in development infrastructure.",
+    "Coordinate with Union County planning officials ahead of rezoning and incentive grant decisions to align infrastructure investments.",
+    "Deploy GIS mapping tools focused on Gaston and Cleveland parcels to monitor real-time development signals and builder activity.",
+    "Expand builder collaboration in Mecklenburg and Union counties using parcel-level insights to streamline utility installations and land development alignment."
   ],
-  "generated_at": "2026-09-16 11:00:25",
+  "generated_at": "2026-09-16 14:32:25",
   "source_counts": {
     "projects": 808,
     "land_parcels": 4128,
