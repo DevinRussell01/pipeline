@@ -1882,15 +1882,15 @@ gap:12px;
   <h3>TOPAZ Infrastructure Intelligence Summary</h3>
 
   <p>
-    <strong id="summarySignalCount">0</strong> active infrastructure records analyzed.
+    <strong id="summarySignalCount">0</strong> TOPAZ Intelligence Events analyzed.
   </p>
 
   <p>
-    <strong id="summaryPriorityCount">0</strong> priority opportunities identified.
+    <strong id="summaryPriorityCount">0</strong> Priority Intelligence Events identified.
   </p>
 
   <p>
-    <strong id="summaryCandidateCount">0</strong> elevated opportunities identified.
+    <strong id="summaryCandidateCount">0</strong> Elevated Intelligence Events identified.
   </p>
 
   <p>
@@ -2055,7 +2055,7 @@ gap:12px;
 
   <div class="stat">
     <strong id="locateTelecomCount">0</strong>
-    <span>Priority Opportunities 8+</span>
+    <span>Priority Events 8+</span>
   </div>
 </div>
 
@@ -2096,28 +2096,28 @@ gap:12px;
        onclick="setTopazSummaryFilter('all')"
        style="cursor:pointer">
     <strong id="topazSummaryActive">0</strong>
-    <span>Active Tickets</span>
+    <span>Intelligence Events</span>
   </div>
 
   <div class="stat"
        onclick="setTopazSummaryFilter('clusters')"
        style="cursor:pointer">
     <strong id="topazSummaryClusters">0</strong>
-    <span>Activity Clusters</span>
+    <span>Cluster Events</span>
   </div>
 
   <div class="stat"
        onclick="setTopazSummaryFilter('singles')"
        style="cursor:pointer">
     <strong id="topazSummarySingles">0</strong>
-    <span>Single Tickets</span>
+    <span>Single Events</span>
   </div>
 
   <div class="stat"
        onclick="setTopazSummaryFilter('priority')"
        style="cursor:pointer">
     <strong id="topazSummaryPriority">0</strong>
-    <span>Priority Opportunities 8+</span>
+    <span>Priority Events 8+</span>
   </div>
 
   <div class="stat">
@@ -4584,24 +4584,28 @@ function renderTopazDashboardMetrics() {
 }
 
 function renderTopazSummary() {
+  const events = Array.isArray(TOPAZ_EVENTS)
+    ? TOPAZ_EVENTS
+    : [];
 
-  const activeCount = TOPAZ_ACTIVITY.length;
-
-  const clusterRecords = TOPAZ_ACTIVITY.filter(
-    row => String(row.activity_type || "") === "Cluster"
+  const clusterEvents = events.filter(
+    event => event.event_type === "Cluster"
   );
 
-  const singleRecords = TOPAZ_ACTIVITY.filter(
-    row => String(row.activity_type || "") === "Single"
+  const singleEvents = events.filter(
+    event => event.event_type === "Single"
   );
 
-  const priorityRecords = TOPAZ_ACTIVITY.filter(
-    row => Number(row.opportunity_score || 0) >= 8
+  const priorityEvents = events.filter(
+    event => Number(event.opportunity_score || 0) >= 8
   );
 
-  const highestScore = TOPAZ_ACTIVITY.reduce(
-    (highest, row) =>
-      Math.max(highest, Number(row.opportunity_score || 0)),
+  const highestScore = events.reduce(
+    (highest, event) =>
+      Math.max(
+        highest,
+        Number(event.opportunity_score || 0)
+      ),
     0
   );
 
@@ -4621,60 +4625,82 @@ function renderTopazSummary() {
     document.getElementById("topazSummaryHighest");
 
   if (activeEl) {
-    activeEl.textContent = activeCount.toLocaleString();
+    activeEl.textContent =
+      events.length.toLocaleString();
   }
 
   if (clustersEl) {
-    clustersEl.textContent = TOPAZ_CLUSTERS.length.toLocaleString();
+    clustersEl.textContent =
+      clusterEvents.length.toLocaleString();
   }
 
   if (singlesEl) {
-    singlesEl.textContent = singleRecords.length.toLocaleString();
+    singlesEl.textContent =
+      singleEvents.length.toLocaleString();
   }
 
   if (priorityEl) {
-    priorityEl.textContent = priorityRecords.length.toLocaleString();
+    priorityEl.textContent =
+      priorityEvents.length.toLocaleString();
   }
 
   if (highestEl) {
-    highestEl.textContent = highestScore.toFixed(0);
+    highestEl.textContent =
+      highestScore.toFixed(0);
   }
-
 
   const table =
     document.getElementById("topazPriorityTable");
 
   if (!table) return;
 
-
-  const ranked = [...TOPAZ_CLUSTERS]
-    .sort(
-      (a, b) =>
+  const ranked = [...events]
+    .sort((a, b) => {
+      const scoreDifference =
         Number(b.opportunity_score || 0) -
-        Number(a.opportunity_score || 0)
-    )
+        Number(a.opportunity_score || 0);
+
+      if (scoreDifference !== 0) {
+        return scoreDifference;
+      }
+
+      const aContext =
+        Number(a.nearby_project_count || 0) +
+        Number(a.nearby_strategic_land_count || 0);
+
+      const bContext =
+        Number(b.nearby_project_count || 0) +
+        Number(b.nearby_strategic_land_count || 0);
+
+      if (bContext !== aContext) {
+        return bContext - aContext;
+      }
+
+      return (
+        Number(b.ticket_count || 0) -
+        Number(a.ticket_count || 0)
+      );
+    })
     .slice(0, 15);
 
-
-  table.innerHTML = ranked.map(cluster => {
-
+  table.innerHTML = ranked.map(event => {
     const score =
-      Number(cluster.opportunity_score || 0);
+      Number(event.opportunity_score || 0);
 
-    const clusterId =
-      String(cluster.cluster_id || "");
+    const eventId =
+      String(event.event_id || "");
 
     const county =
-      cluster.county || "—";
+      event.county || "—";
 
     const ticketCount =
-      Number(cluster.ticket_count || 0);
+      Number(event.ticket_count || 0);
 
     const projectDistance =
-      cluster.nearest_project_distance;
+      event.nearest_project_distance;
 
     const landDistance =
-      cluster.nearest_strategic_land_distance;
+      event.nearest_strategic_land_distance;
 
     const projectContext =
       projectDistance == null
@@ -4686,40 +4712,49 @@ function renderTopazSummary() {
         ? "None"
         : `${Number(landDistance).toFixed(2)} mi`;
 
-    let priority = "Monitor";
+    let priority = "Low";
 
     if (score >= 8) {
       priority = "Priority";
     } else if (score >= 6) {
       priority = "Elevated";
     } else if (score >= 4) {
-      priority = "Review";
+      priority = "Monitor";
     }
 
     const assessment =
-      cluster.opportunity_reason ||
-      "Infrastructure activity cluster detected.";
+      event.opportunity_reason ||
+      "Infrastructure activity detected.";
+
+    const eventLabel =
+      event.event_type === "Cluster"
+        ? eventId
+        : "Single";
+
+    const action =
+      event.event_type === "Cluster"
+        ? `
+          <button onclick="focusTopazCluster('${eventId.replace(/'/g, "\\'")}')">
+            View Cluster
+          </button>
+        `
+        : `<span style="opacity:.7;">Single</span>`;
 
     return `
       <tr>
         <td><strong>${priority}</strong></td>
         <td>${county}</td>
-        <td>${clusterId}</td>
+        <td>${eventLabel}</td>
         <td>${ticketCount}</td>
         <td><strong>${score.toFixed(0)}/10</strong></td>
         <td>${projectContext}</td>
         <td>${landContext}</td>
         <td>${assessment}</td>
-        <td>
-          <button onclick="focusTopazCluster('${clusterId.replace(/'/g, "\\'")}')">
-            View Cluster
-          </button>
-        </td>
+        <td>${action}</td>
       </tr>
     `;
   }).join("");
 }
-
 
 function renderLocateTickets() {
   const countyFilter =
@@ -4796,13 +4831,34 @@ function renderLocateTickets() {
   document.getElementById("locateCountyCount").textContent =
     counties.length;
 
-  const priorityCount = tickets.filter(ticket => {
+  const visibleEventIds = new Set();
+
+  tickets.forEach(ticket => {
     const activity = getTopazActivity(ticket);
-    return Number(activity?.opportunity_score || 0) >= 8;
-  }).length;
+
+    if (!activity) return;
+
+    const eventId =
+      activity.activity_type === "Cluster"
+        ? String(activity.cluster_id || "")
+        : `SINGLE:${String(ticket.ticket_id || "")}`;
+
+    if (eventId) {
+      visibleEventIds.add(eventId);
+    }
+  });
+
+  const priorityEventCount = [...visibleEventIds]
+    .map(eventId => TOPAZ_EVENT_BY_ID.get(eventId))
+    .filter(
+      event =>
+        event &&
+        Number(event.opportunity_score || 0) >= 8
+    )
+    .length;
 
   document.getElementById("locateTelecomCount").textContent =
-    priorityCount;
+    priorityEventCount;
 
   // -----------------------------------------------------
   // TABLE — UNDERLYING TICKETS
