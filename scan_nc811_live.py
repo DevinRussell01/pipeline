@@ -1,14 +1,28 @@
 import json
 import os
 import sys
+import time
+from pathlib import Path
 from datetime import datetime, timezone
 
 import requests
+
+from build_conduit_grid import (
+    build_region_grid,
+    load_json,
+)
 
 
 API_URL = "https://central-api.diglogix.com/ticket/near-ticket"
 OUTPUT_FILE = "locate_tickets.json"
 HISTORY_FILE = "locate_tickets_history.json"
+
+STATE_FILE = "topaz_scan_state.json"
+TERRITORY_FILE = "conduit_territories.json"
+GEOMETRY_FILE = "conduit_county_boundaries.geojson"
+
+REGION_KEY = "WESTERN_NC"
+REQUEST_DELAY_SECONDS = 0.50
 
 
 # =========================================================
@@ -23,56 +37,151 @@ HISTORY_FILE = "locate_tickets_history.json"
 # [longitude, latitude]
 #
 
-QUERY_POINTS = [
-    {
-        "name": "Charlotte",
-        "point": "[-80.8431,35.2271]"
-    },
-    {
-        "name": "Gastonia",
-        "point": "[-81.1873,35.2621]"
-    },
-    {
-        "name": "Shelby",
-        "point": "[-81.5356,35.2924]"
-    },
-    {
-        "name": "Hickory",
-        "point": "[-81.3412,35.7345]"
-    },
-    {
-        "name": "Morganton",
-        "point": "[-81.6848,35.7454]"
-    },
-    {
-        "name": "Statesville",
-        "point": "[-80.8873,35.7826]"
-    },
-    {
-        "name": "Concord",
-        "point": "[-80.5795,35.4088]"
-    },
-    {
-        "name": "Monroe",
-        "point": "[-80.5495,34.9854]"
-    },
-    {
-        "name": "Asheville",
-        "point": "[-82.5515,35.5951]"
-    },
-    {
-        "name": "Hendersonville",
-        "point": "[-82.4609,35.3187]"
-    },
-    {
-        "name": "Waynesville",
-        "point": "[-82.9887,35.4887]"
-    },
-    {
-        "name": "Boone",
-        "point": "[-81.6746,36.2168]"
-    }
-]
+def load_scan_partition():
+    """
+    Build the deterministic polygon-clipped TOPAZ grid and
+    return only the partition scheduled for this run.
+
+    No NC811 requests occur in this function.
+    """
+
+    territory_data = load_json(
+        Path(TERRITORY_FILE)
+    )
+
+    geometry_data = load_json(
+        Path(GEOMETRY_FILE)
+    )
+
+    state_data = load_json(
+        Path(STATE_FILE)
+    )
+
+    region_config = (
+        territory_data
+        .get("regions", {})
+        .get(REGION_KEY)
+    )
+
+    if not region_config:
+        raise RuntimeError(
+            f"Missing territory configuration: "
+            f"{REGION_KEY}"
+        )
+
+    region_state = (
+        state_data
+        .get("regions", {})
+        .get(REGION_KEY)
+    )
+
+    if not region_state:
+        raise RuntimeError(
+            f"Missing scan state: {REGION_KEY}"
+        )
+
+    partition_count = int(
+        region_config.get(
+            "partition_count",
+            0
+        )
+    )
+
+    if partition_count <= 0:
+        raise RuntimeError(
+            "Invalid partition count."
+        )
+
+    state_partition_count = int(
+        region_state.get(
+            "partition_count",
+            0
+        )
+    )
+
+    if (
+        state_partition_count
+        != partition_count
+    ):
+        raise RuntimeError(
+            "Territory/state partition-count "
+            "mismatch."
+        )
+
+    partition = int(
+        region_state.get(
+            "next_partition",
+            0
+        )
+    )
+
+    if not (
+        0 <= partition < partition_count
+    ):
+        raise RuntimeError(
+            f"Invalid next partition: "
+            f"{partition}"
+        )
+
+    grid = build_region_grid(
+        REGION_KEY,
+        region_config,
+        geometry_data.get(
+            "features",
+            []
+        ),
+    )
+
+    selected = [
+        point
+        for point in grid["points"]
+        if int(
+            point.get("partition", -1)
+        ) == partition
+    ]
+
+    if not selected:
+        raise RuntimeError(
+            f"Partition {partition} "
+            "contains no query points."
+        )
+
+    queries = []
+
+    for index, point in enumerate(
+        selected,
+        start=1
+    ):
+        queries.append({
+            "name": (
+                f"{REGION_KEY}:"
+                f"P{partition:02d}:"
+                f"{point.get('county', 'Unknown')}:"
+                f"{index:04d}"
+            ),
+            "county": point.get("county"),
+            "lat": point["lat"],
+            "lon": point["lon"],
+            "point": (
+                f"[{point['lon']},"
+                f"{point['lat']}]"
+            ),
+        })
+
+    return (
+        queries,
+        state_data,
+        partition,
+        partition_count,
+    )
+
+
+(
+    QUERY_POINTS,
+    SCAN_STATE,
+    CURRENT_PARTITION,
+    PARTITION_COUNT,
+) = load_scan_partition()
 
 
 HEADERS = {
@@ -236,6 +345,11 @@ for query in QUERY_POINTS:
 
         successful_points += 1
 
+        if REQUEST_DELAY_SECONDS > 0:
+            time.sleep(
+                REQUEST_DELAY_SECONDS
+            )
+
         for ticket in records:
             all_raw_tickets.append(
                 {
@@ -260,7 +374,11 @@ for query in QUERY_POINTS:
 # excavation activity has disappeared.
 #
 
-if successful_points == 0 or len(all_raw_tickets) == 0:
+if (
+    successful_points != len(QUERY_POINTS)
+    or failed_points != 0
+    or len(all_raw_tickets) == 0
+):
     print()
     print("ERROR: NC811 collection produced no usable source records.")
     print("Existing locate intelligence files were NOT overwritten.")
@@ -280,6 +398,88 @@ if successful_points == 0 or len(all_raw_tickets) == 0:
 history_records = []
 seen_revisions = set()
 duplicate_revisions_removed = 0
+existing_history_records = 0
+new_history_records = 0
+
+# ---------------------------------------------------------
+# Load previously discovered ticket revisions.
+#
+# Rotating geographic partitions must never erase history
+# merely because a ticket's area was not queried this run.
+# ---------------------------------------------------------
+
+if os.path.exists(HISTORY_FILE):
+    try:
+        with open(
+            HISTORY_FILE,
+            "r",
+            encoding="utf-8"
+        ) as file:
+            existing_history = json.load(
+                file
+            )
+
+        if not isinstance(
+            existing_history,
+            list
+        ):
+            raise ValueError(
+                "Existing history is not a list."
+            )
+
+        for record in existing_history:
+            if not isinstance(record, dict):
+                continue
+
+            ticket_id = str(
+                record.get("ticket_id")
+                or ""
+            )
+
+            revision = str(
+                record.get("revision")
+                or ""
+            )
+
+            if not ticket_id:
+                continue
+
+            revision_key = (
+                ticket_id,
+                revision
+            )
+
+            if revision_key in seen_revisions:
+                continue
+
+            seen_revisions.add(
+                revision_key
+            )
+
+            history_records.append(
+                record
+            )
+
+        existing_history_records = len(
+            history_records
+        )
+
+    except (
+        OSError,
+        ValueError,
+        json.JSONDecodeError
+    ) as exc:
+        print()
+        print(
+            "ERROR: existing NC811 history "
+            "could not be loaded safely."
+        )
+        print(exc)
+        print(
+            "Existing production files were "
+            "NOT overwritten."
+        )
+        sys.exit(1)
 
 for item in all_raw_tickets:
 
@@ -312,6 +512,7 @@ for item in all_raw_tickets:
         continue
 
     history_records.append(record)
+    new_history_records += 1
 
 # =========================================================
 # SELECT CURRENT STATE PER TICKET
@@ -399,43 +600,6 @@ for record in current_records:
             pass
 
     active_records.append(record)
-
-normalized = []
-seen = set()
-duplicates_removed = 0
-
-for item in all_raw_tickets:
-
-    ticket = item["ticket"]
-    query_region = item["query_region"]
-
-    ticket_id = str(ticket.get("ticket") or "")
-    revision = str(ticket.get("revision") or "")
-
-    if not ticket_id:
-        continue
-
-    key = (
-        ticket_id,
-        revision
-    )
-
-    if key in seen:
-        duplicates_removed += 1
-        continue
-
-    seen.add(key)
-
-    record = normalize_ticket(
-        ticket,
-        query_region
-    )
-
-    if record["lat"] is None or record["lon"] is None:
-        continue
-
-    normalized.append(record)
-
 
 # =========================================================
 # SORT OUTPUT
@@ -527,6 +691,53 @@ atomic_json_write(
 
 
 # =========================================================
+# ADVANCE ROLLING PARTITION STATE
+# =========================================================
+#
+# This occurs only after both production datasets have been
+# written successfully. A failed collection never advances
+# the geographic partition.
+#
+
+region_state = (
+    SCAN_STATE["regions"][REGION_KEY]
+)
+
+next_partition = (
+    CURRENT_PARTITION + 1
+) % PARTITION_COUNT
+
+region_state[
+    "last_successful_partition"
+] = CURRENT_PARTITION
+
+region_state[
+    "last_scan"
+] = datetime.now(
+    timezone.utc
+).isoformat()
+
+region_state[
+    "next_partition"
+] = next_partition
+
+if next_partition == 0:
+    region_state[
+        "completed_cycles"
+    ] = int(
+        region_state.get(
+            "completed_cycles",
+            0
+        )
+    ) + 1
+
+atomic_json_write(
+    STATE_FILE,
+    SCAN_STATE
+)
+
+
+# =========================================================
 # SCAN SUMMARY
 # =========================================================
 
@@ -547,11 +758,28 @@ print("--------------------------------------")
 print("REGIONAL NC811 SCAN COMPLETE")
 print("--------------------------------------")
 
+print(
+    "Region:",
+    REGION_KEY
+)
+print(
+    "Partition:",
+    f"{CURRENT_PARTITION:02d}/"
+    f"{PARTITION_COUNT - 1:02d}"
+)
 print("Query points:", len(QUERY_POINTS))
 print("Successful points:", successful_points)
 print("Failed points:", failed_points)
 
 print("Raw records retrieved:", len(all_raw_tickets))
+print(
+    "Existing history loaded:",
+    existing_history_records
+)
+print(
+    "New ticket revisions added:",
+    new_history_records
+)
 print(
     "Duplicate ticket revisions removed:",
     duplicate_revisions_removed
@@ -595,6 +823,11 @@ for county in counties:
 print()
 print("Saved history:", HISTORY_FILE)
 print("Saved active:", OUTPUT_FILE)
+print("Saved state:", STATE_FILE)
+print(
+    "Next partition:",
+    f"{next_partition:02d}"
+)
 
 
 if active_records:

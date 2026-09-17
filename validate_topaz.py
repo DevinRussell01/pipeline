@@ -15,6 +15,9 @@ from pathlib import Path
 
 ACTIVITY_FILE = Path("topaz_activity.json")
 CLUSTER_FILE = Path("topaz_clusters.json")
+LOCATE_FILE = Path("locate_tickets.json")
+REGISTRY_FILE = Path("topaz_event_registry.json")
+WEB_DATA_FILE = Path("conduit_web_data.json")
 
 MAX_CLUSTER_RADIUS_MILES = 0.10
 MIN_CLUSTER_SIZE = 3
@@ -79,10 +82,23 @@ print("=" * 68)
 
 activity = load_json(ACTIVITY_FILE)
 clusters = load_json(CLUSTER_FILE)
+locates = load_json(LOCATE_FILE)
+registry = load_json(REGISTRY_FILE)
+web_data = load_json(WEB_DATA_FILE)
 
 print()
-print(f"Activity records: {len(activity):,}")
-print(f"Cluster records:  {len(clusters):,}")
+print(f"Active locate records: {len(locates):,}")
+print(f"Activity records:      {len(activity):,}")
+print(f"Cluster records:       {len(clusters):,}")
+print(f"Registry records:      {len(registry):,}")
+print(
+    f"Web locate records:    "
+    f"{len(web_data.get('locates', [])):,}"
+)
+print(
+    f"Web cluster records:   "
+    f"{len(web_data.get('clusters', [])):,}"
+)
 print()
 
 # ---------------------------------------------------------
@@ -381,6 +397,274 @@ check(
     "opportunity_score" in opportunity_reason_fields,
     "TOPAZ Opportunity Score is represented as a distinct analytical field"
 )
+
+# ---------------------------------------------------------
+# Persistent Intelligence Event identity
+# ---------------------------------------------------------
+
+print()
+print("Persistent Intelligence Event identity:")
+
+event_keys = [
+    str(record.get("event_key"))
+    for record in registry
+    if record.get("event_key")
+]
+
+event_key_counts = Counter(event_keys)
+
+duplicate_event_keys = {
+    key: count
+    for key, count in event_key_counts.items()
+    if count > 1
+}
+
+check(
+    len(event_keys) == len(registry),
+    "Every registry record has a persistent event key",
+    (
+        f"Registry records: {len(registry):,} | "
+        f"Records with keys: {len(event_keys):,}"
+    )
+)
+
+check(
+    not duplicate_event_keys,
+    "Persistent event keys are unique",
+    (
+        "Duplicate examples: "
+        f"{list(duplicate_event_keys.items())[:10]}"
+    )
+)
+
+current_event_count = (
+    len(single_activity)
+    + len(clusters)
+)
+
+inactive_registry_count = sum(
+    1
+    for record in registry
+    if record.get("active") is False
+)
+
+check(
+    len(registry) >= current_event_count,
+    "Registry retains at least all current Intelligence Event identities",
+    (
+        f"Current events: {current_event_count:,} | "
+        f"Registry: {len(registry):,}"
+    )
+)
+
+print(
+    f"  Current Intelligence Events: "
+    f"{current_event_count:,}"
+)
+
+print(
+    f"  Retained registry records: "
+    f"{len(registry):,}"
+)
+
+print(
+    f"  Explicitly inactive records: "
+    f"{inactive_registry_count:,}"
+)
+
+
+# ---------------------------------------------------------
+# Frontend publication integrity
+# ---------------------------------------------------------
+
+print()
+print("Frontend publication integrity:")
+
+check(
+    isinstance(web_data, dict),
+    "Conduit web payload uses expected object structure"
+)
+
+web_locates = (
+    web_data.get("locates", [])
+    if isinstance(web_data, dict)
+    else []
+)
+
+web_clusters = (
+    web_data.get("clusters", [])
+    if isinstance(web_data, dict)
+    else []
+)
+
+check(
+    isinstance(web_locates, list),
+    "Web locate dataset uses expected list structure"
+)
+
+check(
+    isinstance(web_clusters, list),
+    "Web cluster dataset uses expected list structure"
+)
+
+locate_ids = [
+    str(record.get("ticket_id"))
+    for record in locates
+    if record.get("ticket_id") is not None
+]
+
+web_locate_ids = [
+    str(record.get("ticket_id"))
+    for record in web_locates
+    if record.get("ticket_id") is not None
+]
+
+activity_ids = [
+    str(record.get("ticket_id"))
+    for record in activity
+    if record.get("ticket_id") is not None
+]
+
+check(
+    len(locate_ids) == len(set(locate_ids)),
+    "Active locate ticket IDs are unique",
+    (
+        f"Records: {len(locate_ids):,} | "
+        f"Unique IDs: {len(set(locate_ids)):,}"
+    )
+)
+
+check(
+    len(activity) == len(locates),
+    "Every active locate has one TOPAZ activity record",
+    (
+        f"Locates: {len(locates):,} | "
+        f"Activity: {len(activity):,}"
+    )
+)
+
+check(
+    set(activity_ids) == set(locate_ids),
+    "TOPAZ activity and active locates reference the same ticket IDs",
+    (
+        f"Only locates: "
+        f"{len(set(locate_ids) - set(activity_ids)):,} | "
+        f"Only activity: "
+        f"{len(set(activity_ids) - set(locate_ids)):,}"
+    )
+)
+
+check(
+    len(web_locates) == len(locates),
+    "Web payload publishes every active locate",
+    (
+        f"Source: {len(locates):,} | "
+        f"Web: {len(web_locates):,}"
+    )
+)
+
+check(
+    set(web_locate_ids) == set(locate_ids),
+    "Web payload and active source reference the same ticket IDs",
+    (
+        f"Only source: "
+        f"{len(set(locate_ids) - set(web_locate_ids)):,} | "
+        f"Only web: "
+        f"{len(set(web_locate_ids) - set(locate_ids)):,}"
+    )
+)
+
+check(
+    len(web_locate_ids) == len(set(web_locate_ids)),
+    "Web payload contains no duplicate locate ticket IDs",
+    (
+        f"Records: {len(web_locate_ids):,} | "
+        f"Unique IDs: {len(set(web_locate_ids)):,}"
+    )
+)
+
+web_enriched_ids = {
+    str(record.get("ticket_id"))
+    for record in web_locates
+    if (
+        record.get("ticket_id") is not None
+        and record.get("activity_type") in {
+            "Single",
+            "Cluster"
+        }
+        and isinstance(
+            record.get("opportunity_score"),
+            (int, float)
+        )
+    )
+}
+
+check(
+    web_enriched_ids == set(locate_ids),
+    "Every published locate contains TOPAZ enrichment",
+    (
+        f"Expected: {len(set(locate_ids)):,} | "
+        f"Enriched: {len(web_enriched_ids):,}"
+    )
+)
+
+source_cluster_ids = {
+    str(record.get("cluster_id"))
+    for record in clusters
+    if record.get("cluster_id")
+}
+
+web_cluster_ids = {
+    str(record.get("cluster_id"))
+    for record in web_clusters
+    if record.get("cluster_id")
+}
+
+check(
+    len(web_clusters) == len(clusters),
+    "Web payload publishes every TOPAZ cluster",
+    (
+        f"Source: {len(clusters):,} | "
+        f"Web: {len(web_clusters):,}"
+    )
+)
+
+check(
+    web_cluster_ids == source_cluster_ids,
+    "Web payload and TOPAZ source reference the same cluster IDs",
+    (
+        f"Only source: "
+        f"{len(source_cluster_ids - web_cluster_ids):,} | "
+        f"Only web: "
+        f"{len(web_cluster_ids - source_cluster_ids):,}"
+    )
+)
+
+check(
+    "activity" not in web_data,
+    "Web payload does not duplicate the TOPAZ activity array"
+)
+
+metadata = web_data.get("metadata", {})
+
+check(
+    metadata.get("active_locates") == len(locates),
+    "Web metadata reports the correct active locate count",
+    (
+        f"Metadata: {metadata.get('active_locates')} | "
+        f"Actual: {len(locates):,}"
+    )
+)
+
+check(
+    metadata.get("clusters") == len(clusters),
+    "Web metadata reports the correct cluster count",
+    (
+        f"Metadata: {metadata.get('clusters')} | "
+        f"Actual: {len(clusters):,}"
+    )
+)
+
 
 # ---------------------------------------------------------
 # Summary

@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "regions": {
+    "WESTERN_NC": {
+      "partition_count": 20,
+      "next_partition": 4,
+      "completed_cycles": 0,
+      "last_scan": "2026-09-17T17:02:03.188981+00:00",
+      "last_successful_partition": 3
+    },
+    "DORCHESTER_SC": {
+      "partition_count": 20,
+      "next_partition": 0,
+      "completed_cycles": 0,
+      "last_scan": null,
+      "last_successful_partition": null
+    }
+  }
+}

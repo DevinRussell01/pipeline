@@ -18,6 +18,8 @@ scripts = [
     "land_intelligence.py",
     "scan_nc811_live.py",
     "topaz_infrastructure_activity.py",
+    "build_topaz_event_registry.py",
+    "build_conduit_web_data.py",
     "generate_ai_brief.py",
     "generate_activity_feed.py",
     "generate_ask_conduit.py",

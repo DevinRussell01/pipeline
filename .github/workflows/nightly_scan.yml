@@ -24,9 +24,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Restore persistent Conduit state
+        run: python manage_conduit_state.py unpack
+
       - name: Run scans
         env:
-            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python run_all_scans.py
 
       - name: Validate critical intelligence outputs
@@ -75,11 +78,26 @@ jobs:
 
           python validate_topaz.py
 
+      - name: Pack persistent Conduit state
+        run: python manage_conduit_state.py pack
+
       - name: Commit updated data
         run: |
           git config user.name "conduit-bot"
           git config user.email "conduit-bot@users.noreply.github.com"
-          git add *.json
+
+          git add \
+            locate_tickets_history.json.gz \
+            topaz_event_registry.json.gz \
+            topaz_scan_state.json \
+            conduit_web_data.json \
+            projects.json \
+            builder_portfolios.json \
+            land_intelligence.json \
+            executive_brief.json \
+            activity_feed.json \
+            ask_conduit_answers.json
+
           git commit -m "Nightly Conduit data refresh" || echo "No changes to commit"
           git pull --rebase origin main
           git push origin main

@@ -3,3 +3,14 @@ __pycache__/
 *.pyc
 *.swp
 .env
+
+# Conduit runtime state
+# Durable compressed copies are tracked instead.
+locate_tickets_history.json
+topaz_event_registry.json
+
+# Conduit reconstructible runtime outputs
+# Generated during each successful pipeline run.
+locate_tickets.json
+topaz_activity.json
+topaz_clusters.json

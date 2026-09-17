@@ -3639,16 +3639,20 @@ function initMap() {
       console.error("Could not load projects map layer", error);
     });
 
-  fetch("locate_tickets.json")
-    .then(response => response.json())
+  loadTopazData()
     .then(data => {
-      console.log("Live 811 tickets loaded:", data.length);
-      LOCATE_TICKETS = data;
+      console.log(
+        "Live 811 tickets loaded:",
+        data.tickets.length
+      );
       populateLocateFilters();
       rebuildGrowthMapLayers();
     })
     .catch(error => {
-      console.error("Could not load live 811 map layer", error);
+      console.error(
+        "Could not load live 811 map layer",
+        error
+      );
     });
 
   fetch("land_intelligence.json")
@@ -5137,37 +5141,25 @@ function renderLocateTickets() {
   }
 
   // -----------------------------------------------------
-  // SINGLE-TICKET OBJECTS
+  // UNDERLYING 811 LOCATE OBJECTS
   // -----------------------------------------------------
 
   if (
-    activityFilter !== "Cluster" &&
+    showLocates &&
     !activeTopazClusterId
   ) {
     tickets.forEach(ticket => {
       const activity = getTopazActivity(ticket);
-
-      if (
-        String(activity?.activity_type || "Single") !==
-        "Single"
-      ) {
-        return;
-      }
 
       const lat = Number(ticket.lat);
       const lon = Number(ticket.lon);
 
       if (!lat || !lon) return;
 
-      const score =
-        Number(activity?.opportunity_score || 1);
-
-      const radius = 3;
-
       L.circleMarker(
         [lat, lon],
         {
-          radius,
+          radius: 3,
           color: "#111111",
           fillColor: "#111111",
           fillOpacity: 0.82,
@@ -5444,14 +5436,51 @@ function loadTopazData() {
     return topazDataPromise;
   }
 
-  topazDataPromise = Promise.all([
-    fetch('locate_tickets.json').then(res => res.json()),
-    fetch('topaz_activity.json').then(res => res.json()),
-    fetch('topaz_clusters.json').then(res => res.json())
-  ])
-    .then(([tickets, activity, clusters]) => {
+  topazDataPromise = fetch('conduit_web_data.json')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(
+          `TOPAZ web data request failed: ${res.status}`
+        );
+      }
+
+      return res.json();
+    })
+    .then(data => {
+      const tickets = Array.isArray(data.locates)
+        ? data.locates
+        : [];
+
+      const clusters = Array.isArray(data.clusters)
+        ? data.clusters
+        : [];
+
       LOCATE_TICKETS = tickets;
-      TOPAZ_ACTIVITY = activity;
+
+      TOPAZ_ACTIVITY = tickets.map(ticket => ({
+        ticket_id: ticket.ticket_id,
+        activity_type: ticket.activity_type,
+        cluster_id: ticket.cluster_id,
+        cluster_ticket_count: ticket.cluster_ticket_count,
+        county: ticket.county,
+        city: ticket.city,
+        lat: ticket.lat,
+        lon: ticket.lon,
+        nearby_project_count: ticket.nearby_project_count,
+        nearby_strategic_land_count:
+          ticket.nearby_strategic_land_count,
+        nearest_project_distance:
+          ticket.nearest_project_distance,
+        nearest_strategic_land_distance:
+          ticket.nearest_strategic_land_distance,
+        opportunity_score: ticket.opportunity_score,
+        opportunity_reason: ticket.opportunity_reason,
+        project_proximity_label:
+          ticket.project_proximity_label,
+        strategic_land_proximity_label:
+          ticket.strategic_land_proximity_label
+      }));
+
       TOPAZ_CLUSTERS = clusters;
 
       rebuildTopazIndexes();
@@ -6231,16 +6260,19 @@ if (document.getElementById("orgSearch")) {
 
   });
 
-    fetch("locate_tickets.json")
-      .then(res => res.json())
-      .then(signals => {
+    loadTopazData()
+      .then(data => {
+        const signals = data.tickets;
 
         document.getElementById("dashboardSignalCount").textContent =
           signals.length;
 
-        const engineSignals = document.getElementById("engineSignals");
+        const engineSignals =
+          document.getElementById("engineSignals");
+
         if (engineSignals) {
-          engineSignals.textContent = `${signals.length} 811 Locates`;
+          engineSignals.textContent =
+            `${signals.length} 811 Locates`;
         }
 
         const frameworkLocateCount =
@@ -6250,8 +6282,13 @@ if (document.getElementById("orgSearch")) {
           frameworkLocateCount.textContent =
             signals.length.toLocaleString();
         }
-
-    });
+      })
+      .catch(error => {
+        console.error(
+          "Could not load dashboard 811 count",
+          error
+        );
+      });
 
 
     document.getElementById("builderFilter")

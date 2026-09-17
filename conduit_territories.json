@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "regions": {
+    "WESTERN_NC": {
+      "name": "Western North Carolina",
+      "state_fips": "37",
+      "state": "NC",
+      "topaz_infrastructure_source": "NC811",
+      "grid_spacing_miles": 1.25,
+      "partition_count": 20,
+      "counties": [
+        "Alexander",
+        "Alleghany",
+        "Anson",
+        "Ashe",
+        "Avery",
+        "Buncombe",
+        "Burke",
+        "Cabarrus",
+        "Caldwell",
+        "Catawba",
+        "Cherokee",
+        "Clay",
+        "Cleveland",
+        "Davidson",
+        "Davie",
+        "Forsyth",
+        "Gaston",
+        "Graham",
+        "Haywood",
+        "Henderson",
+        "Iredell",
+        "Jackson",
+        "Lincoln",
+        "Macon",
+        "Madison",
+        "McDowell",
+        "Mecklenburg",
+        "Mitchell",
+        "Montgomery",
+        "Polk",
+        "Randolph",
+        "Richmond",
+        "Rockingham",
+        "Rowan",
+        "Rutherford",
+        "Stanly",
+        "Stokes",
+        "Surry",
+        "Swain",
+        "Transylvania",
+        "Union",
+        "Watauga",
+        "Wilkes",
+        "Yadkin",
+        "Yancey"
+      ]
+    },
+    "DORCHESTER_SC": {
+      "name": "Dorchester County, South Carolina",
+      "state_fips": "45",
+      "state": "SC",
+      "topaz_infrastructure_source": null,
+      "grid_spacing_miles": 1.25,
+      "partition_count": 20,
+      "counties": [
+        "Dorchester"
+      ]
+    }
+  }
+}
