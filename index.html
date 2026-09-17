@@ -2019,6 +2019,63 @@ gap:12px;
 
 </div>
 
+<div class="topaz-map-tools">
+
+  <div class="topaz-map-search">
+    <input
+      id="topazMapSearch"
+      type="text"
+      placeholder="Search address or lat, long"
+      autocomplete="off"
+    >
+
+    <button
+      type="button"
+      id="topazMapSearchButton"
+      onclick="searchTopazMap()"
+    >
+      Search
+    </button>
+
+    <button
+      type="button"
+      id="topazMapSearchClear"
+      onclick="clearTopazMapSearch()"
+      style="display:none;"
+    >
+      Clear
+    </button>
+  </div>
+
+  <div class="topaz-map-layer-controls">
+
+    <label>
+      <input
+        type="checkbox"
+        id="showTopazLocates"
+        onchange="renderLocateTickets()"
+      >
+      811 Locates
+    </label>
+
+    <label>
+      <input
+        type="checkbox"
+        id="showTopazClusters"
+        onchange="renderLocateTickets()"
+      >
+      TOPAZ Clusters
+    </label>
+
+  </div>
+
+  <div
+    id="topazMapSearchStatus"
+    class="topaz-map-search-status"
+  ></div>
+
+</div>
+
 <br>
 
 <div class="topaz-map-legend">
@@ -3881,6 +3938,8 @@ let activeTopazClusterId = null;
 
 let locateGrowthLayer = null;
 let locateTicketLayer = null;
+let topazClusterLayer = null;
+let topazSearchLayer = null;
 
 function getLocateSignalDrivers(ticket) {
   const drivers = [];
@@ -4912,11 +4971,38 @@ function renderLocateTickets() {
   // -----------------------------------------------------
 
   if (locateTicketLayer) {
+    locateTicketLayer.clearLayers();
+  } else {
+    locateTicketLayer = L.layerGroup();
+  }
+
+  if (topazClusterLayer) {
+    topazClusterLayer.clearLayers();
+  } else {
+    topazClusterLayer = L.layerGroup();
+  }
+
+  const showLocates =
+    document.getElementById("showTopazLocates")?.checked === true;
+
+  const showClusters =
+    document.getElementById("showTopazClusters")?.checked === true;
+
+  if (window.locateMap.hasLayer(locateTicketLayer)) {
     window.locateMap.removeLayer(locateTicketLayer);
   }
 
-  locateTicketLayer =
-    L.layerGroup().addTo(window.locateMap);
+  if (window.locateMap.hasLayer(topazClusterLayer)) {
+    window.locateMap.removeLayer(topazClusterLayer);
+  }
+
+  if (showLocates || activeTopazClusterId) {
+    locateTicketLayer.addTo(window.locateMap);
+  }
+
+  if (showClusters && !activeTopazClusterId) {
+    topazClusterLayer.addTo(window.locateMap);
+  }
 
   const visibleTicketIds = new Set(
     tickets.map(ticket =>
@@ -5008,7 +5094,7 @@ function renderLocateTickets() {
           : "";
 
       marker
-        .addTo(locateTicketLayer)
+        .addTo(topazClusterLayer)
         .bindPopup(`
           <div style="min-width:290px;">
             <strong>TOPAZ Infrastructure Activity</strong><br>
@@ -5076,19 +5162,16 @@ function renderLocateTickets() {
       const score =
         Number(activity?.opportunity_score || 1);
 
-      const radius =
-        score >= 8 ? 9 :
-        score >= 6 ? 8 :
-        score >= 4 ? 7 : 5;
+      const radius = 3;
 
       L.circleMarker(
         [lat, lon],
         {
           radius,
-          color: "#000000",
-          fillColor: "#000000",
-          fillOpacity: 0.92,
-          weight: score >= 8 ? 3 : 2
+          color: "#111111",
+          fillColor: "#111111",
+          fillOpacity: 0.82,
+          weight: 1
         }
       )
         .addTo(locateTicketLayer)
@@ -5133,6 +5216,223 @@ function renderLocateTickets() {
           buildTopazPopup(ticket, activity)
         );
     });
+  }
+}
+
+
+let topazReferenceMarker = null;
+
+function parseTopazCoordinates(value) {
+  const match = String(value || "").trim().match(
+    /^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$/
+  );
+
+  if (!match) return null;
+
+  const lat = Number(match[1]);
+  const lon = Number(match[2]);
+
+  if (
+    !Number.isFinite(lat) ||
+    !Number.isFinite(lon) ||
+    lat < -90 ||
+    lat > 90 ||
+    lon < -180 ||
+    lon > 180
+  ) {
+    return null;
+  }
+
+  return { lat, lon };
+}
+
+
+function setTopazReferenceLocation(lat, lon, label) {
+  if (!window.locateMap) return;
+
+  if (!topazSearchLayer) {
+    topazSearchLayer =
+      L.layerGroup().addTo(window.locateMap);
+  }
+
+  topazSearchLayer.clearLayers();
+
+  topazReferenceMarker = L.marker(
+    [lat, lon],
+    {
+      title: label || "Reference Location"
+    }
+  )
+    .addTo(topazSearchLayer)
+    .bindPopup(`
+      <div style="min-width:220px;">
+        <strong>Reference Location</strong><br>
+        ${label || ""}<br><br>
+        ${Number(lat).toFixed(6)},
+        ${Number(lon).toFixed(6)}
+      </div>
+    `)
+    .openPopup();
+
+  window.locateMap.setView(
+    [lat, lon],
+    17
+  );
+
+  const status =
+    document.getElementById("topazMapSearchStatus");
+
+  if (status) {
+    status.textContent =
+      `${Number(lat).toFixed(6)}, ${Number(lon).toFixed(6)}`;
+  }
+
+  const clearButton =
+    document.getElementById("topazMapSearchClear");
+
+  if (clearButton) {
+    clearButton.style.display = "";
+  }
+}
+
+
+async function searchTopazMap() {
+  const input =
+    document.getElementById("topazMapSearch");
+
+  const status =
+    document.getElementById("topazMapSearchStatus");
+
+  const button =
+    document.getElementById("topazMapSearchButton");
+
+  if (!input || !window.locateMap) return;
+
+  const value = input.value.trim();
+
+  if (!value) {
+    if (status) {
+      status.textContent =
+        "Enter an address or latitude, longitude.";
+    }
+    return;
+  }
+
+  const coords = parseTopazCoordinates(value);
+
+  if (coords) {
+    setTopazReferenceLocation(
+      coords.lat,
+      coords.lon,
+      "Coordinate Search"
+    );
+    return;
+  }
+
+  if (status) {
+    status.textContent = "Searching address...";
+  }
+
+  if (button) {
+    button.disabled = true;
+  }
+
+  try {
+    const url =
+      "https://nominatim.openstreetmap.org/search" +
+      "?format=jsonv2&limit=1&countrycodes=us&q=" +
+      encodeURIComponent(value);
+
+    const response = await fetch(
+      url,
+      {
+        headers: {
+          "Accept": "application/json"
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        `Geocoder returned HTTP ${response.status}`
+      );
+    }
+
+    const results = await response.json();
+
+    if (!Array.isArray(results) || !results.length) {
+      if (status) {
+        status.textContent =
+          "No matching address found.";
+      }
+      return;
+    }
+
+    const result = results[0];
+
+    const lat = Number(result.lat);
+    const lon = Number(result.lon);
+
+    if (
+      !Number.isFinite(lat) ||
+      !Number.isFinite(lon)
+    ) {
+      throw new Error(
+        "Geocoder returned invalid coordinates."
+      );
+    }
+
+    setTopazReferenceLocation(
+      lat,
+      lon,
+      result.display_name || value
+    );
+
+  } catch (error) {
+    console.error(
+      "TOPAZ map search failed",
+      error
+    );
+
+    if (status) {
+      status.textContent =
+        "Address search unavailable. Coordinates still work.";
+    }
+
+  } finally {
+    if (button) {
+      button.disabled = false;
+    }
+  }
+}
+
+
+function clearTopazMapSearch() {
+  const input =
+    document.getElementById("topazMapSearch");
+
+  const status =
+    document.getElementById("topazMapSearchStatus");
+
+  const clearButton =
+    document.getElementById("topazMapSearchClear");
+
+  if (topazSearchLayer) {
+    topazSearchLayer.clearLayers();
+  }
+
+  topazReferenceMarker = null;
+
+  if (input) {
+    input.value = "";
+  }
+
+  if (status) {
+    status.textContent = "";
+  }
+
+  if (clearButton) {
+    clearButton.style.display = "none";
   }
 }
 
@@ -5185,12 +5485,33 @@ function loadTopazData() {
 }
 
 
+function initializeTopazMapSearch() {
+  const input =
+    document.getElementById("topazMapSearch");
+
+  if (!input || input.dataset.searchReady === "true") {
+    return;
+  }
+
+  input.dataset.searchReady = "true";
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchTopazMap();
+    }
+  });
+}
+
+
 function initLocateMap() {
   if (locateMapLoaded) return;
 
   locateMapLoaded = true;
 
   window.locateMap = L.map('locateMap').setView([35.35, -81.0], 8);
+
+  initializeTopazMapSearch();
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
